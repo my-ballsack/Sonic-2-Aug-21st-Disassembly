@@ -14,7 +14,7 @@ Offset_0x000040 equ $0040 ; Incorrect reference in Crawl ( Obj_0x9E.asm )
 
  include 'constants.asm'
  include 'Sound/_smps2asm_inc.asm'
-
+RestoreSegaScreen = 0
 StartOfRom:
 	dc.l    $FFFFFE00, EntryPoint, BusError, AddressError
 	dc.l    IllegalInstr, ZeroDivide, ChkInstr, TrapvInstr
@@ -172,8 +172,12 @@ ClearRemainingRAMLoop:                                         ; Offset_0x000376
 		dbra    D6, ClearRemainingRAMLoop              ; Offset_0x000376                                     
 		bsr     VDPRegSetup                            ; Offset_0x001368                                         
 		bsr     Jmp_00_To_SoundDriverLoad              ; Offset_0x0014B8                                         
-		bsr     Control_Ports_Init                     ; Offset_0x0012FC                                         
-		move.b  #gm_TitleScreen, (Game_Mode).w          ; $00, $FFFFF600
+		bsr     Control_Ports_Init                     ; Offset_0x0012FC 
+          if RestoreSegaScreen=1                                      
+		move.b  #gm_SEGALogo, (Game_Mode).w            ; $00, $FFFFF600
+          else
+                move.b  #gm_TitleScreen, (Game_Mode).w         ; $00, $FFFFF600
+          endif
 MainGameLoop:                                                  ; Offset_0x00038E
 		move.b  (Game_Mode).w, D0                            ; $FFFFF600
 		andi.w  #$001C, D0                                              
