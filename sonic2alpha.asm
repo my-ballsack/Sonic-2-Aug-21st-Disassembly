@@ -15826,7 +15826,7 @@ Sonic_Animate:                                                 ; Offset_0x010BF2
                 lea     (SonicAniData), A1
                 tst.b   (Super_Sonic_Flag).w                         ; $FFFFFE19
                 beq.s   Offset_0x010C04
-                lea     (Offset_0x011052), A1
+                lea     (SuperSonicAniData), A1
 Offset_0x010C04:
                 moveq   #$00, D0
                 move.b  Obj_Ani_Number(A0), D0                           ; $001C
@@ -15913,10 +15913,10 @@ Offset_0x010CC6:
 Offset_0x010CEA:
                 tst.b   (Super_Sonic_Flag).w                         ; $FFFFFE19
                 bne.s   Offset_0x010D46
-                lea     (Offset_0x010EFA), A1
+                lea     (SonAni_Run), A1
                 cmpi.w  #$0600, D2
                 bcc.s   Offset_0x010D04
-                lea     (Offset_0x010EF0), A1
+                lea     (SonAni_Walk), A1
                 add.b   D0, D0
 Offset_0x010D04:
                 add.b   D0, D0
@@ -15944,10 +15944,10 @@ Offset_0x010D3A:
 Offset_0x010D44:
                 rts
 Offset_0x010D46:
-                lea     (Offset_0x01109C), A1
+                lea     (SupSonAni_Run), A1
                 cmpi.w  #$0800, D2
                 bcc.s   Offset_0x010D5E
-                lea     (Offset_0x011092), A1
+                lea     (SupSonAni_Walk), A1
                 add.b   D0, D0
                 add.b   D0, D0
                 bra.s   Offset_0x010D60
@@ -16023,10 +16023,10 @@ Offset_0x010E1E:
                 bpl.s   Offset_0x010E32
                 neg.w   D2
 Offset_0x010E32:
-                lea     (Offset_0x010F0E), A1
+                lea     (SonAni_Roll2), A1
                 cmpi.w  #$0600, D2
                 bcc.s   Offset_0x010E44
-                lea     (Offset_0x010F04), A1
+                lea     (SonAni_Roll), A1
 Offset_0x010E44:
                 neg.w   D2
                 addi.w  #$0400, D2
@@ -16053,10 +16053,10 @@ Offset_0x010E7A:
 Offset_0x010E82:
                 lsr.w   #$06, D2
                 move.b  D2, Obj_Ani_Time(A0)                             ; $001E
-                lea     (Offset_0x010F18), A1
+                lea     (SonAni_Push), A1
                 tst.b   (Super_Sonic_Flag).w                         ; $FFFFFE19
                 beq.s   Offset_0x010E9A
-                lea     (Offset_0x0110A6), A1
+                lea     (SupSonAni_Push), A1
 Offset_0x010E9A:
                 move.b  Obj_Status(A0), D1                               ; $0022
                 andi.b  #$01, D1
@@ -16066,54 +16066,54 @@ Offset_0x010E9A:
 ;-------------------------------------------------------------------------------
 ;Offset_0x010EB0
 SonicAniData:
-                dc.w    Offset_0x010EF0-SonicAniData
-                dc.w    Offset_0x010EFA-SonicAniData
-                dc.w    Offset_0x010F04-SonicAniData
-                dc.w    Offset_0x010F0E-SonicAniData
-                dc.w    Offset_0x010F18-SonicAniData
-                dc.w    Offset_0x010F22-SonicAniData
-                dc.w    Offset_0x010FD8-SonicAniData
-                dc.w    Offset_0x010FDE-SonicAniData
-                dc.w    Offset_0x010FE3-SonicAniData
-                dc.w    Offset_0x010FE8-SonicAniData
-                dc.w    Offset_0x010FF4-SonicAniData
-                dc.w    Offset_0x010FF8-SonicAniData
-                dc.w    Offset_0x010FFC-SonicAniData
-                dc.w    Offset_0x011002-SonicAniData
-                dc.w    Offset_0x011009-SonicAniData
-                dc.w    Offset_0x01100D-SonicAniData
-                dc.w    Offset_0x011014-SonicAniData
-                dc.w    Offset_0x011018-SonicAniData
-                dc.w    Offset_0x01101C-SonicAniData
-                dc.w    Offset_0x011022-SonicAniData
-                dc.w    Offset_0x011027-SonicAniData
-                dc.w    Offset_0x01102B-SonicAniData
-                dc.w    Offset_0x011032-SonicAniData
-                dc.w    Offset_0x011035-SonicAniData
-                dc.w    Offset_0x011038-SonicAniData
-                dc.w    Offset_0x01103B-SonicAniData
-                dc.w    Offset_0x01103B-SonicAniData
-                dc.w    Offset_0x01103E-SonicAniData
-                dc.w    Offset_0x011042-SonicAniData
-                dc.w    Offset_0x011046-SonicAniData
-                dc.w    Offset_0x01104A-SonicAniData
-                dc.w    Offset_0x0110C3-SonicAniData
-Offset_0x010EF0:
+                dc.w    SonAni_Walk-SonicAniData     ;0
+                dc.w    SonAni_Run-SonicAniData      ;1
+                dc.w    SonAni_Roll-SonicAniData     ;2
+                dc.w    SonAni_Roll2-SonicAniData    ;3
+                dc.w    SonAni_Push-SonicAniData     ;4
+                dc.w    SonAni_Wait-SonicAniData     ;5
+                dc.w    SonAni_Balance-SonicAniData  ;6
+                dc.w    SonAni_LookUp-SonicAniData   ;7
+                dc.w    SonAni_Duck-SonicAniData     ;8
+                dc.w    SonAni_Spindash-SonicAniData ;9
+                dc.w    SonAni_Blink-SonicAniData    ;$A
+                dc.w    SonAni_GetUp-SonicAniData    ;$B
+                dc.w    SonAni_Balance2-SonicAniData ;$C
+                dc.w    SonAni_Stop-SonicAniData     ;$D
+                dc.w    SonAni_Float-SonicAniData    ;$E
+                dc.w    SonAni_Float2-SonicAniData   ;$F
+                dc.w    SonAni_Spring-SonicAniData   ;$10
+                dc.w    SonAni_Hang-SonicAniData     ;$11
+                dc.w    SonAni_Dash2-SonicAniData    ;$12
+                dc.w    SonAni_Dash3-SonicAniData    ;$13
+                dc.w    SonAni_Hang2-SonicAniData    ;$14
+                dc.w    SonAni_Bubble-SonicAniData   ;$15
+                dc.w    SonAni_DeathBW-SonicAniData  ;$16
+                dc.w    SonAni_Drown-SonicAniData    ;$17
+                dc.w    SonAni_Death-SonicAniData    ;$18
+                dc.w    SonAni_Hurt-SonicAniData     ;$19
+                dc.w    SonAni_Hurt-SonicAniData     ;$1A
+                dc.w    SonAni_Slide-SonicAniData    ;$1B
+                dc.w    SonAni_Blank-SonicAniData    ;$1C
+                dc.w    SonAni_Balance3-SonicAniData ;$1D
+                dc.w    SonAni_Balance4-SonicAniData ;$1E
+                dc.w    SupSonAni_Transform-SonicAniData ;$1F
+SonAni_Walk:
                 dc.b    $FF, $0F, $10, $11, $12, $13, $14, $0D
                 dc.b    $0E, $FF
-Offset_0x010EFA:
+SonAni_Run:
                 dc.b    $FF, $2D, $2E, $2F, $30, $FF, $FF, $FF
                 dc.b    $FF, $FF
-Offset_0x010F04:
+SonAni_Roll:
                 dc.b    $FE, $3D, $41, $3E, $41, $3F, $41, $40
                 dc.b    $41, $FF
-Offset_0x010F0E:
+SonAni_Roll2:
                 dc.b    $FE, $3D, $41, $3E, $41, $3F, $41, $40
                 dc.b    $41, $FF
-Offset_0x010F18:
+SonAni_Push:
                 dc.b    $FD, $48, $49, $4A, $4B, $FF, $FF, $FF
                 dc.b    $FF, $FF
-Offset_0x010F22:
+SonAni_Wait:
                 dc.b    $05, $01, $01, $01, $01, $01, $01, $01
                 dc.b    $01, $01, $01, $01, $01, $01, $01, $01
                 dc.b    $01, $01, $01, $01, $01, $01, $01, $01
@@ -16137,106 +16137,106 @@ Offset_0x010F22:
                 dc.b    $05, $05, $05, $06, $06, $06, $06, $06
                 dc.b    $06, $06, $06, $06, $06, $07, $08, $08
                 dc.b    $08, $09, $09, $09, $FE, $06
-Offset_0x010FD8:
+SonAni_Balance:
                 dc.b    $09, $CC, $CD, $CE, $CD, $FF
-Offset_0x010FDE:
+SonAni_LookUp:
                 dc.b    $05, $0B, $0C, $FE, $01
-Offset_0x010FE3:
+SonAni_Duck:
                 dc.b    $05, $4C, $4D, $FE, $01
-Offset_0x010FE8:
+SonAni_Spindash:
                 dc.b    $00, $42, $43, $42, $44, $42, $45, $42
                 dc.b    $46, $42, $47, $FF
-Offset_0x010FF4:
+SonAni_Blink:
                 dc.b    $01, $02, $FD, $00
-Offset_0x010FF8:
+SonAni_GetUp:
                 dc.b    $03, $0A, $FD, $00
-Offset_0x010FFC:
+SonAni_Balance2:
                 dc.b    $03, $C8, $C9, $CA, $CB, $FF
-Offset_0x011002:
+SonAni_Stop:
                 dc.b    $05, $D2, $D3, $D4, $D5, $FD, $00
-Offset_0x011009:
+SonAni_Float:
                 dc.b    $07, $54, $59, $FF
-Offset_0x01100D:
+SonAni_Float2:
                 dc.b    $07, $54, $55, $56, $57, $58, $FF
-Offset_0x011014:
+SonAni_Spring:
                 dc.b    $2F, $5B, $FD, $00
-Offset_0x011018:
+SonAni_Hang:
                 dc.b    $01, $50, $51, $FF
-Offset_0x01101C:
+SonAni_Dash2:
                 dc.b    $0F, $43, $43, $43, $FE, $01
-Offset_0x011022:
+SonAni_Dash3:
                 dc.b    $0F, $43, $44, $FE, $01
-Offset_0x011027:
+SonAni_Hang2:
                 dc.b    $13, $6B, $6C, $FF
-Offset_0x01102B:
+SonAni_Bubble:
                 dc.b    $0B, $5A, $5A, $11, $12, $FD, $00
-Offset_0x011032:
+SonAni_DeathBW:
                 dc.b    $20, $5E, $FF
-Offset_0x011035:
+SonAni_Drown:
                 dc.b    $20, $5D, $FF
-Offset_0x011038:
+SonAni_Death:
                 dc.b    $20, $5C, $FF
-Offset_0x01103B:
+SonAni_Hurt:
                 dc.b    $40, $4E, $FF
-Offset_0x01103E:
+SonAni_Slide:
                 dc.b    $09, $4E, $4F, $FF
-Offset_0x011042:
+SonAni_Blank:
                 dc.b    $77, $00, $FD, $00
-Offset_0x011046:
+SonAni_Balance3:
                 dc.b    $13, $D0, $D1, $FF
-Offset_0x01104A:
+SonAni_Balance4:
                 dc.b    $03, $CF, $C8, $C9, $CA, $CB, $FE, $04
 ;-------------------------------------------------------------------------------
-Offset_0x011052:
-                dc.w    Offset_0x011092-Offset_0x011052
-                dc.w    Offset_0x01109C-Offset_0x011052
-                dc.w    Offset_0x010F04-Offset_0x011052
-                dc.w    Offset_0x010F0E-Offset_0x011052
-                dc.w    Offset_0x0110A6-Offset_0x011052
-                dc.w    Offset_0x0110B0-Offset_0x011052
-                dc.w    Offset_0x0110B6-Offset_0x011052
-                dc.w    Offset_0x010FDE-Offset_0x011052
-                dc.w    Offset_0x0110C0-Offset_0x011052
-                dc.w    Offset_0x010FE8-Offset_0x011052
-                dc.w    Offset_0x010FF4-Offset_0x011052
-                dc.w    Offset_0x010FF8-Offset_0x011052
-                dc.w    Offset_0x010FFC-Offset_0x011052
-                dc.w    Offset_0x011002-Offset_0x011052
-                dc.w    Offset_0x011009-Offset_0x011052
-                dc.w    Offset_0x01100D-Offset_0x011052
-                dc.w    Offset_0x011014-Offset_0x011052
-                dc.w    Offset_0x011018-Offset_0x011052
-                dc.w    Offset_0x01101C-Offset_0x011052
-                dc.w    Offset_0x011022-Offset_0x011052
-                dc.w    Offset_0x011027-Offset_0x011052
-                dc.w    Offset_0x01102B-Offset_0x011052
-                dc.w    Offset_0x011032-Offset_0x011052
-                dc.w    Offset_0x011035-Offset_0x011052
-                dc.w    Offset_0x011038-Offset_0x011052
-                dc.w    Offset_0x01103B-Offset_0x011052
-                dc.w    Offset_0x01103B-Offset_0x011052
-                dc.w    Offset_0x01103E-Offset_0x011052
-                dc.w    Offset_0x011042-Offset_0x011052
-                dc.w    Offset_0x011046-Offset_0x011052
-                dc.w    Offset_0x01104A-Offset_0x011052
-                dc.w    Offset_0x0110C3-Offset_0x011052
-Offset_0x011092:
+SuperSonicAniData:
+                dc.w    SupSonAni_Walk-SuperSonicAniData    ;0
+                dc.w    SupSonAni_Run-SuperSonicAniData     ;1
+                dc.w    SonAni_Roll-SuperSonicAniData       ;3
+                dc.w    SonAni_Roll2-SuperSonicAniData      ;4
+                dc.w    SupSonAni_Push-SuperSonicAniData    ;5
+                dc.w    SupSonAni_Stand-SuperSonicAniData   ;6
+                dc.w    SupSonAni_Balance-SuperSonicAniData ;7
+                dc.w    SonAni_LookUp-SuperSonicAniData     ;8
+                dc.w    SupSonAni_Duck-SuperSonicAniData    ;9
+                dc.w    SonAni_Spindash-SuperSonicAniData   ;$A
+                dc.w    SonAni_Blink-SuperSonicAniData      ;$B
+                dc.w    SonAni_GetUp-SuperSonicAniData      ;$C
+                dc.w    SonAni_Balance2-SuperSonicAniData   ;$D
+                dc.w    SonAni_Stop-SuperSonicAniData       ;$E
+                dc.w    SonAni_Float-SuperSonicAniData      ;$F
+                dc.w    SonAni_Float2-SuperSonicAniData     ;$10
+                dc.w    SonAni_Spring-SuperSonicAniData     ;$11
+                dc.w    SonAni_Hang-SuperSonicAniData       ;$12
+                dc.w    SonAni_Dash2-SuperSonicAniData      ;$13
+                dc.w    SonAni_Dash3-SuperSonicAniData      ;$14
+                dc.w    SonAni_Hang2-SuperSonicAniData      ;$15
+                dc.w    SonAni_Bubble-SuperSonicAniData     ;$16
+                dc.w    SonAni_DeathBW-SuperSonicAniData    ;$17
+                dc.w    SonAni_Drown-SuperSonicAniData      ;$18
+                dc.w    SonAni_Death-SuperSonicAniData      ;$19
+                dc.w    SonAni_Hurt-SuperSonicAniData       ;$1A
+                dc.w    SonAni_Hurt-SuperSonicAniData       ;$1B
+                dc.w    SonAni_Slide-SuperSonicAniData      ;$1C
+                dc.w    SonAni_Blank-SuperSonicAniData      ;$1D
+                dc.w    SonAni_Balance3-SuperSonicAniData   ;$1E
+                dc.w    SonAni_Balance4-SuperSonicAniData   ;$1F
+                dc.w    SupSonAni_Transform-SuperSonicAniData ;$20
+SupSonAni_Walk:
                 dc.b    $FF, $77, $78, $79, $7A, $7B, $7C, $75
                 dc.b    $76, $FF
-Offset_0x01109C:
+SupSonAni_Run:
                 dc.b    $FF, $B5, $B9, $FF, $FF, $FF, $FF, $FF
                 dc.b    $FF, $FF
-Offset_0x0110A6:
+SupSonAni_Push:
                 dc.b    $FD, $BD, $BE, $BF, $C0, $FF, $FF, $FF
                 dc.b    $FF, $FF
-Offset_0x0110B0:
+SupSonAni_Stand:
                 dc.b    $07, $72, $73, $74, $73, $FF
-Offset_0x0110B6:
+SupSonAni_Balance:
                 dc.b    $09, $C2, $C3, $C4, $C3, $C5, $C6, $C7
                 dc.b    $C6, $FF
-Offset_0x0110C0:
+SupSonAni_Duck:
                 dc.b    $05, $C1, $FF
-Offset_0x0110C3:
+SupSonAni_Transform:
                 dc.b    $02, $6D, $6D, $6E, $6E, $6F, $70, $71
                 dc.b    $70, $71, $70, $71, $70, $71, $FD, $00
                 dc.b    $00     
