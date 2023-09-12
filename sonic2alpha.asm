@@ -17760,7 +17760,7 @@ Offset_0x012250:
                 lsr.b   #$03, D0
                 andi.b  #$0C, D0
                 move.b  D0, D3
-                lea     (Offset_0x012514), A1
+                lea     (Obj05Ani_Directional), A1
                 move.b  #$03, Obj_Ani_Time(A0)                           ; $001E
                 bsr     Offset_0x01205E
                 add.b   D3, Obj_Map_Id(A0)                               ; $001A
@@ -17972,54 +17972,75 @@ Offset_0x0124A4:
                 cmp.b   Obj_P_Invunerblt_Time(A0), D0                    ; $0030
                 beq.s   Offset_0x0124B4
                 move.b  D0, Obj_P_Invunerblt_Time(A0)                    ; $0030
-                move.b  Offset_0x0124CA(PC, D0), Obj_Ani_Number(A0)      ; $001C
+                move.b  Obj05AniSelection(PC, D0), Obj_Ani_Number(A0)    ; $001C
 Offset_0x0124B4:
-                lea     (Offset_0x0124EC), A1
+                lea     (Obj05AniData), A1
                 bsr     Miles_Animate_A1                       ; Offset_0x012016
                 bsr     Load_Miles_Tail_Dynamic_PLC            ; Offset_0x0123C6
                 jsr     (DisplaySprite)                        ; Offset_0x00D322
                 rts              
 ;-------------------------------------------------------------------------------
-Offset_0x0124CA:
-                dc.b    $00, $00, $03, $03, $09, $01, $00, $02
-                dc.b    $01, $07, $00, $00, $00, $08, $00, $00
-                dc.b    $00, $00, $00, $00, $0A, $00, $00, $00
-                dc.b    $00, $00, $00, $00, $00, $00, $00, $00
-                dc.b    $00, $00    
+;Offset_0x0124CA:
+Obj05AniSelection:
+        dc.b	0,0	; TailsAni_Walk,Run	
+	dc.b	3	; TailsAni_Roll		
+	dc.b	3	; TailsAni_Roll2	
+	dc.b	9	; TailsAni_Push		
+	dc.b	1	; TailsAni_Wait		
+	dc.b	0	; TailsAni_Balance	
+	dc.b	2	; TailsAni_LookUp	
+	dc.b	1	; TailsAni_Duck		
+	dc.b	7	; TailsAni_Spindash	
+	dc.b	0,0,0	; TailsAni_Dummy1,2,3	
+	dc.b	8	; TailsAni_Stop		
+	dc.b	0,0	; TailsAni_Float,2	
+	dc.b	0	; TailsAni_Spring	
+	dc.b	0	; TailsAni_Hang		
+	dc.b	0,0	; TailsAni_Blink,2	
+	dc.b	$A	; TailsAni_Hang2	
+	dc.b	0	; TailsAni_Bubble	
+	dc.b	0,0,0,0	; TailsAni_Death,2,3,4	
+	dc.b	0,0	; TailsAni_Hurt,Slide	
+	dc.b	0	; TailsAni_Blank	
+	dc.b	0,0	; TailsAni_Dummy4,5	
+	dc.b	0	; TailsAni_HaulAss	
+	dc.b	0	; TailsAni_Fly		
+	even
 ;-------------------------------------------------------------------------------
-Offset_0x0124EC:
-                dc.w    Offset_0x012502-Offset_0x0124EC
-                dc.w    Offset_0x012505-Offset_0x0124EC
-                dc.w    Offset_0x01250C-Offset_0x0124EC
-                dc.w    Offset_0x012514-Offset_0x0124EC
-                dc.w    Offset_0x01251A-Offset_0x0124EC
-                dc.w    Offset_0x012520-Offset_0x0124EC
-                dc.w    Offset_0x012526-Offset_0x0124EC
-                dc.w    Offset_0x01252C-Offset_0x0124EC
-                dc.w    Offset_0x012532-Offset_0x0124EC
-                dc.w    Offset_0x012538-Offset_0x0124EC
-                dc.w    Offset_0x01253E-Offset_0x0124EC
-Offset_0x012502:
+;Offset_0x0124EC:
+Obj05AniData:
+                dc.w    Obj05Ani_Blank-Obj05AniData       ;0
+                dc.w    Obj05Ani_Swish-Obj05AniData       ;1
+                dc.w    Obj05Ani_Flick-Obj05AniData       ;2
+                dc.w    Obj05Ani_Directional-Obj05AniData ;3
+                dc.w    Obj05Ani_DownLeft-Obj05AniData    ;4
+                dc.w    Obj05Ani_Down-Obj05AniData        ;5
+                dc.w    Obj05Ani_DownRight-Obj05AniData   ;6
+                dc.w    Obj05Ani_Spindash-Obj05AniData    ;7
+                dc.w    Obj05Ani_Skidding-Obj05AniData    ;8
+                dc.w    Obj05Ani_Pushing-Obj05AniData     ;9
+                dc.w    Obj05Ani_Hanging-Obj05AniData     ;$A
+Obj05Ani_Blank:
                 dc.b    $20, $00, $FF
-Offset_0x012505:
+Obj05Ani_Swish:
                 dc.b    $07, $09, $0A, $0B, $0C, $0D, $FF
-Offset_0x01250C:
+Obj05Ani_Flick:
                 dc.b    $03, $09, $0A, $0B, $0C, $0D, $FD, $01
-Offset_0x012514:
+Obj05Ani_Directional:
                 dc.b    $FC, $49, $4A, $4B, $4C, $FF
-Offset_0x01251A:
+Obj05Ani_DownLeft:
                 dc.b    $03, $4D, $4E, $4F, $50, $FF
-Offset_0x012520:
+Obj05Ani_Down:
                 dc.b    $03, $51, $52, $53, $54, $FF
-Offset_0x012526:
+Obj05Ani_DownRight:
                 dc.b    $03, $55, $56, $57, $58, $FF
-Offset_0x01252C:
+Obj05Ani_Spindash:
                 dc.b    $02, $81, $82, $83, $84, $FF
-Offset_0x012532:
+Obj05Ani_Skidding:
                 dc.b    $02, $87, $88, $89, $8A, $FF
-Offset_0x012538:
+Obj05Ani_Pushing:
                 dc.b    $09, $87, $88, $89, $8A, $FF
-Offset_0x01253E:
+Obj05Ani_Hanging:
                 dc.b    $09, $81, $82, $83, $84, $FF            
 ;===============================================================================
 ; Objeto 0x05 - Rabo do Miles
@@ -21282,7 +21303,7 @@ Offset_0x01FA26:
 ;-------------------------------------------------------------------------------
 Offset_0x01FA2C:
                 move.l  #Batbot_Mappings, Obj_Map(A0)   ; Offset_0x01FCB6, $0004
-                move.w  #$2530, Obj_Art_VRAM(A0)                         ; $0002
+                move.w  #$2530, Obj_Art_VRAM(A0)                         ; $0002 ; wrong palette line, should be $0530 instead of $2530
                 ori.b   #$04, Obj_Flags(A0)                              ; $0001
                 move.b  #$0A, Obj_Col_Flags(A0)                          ; $0020
                 move.b  #$04, Obj_Priority(A0)                           ; $0018
@@ -22248,7 +22269,7 @@ Offset_0x0228FA:
 ;-------------------------------------------------------------------------------
 Offset_0x0228FE:
                 move.l  #Rhinobot_Mappings, Obj_Map(A0) ; Offset_0x022A56, $0004
-                move.w  #$23B2, Obj_Art_VRAM(A0)                         ; $0002
+                move.w  #$23B2, Obj_Art_VRAM(A0)                         ; $0002 ; wrong palette line, should be $03B2 instead of $23B2
                 ori.b   #$04, Obj_Flags(A0)                              ; $0001
                 move.b  #$0A, Obj_Col_Flags(A0)                          ; $0020
                 move.b  #$04, Obj_Priority(A0)                           ; $0018
