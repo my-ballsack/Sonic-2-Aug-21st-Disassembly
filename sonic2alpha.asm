@@ -17553,7 +17553,7 @@ Offset_0x01200E:
                 rts
 ;-------------------------------------------------------------------------------                
 Miles_Animate:                                                 ; Offset_0x012010
-                lea     (Offset_0x01227A), A1
+                lea     (TailsAniData), A1
 Miles_Animate_A1:                                              ; Offset_0x012016                
                 moveq   #$00, D0
                 move.b  Obj_Ani_Number(A0), D0                           ; $001C
@@ -17643,10 +17643,10 @@ Offset_0x012102:
                 move.b  D0, D3
                 add.b   D3, D3
                 add.b   D3, D3
-                lea     (Offset_0x0122BC), A1
+                lea     (TailsAni_Walk), A1
                 cmpi.w  #$0600, D2
                 bcs.s   Offset_0x012130
-                lea     (Offset_0x0122C6), A1
+                lea     (TailsAni_Run), A1
                 move.b  D0, D1
                 lsr.b   #$01, D1
                 add.b   D1, D0
@@ -17654,7 +17654,7 @@ Offset_0x012102:
                 move.b  D0, D3
                 cmpi.w  #$0700, D2
                 bcs.s   Offset_0x012130
-                lea     (Offset_0x0123B8), A1
+                lea     (TailsAni_HaulAss), A1
 Offset_0x012130:
                 neg.w   D2
                 addi.w  #$0800, D2
@@ -17703,10 +17703,10 @@ Offset_0x0121B0:
                 bpl.s   Offset_0x0121BC
                 neg.w   D2
 Offset_0x0121BC:
-                lea     (Offset_0x0122D5), A1
+                lea     (TailsAni_Roll2), A1
                 cmpi.w  #$0600, D2
                 bcc.s   Offset_0x0121CE
-                lea     (Offset_0x0122D0), A1
+                lea     (TailsAni_Roll), A1
 Offset_0x0121CE:
                 neg.w   D2
                 addi.w  #$0400, D2
@@ -17731,7 +17731,7 @@ Offset_0x0121FC:
 Offset_0x012204:
                 lsr.w   #$06, D2
                 move.b  D2, Obj_Ani_Time(A0)                             ; $001E
-                lea     (Offset_0x0122DA), A1
+                lea     (TailsAni_Push), A1
                 move.b  Obj_Status(A0), D1                               ; $0022
                 andi.b  #$01, D1
                 andi.b  #$FC, Obj_Flags(A0)                              ; $0001
@@ -17766,54 +17766,55 @@ Offset_0x012250:
                 add.b   D3, Obj_Map_Id(A0)                               ; $001A
                 rts
 ;-------------------------------------------------------------------------------
-Offset_0x01227A:
-                dc.w    Offset_0x0122BC-Offset_0x01227A
-                dc.w    Offset_0x0122C6-Offset_0x01227A
-                dc.w    Offset_0x0122D0-Offset_0x01227A
-                dc.w    Offset_0x0122D5-Offset_0x01227A
-                dc.w    Offset_0x0122DA-Offset_0x01227A
-                dc.w    Offset_0x0122E4-Offset_0x01227A
-                dc.w    Offset_0x012322-Offset_0x01227A
-                dc.w    Offset_0x01233A-Offset_0x01227A
-                dc.w    Offset_0x01233D-Offset_0x01227A
-                dc.w    Offset_0x012340-Offset_0x01227A
-                dc.w    Offset_0x012345-Offset_0x01227A
-                dc.w    Offset_0x012348-Offset_0x01227A
-                dc.w    Offset_0x01234E-Offset_0x01227A
-                dc.w    Offset_0x012352-Offset_0x01227A
-                dc.w    Offset_0x012359-Offset_0x01227A
-                dc.w    Offset_0x01235D-Offset_0x01227A
-                dc.w    Offset_0x012364-Offset_0x01227A
-                dc.w    Offset_0x012373-Offset_0x01227A
-                dc.w    Offset_0x012377-Offset_0x01227A
-                dc.w    Offset_0x01237D-Offset_0x01227A
-                dc.w    Offset_0x012382-Offset_0x01227A
-                dc.w    Offset_0x012386-Offset_0x01227A
-                dc.w    Offset_0x01238D-Offset_0x01227A
-                dc.w    Offset_0x012390-Offset_0x01227A
-                dc.w    Offset_0x012393-Offset_0x01227A
-                dc.w    Offset_0x012396-Offset_0x01227A
-                dc.w    Offset_0x012399-Offset_0x01227A
-                dc.w    Offset_0x01239C-Offset_0x01227A
-                dc.w    Offset_0x0123A0-Offset_0x01227A
-                dc.w    Offset_0x0123A4-Offset_0x01227A
-                dc.w    Offset_0x0123AE-Offset_0x01227A
-                dc.w    Offset_0x0123B8-Offset_0x01227A
-                dc.w    Offset_0x0123C2-Offset_0x01227A
-Offset_0x0122BC:
+;Offset_0x01227A:
+TailsAniData:
+                dc.w    TailsAni_Walk-TailsAniData     ;0
+                dc.w    TailsAni_Run-TailsAniData      ;1
+                dc.w    TailsAni_Roll-TailsAniData     ;2
+                dc.w    TailsAni_Roll2-TailsAniData    ;3
+                dc.w    TailsAni_Push-TailsAniData     ;4
+                dc.w    TailsAni_Wait-TailsAniData     ;5
+                dc.w    TailsAni_Balance-TailsAniData  ;6
+                dc.w    TailsAni_LookUp-TailsAniData   ;7
+                dc.w    TailsAni_Duck-TailsAniData     ;8
+                dc.w    TailsAni_Spindash-TailsAniData ;9
+                dc.w    TailsAni_Dummy1-TailsAniData   ;$A
+                dc.w    TailsAni_Dummy2-TailsAniData   ;$B
+                dc.w    TailsAni_Dummy3-TailsAniData   ;$C
+                dc.w    TailsAni_Stop-TailsAniData     ;$D
+                dc.w    TailsAni_Float-TailsAniData    ;$E
+                dc.w    TailsAni_Float2-TailsAniData   ;$F
+                dc.w    TailsAni_Spring-TailsAniData   ;$10
+                dc.w    TailsAni_Hang-TailsAniData     ;$11
+                dc.w    TailsAni_Blink-TailsAniData    ;$12
+                dc.w    TailsAni_Blink2-TailsAniData   ;$13
+                dc.w    TailsAni_Hang2-TailsAniData    ;$14
+                dc.w    TailsAni_Bubble-TailsAniData   ;$15
+                dc.w    TailsAni_DeathBW-TailsAniData  ;$16
+                dc.w    TailsAni_Drown-TailsAniData    ;$17
+                dc.w    TailsAni_Death-TailsAniData    ;$18
+                dc.w    TailsAni_Hurt-TailsAniData     ;$19
+                dc.w    TailsAni_Hurt2-TailsAniData    ;$1A
+                dc.w    TailsAni_Slide-TailsAniData    ;$1B
+                dc.w    TailsAni_Blank-TailsAniData    ;$1C
+                dc.w    TailsAni_Dummy4-TailsAniData   ;$1D
+                dc.w    TailsAni_Dummy5-TailsAniData   ;$1E
+                dc.w    TailsAni_HaulAss-TailsAniData  ;$1F hehe ass
+                dc.w    TailsAni_Fly-TailsAniData      ;$20
+TailsAni_Walk:
                 dc.b    $FF, $10, $11, $12, $13, $14, $15, $0E
                 dc.b    $0F, $FF
-Offset_0x0122C6:
+TailsAni_Run:
                 dc.b    $FF, $2E, $2F, $30, $31, $FF, $FF, $FF
                 dc.b    $FF, $FF
-Offset_0x0122D0:
+TailsAni_Roll:
                 dc.b    $01, $48, $47, $46, $FF
-Offset_0x0122D5:
+TailsAni_Roll2:
                 dc.b    $01, $48, $47, $46, $FF
-Offset_0x0122DA:
+TailsAni_Push:
                 dc.b    $FD, $63, $64, $65, $66, $FF, $FF, $FF
                 dc.b    $FF, $FF
-Offset_0x0122E4:
+TailsAni_Wait:
                 dc.b    $07, $01, $01, $01, $01, $01, $01, $01
                 dc.b    $01, $01, $01, $03, $02, $01, $01, $01
                 dc.b    $01, $01, $01, $01, $01, $03, $02, $01
@@ -17822,65 +17823,65 @@ Offset_0x0122E4:
                 dc.b    $05, $05, $05, $05, $05, $05, $05, $05
                 dc.b    $06, $07, $08, $07, $08, $07, $08, $07
                 dc.b    $08, $07, $08, $06, $FE, $1C
-Offset_0x012322:
+TailsAni_Balance:
                 dc.b    $09, $69, $69, $6A, $6A, $69, $69, $6A
                 dc.b    $6A, $69, $69, $6A, $6A, $69, $69, $6A
                 dc.b    $6A, $69, $69, $6A, $6A, $69, $6A, $FF
-Offset_0x01233A:
+TailsAni_LookUp:
                 dc.b    $3F, $04, $FF
-Offset_0x01233D:
+TailsAni_Duck:
                 dc.b    $3F, $5B, $FF
-Offset_0x012340:
+TailsAni_Spindash:
                 dc.b    $00, $60, $61, $62, $FF
-Offset_0x012345:
+TailsAni_Dummy1:
                 dc.b    $3F, $82, $FF
-Offset_0x012348:
+TailsAni_Dummy2:
                 dc.b    $07, $08, $08, $09, $FD, $05
-Offset_0x01234E:
+TailsAni_Dummy3:
                 dc.b    $07, $09, $FD, $05
-Offset_0x012352:
+TailsAni_Stop:
                 dc.b    $07, $67, $68, $67, $68, $FD, $00
-Offset_0x012359:
+TailsAni_Float:
                 dc.b    $09, $6E, $73, $FF
-Offset_0x01235D:
+TailsAni_Float2:
                 dc.b    $09, $6E, $6F, $70, $71, $72, $FF
-Offset_0x012364:
+TailsAni_Spring:
                 dc.b    $03, $59, $5A, $59, $5A, $59, $5A, $59
                 dc.b    $5A, $59, $5A, $59, $5A, $FD, $00
-Offset_0x012373:
+TailsAni_Hang:
                 dc.b    $05, $6C, $6D, $FF
-Offset_0x012377:
+TailsAni_Blink:
                 dc.b    $0F, $01, $02, $03, $FE, $01
-Offset_0x01237D:
+TailsAni_Blink2:
                 dc.b    $0F, $01, $02, $FE, $01
-Offset_0x012382:
+TailsAni_Hang2:
                 dc.b    $13, $85, $86, $FF
-Offset_0x012386:
+TailsAni_Bubble:
                 dc.b    $0B, $74, $74, $12, $13, $FD, $00
-Offset_0x01238D:
+TailsAni_DeathBW:
                 dc.b    $20, $5D, $FF
-Offset_0x012390:
+TailsAni_Drown:
                 dc.b    $2F, $5D, $FF
-Offset_0x012393:
+TailsAni_Death:
                 dc.b    $03, $5D, $FF
-Offset_0x012396:
+TailsAni_Hurt:
                 dc.b    $03, $5D, $FF
-Offset_0x012399:
+TailsAni_Hurt2:
                 dc.b    $03, $5C, $FF
-Offset_0x01239C:
+TailsAni_Slide:
                 dc.b    $09, $6B, $5C, $FF
-Offset_0x0123A0:
+TailsAni_Blank:
                 dc.b    $77, $00, $FD, $00
-Offset_0x0123A4:
+TailsAni_Dummy4:
                 dc.b    $03, $01, $02, $03, $04, $05, $06, $07
                 dc.b    $08, $FF
-Offset_0x0123AE:
+TailsAni_Dummy5:
                 dc.b    $03, $01, $02, $03, $04, $05, $06, $07
                 dc.b    $08, $FF
-Offset_0x0123B8:
+TailsAni_HaulAss:
                 dc.b    $FF, $32, $33, $FF, $FF, $FF, $FF, $FF
                 dc.b    $FF, $FF
-Offset_0x0123C2:
+TailsAni_Fly:
                 dc.b    $01, $5E, $5F, $FF   
 ;-------------------------------------------------------------------------------
 Load_Miles_Tail_Dynamic_PLC:                                   ; Offset_0x0123C6
