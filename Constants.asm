@@ -256,6 +256,7 @@ Current_Colision_Pointer       equ M68K_RAM_Start+$F796
 Boss_Defeated_Flag             equ M68K_RAM_Start+$F7A7
 Boss_Flag                      equ M68K_RAM_Start+$F7AA
 Player_Status_Flag             equ M68K_RAM_Start+$F7CA
+Camera_X_pos_coarse            equ M68K_RAM_Start+$F7DA
 Palette_Buffer                 equ M68K_RAM_Start+$FB00
 Palette_Underwater_Buffer      equ M68K_RAM_Start+$FB80
 Exception_Index                equ M68K_RAM_Start+$FC44

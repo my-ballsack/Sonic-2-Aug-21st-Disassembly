@@ -10277,7 +10277,7 @@ Offset_0x00AB3E:
                 move.b  (Object_Frame_Buffer+$0003).w, Obj_Map_Id(A0)     ; $FFFFFEA3; $001A
                 move.w  Obj_Control_Var_06(A0), D0                       ; $0032
                 andi.w  #$FF80, D0
-                sub.w   ($FFFFF7DA).w, D0
+                sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
                 cmpi.w  #$0280, D0
                 bhi.s   Offset_0x00AB8E
                 bra     DisplaySprite                          ; Offset_0x00D322    
@@ -11281,7 +11281,7 @@ MarkObjGone:                                                   ; Offset_0x00D200
 Offset_0x00D20A:
 		move.w  Obj_X(A0), D0                                    ; $0008
 		andi.w  #$FF80, D0
-		sub.w   ($FFFFF7DA).w, D0
+		sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
 		cmpi.w  #$0280, D0
 		bhi     Offset_0x00D222
 		bra     DisplaySprite                          ; Offset_0x00D322
@@ -11300,7 +11300,7 @@ MarkObjGone_2:                                                 ; Offset_0x00D238
 		bra     DisplaySprite                          ; Offset_0x00D322
 Offset_0x00D242:
 		andi.w  #$FF80, D0
-		sub.w   ($FFFFF7DA).w, D0
+		sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
 		cmpi.w  #$0280, D0
 		bhi     Offset_0x00D256
 		bra     DisplaySprite                          ; Offset_0x00D322
@@ -11320,7 +11320,7 @@ MarkObjGone_3:                                                 ; Offset_0x00D26C
 Offset_0x00D274:
 		move.w  Obj_X(A0), D0                                    ; $0008
 		andi.w  #$FF80, D0
-		sub.w   ($FFFFF7DA).w, D0
+		sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
 		cmpi.w  #$0280, D0
 		bhi     Offset_0x00D28A
 		rts
@@ -11338,7 +11338,7 @@ MarkObjGone_4:                                                 ; Offset_0x00D2A0
 		bne.s   MarkObjGone_4_2P                       ; Offset_0x00D2D4
 		move.w  Obj_X(A0), D0                                    ; $0008
 		andi.w  #$FF80, D0
-		sub.w   ($FFFFF7DA).w, D0
+		sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
 		cmpi.w  #$0280, D0
 		bhi     Offset_0x00D2BE
 		bra     DisplaySprite                          ; Offset_0x00D322
@@ -11354,7 +11354,7 @@ MarkObjGone_4_2P                                               ; Offset_0x00D2D4
 		move.w  Obj_X(A0), D0                                    ; $0008
 		andi.w  #$FF00, D0
 		move.w  D0, D1
-		sub.w   ($FFFFF7DA).w, D0
+		sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
 		cmpi.w  #$0300, D0
 		bhi     Offset_0x00D2EE
 		bra     DisplaySprite                          ; Offset_0x00D322
@@ -12996,7 +12996,7 @@ Load_Object_Pos_1P_Mode:                                       ; Offset_0x00E2A8
 		move.w  (Camera_X).w, D1                             ; $FFFFEE00
 		subi.w  #$0080, D1
 		andi.w  #$FF80, D1
-		move.w  D1, ($FFFFF7DA).w
+		move.w  D1, (Camera_X_pos_coarse).w                  ; $FFFFF7DA
 		lea     ($FFFFFC00).w, A2
 		moveq   #$00, D2
 		move.w  (Camera_X).w, D6                             ; $FFFFEE00
@@ -13115,7 +13115,7 @@ Load_Object_Pos_2P_Mode_Init:                                  ; Offset_0x00E374
 Load_Object_Pos_2P_Mode:                                       ; Offset_0x00E3F0                
 		move.w  (Camera_X).w, D1                             ; $FFFFEE00
 		andi.w  #$FF00, D1
-		move.w  D1, ($FFFFF7DA).w
+		move.w  D1, (Camera_X_pos_coarse).w                  ; $FFFFF7DA
 		move.w  (Camera_X_2).w, D1                           ; $FFFFEE20
 		andi.w  #$FF00, D1
 		move.w  D1, ($FFFFF7DC).w
@@ -13522,8 +13522,8 @@ Obj_0x0D_End_Panel:                                            ; Offset_0x00F098
                 lea     (End_Panel_Animate_Data), A1           ; Offset_0x00F288
                 bsr     AnimateSprite                          ; Offset_0x00D372
                 move.w  Obj_X(A0), D0                                    ; $0008
-                andi.w  #$FF80, D0
-                sub.w   ($FFFFF7DA).w, D0
+                andi.w  #$FF80, D0 
+                sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
                 cmpi.w  #$0280, D0
                 bhi     DeleteObject                           ; Offset_0x00D314
                 bra     DisplaySprite                          ; Offset_0x00D322   
@@ -20411,7 +20411,7 @@ Offset_0x01545A:
                 bsr     SolidObject                            ; Offset_0x00F344
                 move.w  Obj_X(A0), D0                                    ; $0008
                 andi.w  #$FF80, D0
-                sub.w   ($FFFFF7DA).w, D0
+                sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
                 cmpi.w  #$0280, D0
                 bhi     Jmp_00_To_DeleteObject                 ; Offset_0x0154A2
                 bra     Jmp_00_To_DisplaySprite                ; Offset_0x01549C 
@@ -20524,7 +20524,7 @@ Offset_0x0155CC:
 Offset_0x0155D4:
                 move.w  Obj_X(A0), D0                                    ; $0008
                 andi.w  #$FF80, D0
-                sub.w   ($FFFFF7DA).w, D0
+                sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
                 cmpi.w  #$0280, D0
                 bhi     Jmp_01_To_DeleteObject                 ; Offset_0x0159C6
                 bra     Jmp_01_To_DisplaySprite                ; Offset_0x0159C0
@@ -20534,7 +20534,7 @@ Offset_0x0155EC:
                 move.b  D0, Obj_Map_Id(A1)                               ; $001A
                 move.w  Obj_X(A0), D0                                    ; $0008
                 andi.w  #$FF80, D0
-                sub.w   ($FFFFF7DA).w, D0
+                sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
                 cmpi.w  #$0280, D0
                 bhi     Jmp_01_To_DeleteObject                 ; Offset_0x0159C6
                 rts   
@@ -20542,7 +20542,7 @@ Offset_0x0155EC:
 Offset_0x01560C:
                 move.w  Obj_X(A0), D0                                    ; $0008
                 andi.w  #$FF80, D0
-                sub.w   ($FFFFF7DA).w, D0
+                sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
                 cmpi.w  #$0280, D0
                 bhi     Jmp_01_To_DeleteObject                 ; Offset_0x0159C6
                 bra     Jmp_01_To_DisplaySprite                ; Offset_0x0159C0     
@@ -22124,7 +22124,7 @@ Offset_0x021A1E:
                 bsr     Jmp_0D_To_AnimateSprite                ; Offset_0x021B04
                 move.w  Obj_X(A0), D0                                    ; $0008
                 andi.w  #$FF80, D0
-                sub.w   ($FFFFF7DA).w, D0
+                sub.w   (Camera_X_pos_coarse).w, D0                   ; FFFFF7DA
                 cmpi.w  #$0280, D0
                 bhi     Offset_0x021A4E
                 bra     Jmp_16_To_DisplaySprite                ; Offset_0x021AF8
