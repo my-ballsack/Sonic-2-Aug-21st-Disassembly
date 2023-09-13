@@ -22124,12 +22124,12 @@ Offset_0x021A1E:
                 bsr     Jmp_0D_To_AnimateSprite                ; Offset_0x021B04
                 move.w  Obj_X(A0), D0                                    ; $0008
                 andi.w  #$FF80, D0
-                sub.w   (Camera_X_pos_coarse).w, D0                   ; FFFFF7DA
+                sub.w   (Camera_X_pos_coarse).w, D0                  ; $FFFFF7DA
                 cmpi.w  #$0280, D0
                 bhi     Offset_0x021A4E
                 bra     Jmp_16_To_DisplaySprite                ; Offset_0x021AF8
 Offset_0x021A4E:
-                lea     ($FFFFFC00).w, A2
+                lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00     
                 moveq   #$00, D0
                 move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
                 beq.s   Offset_0x021A60
