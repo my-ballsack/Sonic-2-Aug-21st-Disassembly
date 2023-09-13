@@ -3576,24 +3576,27 @@ Offset_0x003736:
 		move.w  ($FFFFF60C).w, D0
 		ori.b   #$40, D0
 		move.w  D0, (VDP_Control_Port)                       ; $00C00004
-Offset_0x003768:
+;Offset_0x003768:
+Sega_WaitPalette:
 		move.b  #$02, (VBlank_Index).w                       ; $FFFFF62A
 		bsr     Wait_For_VSync                         ; Offset_0x003250
 		bsr     PalCycle_Sega                          ; Offset_0x002822
-		bne.s   Offset_0x003768
+		bne.s   Sega_WaitPalette
 		move.b  #$FA, D0
 		bsr     Play_Sfx                               ; Offset_0x001512
 		move.b  #$02, (VBlank_Index).w                       ; $FFFFF62A
 		bsr     Wait_For_VSync                         ; Offset_0x003250
 		move.w  #$00B4, (Timer_Count_Down).w                 ; $FFFFF614
-Offset_0x003790:
+;Offset_0x003790:
+Sega_WaitEnd:
 		move.b  #$14, (VBlank_Index).w                       ; $FFFFF62A
 		bsr     Wait_For_VSync                         ; Offset_0x003250
 		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
-		beq.s   Offset_0x0037A8
+		beq.s   Sega_GotoTitle
 		andi.b  #$80, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
-		beq.s   Offset_0x003790
-Offset_0x0037A8:
+		beq.s   Sega_WaitEnd
+;Offset_0x0037A8:
+Sega_GotoTitle:
 		move.b  #$04, (Game_Mode).w                          ; $FFFFF600
 		rts
 ;===============================================================================
@@ -3606,7 +3609,7 @@ Offset_0x0037A8:
 ; ->>>
 ;=============================================================================== 
 Title_Screen:                                                  ; Offset_0x0037B0
-		move.b  #$FD, D0
+		move.b  #$FD, D0                                    ; stop music
 		bsr     Play_Music                             ; Offset_0x00150C
 		bsr     ClearPLC                               ; Offset_0x0017F2
 		bsr     Pal_FadeFrom                           ; Offset_0x00266C
@@ -3649,10 +3652,11 @@ Offset_0x00382C:
 		lea     (Palette_Underwater_Buffer).w, A1            ; $FFFFFB80
 		moveq   #$00, D0
 		move.w  #$001F, D1
-Offset_0x00383C:
+;Offset_0x00383C:
+Title_ClrPalette:
 		move.l  D0, (A1)+
-		dbra    D1, Offset_0x00383C
-		moveq   #$03, D0
+		dbra    D1, Title_ClrPalette
+		moveq   #$03, D0                               ; load Sonic's palette, leftover from Sonic 1 when it had a presents screen
 		bsr     PalLoad1                               ; Offset_0x002914
 		bsr     Pal_FadeTo                             ; Offset_0x0025C8
 		move    #$2700, SR
@@ -3707,7 +3711,7 @@ Offset_0x003890:
 		bsr     ShowVDPGraphics                        ; Offset_0x0015A4
 		moveq   #$01, D0
 		bsr     PalLoad1                               ; Offset_0x002914
-		move.b  #$99, D0
+		move.b  #$99, D0                       ; play title screen music
 		bsr     Play_Music                             ; Offset_0x00150C
 		move.b  #$00, (Debug_Mode_Active_Flag).w             ; $FFFFFFFA
 		move.w  #$0000, (Two_Player_Flag).w                  ; $FFFFFFD8
@@ -3727,7 +3731,7 @@ Offset_0x003966:
 		bsr     LoadPLC2                               ; Offset_0x0017C6
 		move.w  #$0000, ($FFFFFFD4).w
 		move.w  #$0000, ($FFFFFFD6).w
-		move.b  #$01, ($FFFFFFD0).w
+		move.b  #$01, (Level_select_flag).w                  ; $FFFFFFD0
 		move.w  #$0004, ($FFFFEED2).w
 		move.w  #$0000, ($FFFFE500).w
 		move.w  ($FFFFF60C).w, D0
@@ -3757,7 +3761,7 @@ Level_Select_Cheat_Test:                                       ; Offset_0x0039F2
 		addq.w  #$01, ($FFFFFFD4).w
 		tst.b   D0
 		bne.s   Title_Cheat_CountC                     ; Offset_0x003A4A
-		lea     ($FFFFFFD0).w, A0
+		lea     (Level_select_flag).w, A0                    ; $FFFFFFD0
 		move.w  ($FFFFFFD6).w, D1
 		lsr.w   #$01, D1
 		andi.w  #$0003, D1
@@ -3788,13 +3792,13 @@ Offset_0x003A58:
 		andi.b  #$80, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
 		beq     TitleScreen_Loop                       ; Offset_0x0039C0
 Offset_0x003A6A:                
-		tst.b   ($FFFFFFD0).w
-		beq     Offset_0x003B8A
+		tst.b   (Level_select_flag).w                        ; $FFFFFFD0
+		beq     PlayLevel
 		cmpi.b  #$C0, (Control_Ports_Buffer_Data).w          ; $FFFFF604
-		bne     Offset_0x003B8A
-		move.b  #$91, D0
+		bne     PlayLevel
+		move.b  #$91, D0                       ; play level select music
 		bsr     Play_Music                             ; Offset_0x00150C
-		moveq   #$02, D0
+		moveq   #$02, D0                      ; load level select palette
 		bsr     PalLoad2                               ; Offset_0x002930
 		lea     (Scroll_Buffer_Data).w, A1                   ; $FFFFE000
 		moveq   #$00, D0
@@ -3869,7 +3873,8 @@ Level_Select_Array:                                            ; Offset_0x003B4C
 Level_Select_Load_Level:                                       ; Offset_0x003B82
 		andi.w  #$3FFF, D0
 		move.w  D0, (Level_Id).w                             ; $FFFFFE10
-Offset_0x003B8A:                
+;Offset_0x003B8A: 
+PlayLevel:               
 		move.b  #gm_PlayMode, (Game_Mode).w             ; $0C, $FFFFF600
 		move.b  #$03, (Life_Count).w                         ; $FFFFFE12
 		moveq   #$00, D0

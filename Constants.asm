@@ -289,6 +289,7 @@ Object_Frame_Buffer            equ M68K_RAM_Start+$FEA0
 Miles_Max_Speed                equ M68K_RAM_Start+$FEC0
 Miles_Acceleration             equ M68K_RAM_Start+$FEC2
 Miles_Deceleration             equ M68K_RAM_Start+$FEC4
+Level_select_flag              equ M68K_RAM_Start+$FFD0
 Two_Player_Flag                equ M68K_RAM_Start+$FFD8
 Sound_Buffer_Id                equ M68K_RAM_Start+$FFE0
 Auto_Control_Player_Flag       equ M68K_RAM_Start+$FFF0
