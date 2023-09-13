@@ -3597,7 +3597,7 @@ Sega_WaitEnd:
 		beq.s   Sega_WaitEnd
 ;Offset_0x0037A8:
 Sega_GotoTitle:
-		move.b  #$04, (Game_Mode).w                          ; $FFFFF600
+		move.b  #gm_TitleScreen, (Game_Mode).w         ; $04 ; $FFFFF600
 		rts
 ;===============================================================================
 ; Logo da SEGA
