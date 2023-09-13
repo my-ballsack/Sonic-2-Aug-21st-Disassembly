@@ -8968,7 +8968,7 @@ Offset_0x007B78:
 		move.w  #$29D0, Obj_X(A1)                                ; $0008
 		move.w  #$0426, Obj_Y(A1)                                ; $000C
 Offset_0x007BAC:
-		move.w  #$008E, D0
+		move.w  #$008E, D0   ; play Chemical Plant Zone music (wrong ID)
 		bsr     Play_Music                             ; Offset_0x00150C
 		move.b  #$02, (Boss_Flag).w                          ; $FFFFF7AA
 		moveq   #$29, D0
@@ -13555,7 +13555,7 @@ Offset_0x00F0FA:
                 bcs.s   Offset_0x00F122
                 cmpi.w  #$0020, D0
                 bcc.s   Offset_0x00F122
-                move.w  #$00CF, D0
+                move.w  #$00CF, D0                         ; play signpost sound
                 jsr     (Play_Music)                           ; Offset_0x00150C
                 clr.b   (HUD_Timer_Refresh_Flag).w                   ; $FFFFFE1E
                 move.w  (Sonic_Level_Limits_Max_X).w, (Sonic_Level_Limits_Min_X).w ; $FFFFEECA
@@ -15801,7 +15801,7 @@ Sonic_GameOver:                                                ; Offset_0x010B5A
                 move.b  #$01, ($FFFFB0DA).w
                 clr.b   ($FFFFFE1A).w
 Offset_0x010B9E:
-                move.w  #$009B, D0
+                move.w  #$009B, D0                        ; play game over music
                 jsr     (Play_Music)                           ; Offset_0x00150C
                 moveq   #$03, D0
                 jmp     (LoadPLC)                              ; Offset_0x001794
@@ -18277,7 +18277,7 @@ Offset_0x012832:
                 cmpi.w  #$000C, D0
                 bhi.s   Offset_0x0128BC
                 bne.s   Offset_0x01289E
-                move.w  #$008A, D0
+                move.w  #$008A, D0                   ; play Death Egg Zone music
                 jsr     (Play_Music)                           ; Offset_0x00150C
 Offset_0x01289E:
                 subq.b  #$01, Obj_Control_Var_06(A0)                     ; $0032
@@ -18402,7 +18402,7 @@ Resume_Music:                                                  ; Offset_0x012A30
 Try_Resume_Boss:                                               ; Offset_0x012A46
                 tst.b   (Boss_Flag).w                                ; $FFFFF7AA
                 beq.s   Resume_Play_Music                      ; Offset_0x012A50
-                move.w  #$008C, D0
+                move.w  #$008C, D0       ; play Emerald Hill Zone 2 player music
 Resume_Play_Music:                                             ; Offset_0x012A50
                 jsr     (Play_Music)                           ; Offset_0x00150C
 Reset_Water_Counter:                                           ; Offset_0x012A56
@@ -21356,9 +21356,123 @@ NGHz_Water_Surface_Mappings:                                   ; Offset_0x015BEE
 ; <<<-          Neo Green Hill
 ;===============================================================================		   
 Obj_0x49_Waterfall:                                            ; Offset_0x015C8E
-		include 'objects/obj_0x49.asm'     
+;===============================================================================
+; Objeto 0x49 - Cachoeiras na Green Hill
+; ->>>
+;===============================================================================
+; Offset_0x015C8E:
+                moveq   #$00, D0
+                move.b  Obj_Routine(A0), D0                              ; $0024
+                move.w  Offset_0x015C9C(PC, D0), D1
+                jmp     Offset_0x015C9C(PC, D1)
+;-------------------------------------------------------------------------------    
+Offset_0x015C9C:
+                dc.w    Offset_0x015CA0-Offset_0x015C9C
+                dc.w    Offset_0x015CDA-Offset_0x015C9C       
+;-------------------------------------------------------------------------------
+Offset_0x015CA0:
+                addq.b  #$02, Obj_Routine(A0)                            ; $0024
+                move.l  #Waterfall_Mappings, Obj_Map(A0) ; Offset_0x015D40, $0004
+                move.w  #$239E, Obj_Art_VRAM(A0)                         ; $0002
+                bsr     Jmp_00_To_ModifySpriteAttr_2P          ; Offset_0x01639C
+                move.b  #$04, Obj_Flags(A0)                              ; $0001
+                move.b  #$20, Obj_Width(A0)                              ; $0019
+                move.w  Obj_X(A0), Obj_Control_Var_04(A0)         ; $0008, $0030
+                move.b  #$00, Obj_Priority(A0)                           ; $0018
+                move.b  #$80, Obj_Height_2(A0)                           ; $0016
+                bset    #$04, Obj_Flags(A0)                              ; $0001  
+;-------------------------------------------------------------------------------
+Offset_0x015CDA:
+                tst.w   (Two_Player_Flag).w                          ; $FFFFFFD8
+                bne.s   Offset_0x015CF4
+                move.w  Obj_X(A0), D0                                    ; $0008
+                andi.w  #$FF80, D0
+                sub.w   ($FFFFF7DA).w, D0
+                cmpi.w  #$0280, D0
+                bhi     Jmp_02_To_DeleteObject                 ; Offset_0x016396
+Offset_0x015CF4:
+                move.w  Obj_X(A0), D1                                    ; $0008
+                move.w  D1, D2
+                subi.w  #$0040, D1
+                addi.w  #$0040, D2
+                move.b  Obj_Subtype(A0), D3                              ; $0028
+                move.b  #$00, Obj_Map_Id(A0)                             ; $001A
+                move.w  (Player_One_Position_X).w, D0                ; $FFFFB008
+                cmp.w   D1, D0
+                bcs.s   Offset_0x015D26
+                cmp.w   D2, D0
+                bcc.s   Offset_0x015D26
+                move.b  #$01, Obj_Map_Id(A0)                             ; $001A
+                add.b   D3, Obj_Map_Id(A0)                               ; $001A
+                bra     Jmp_02_To_DisplaySprite                ; Offset_0x016390
+Offset_0x015D26:
+                move.w  (Player_Two_Position_X).w, D0                ; $FFFFB048
+                cmp.w   D1, D0
+                bcs.s   Offset_0x015D38
+                cmp.w   D2, D0
+                bcc.s   Offset_0x015D38
+                move.b  #$01, Obj_Map_Id(A0)                             ; $001A
+Offset_0x015D38:
+                add.b   D3, Obj_Map_Id(A0)                               ; $001A
+                bra     Jmp_02_To_DisplaySprite                ; Offset_0x016390  
+;-------------------------------------------------------------------------------
+Waterfall_Mappings:                                            ; Offset_0x015D40
+                include 'Map/obj49.asm'
+;===============================================================================
+; Objeto 0x49 - Cachoeiras na Green Hill
+; <<<-
+;===============================================================================     
 Obj_0x31_Lava_Attributes:                                      ; Offset_0x015EDC
-		include 'objects/obj_0x31.asm'   
+;===============================================================================
+; Objeto 0x31 - Atributo invisível das lavas na Hill Top / Metropolis
+; ->>>
+;===============================================================================
+; Offset_0x015EDC:
+                moveq   #$00, D0
+                move.b  Obj_Routine(A0), D0                              ; $0024
+                move.w  Offset_0x015EEA(PC, D0), D1
+                jmp     Offset_0x015EEA(PC, D1)
+;-------------------------------------------------------------------------------
+Offset_0x015EEA:
+                dc.w    Offset_0x015EF2-Offset_0x015EEA
+                dc.w    Offset_0x015F28-Offset_0x015EEA       
+;-------------------------------------------------------------------------------   
+Offset_0x015EEE:
+                dc.b    $96, $94, $95, $00                                           
+;-------------------------------------------------------------------------------
+Offset_0x015EF2:
+                addq.b  #$02, Obj_Routine(A0)                            ; $0024
+                moveq   #$00, D0
+                move.b  Obj_Subtype(A0), D0                              ; $0028
+                move.b  Offset_0x015EEE(PC, D0), Obj_Col_Flags(A0)       ; $0020
+                move.l  #Lava_Attributes_Mappings, Obj_Map(A0) ; Offset_0x015F4E, $0004
+                move.w  #$8680, Obj_Art_VRAM(A0)                         ; $0002
+                move.b  #$84, Obj_Flags(A0)                              ; $0001
+                move.b  #$80, Obj_Width(A0)                              ; $0019
+                move.b  #$04, Obj_Priority(A0)                           ; $0018
+                move.b  Obj_Subtype(A0), Obj_Map_Id(A0)           ; $001A, $0028      
+;-------------------------------------------------------------------------------
+Offset_0x015F28:
+                tst.w   (Two_Player_Flag).w                          ; $FFFFFFD8
+                bne.s   Offset_0x015F42
+                move.w  Obj_X(A0), D0                                    ; $0008
+                andi.w  #$FF80, D0
+                sub.w   ($FFFFF7DA).w, D0
+                cmpi.w  #$0280, D0
+                bhi     Jmp_02_To_DeleteObject                 ; Offset_0x016396
+Offset_0x015F42:
+                tst.w   (Debug_Mode_Flag_Index).w                    ; $FFFFFE08
+                beq.s   Offset_0x015F4C
+                bsr     Jmp_02_To_DisplaySprite                ; Offset_0x016390
+Offset_0x015F4C:
+                rts        
+;-------------------------------------------------------------------------------
+Lava_Attributes_Mappings:                                      ; Offset_0x015F4E
+                include 'Map/obj31.asm'
+;===============================================================================
+; Objeto 0x31 - Atributo invisível das lavas na Hill Top / Metropolis
+; <<<-
+;===============================================================================   
 Obj_0x74_Invisible_Block:                                      ; Offset_0x015FBA 
 		include 'objects/obj_0x74.asm'   
 Obj_0x7C_Metal_Structure:                                      ; Offset_0x0160BE
@@ -26066,7 +26180,7 @@ Offset_0x02D2EC:
 		bmi.s   Offset_0x02D314
 		addq.b  #$01, (Life_Count).w                         ; $FFFFFE12
 		addq.b  #$01, (HUD_Life_Refresh_Flag).w              ; $FFFFFE1C
-		move.w  #$0088, D0
+		move.w  #$0088, D0  ; play Oil Ocean/Casino Night 2 player music
 		jmp     (Play_Music)                           ; Offset_0x00150C
 Offset_0x02D314:
 		rts
