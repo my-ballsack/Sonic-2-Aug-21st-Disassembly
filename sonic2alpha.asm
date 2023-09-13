@@ -286,7 +286,7 @@ ErrorMsg_TwoAddresses:                                         ; Offset_0x000432
 		addq.w  #$02, A7                                                
 		move.l  (A7)+, ($FFFFFC40).w                                    
 		addq.w  #$02, A7                                                
-		movem.l D0-D7/A0-A7, ($FFFFFC00).w                              
+		movem.l D0-D7/A0-A7, (Obj_respawn_index).w           ; $FFFFFC00                  
 		bsr     ShowErrorMsg                           ; Offset_0x000480                                         
 		move.l  $0002(A7), D0                                           
 		bsr     ShowErrAddress                         ; Offset_0x0005B2                                         
@@ -295,13 +295,13 @@ ErrorMsg_TwoAddresses:                                         ; Offset_0x000432
 		bra.s   ErrorMsg_Wait                          ; Offset_0x000470                                         
 ErrorMessage:                                                  ; Offset_0x00045A
 		move    #$2700, SR                                              
-		movem.l D0-D7/A0-A7, ($FFFFFC00).w                              
+		movem.l D0-D7/A0-A7, (Obj_respawn_index).w           ; $FFFFFC00                   
 		bsr     ShowErrorMsg                           ; Offset_0x000480                                         
 		move.l  $0002(A7), D0                                           
 		bsr     ShowErrAddress                         ; Offset_0x0005B2                                         
 ErrorMsg_Wait:                                                 ; Offset_0x000470
 		bsr     Error_WaitForC                         ; Offset_0x0005D8                                         
-		movem.l ($FFFFFC00).w, D0-D7/A0-A7                              
+		movem.l (Obj_respawn_index).w, D0-D7/A0-A7           ; $FFFFFC00                  
 		move    #$2300, SR                                              
 		rte                                                             
 ShowErrorMsg:                                                  ; Offset_0x000480
@@ -10292,7 +10292,7 @@ Offset_0x00AB5A:
                 move.b  #$00, Obj_Col_Flags(A0)                          ; $0020
                 move.b  #$01, Obj_Priority(A0)                           ; $0018
                 bsr     Add_Rings                              ; Offset_0x00AB92
-                lea     ($FFFFFC00).w, A2
+                lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
                 moveq   #$00, D0
                 move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
                 move.b  Obj_Control_Var_08(A0), D1                       ; $0034
@@ -11291,7 +11291,7 @@ Offset_0x00D20A:
 		bhi     Offset_0x00D222
 		bra     DisplaySprite                          ; Offset_0x00D322
 Offset_0x00D222:
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		moveq   #$00, D0
 		move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
 		beq.s   Offset_0x00D234
@@ -11310,7 +11310,7 @@ Offset_0x00D242:
 		bhi     Offset_0x00D256
 		bra     DisplaySprite                          ; Offset_0x00D322
 Offset_0x00D256:
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		moveq   #$00, D0
 		move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
 		beq.s   Offset_0x00D268
@@ -11330,7 +11330,7 @@ Offset_0x00D274:
 		bhi     Offset_0x00D28A
 		rts
 Offset_0x00D28A:
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		moveq   #$00, D0
 		move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
 		beq.s   Offset_0x00D29C
@@ -11348,7 +11348,7 @@ MarkObjGone_4:                                                 ; Offset_0x00D2A0
 		bhi     Offset_0x00D2BE
 		bra     DisplaySprite                          ; Offset_0x00D322
 Offset_0x00D2BE:
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		moveq   #$00, D0
 		move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
 		beq.s   Offset_0x00D2D0
@@ -11369,7 +11369,7 @@ Offset_0x00D2EE:
 		bhi     Offset_0x00D2FE
 		bra     DisplaySprite                          ; Offset_0x00D322
 Offset_0x00D2FE:
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		moveq   #$00, D0
 		move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
 		beq.s   Offset_0x00D310
@@ -12947,13 +12947,13 @@ Offset_0x00E1FC:
 		move.l  A0, ($FFFFF774).w
 		move.l  A0, ($FFFFF778).w
 		move.l  A0, ($FFFFF77C).w
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		move.w  #$0101, (A2)+
 		move.w  #$005E, D0
 Offset_0x00E230:
 		clr.l   (A2)+
 		dbra    D0, Offset_0x00E230
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		moveq   #$00, D2
 		move.w  (Camera_X).w, D6                             ; $FFFFEE00
 		subi.w  #$0080, D6
@@ -13002,7 +13002,7 @@ Load_Object_Pos_1P_Mode:                                       ; Offset_0x00E2A8
 		subi.w  #$0080, D1
 		andi.w  #$FF80, D1
 		move.w  D1, (Camera_X_pos_coarse).w                  ; $FFFFF7DA
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		moveq   #$00, D2
 		move.w  (Camera_X).w, D6                             ; $FFFFEE00
 		andi.w  #$FF80, D6
@@ -13089,10 +13089,10 @@ Load_Object_Pos_2P_Mode_Init:                                  ; Offset_0x00E374
 		move.l  D0, ($FFFFF78C).w
 		move.w  #$0000, ($FFFFF76E).w
 		move.w  #$0000, ($FFFFF78C).w
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		move.w  (A2), ($FFFFF78E).w
 		moveq   #$00, D2
-		lea     ($FFFFFC00).w, A5
+		lea     (Obj_respawn_index).w, A5                    ; $FFFFFC00
 		lea     ($FFFFF770).w, A4
 		lea     ($FFFFF786).w, A1
 		lea     ($FFFFF789).w, A6
@@ -13150,7 +13150,7 @@ Offset_0x00E430:
 Offset_0x00E458:
 		rts
 Offset_0x00E45A:
-		lea     ($FFFFFC00).w, A2
+		lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
 		moveq   #$00, D2
 		cmp.w   D0, D6
 		beq     Offset_0x00E372
@@ -20145,7 +20145,7 @@ Offset_0x0144DA:
                 move.b  #$04, Obj_Flags(A0)                              ; $0001
                 move.b  #$08, Obj_Width(A0)                              ; $0019
                 move.b  #$05, Obj_Priority(A0)                           ; $0018
-                lea     ($FFFFFC00).w, A2
+                lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
                 moveq   #$00, D0
                 move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
                 bclr    #$07, $02(A2, D0)
@@ -20173,7 +20173,7 @@ Offset_0x01453C:
                 andi.b  #$7F, D2
                 cmp.b   D2, D1
                 bcs.s   Offset_0x01457A
-                lea     ($FFFFFC00).w, A2
+                lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
                 moveq   #$00, D0
                 move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
                 bset    #$00, $02(A2, D0)
@@ -20194,7 +20194,7 @@ Offset_0x01457A:
                 jsr     (Play_Sfx)                             ; Offset_0x001512
                 addq.b  #$02, Obj_Routine(A0)                            ; $0024
                 bsr     Level_Save_Info                        ; Offset_0x0145D6
-                lea     ($FFFFFC00).w, A2
+                lea     (Obj_respawn_index).w, A2                    ; $FFFFFC00
                 moveq   #$00, D0
                 move.b  Obj_Respaw_Ref(A0), D0                           ; $0023
                 bset    #$00, $02(A2, D0)
