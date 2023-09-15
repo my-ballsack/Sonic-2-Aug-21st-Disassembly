@@ -5722,24 +5722,38 @@ Offset_0x005B9C:
 		bsr     Background_Scroll_Speed                ; Offset_0x005C32
 		rts  
 ;-------------------------------------------------------------------------------
-Player_Start_Position_Array:                                   ; Offset_0x005BAA
-		dc.w    $0060, $028F, $0040, $02AF  ; GHz
+Player_Start_Position_Array:                                   ; Offset_0x005BAA		
+                incbin  'Level/Emerald Hill Zone/startposact1.bin'   ; GHz
+                incbin  'Level/Emerald Hill Zone/startposact2.bin'
 		dc.w    $0060, $028F, $0040, $02AF
-		dc.w    $0060, $01AC, $0040, $01AC  ; Wz
+		incbin  'Level/Wood Zone/startposact1.bin'           ; Wz
+                incbin  'Level/Wood Zone/startposact2.bin'  
 		dc.w    $0060, $028F, $0040, $02AF
-		dc.w    $0060, $028C, $0060, $05EC  ; Mz
-		dc.w    $0060, $020C, $0040, $02AF  ; Mz
+		incbin  'Level/Metropolis Zone/startposact1.bin'     ; Mz
+                incbin  'Level/Metropolis Zone/startposact2.bin'
+		incbin  'Level/Metropolis Zone/startposact3.bin'     ; Mz2
+                incbin  'Level/Metropolis Zone/startposact4.bin'
 		dc.w    $0060, $028F, $0040, $02AF
-		dc.w    $0060, $03EF, $0060, $06AF  ; HTz
-		dc.w    $0230, $01AC, $0030, $01BD  ; HPz
+		incbin  'Level/Hill Top Zone/startposact1.bin'       ; HTz
+                incbin  'Level/Hill Top Zone/startposact2.bin'
+                incbin  'Level/Hidden Palace Zone/startposact1.bin'  ; HPz
+                incbin  'Level/Hidden Palace Zone/startposact2.bin'		
 		dc.w    $0060, $028F, $0040, $02AF
-		dc.w    $0060, $06AC, $0050, $056C  ; OOz
-		dc.w    $0060, $06AC, $0060, $05AC  ; DHz
-		dc.w    $0060, $02AC, $0060, $058C  ; CNz
-		dc.w    $0030, $01EC, $0030, $012C  ; CPz
-		dc.w    $0060, $028F, $0040, $02AF  ; GCz
-		dc.w    $0050, $037C, $0050, $037C  ; NGHz
-		dc.w    $0060, $028F, $0040, $02AF  ; DEz
+		incbin  'Level/Oil Ocean Zone/startposact1.bin'      ; OOz
+                incbin  'Level/Oil Ocean Zone/startposact2.bin'    
+		incbin  'Level/Dust Hill Zone/startposact1.bin'      ; DHz
+                incbin  'Level/Dust Hill Zone/startposact2.bin'
+		incbin  'Level/Casino Night Zone/startposact1.bin'   ; CNz
+                incbin  'Level/Casino Night Zone/startposact2.bin'
+		incbin  'Level/Chemical Plant Zone/startposact1.bin' ; CPz
+                incbin  'Level/Chemical Plant Zone/startposact2.bin'
+		incbin  'Level/Genocide City Zone/startposact1.bin'  ; GCz
+                incbin  'Level/Genocide City Zone/startposact2.bin'
+		incbin  'Level/Neo Green Hill Zone/startposact1.bin' ; NGHz
+                incbin  'Level/Neo Green Hill Zone/startposact2.bin' ; NGHz
+		incbin  'Level/Death Egg Zone/startposact1.bin'      ; DEz
+                incbin  'Level/Death Egg Zone/startposact2.bin'
+                even
 ;===============================================================================
 ; Rotina para carregar a posição do jogador na tela
 ; <<<-
@@ -27015,10 +27029,13 @@ Lvl6_Colision_Data_2:                                          ; Offset_0x03B3EA
 Lvl9_Colision_Data_1:                                          ; Offset_0x03B3EA
 Lvl9_Colision_Data_2:                                          ; Offset_0x03B3EA                                                                              
 Genocide_City_Colision_Data_1:                                 ; Offset_0x03B3EA
+              ; incbin  'level/genocide city zone/gczcol1.dat'
 Genocide_City_Colision_Data_2:                                 ; Offset_0x03B3EA
-Death_Egg_Colision_Data_1:                                     ; Offset_0x03B3EA                          
+              ; incbin  'level/genocide city zone/gczcol2.dat'
+Death_Egg_Colision_Data_1:                                     ; Offset_0x03B3EA 
+              ; incbin  'level/death egg zone/dezcol1.dat'                         
 Death_Egg_Colision_Data_2:                                     ; Offset_0x03B3EA  
-		    
+	      ; incbin  'level/death egg zone/dezcol2.dat'    
 Special_Stage_1:                                               ; Offset_0x03B3EA
 		incbin  'level/special stage/stage_1.eni'
 Special_Stage_2:                                               ; Offset_0x03B664
