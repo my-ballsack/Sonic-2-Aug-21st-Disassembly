@@ -1,7 +1,12 @@
-# Sonic-2-Aug-21st-Disassembly
+# Sonic 2 August 21st Disassembly
 A disassembly of Sonic the Hedgehog 2's August 21st prototype.
 
-Special Thanks:
-- Esrael Neto - making the original disassembly
-- RepellantMold - originally trying to improve the disassembly before deleting the repo
-- Clownacy - mirroring the RepellantMold repo and making it bit perfect
+## Special Thanks
+- Esrael Neto
+	- making the original disassembly
+- Filter
+	- being the original person to improve the disassembly before they deleted their attempts, only for someone else to pick it up...
+- RepellantMold
+	- originally trying to improve the disassembly before deleting the repo thinking nobody would even care about it
+- Clownacy
+	- mirroring RepellantMolds repo, making it bit perfect
