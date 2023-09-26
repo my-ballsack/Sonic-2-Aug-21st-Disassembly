@@ -36,7 +36,7 @@ StartOfRom:
 	dc.l    ErrorTrap, ErrorTrap, ErrorTrap, ErrorTrap
 	dc.l    ErrorTrap, ErrorTrap, ErrorTrap, ErrorTrap
 Console:        dc.b    'SEGA MEGA DRIVE ' ; Hardware system ID
-Date:           dc.b    '(C)SEGA 1991.AAA' ; Release date (Leftover)
+Date:           dc.b    '(C)SEGA 1991.APR' ; Release date (Leftover)
 Title_Local:    dc.b    'SONIC THE             HEDGEHOG 2                ' ; Domestic name
 Title_Int:      dc.b    'SONIC THE             HEDGEHOG 2                ' ; International name
 Serial:         dc.b    'GM 00004049-01' ; Serial/version number (Leftover)
