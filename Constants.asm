@@ -231,9 +231,9 @@ Sonic_Level_Limits_Max_Y       equ M68K_RAM_Start+$EECE
 Level_Scroll_Flag              equ M68K_RAM_Start+$EEDC
 Vertical_Scroll_Flag           equ M68K_RAM_Start+$EEDE
 Dyn_Resize_Routine             equ M68K_RAM_Start+$EEDF
-Miles_Level_Limits_Min_X       equ M68K_RAM_Start+$EEF8
-Miles_Level_Limits_Max_X       equ M68K_RAM_Start+$EEFA
-Miles_Level_Limits_Max_Y       equ M68K_RAM_Start+$EEFE
+Tails_Level_Limits_Min_X       equ M68K_RAM_Start+$EEF8
+Tails_Level_Limits_Max_X       equ M68K_RAM_Start+$EEFA
+Tails_Level_Limits_Max_Y       equ M68K_RAM_Start+$EEFE
 Game_Mode                      equ M68K_RAM_Start+$F600
 Control_Ports_Buffer_Data      equ M68K_RAM_Start+$F604
 Timer_Count_Down               equ M68K_RAM_Start+$F614 
@@ -286,9 +286,9 @@ Saved_Level_Flag               equ M68K_RAM_Start+$FE30
 Emerald_Count                  equ M68K_RAM_Start+$FE57
 Emerald_Collected_Flag_List    equ M68K_RAM_Start+$FE58
 Object_Frame_Buffer            equ M68K_RAM_Start+$FEA0
-Miles_Max_Speed                equ M68K_RAM_Start+$FEC0
-Miles_Acceleration             equ M68K_RAM_Start+$FEC2
-Miles_Deceleration             equ M68K_RAM_Start+$FEC4
+Tails_Max_Speed                equ M68K_RAM_Start+$FEC0
+Tails_Acceleration             equ M68K_RAM_Start+$FEC2
+Tails_Deceleration             equ M68K_RAM_Start+$FEC4
 Level_select_flag              equ M68K_RAM_Start+$FFD0
 Two_Player_Flag                equ M68K_RAM_Start+$FFD8
 Sound_Buffer_Id                equ M68K_RAM_Start+$FFE0
