@@ -3267,7 +3267,7 @@ PalPointers:                                                   ; Offset_0x002980
 		dc.w    $FB00, $001F
 		dc.l    Pal_Level_Select_Menu                  ; Offset_0x002B50
 		dc.w    $FB00, $001F
-		dc.l    Pal_Sonic_And_Miles                    ; Offset_0x002BD0
+		dc.l    Pal_Sonic_And_Tails                    ; Offset_0x002BD0
 		dc.w    $FB00, $0007
 		dc.l    Pal_GHz                                ; Offset_0x002BF0
 		dc.w    $FB20, $0017
@@ -3320,7 +3320,7 @@ Pal_Title_Screen:                                              ; Offset_0x002AD0
 		incbin  'palettes/titlscrn.pal'
 Pal_Level_Select_Menu:                                         ; Offset_0x002B50
 		incbin  'palettes/lvl_menu.pal'
-Pal_Sonic_And_Miles:                                           ; Offset_0x002BD0
+Pal_Sonic_And_Tails:                                           ; Offset_0x002BD0
 		incbin  'palettes/sonic.pal'
 Pal_GHz:                                                       ; Offset_0x002BF0
 Pal_Lvl1:                                                      ; Offset_0x002BF0
@@ -3631,7 +3631,7 @@ Title_ClrPalette:
 		lea     (Art_Title_Screen_Bg_Wings), A0        ; Offset_0x075436
 		bsr     NemesisDec                             ; Offset_0x001654
 		move.l  #$40000001, (VDP_Control_Port)               ; $00C00004
-		lea     (Art_Title_Screen_Sonic_Miles), A0     ; Offset_0x076D98
+		lea     (Art_Title_Screen_Sonic_Tails), A0     ; Offset_0x076D98
 		bsr     NemesisDec                             ; Offset_0x001654
 		lea     (VDP_Data_Port), A6                          ; $00C00000
 		move.l  #$50000003, $0004(A6)
@@ -4162,8 +4162,23 @@ Offset_0x00419A:
 ; Modo de jogo ou demonstra��o das fases
 ; ->>>
 ;===============================================================================
-PlayList:                                                      ; Offset_0x0041B8
-		incbin "Misc/MusicList.bin"
+MusicList:                                                     ; Offset_0x0041B8		
+                dc.b    $82   ; GHZ
+                dc.b    $82   ; Zone 01
+                dc.b    $85   ; WZ
+                dc.b    $84   ; Zone 03
+                dc.b    $85   ; MTZ
+                dc.b    $85   ; MTZ Act 3
+                dc.b    $8C   ; Zone 06
+                dc.b    $86   ; HTZ
+                dc.b    $83   ; HPZ
+                dc.b    $8D   ; Zone 09
+                dc.b    $88   ; OOZ
+                dc.b    $8B   ; DHZ
+                dc.b    $89   ; CNZ
+                dc.b    $8E   ; CPZ
+                dc.b    $8E   ; GCZ
+                dc.b    $87   ; NGHZ          
 		even
 ;-------------------------------------------------------------------------------
 Level:                                                         ; Offset_0x0041C8
@@ -4304,7 +4319,7 @@ LevelInit_NoUndewaterPalette:                                  ; Offset_0x004372
 		bmi.s   Offset_0x0043C0
 		moveq   #$00, D0
 		move.b  (Level_Id).w, D0                             ; $FFFFFE10
-		lea     PlayList(PC), A1                       ; Offset_0x0041B8
+		lea     MusicList(PC), A1                      ; Offset_0x0041B8
 		move.b  $00(A1, D0), D0
 		bsr     Play_Music                             ; Offset_0x00150C
 		move.b  #$34, (Title_Card_RAM_Obj_Data).w            ; $FFFFB080
@@ -4403,7 +4418,7 @@ Offset_0x0044A2:
 Offset_0x004516:
 		move.b  $0001(A1), ($FFFFF792).w
 		subq.b  #$01, ($FFFFF792).w
-		lea     (Demo_Green_Hill_Miles), A1            ; Offset_0x004EB2
+		lea     (Demo_Green_Hill_Tails), A1            ; Offset_0x004EB2
 		move.b  $0001(A1), ($FFFFF734).w
 		subq.b  #$01, ($FFFFF734).w
 		move.w  #$0668, (Timer_Count_Down).w                 ; $FFFFF614
@@ -4846,7 +4861,7 @@ Offset_0x004A02:
 Offset_0x004A30:
 		cmpi.b  #$00, (Level_Id).w                           ; $FFFFFE10
 		bne.s   Offset_0x004A68
-		lea     (Demo_Green_Hill_Miles), A1            ; Offset_0x004EB2
+		lea     (Demo_Green_Hill_Tails), A1            ; Offset_0x004EB2
 		move.w  ($FFFFF732).w, D0
 		adda.w  D0, A1
 		move.b  (A1), D0
@@ -5082,15 +5097,15 @@ Offset_0x004D84:
 		tst.w   (Two_Player_Flag).w                          ; $FFFFFFD8
 		beq.s   Offset_0x004DB0
 		move.w  (Camera_X_2).w, D0                           ; $FFFFEE20
-		move.w  (Miles_Level_Limits_Max_X).w, D1             ; $FFFFEEFA
+		move.w  (Tails_Level_Limits_Max_X).w, D1             ; $FFFFEEFA
 		subi.w  #$0100, D1
 		cmp.w   D1, D0
 		blt.s   Offset_0x004DB0
 		tst.b   (HUD_Timer_Refresh_Flag).w                   ; $FFFFFE1E
 		beq.s   Offset_0x004DB0
-		cmp.w   (Miles_Level_Limits_Min_X).w, D1             ; $FFFFEEF8
+		cmp.w   (Tails_Level_Limits_Min_X).w, D1             ; $FFFFEEF8
 		beq.s   Offset_0x004DB0
-		move.w  D1, (Miles_Level_Limits_Min_X).w             ; $FFFFEEF8
+		move.w  D1, (Tails_Level_Limits_Min_X).w             ; $FFFFEEF8
 		moveq   #$27, D0
 		bra     LoadPLC2                               ; Offset_0x0017C6
 Offset_0x004DB0:
@@ -5113,7 +5128,7 @@ Demo_Genocide_City:                                            ; Offset_0x004DB2
 Demo_Neo_Green_Hill:                                           ; Offset_0x004DB2
 Demo_Death_Egg:                                                ; Offset_0x004DB2
 		incbin  'misc/ehzdemosonic.dat'
-Demo_Green_Hill_Miles:                                         ; Offset_0x004EB2
+Demo_Green_Hill_Tails:                                         ; Offset_0x004EB2
 		incbin  'misc/ehzdemotails.dat'
 Demo_Hill_Top:                                                 ; Offset_0x004FB2
 		incbin  'misc/htzdemo.dat'
@@ -5610,7 +5625,7 @@ Level_Size_Load:                                               ; Offset_0x0059A4
 		move.l  (A0)+, D0
 		move.l  D0, (Sonic_Level_Limits_Min_X).w             ; $FFFFEEC8
 		move.l  D0, ($FFFFEEC0).w
-		move.l  D0, (Miles_Level_Limits_Min_X).w             ; $FFFFEEF8
+		move.l  D0, (Tails_Level_Limits_Min_X).w             ; $FFFFEEF8
 		move.l  (A0)+, D0
 		move.l  D0, (Sonic_Level_Limits_Min_Y).w             ; $FFFFEECC
 		move.l  D0, ($FFFFEEC4).w
@@ -5969,7 +5984,7 @@ Offset_0x005E0C:
 		beq.s   Offset_0x005EB2
 		lea     (Player_Two).w, A0                           ; $FFFFB040
 		lea     (Camera_X_2).w, A1                           ; $FFFFEE20
-		lea     (Miles_Level_Limits_Min_X).w, A2             ; $FFFFEEF8
+		lea     (Tails_Level_Limits_Min_X).w, A2             ; $FFFFEEF8
 		lea     (Scroll_Flag_Array+$0008).w, A3              ; $FFFFEE58
 		lea     ($FFFFEEB8).w, A4
 		lea     ($FFFFEED4).w, A5
@@ -5978,7 +5993,7 @@ Offset_0x005E0C:
 		lea     ($FFFFEE48).w, A2
 		bsr     Scroll_Horizontal_2                    ; Offset_0x006C10
 		lea     (Camera_Y_2).w, A1                           ; $FFFFEE24
-		lea     (Miles_Level_Limits_Min_X).w, A2             ; $FFFFEEF8
+		lea     (Tails_Level_Limits_Min_X).w, A2             ; $FFFFEEF8
 		lea     ($FFFFEEBA).w, A4
 		bsr     Scroll_Vertical                        ; Offset_0x006CA2
 		lea     ($FFFFEE49).w, A2
@@ -11840,8 +11855,62 @@ Monitors_Mappings:                                             ; Offset_0x00B580
 ; Rotinas complementares referenciadas no objeto 0x26
 ; <<<-
 ;-------------------------------------------------------------------------------
-Obj_0x0E_Sonic_Miles:                                          ; Offset_0x00B660
-		include 'objects/obj_0x0E.asm'
+Obj_0x0E_Sonic_Tails:                                          ; Offset_0x00B660
+;===============================================================================
+; Objeto 0x0E - Sonic e Tails na Tela Título
+; ->>> 
+;===============================================================================
+; Offset_0x00B660:
+                moveq   #$00, D0
+                move.b  Obj_Routine(A0), D0                              ; $0024
+                move.w  Offset_0x00B66E(PC, D0), D1
+                jmp     Offset_0x00B66E(PC, D1)    
+;------------------------------------------------------------------------------- 
+Offset_0x00B66E:
+                dc.w    Offset_0x00B676-Offset_0x00B66E
+                dc.w    Offset_0x00B6B8-Offset_0x00B66E
+                dc.w    Offset_0x00B6CC-Offset_0x00B66E
+                dc.w    Offset_0x00B6E2-Offset_0x00B66E  
+;-------------------------------------------------------------------------------   
+Offset_0x00B676:
+                addq.b  #$02, Obj_Routine(A0)                            ; $0024
+                move.w  #$0148, Obj_X(A0)                                ; $0008
+                move.w  #$00C4, Obj_Sub_Y(A0)                            ; $000A
+                move.l  #Sonic_Tails_Mappings, Obj_Map(A0) ; Offset_0x00B94E, $0004
+                move.w  #$4200, Obj_Art_VRAM(A0)                         ; $0002
+                move.b  #$01, Obj_Priority(A0)                           ; $0018
+                move.b  #$1D, Obj_Ani_Time_2(A0)                         ; $001F
+                tst.b   Obj_Map_Id(A0)                                   ; $001A
+                beq.s   Offset_0x00B6B8
+                move.w  #$00FC, Obj_X(A0)                                ; $0008
+                move.w  #$00CC, Obj_Sub_Y(A0)                            ; $000A
+                move.w  #$2200, Obj_Art_VRAM(A0)                         ; $0002   
+;------------------------------------------------------------------------------- 
+Offset_0x00B6B8:
+                bra     DisplaySprite                          ; Offset_0x00D322  
+;-------------------------------------------------------------------------------  
+; Offset_0x00B6BC:
+                subq.b  #$01, Obj_Ani_Time_2(A0)                         ; $001F
+                bpl.s   Offset_0x00B6CA
+                addq.b  #$02, Obj_Routine(A0)                            ; $0024
+                bra     DisplaySprite                          ; Offset_0x00D322
+Offset_0x00B6CA:
+                rts                                                             
+;-------------------------------------------------------------------------------  
+Offset_0x00B6CC:
+                subi.w  #$0008, Obj_Sub_Y(A0)                            ; $000A
+                cmpi.w  #$0096, Obj_Sub_Y(A0)                            ; $000A
+                bne.s   Offset_0x00B6DE
+                addq.b  #$02, Obj_Routine(A0)                            ; $0024
+Offset_0x00B6DE:
+                bra     DisplaySprite                          ; Offset_0x00D322 
+;-------------------------------------------------------------------------------  
+Offset_0x00B6E2:
+                bra     DisplaySprite                          ; Offset_0x00D322
+;===============================================================================
+; Objeto 0x0E - Sonic e Tails na Tela Título
+; <<<- 
+;===============================================================================		
 Obj_0x0F:                                                      ; Offset_0x00B6E6
 		include 'objects/obj_0x0F.asm'
 ;-------------------------------------------------------------------------------
@@ -11907,9 +11976,9 @@ Offset_0x00B944:
 		dc.w    $0001
 		dc.l    $FC040000, $0000FFF8
 ;-------------------------------------------------------------------------------
-Sonic_Miles_Mappings:                                          ; Offset_0x00B94E
-		dc.w    Sonic_In_Title_Screen_Map-Sonic_Miles_Mappings ; Offset_0x00B952
-		dc.w    Miles_In_Title_Screen_Map-Sonic_Miles_Mappings ; Offset_0x00B9AC
+Sonic_Tails_Mappings:                                          ; Offset_0x00B94E
+		dc.w    Sonic_In_Title_Screen_Map-Sonic_Tails_Mappings ; Offset_0x00B952
+		dc.w    Tails_In_Title_Screen_Map-Sonic_Tails_Mappings ; Offset_0x00B9AC
 Sonic_In_Title_Screen_Map:                                     ; Offset_0x00B952
 		dc.w    $000B
 		dc.l    $D40D0000, $0000FFD8
@@ -11923,7 +11992,7 @@ Sonic_In_Title_Screen_Map:                                     ; Offset_0x00B952
 		dc.l    $0C060060, $00300018
 		dc.l    $24040066, $0033FFE8
 		dc.l    $240D0068, $0034FFF8
-Miles_In_Title_Screen_Map:                                     ; Offset_0x00B9AC
+Tails_In_Title_Screen_Map:                                     ; Offset_0x00B9AC
 		dc.w    $000A
 		dc.l    $DC060070, $0038FFEC
 		dc.l    $F40F0076, $003BFFD4
@@ -12354,19 +12423,19 @@ Load_Next_Object_2:                                            ; Offset_0x00CEE8
 ;-------------------------------------------------------------------------------
 Object_List:                                                   ; Offset_0x00CEF2
 		dc.l    Obj_0x01_Sonic                         ; Offset_0x00FAF0
-		dc.l    Obj_0x02_Miles                         ; Offset_0x011130
+		dc.l    Obj_0x02_Tails                         ; Offset_0x011130
 		dc.l    Obj_0x03_Layer_Switch                  ; Offset_0x014DC8
 		dc.l    Obj_0x04_Water_Surface                 ; Offset_0x0159CC
-		dc.l    Obj_0x05_Miles_Tail                    ; Offset_0x012442
+		dc.l    Obj_0x05_Tails_Tail                    ; Offset_0x012442
 		dc.l    Obj_0x06_Spiral_Attributes             ; Offset_0x0163A8
 		dc.l    Obj_0x07_0il_Attributes                ; Offset_0x018E50
 		dc.l    Obj_0x08_Dust_Water_Splash             ; Offset_0x0131B0
 		dc.l    Obj_0x09_Sonic_In_Special_Stage        ; Offset_0x02BF70
-		dc.l    Obj_0x0A_Sonic_Miles_Underwater        ; Offset_0x01254C
+		dc.l    Obj_0x0A_Sonic_Tails_Underwater        ; Offset_0x01254C
 		dc.l    Obj_0x0B_Open_Close_Platform           ; Offset_0x0151C4
 		dc.l    Obj_0x0C_Unk_Platform                  ; Offset_0x01531C
 		dc.l    Obj_0x0D_End_Panel                     ; Offset_0x00F098
-		dc.l    Obj_0x0E_Sonic_Miles                   ; Offset_0x00B660
+		dc.l    Obj_0x0E_Sonic_Tails                   ; Offset_0x00B660
 		dc.l    Obj_0x0F                               ; Offset_0x00B6E6
 		dc.l    Obj_Null_3                             ; Offset_0x02C612
 		dc.l    Obj_0x11_Bridge                        ; Offset_0x008468
@@ -13265,7 +13334,7 @@ Offset_0x00D8E2:
 		moveq   #$00, D4
 		tst.b   ($FFFFF711).w
 		beq.s   Offset_0x00D8F4
-		bsr     Build_Rings_2P_Miles                   ; Offset_0x00E042
+		bsr     Build_Rings_2P_Tails                   ; Offset_0x00E042
 Offset_0x00D8F4:
 		lea     ($FFFFAC00).w, A4
 		moveq   #$07, D7
@@ -14031,7 +14100,7 @@ Build_Rings_2P:                                                ; Offset_0x00E02C
 		bne.s   Offset_0x00E058
 		rts
 ;-------------------------------------------------------------------------------
-Build_Rings_2P_Miles:                                          ; Offset_0x00E042
+Build_Rings_2P_Tails:                                          ; Offset_0x00E042
 		lea     (Camera_X_2).w, A3                           ; $FFFFEE20
 		move.w  #$0158, D6
 		move.w  ($FFFFF716).w, A0
@@ -15633,7 +15702,7 @@ Offset_0x00F9B6:
 		jsr     (Sonic_ResetOnFloor)                   ; Offset_0x010A46
 		bra.s   Offset_0x00F9FA
 Offset_0x00F9F4:
-		jsr     (Miles_ResetOnFloor)                   ; Offset_0x011EC6
+		jsr     (Tails_ResetOnFloor)                   ; Offset_0x011EC6
 Offset_0x00F9FA:
 		move.l  (A7)+, A0
 Offset_0x00F9FC:
@@ -15770,7 +15839,7 @@ Sonic_Main:                                                    ; Offset_0x00FB14
                 move.w  #$0000, ($FFFFEED2).w
                 move.w  #$003F, D2
 Offset_0x00FB88:
-                bsr     CopySonicMovesForMiles                 ; Offset_0x00FCD4
+                bsr     CopySonicMovesForTails                 ; Offset_0x00FCD4
                 move.w  #$0000, $00(A1, D0)
                 dbra    D2, Offset_0x00FB88
 ;-------------------------------------------------------------------------------
@@ -15800,7 +15869,7 @@ Offset_0x00FBD6:
                 andi.w  #$07FF, Obj_Y(A0)                                ; $000C
 Offset_0x00FBE4:
                 bsr.s   Sonic_Display                          ; Offset_0x00FC38
-                bsr     CopySonicMovesForMiles                 ; Offset_0x00FCD4
+                bsr     CopySonicMovesForTails                 ; Offset_0x00FCD4
                 bsr     Sonic_Water                            ; Offset_0x00FCF8
                 move.b  ($FFFFF768).w, Obj_Player_Next_Tilt(A0)          ; $0036
                 move.b  ($FFFFF76A).w, Obj_Player_Tilt(A0)               ; $0037
@@ -15823,23 +15892,23 @@ Sonic_Modes:                                                   ; Offset_0x00FC20
                 dc.w    Sonic_MdRoll-Sonic_Modes               ; Offset_0x00FE7C
                 dc.w    Sonic_MdJump2-Sonic_Modes              ; Offset_0x00FE9C
 ;-------------------------------------------------------------------------------
-Sonic_PlayList:                                                ; Offset_0x00FC28
-                dc.b    $82  ; GHz
-                dc.b    $82
-                dc.b    $85  ; Wz
-                dc.b    $84
-                dc.b    $85  ; Mz
-                dc.b    $85  ; Mz
-                dc.b    $8C
-                dc.b    $86  ; HTz
-                dc.b    $83  ; HPz
-                dc.b    $8D
-                dc.b    $88  ; OOz
-                dc.b    $8B  ; DHz
-                dc.b    $89  ; CNz
-                dc.b    $8E  ; CPz
-                dc.b    $8E  ; GCz
-                dc.b    $87  ; NGHz
+Sonic_MusicList:                                               ; Offset_0x00FC28
+                dc.b    $82  ; GHZ
+                dc.b    $82  ; Zone 01
+                dc.b    $85  ; WZ
+                dc.b    $84  ; Zone 03
+                dc.b    $85  ; MTZ
+                dc.b    $85  ; MTZ Act 3
+                dc.b    $8C  ; Zone 06
+                dc.b    $86  ; HTZ
+                dc.b    $83  ; HPZ
+                dc.b    $8D  ; Zone 09
+                dc.b    $88  ; OOZ
+                dc.b    $8B  ; DHZ
+                dc.b    $89  ; CNZ
+                dc.b    $8E  ; CPZ
+                dc.b    $8E  ; GCZ
+                dc.b    $87  ; NGHZ
 ;-------------------------------------------------------------------------------
 Sonic_Display:                                                 ; Offset_0x00FC38
                 move.w  Obj_P_Invunerblt_Time(A0), D0                    ; $0030
@@ -15862,7 +15931,7 @@ Offset_0x00FC4C:
                 bcs.s   Offset_0x00FC80
                 moveq   #$00, D0
                 move.b  (Level_Id).w, D0                             ; $FFFFFE10
-                lea     Sonic_PlayList(PC), A1                 ; Offset_0x00FC28
+                lea     Sonic_MusicList(PC), A1                ; Offset_0x00FC28
                 move.b  $00(A1, D0), D0
                 jsr     (Play_Music)                           ; Offset_0x00150C
 Offset_0x00FC80:
@@ -15889,7 +15958,7 @@ Offset_0x00FCC2:
 Offset_0x00FCD2:
                 rts
 ;-------------------------------------------------------------------------------
-CopySonicMovesForMiles:                                        ; Offset_0x00FCD4
+CopySonicMovesForTails:                                        ; Offset_0x00FCD4
                 move.w  ($FFFFEED2).w, D0
                 lea     ($FFFFE500).w, A1
                 lea     $00(A1, D0), A1
@@ -17035,7 +17104,7 @@ Sonic_Hurt:                                                    ; Offset_0x010AAA
 Offset_0x010ACC:
                 bsr     Sonic_HurtStop                         ; Offset_0x010AE6
                 bsr     Sonic_LevelBoundaries                  ; Offset_0x010456
-                bsr     CopySonicMovesForMiles                 ; Offset_0x00FCD4
+                bsr     CopySonicMovesForTails                 ; Offset_0x00FCD4
                 bsr     Sonic_Animate                          ; Offset_0x010BF2
                 bsr     Load_Sonic_Dynamic_PLC                 ; Offset_0x0110D4
                 jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -17061,7 +17130,7 @@ Offset_0x010B20:
 Offset_0x010B22:
                 subq.b  #$02, Obj_Routine(A0)                            ; $0024
                 move.b  #$00, Obj_Routine_2(A0)                          ; $0025
-                bsr     CopySonicMovesForMiles                 ; Offset_0x00FCD4
+                bsr     CopySonicMovesForTails                 ; Offset_0x00FCD4
                 bsr     Sonic_Animate                          ; Offset_0x010BF2
                 bsr     Load_Sonic_Dynamic_PLC                 ; Offset_0x0110D4
                 jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -17069,7 +17138,7 @@ Offset_0x010B22:
 Sonic_Death:                                                   ; Offset_0x010B3E
                 bsr     Sonic_GameOver                         ; Offset_0x010B5A
                 jsr     (ObjectFall)                           ; Offset_0x00D1AE
-                bsr     CopySonicMovesForMiles                 ; Offset_0x00FCD4
+                bsr     CopySonicMovesForTails                 ; Offset_0x00FCD4
                 bsr     Sonic_Animate                          ; Offset_0x010BF2
                 bsr     Load_Sonic_Dynamic_PLC                 ; Offset_0x0110D4
                 jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -17577,37 +17646,37 @@ Kill_Sonic:                                                    ; Offset_0x011128
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x02_Miles:                                                ; Offset_0x011130
+Obj_0x02_Tails:                                                ; Offset_0x011130
 ;===============================================================================
-; Object 0x02 - Miles
+; Object 0x02 - Tails
 ; ->>>
 ;===============================================================================
 ; Offset_0x011130:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
-                move.w  Miles_Index(PC, D0), D1                ; Offset_0x01113E
-                jmp     Miles_Index(PC, D1)                    ; Offset_0x01113E
+                move.w  Tails_Index(PC, D0), D1                ; Offset_0x01113E
+                jmp     Tails_Index(PC, D1)                    ; Offset_0x01113E
 ;-------------------------------------------------------------------------------
-Miles_Index:                                                   ; Offset_0x01113E
-                dc.w    Miles_Main-Miles_Index                 ; Offset_0x011148
-                dc.w    Miles_Control-Miles_Index              ; Offset_0x0111B2
-                dc.w    Miles_Hurt-Miles_Index                 ; Offset_0x011F2A
-                dc.w    Miles_Death-Miles_Index                ; Offset_0x011F9C
-                dc.w    Miles_ResetLevel-Miles_Index           ; Offset_0x011FFC
+Tails_Index:                                                   ; Offset_0x01113E
+                dc.w    Tails_Main-Tails_Index                 ; Offset_0x011148
+                dc.w    Tails_Control-Tails_Index              ; Offset_0x0111B2
+                dc.w    Tails_Hurt-Tails_Index                 ; Offset_0x011F2A
+                dc.w    Tails_Death-Tails_Index                ; Offset_0x011F9C
+                dc.w    Tails_ResetLevel-Tails_Index           ; Offset_0x011FFC
 ;-------------------------------------------------------------------------------
-Miles_Main:                                                    ; Offset_0x011148
+Tails_Main:                                                    ; Offset_0x011148
                 addq.b  #$02, Obj_Routine(A0)                            ; $0024
                 move.b  #$0F, Obj_Height_2(A0)                           ; $0016
                 move.b  #$09, Obj_Width_2(A0)                            ; $0017
-                move.l  #Miles_Mappings, Obj_Map(A0)    ; Offset_0x0739E2, $0004                  ; $0004
+                move.l  #Tails_Mappings, Obj_Map(A0)    ; Offset_0x0739E2, $0004                  ; $0004
                 move.w  #$07A0, Obj_Art_VRAM(A0)                         ; $0002
                 bsr     ModifySpriteAttr_2P                    ; Offset_0x00DBBE
                 move.b  #$02, Obj_Priority(A0)                           ; $0018
                 move.b  #$18, Obj_Width(A0)                              ; $0019
                 move.b  #$84, Obj_Flags(A0)                              ; $0001
-                move.w  #$0600, (Miles_Max_Speed).w                  ; $FFFFFEC0
-                move.w  #$000C, (Miles_Acceleration).w               ; $FFFFFEC2
-                move.w  #$0080, (Miles_Deceleration).w               ; $FFFFFEC4
+                move.w  #$0600, (Tails_Max_Speed).w                  ; $FFFFFEC0
+                move.w  #$000C, (Tails_Acceleration).w               ; $FFFFFEC2
+                move.w  #$0080, (Tails_Deceleration).w               ; $FFFFFEC4
                 move.b  #$0C, Obj_Player_Top_Solid(A0)                   ; $003E
                 move.b  #$0D, Obj_Player_LRB_Solid(A0)                   ; $003F
                 move.b  #$00, Obj_P_Flips_Remaining(A0)                  ; $002C
@@ -17615,23 +17684,23 @@ Miles_Main:                                                    ; Offset_0x011148
                 move.b  #$1E, Obj_Subtype(A0)                            ; $0028
                 move.b  #$05, ($FFFFB1C0).w
 ;-------------------------------------------------------------------------------
-Miles_Control:                                                 ; Offset_0x0111B2
-                bsr     Miles_CPU_Control                      ; Offset_0x0112B6
+Tails_Control:                                                 ; Offset_0x0111B2
+                bsr     Tails_CPU_Control                      ; Offset_0x0112B6
                 btst    #$00, Obj_Timer(A0)                              ; $002A
-                bne.s   Miles_ControlsLock                     ; Offset_0x0111D0
+                bne.s   Tails_ControlsLock                     ; Offset_0x0111D0
                 moveq   #$00, D0
                 move.b  Obj_Status(A0), D0                               ; $0022
                 andi.w  #$0006, D0
-                move.w  Miles_Modes(PC, D0), D1                ; Offset_0x01121A
-                jsr     Miles_Modes(PC, D1)                    ; Offset_0x01121A
-Miles_ControlsLock:                                            ; Offset_0x0111D0
+                move.w  Tails_Modes(PC, D0), D1                ; Offset_0x01121A
+                jsr     Tails_Modes(PC, D1)                    ; Offset_0x01121A
+Tails_ControlsLock:                                            ; Offset_0x0111D0
                 cmpi.w  #$FF00, (Sonic_Level_Limits_Min_Y).w         ; $FFFFEECC
                 bne.s   Offset_0x0111DE
                 andi.w  #$07FF, Obj_Y(A0)                                ; $000C
 Offset_0x0111DE:
-                bsr.s   Miles_Display                          ; Offset_0x011232
-                bsr     Miles_RecordMoves                      ; Offset_0x011376
-                bsr     Miles_Water                            ; Offset_0x011390
+                bsr.s   Tails_Display                          ; Offset_0x011232
+                bsr     Tails_RecordMoves                      ; Offset_0x011376
+                bsr     Tails_Water                            ; Offset_0x011390
                 move.b  ($FFFFF768).w, Obj_Player_Next_Tilt(A0)          ; $0036
                 move.b  ($FFFFF76A).w, Obj_Player_Tilt(A0)               ; $0037
                 tst.b   ($FFFFF7C7).w
@@ -17640,38 +17709,38 @@ Offset_0x0111DE:
                 bne.s   Offset_0x011206
                 move.b  Obj_Ani_Flag(A0), Obj_Ani_Number(A0)      ; $001C, $001D
 Offset_0x011206:
-                bsr     Miles_Animate                          ; Offset_0x012010
+                bsr     Tails_Animate                          ; Offset_0x012010
                 tst.b   Obj_Timer(A0)                                    ; $002A
                 bmi.s   Offset_0x011216
                 jsr     (TouchResponse)                        ; Offset_0x02B1EC
 Offset_0x011216:
-                bra     Load_Miles_Dynamic_PLC                 ; Offset_0x0123EE
+                bra     Load_Tails_Dynamic_PLC                 ; Offset_0x0123EE
 ;-------------------------------------------------------------------------------
-Miles_Modes:                                                   ; Offset_0x01121A
-                dc.w    Miles_MdNormal-Miles_Modes             ; Offset_0x011448
-                dc.w    Miles_MdJump-Miles_Modes               ; Offset_0x011470
-                dc.w    Miles_MdRoll-Miles_Modes               ; Offset_0x01149A
-                dc.w    Miles_MdJump2-Miles_Modes              ; Offset_0x0114BA
+Tails_Modes:                                                   ; Offset_0x01121A
+                dc.w    Tails_MdNormal-Tails_Modes             ; Offset_0x011448
+                dc.w    Tails_MdJump-Tails_Modes               ; Offset_0x011470
+                dc.w    Tails_MdRoll-Tails_Modes               ; Offset_0x01149A
+                dc.w    Tails_MdJump2-Tails_Modes              ; Offset_0x0114BA
 ;-------------------------------------------------------------------------------
-Miles_PlayList:                                                ; Offset_0x011222
-                dc.b    $82  ; GHz
-                dc.b    $82
-                dc.b    $85  ; Wz
-                dc.b    $84
-                dc.b    $85  ; Mz
-                dc.b    $85  ; Mz
-                dc.b    $8C
-                dc.b    $86  ; HTz
-                dc.b    $83  ; HPz
-                dc.b    $8D
-                dc.b    $88  ; OOz
-                dc.b    $8B  ; DHz
-                dc.b    $89  ; CNz
-                dc.b    $8E  ; CPz
-                dc.b    $8E  ; GCz
-                dc.b    $87  ; NGHz
+Tails_MusicList:                                               ; Offset_0x011222
+                dc.b    $82  ; GHZ
+                dc.b    $82  ; Zone 01
+                dc.b    $85  ; WZ
+                dc.b    $84  ; Zone 03
+                dc.b    $85  ; MTZ
+                dc.b    $85  ; MTZ Act 3
+                dc.b    $8C  ; Zone 06
+                dc.b    $86  ; HTZ
+                dc.b    $83  ; HPZ
+                dc.b    $8D  ; Zone 09
+                dc.b    $88  ; OOZ
+                dc.b    $8B  ; DHZ
+                dc.b    $89  ; CNZ
+                dc.b    $8E  ; CPZ
+                dc.b    $8E  ; GCZ
+                dc.b    $87  ; NGHZ
 ;-------------------------------------------------------------------------------
-Miles_Display:                                                 ; Offset_0x011232
+Tails_Display:                                                 ; Offset_0x011232
                 move.w  Obj_P_Invunerblt_Time(A0), D0                    ; $0030
                 beq.s   Offset_0x011240
                 subq.w  #$01, Obj_P_Invunerblt_Time(A0)                  ; $0030
@@ -17692,7 +17761,7 @@ Offset_0x011246:
                 bcs.s   Offset_0x01127A
                 moveq   #$00, D0
                 move.b  (Level_Id).w, D0                             ; $FFFFFE10
-                lea     Miles_PlayList(PC), A1                 ; Offset_0x011222
+                lea     Tails_MusicList(PC), A1                ; Offset_0x011222
                 move.b  $00(A1, D0), D0
                 jsr     (Play_Music)                           ; Offset_0x00150C
 Offset_0x01127A:
@@ -17704,16 +17773,16 @@ Offset_0x011280:
                 beq.s   Offset_0x0112B4
                 subq.w  #$01, Obj_P_Spd_Shoes_Time(A0)                   ; $0034
                 bne.s   Offset_0x0112B4
-                move.w  #$0600, (Miles_Max_Speed).w                  ; $FFFFFEC0
-                move.w  #$000C, (Miles_Acceleration).w               ; $FFFFFEC2
-                move.w  #$0080, (Miles_Deceleration).w               ; $FFFFFEC4
+                move.w  #$0600, (Tails_Max_Speed).w                  ; $FFFFFEC0
+                move.w  #$000C, (Tails_Acceleration).w               ; $FFFFFEC2
+                move.w  #$0080, (Tails_Deceleration).w               ; $FFFFFEC4
                 move.b  #$00, (Hi_Speed_Flag).w                      ; $FFFFFE2E
                 move.w  #$00FC, D0
                 jmp     (Play_Music)                           ; Offset_0x00150C
 Offset_0x0112B4:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_CPU_Control:                                             ; Offset_0x0112B6
+Tails_CPU_Control:                                             ; Offset_0x0112B6
                 move.b  ($FFFFF606).w, D0
                 andi.b  #$7F, D0
                 beq.s   Offset_0x0112CE
@@ -17727,20 +17796,20 @@ Offset_0x0112CE:
                 rts
 Offset_0x0112DA:
                 move.w  ($FFFFF708).w, D0
-                move.w  Miles_CPU_States(PC, D0), D0           ; Offset_0x0112E6
-                jmp     Miles_CPU_States(PC, D0)               ; Offset_0x0112E6
+                move.w  Tails_CPU_States(PC, D0), D0           ; Offset_0x0112E6
+                jmp     Tails_CPU_States(PC, D0)               ; Offset_0x0112E6
 ;-------------------------------------------------------------------------------
-Miles_CPU_States:                                              ; Offset_0x0112E6
-                dc.w    Miles_CPU_Init-Miles_CPU_States        ; Offset_0x0112EE
-                dc.w    Miles_CPU_Spawning-Miles_CPU_States    ; Offset_0x0112F6
-                dc.w    Miles_CPU_Normal-Miles_CPU_States      ; Offset_0x01130A
-                dc.w    Miles_Copy_Sonic_Moves-Miles_CPU_States  ; Offset_0x011344
+Tails_CPU_States:                                              ; Offset_0x0112E6
+                dc.w    Tails_CPU_Init-Tails_CPU_States        ; Offset_0x0112EE
+                dc.w    Tails_CPU_Spawning-Tails_CPU_States    ; Offset_0x0112F6
+                dc.w    Tails_CPU_Normal-Tails_CPU_States      ; Offset_0x01130A
+                dc.w    Tails_Copy_Sonic_Moves-Tails_CPU_States  ; Offset_0x011344
 ;-------------------------------------------------------------------------------
-Miles_CPU_Init:                                                ; Offset_0x0112EE
+Tails_CPU_Init:                                                ; Offset_0x0112EE
                 move.w  #$0006, ($FFFFF708).w
                 rts
 ;-------------------------------------------------------------------------------
-Miles_CPU_Spawning:                                            ; Offset_0x0112F6
+Tails_CPU_Spawning:                                            ; Offset_0x0112F6
                 move.w  #$0006, ($FFFFF708).w
                 rts
 ;-------------------------------------------------------------------------------
@@ -17748,7 +17817,7 @@ Miles_CPU_Spawning:                                            ; Offset_0x0112F6
                 move.w  #$0040, ($FFFFF706).w
                 move.w  #$0004, ($FFFFF708).w
 ;-------------------------------------------------------------------------------
-Miles_CPU_Normal:                                              ; Offset_0x01130A
+Tails_CPU_Normal:                                              ; Offset_0x01130A
                 move.w  #$0006, ($FFFFF708).w
                 rts
 ;-------------------------------------------------------------------------------
@@ -17769,7 +17838,7 @@ Offset_0x011324:
                 move.w  $02(A1, D0), Obj_Y(A0)                           ; $000C
                 rts
 ;-------------------------------------------------------------------------------
-Miles_Copy_Sonic_Moves:                                        ; Offset_0x011344
+Tails_Copy_Sonic_Moves:                                        ; Offset_0x011344
                 move.w  (Player_One_Position_X).w, D0                ; $FFFFB008
                 sub.w   Obj_X(A0), D0                                    ; $0008
                 bpl.s   Offset_0x011350
@@ -17789,7 +17858,7 @@ Offset_0x011358:
                 move.w  $00(A1, D0), ($FFFFF606).w
                 rts
 ;-------------------------------------------------------------------------------
-Miles_RecordMoves:                                             ; Offset_0x011376
+Tails_RecordMoves:                                             ; Offset_0x011376
                 move.w  ($FFFFEED6).w, D0
                 lea     ($FFFFE700).w, A1
                 lea     $00(A1, D0), A1
@@ -17798,16 +17867,16 @@ Miles_RecordMoves:                                             ; Offset_0x011376
                 addq.b  #$04, ($FFFFEED7).w
                 rts
 ;-------------------------------------------------------------------------------
-Miles_Water:                                                   ; Offset_0x011390
+Tails_Water:                                                   ; Offset_0x011390
                 tst.b   (Water_Level_Flag).w                         ; $FFFFF730
-                bne.s   Miles_InLevelWithWater                 ; Offset_0x011398
+                bne.s   Tails_InLevelWithWater                 ; Offset_0x011398
 Offset_0x011396:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_InLevelWithWater:                                        ; Offset_0x011398
+Tails_InLevelWithWater:                                        ; Offset_0x011398
                 move.w  (Water_Level).w, D0                          ; $FFFFF646
                 cmp.w   Obj_Y(A0), D0                                    ; $000C
-                bge.s   Miles_NotInWater                       ; Offset_0x0113F0
+                bge.s   Tails_NotInWater                       ; Offset_0x0113F0
                 bset    #$06, Obj_Status(A0)                             ; $0022
                 bne.s   Offset_0x011396
                 move.l  A0, A1
@@ -17815,9 +17884,9 @@ Miles_InLevelWithWater:                                        ; Offset_0x011398
                 move.b  #$0A, ($FFFFB300).w
                 move.b  #$81, ($FFFFB328).w
                 move.l  A0, ($FFFFB33C).w
-                move.w  #$0300, (Miles_Max_Speed).w                  ; $FFFFFEC0
-                move.w  #$0006, (Miles_Acceleration).w               ; $FFFFFEC2
-                move.w  #$0040, (Miles_Deceleration).w               ; $FFFFFEC4
+                move.w  #$0300, (Tails_Max_Speed).w                  ; $FFFFFEC0
+                move.w  #$0006, (Tails_Acceleration).w               ; $FFFFFEC2
+                move.w  #$0040, (Tails_Deceleration).w               ; $FFFFFEC4
                 asr.w   Obj_Speed(A0)                                    ; $0010
                 asr.w   Obj_Speed_Y(A0)                                  ; $0012
                 asr.w   Obj_Speed_Y(A0)                                  ; $0012
@@ -17826,14 +17895,14 @@ Miles_InLevelWithWater:                                        ; Offset_0x011398
                 move.w  #$00AA, D0
                 jmp     (Play_Sfx)                             ; Offset_0x001512
 ;-------------------------------------------------------------------------------
-Miles_NotInWater:                                              ; Offset_0x0113F0
+Tails_NotInWater:                                              ; Offset_0x0113F0
                 bclr    #$06, Obj_Status(A0)                             ; $0022
                 beq.s   Offset_0x011396
                 move.l  A0, A1
                 bsr     Resume_Music                           ; Offset_0x012A30
-                move.w  #$0600, (Miles_Max_Speed).w                  ; $FFFFFEC0
-                move.w  #$000C, (Miles_Acceleration).w               ; $FFFFFEC2
-                move.w  #$0080, (Miles_Deceleration).w               ; $FFFFFEC4
+                move.w  #$0600, (Tails_Max_Speed).w                  ; $FFFFFEC0
+                move.w  #$000C, (Tails_Acceleration).w               ; $FFFFFEC2
+                move.w  #$0080, (Tails_Deceleration).w               ; $FFFFFEC4
                 cmpi.b  #$04, Obj_Routine(A0)                            ; $0024
                 beq.s   Offset_0x01141C
                 asl.w   Obj_Speed_Y(A0)                                  ; $0012
@@ -17850,58 +17919,58 @@ Offset_0x01143E:
                 move.w  #$00AA, D0
                 jmp     (Play_Sfx)                             ; Offset_0x001512
 ;-------------------------------------------------------------------------------
-Miles_MdNormal:                                                ; Offset_0x011448
-                bsr     Miles_Spindash                         ; Offset_0x011AAC
-                bsr     Miles_Jump                             ; Offset_0x0119C2
-                bsr     Miles_SlopeResist                      ; Offset_0x011BA6
-                bsr     Miles_Move                             ; Offset_0x0114E4
-                bsr     Miles_Roll                             ; Offset_0x01195C
-                bsr     Miles_LevelBoundaries                  ; Offset_0x0118FE
+Tails_MdNormal:                                                ; Offset_0x011448
+                bsr     Tails_Spindash                         ; Offset_0x011AAC
+                bsr     Tails_Jump                             ; Offset_0x0119C2
+                bsr     Tails_SlopeResist                      ; Offset_0x011BA6
+                bsr     Tails_Move                             ; Offset_0x0114E4
+                bsr     Tails_Roll                             ; Offset_0x01195C
+                bsr     Tails_LevelBoundaries                  ; Offset_0x0118FE
                 jsr     (SpeedToPos)                           ; Offset_0x00D1DA
                 bsr     Player_AnglePos                        ; Offset_0x013694
-                bsr     Miles_SlopeRepel                       ; Offset_0x011C18
+                bsr     Tails_SlopeRepel                       ; Offset_0x011C18
                 rts
 ;-------------------------------------------------------------------------------
-Miles_MdJump:                                                  ; Offset_0x011470
-                bsr     Miles_JumpHeight                       ; Offset_0x011A70
-                bsr     Miles_ChgJumpDir                       ; Offset_0x011884
-                bsr     Miles_LevelBoundaries                  ; Offset_0x0118FE
+Tails_MdJump:                                                  ; Offset_0x011470
+                bsr     Tails_JumpHeight                       ; Offset_0x011A70
+                bsr     Tails_ChgJumpDir                       ; Offset_0x011884
+                bsr     Tails_LevelBoundaries                  ; Offset_0x0118FE
                 jsr     (ObjectFall)                           ; Offset_0x00D1AE
                 btst    #$06, Obj_Status(A0)                             ; $0022
                 beq.s   Offset_0x011490
                 subi.w  #$0028, Obj_Speed_Y(A0)                          ; $0012
 Offset_0x011490:
-                bsr     Miles_JumpAngle                        ; Offset_0x011C5A
-                bsr     Miles_Floor                            ; Offset_0x011CBA
+                bsr     Tails_JumpAngle                        ; Offset_0x011C5A
+                bsr     Tails_Floor                            ; Offset_0x011CBA
                 rts
 ;-------------------------------------------------------------------------------
-Miles_MdRoll:                                                  ; Offset_0x01149A
-                bsr     Miles_Jump                             ; Offset_0x0119C2
-                bsr     Miles_RollRepel                        ; Offset_0x011BDC
-                bsr     Miles_RollSpeed                        ; Offset_0x01178C
-                bsr     Miles_LevelBoundaries                  ; Offset_0x0118FE
+Tails_MdRoll:                                                  ; Offset_0x01149A
+                bsr     Tails_Jump                             ; Offset_0x0119C2
+                bsr     Tails_RollRepel                        ; Offset_0x011BDC
+                bsr     Tails_RollSpeed                        ; Offset_0x01178C
+                bsr     Tails_LevelBoundaries                  ; Offset_0x0118FE
                 jsr     (SpeedToPos)                           ; Offset_0x00D1DA
                 bsr     Player_AnglePos                        ; Offset_0x013694
-                bsr     Miles_SlopeRepel                       ; Offset_0x011C18
+                bsr     Tails_SlopeRepel                       ; Offset_0x011C18
                 rts
 ;-------------------------------------------------------------------------------
-Miles_MdJump2:                                                 ; Offset_0x0114BA
-                bsr     Miles_JumpHeight                       ; Offset_0x011A70
-                bsr     Miles_ChgJumpDir                       ; Offset_0x011884
-                bsr     Miles_LevelBoundaries                  ; Offset_0x0118FE
+Tails_MdJump2:                                                 ; Offset_0x0114BA
+                bsr     Tails_JumpHeight                       ; Offset_0x011A70
+                bsr     Tails_ChgJumpDir                       ; Offset_0x011884
+                bsr     Tails_LevelBoundaries                  ; Offset_0x0118FE
                 jsr     (ObjectFall)                           ; Offset_0x00D1AE
                 btst    #$06, Obj_Status(A0)                             ; $0022
                 beq.s   Offset_0x0114DA
                 subi.w  #$0028, Obj_Speed_Y(A0)                          ; $0012
 Offset_0x0114DA:
-                bsr     Miles_JumpAngle                        ; Offset_0x011C5A
-                bsr     Miles_Floor                            ; Offset_0x011CBA
+                bsr     Tails_JumpAngle                        ; Offset_0x011C5A
+                bsr     Tails_Floor                            ; Offset_0x011CBA
                 rts
 ;-------------------------------------------------------------------------------
-Miles_Move:                                                    ; Offset_0x0114E4
-                move.w  (Miles_Max_Speed).w, D6                      ; $FFFFFEC0
-                move.w  (Miles_Acceleration).w, D5                   ; $FFFFFEC2
-                move.w  (Miles_Deceleration).w, D4                   ; $FFFFFEC4
+Tails_Move:                                                    ; Offset_0x0114E4
+                move.w  (Tails_Max_Speed).w, D6                      ; $FFFFFEC0
+                move.w  (Tails_Acceleration).w, D5                   ; $FFFFFEC2
+                move.w  (Tails_Deceleration).w, D4                   ; $FFFFFEC4
                 tst.b   (Player_Status_Flag).w                       ; $FFFFF7CA
                 bne     Offset_0x0115F6
                 tst.w   Obj_Player_Control(A0)                           ; $002E
@@ -18125,12 +18194,12 @@ Offset_0x011748:
 Offset_0x01178A:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_RollSpeed:                                               ; Offset_0x01178C
-                move.w  (Miles_Max_Speed).w, D6                      ; $FFFFFEC0
+Tails_RollSpeed:                                               ; Offset_0x01178C
+                move.w  (Tails_Max_Speed).w, D6                      ; $FFFFFEC0
                 asl.w   #$01, D6
-                move.w  (Miles_Acceleration).w, D5                   ; $FFFFFEC2
+                move.w  (Tails_Acceleration).w, D5                   ; $FFFFFEC2
                 asr.w   #$01, D5
-                move.w  (Miles_Deceleration).w, D4                   ; $FFFFFEC4
+                move.w  (Tails_Deceleration).w, D4                   ; $FFFFFEC4
                 asr.w   #$02, D4
                 tst.b   (Player_Status_Flag).w                       ; $FFFFF7CA
                 bne     Offset_0x011808
@@ -18214,9 +18283,9 @@ Offset_0x01187E:
                 move.w  D0, Obj_Inertia(A0)                              ; $0014
                 rts
 ;-------------------------------------------------------------------------------
-Miles_ChgJumpDir:                                              ; Offset_0x011884
-                move.w  (Miles_Max_Speed).w, D6                      ; $FFFFFEC0
-                move.w  (Miles_Acceleration).w, D5                   ; $FFFFFEC2
+Tails_ChgJumpDir:                                              ; Offset_0x011884
+                move.w  (Tails_Max_Speed).w, D6                      ; $FFFFFEC0
+                move.w  (Tails_Acceleration).w, D5                   ; $FFFFFEC2
                 asl.w   #$01, D5
                 btst    #$04, Obj_Status(A0)                             ; $0022
                 bne.s   Offset_0x0118CE
@@ -18263,18 +18332,18 @@ Offset_0x0118F8:
 Offset_0x0118FC:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_LevelBoundaries:                                         ; Offset_0x0118FE
+Tails_LevelBoundaries:                                         ; Offset_0x0118FE
                 move.l  Obj_X(A0), D1                                    ; $0008
                 move.w  Obj_Speed(A0), D0                                ; $0010
                 ext.l   D0
                 asl.l   #$08, D0
                 add.l   D0, D1
                 swap.w  D1
-                move.w  (Miles_Level_Limits_Min_X).w, D0             ; $FFFFEEF8
+                move.w  (Tails_Level_Limits_Min_X).w, D0             ; $FFFFEEF8
                 addi.w  #$0010, D0
                 cmp.w   D1, D0
                 bhi.s   Offset_0x011944
-                move.w  (Miles_Level_Limits_Max_X).w, D0             ; $FFFFEEFA
+                move.w  (Tails_Level_Limits_Max_X).w, D0             ; $FFFFEEFA
                 addi.w  #$0128, D0
                 tst.b   (Boss_Flag).w                                ; $FFFFF7AA
                 bne.s   Offset_0x01192C
@@ -18283,13 +18352,13 @@ Offset_0x01192C:
                 cmp.w   D1, D0
                 bls.s   Offset_0x011944
 Offset_0x011930:
-                move.w  (Miles_Level_Limits_Max_Y).w, D0             ; $FFFFEEFE
+                move.w  (Tails_Level_Limits_Max_Y).w, D0             ; $FFFFEEFE
                 addi.w  #$00E0, D0
                 cmp.w   Obj_Y(A0), D0                                    ; $000C
                 blt.s   Offset_0x011940
                 rts
 Offset_0x011940:
-                bra     Kill_Miles                             ; Offset_0x012544
+                bra     Kill_Tails                             ; Offset_0x012544
 Offset_0x011944:
                 move.w  D0, Obj_X(A0)                                    ; $0008
                 move.w  #$0000, Obj_Sub_Y(A0)                            ; $000A
@@ -18297,7 +18366,7 @@ Offset_0x011944:
                 move.w  #$0000, Obj_Inertia(A0)                          ; $0014
                 bra.s   Offset_0x011930
 ;-------------------------------------------------------------------------------
-Miles_Roll:                                                    ; Offset_0x01195C
+Tails_Roll:                                                    ; Offset_0x01195C
                 tst.b   (Player_Status_Flag).w                       ; $FFFFF7CA
                 bne.s   Offset_0x011982
                 move.w  Obj_Inertia(A0), D0                              ; $0014
@@ -18331,7 +18400,7 @@ Offset_0x01198E:
 Offset_0x0119C0:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_Jump:                                                    ; Offset_0x0119C2
+Tails_Jump:                                                    ; Offset_0x0119C2
                 move.b  ($FFFFF607).w, D0
                 andi.b  #$70, D0
                 beq     Offset_0x011A66
@@ -18378,7 +18447,7 @@ Offset_0x011A68:
                 bset    #$04, Obj_Status(A0)                             ; $0022
                 rts
 ;-------------------------------------------------------------------------------
-Miles_JumpHeight:                                              ; Offset_0x011A70
+Tails_JumpHeight:                                              ; Offset_0x011A70
                 tst.b   Obj_Player_Jump(A0)                              ; $003C
                 beq.s   Offset_0x011A9C
                 move.w  #$FC00, D1
@@ -18401,7 +18470,7 @@ Offset_0x011A9C:
 Offset_0x011AAA:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_Spindash:                                                ; Offset_0x011AAC
+Tails_Spindash:                                                ; Offset_0x011AAC
                 tst.b   Obj_Player_Spdsh_Flag(A0)                        ; $0039
                 bne.s   Offset_0x011AF4
                 cmpi.b  #$08, Obj_Ani_Number(A0)                         ; $001C
@@ -18433,7 +18502,7 @@ Offset_0x011AF4:
                 moveq   #$00, D0
                 move.b  Obj_Player_Spdsh_Cnt(A0), D0                     ; $003A
                 add.w   D0, D0
-                move.w  Miles_Spindash_Speed(PC, D0), Obj_Inertia(A0) ; Offset_0x011B48, $0014
+                move.w  Tails_Spindash_Speed(PC, D0), Obj_Inertia(A0) ; Offset_0x011B48, $0014
                 btst    #$00, Obj_Status(A0)                             ; $0022
                 beq.s   Offset_0x011B3A
                 neg.w   Obj_Inertia(A0)                                  ; $0014
@@ -18442,7 +18511,7 @@ Offset_0x011B3A:
                 move.b  #$00, ($FFFFB45C).w
                 bra.s   Offset_0x011BA2
 ;-------------------------------------------------------------------------------
-Miles_Spindash_Speed:                                          ; Offset_0x011B48
+Tails_Spindash_Speed:                                          ; Offset_0x011B48
                 dc.w    $0800, $0880, $0900, $0980, $0A00, $0A80, $0B00, $0B80
                 dc.w    $0C00
 ;-------------------------------------------------------------------------------
@@ -18469,7 +18538,7 @@ Offset_0x011BA2:
                 addq.l  #$04, A7
                 rts
 ;-------------------------------------------------------------------------------
-Miles_SlopeResist:                                             ; Offset_0x011BA6
+Tails_SlopeResist:                                             ; Offset_0x011BA6
                 move.b  Obj_Angle(A0), D0                                ; $0026
                 addi.b  #$60, D0
                 cmpi.b  #$C0, D0
@@ -18491,7 +18560,7 @@ Offset_0x011BD6:
 Offset_0x011BDA:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_RollRepel:                                               ; Offset_0x011BDC
+Tails_RollRepel:                                               ; Offset_0x011BDC
                 move.b  Obj_Angle(A0), D0                                ; $0026
                 addi.b  #$60, D0
                 cmpi.b  #$C0, D0
@@ -18517,7 +18586,7 @@ Offset_0x011C12:
 Offset_0x011C16:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_SlopeRepel:                                              ; Offset_0x011C18
+Tails_SlopeRepel:                                              ; Offset_0x011C18
                 nop
                 tst.b   Obj_Player_St_Convex(A0)                         ; $0038
                 bne.s   Offset_0x011C52
@@ -18542,7 +18611,7 @@ Offset_0x011C54:
                 subq.w  #$01, Obj_Player_Control(A0)                     ; $002E
                 rts
 ;-------------------------------------------------------------------------------
-Miles_JumpAngle:                                               ; Offset_0x011C5A
+Tails_JumpAngle:                                               ; Offset_0x011C5A
                 move.b  Obj_Angle(A0), D0                                ; $0026
                 beq.s   Offset_0x011C74
                 bpl.s   Offset_0x011C6A
@@ -18587,7 +18656,7 @@ Offset_0x011CB4:
 Offset_0x011CB8:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_Floor:                                                   ; Offset_0x011CBA
+Tails_Floor:                                                   ; Offset_0x011CBA
                 move.l  #Primary_Colision_Data_Buffer, (Current_Colision_Pointer).w ; $FFFFD000, $FFFFF796
                 cmpi.b  #$0C, Obj_Player_Top_Solid(A0)                   ; $003E
                 beq.s   Offset_0x011CD2
@@ -18631,7 +18700,7 @@ Offset_0x011D2C:
 Offset_0x011D44:
                 add.w   D1, Obj_Y(A0)                                    ; $000C
                 move.b  D3, Obj_Angle(A0)                                ; $0026
-                bsr     Miles_ResetOnFloor                     ; Offset_0x011EC6
+                bsr     Tails_ResetOnFloor                     ; Offset_0x011EC6
                 move.b  #$00, Obj_Ani_Number(A0)                         ; $001C
                 move.b  D3, D0
                 addi.b  #$20, D0
@@ -18685,7 +18754,7 @@ Offset_0x011DDA:
                 bpl.s   Offset_0x011E06
                 add.w   D1, Obj_Y(A0)                                    ; $000C
                 move.b  D3, Obj_Angle(A0)                                ; $0026
-                bsr     Miles_ResetOnFloor                     ; Offset_0x011EC6
+                bsr     Tails_ResetOnFloor                     ; Offset_0x011EC6
                 move.b  #$00, Obj_Ani_Number(A0)                         ; $001C
                 move.w  #$0000, Obj_Speed_Y(A0)                          ; $0012
                 move.w  Obj_Speed(A0), Obj_Inertia(A0)            ; $0010, $0014
@@ -18716,7 +18785,7 @@ Offset_0x011E2C:
                 rts
 Offset_0x011E4C:
                 move.b  D3, Obj_Angle(A0)                                ; $0026
-                bsr     Miles_ResetOnFloor                     ; Offset_0x011EC6
+                bsr     Tails_ResetOnFloor                     ; Offset_0x011EC6
                 move.w  Obj_Speed_Y(A0), Obj_Inertia(A0)          ; $0012, $0014
                 tst.b   D3
                 bpl.s   Offset_0x011E62
@@ -18749,14 +18818,14 @@ Offset_0x011E98:
                 bpl.s   Offset_0x011EC4
                 add.w   D1, Obj_Y(A0)                                    ; $000C
                 move.b  D3, Obj_Angle(A0)                                ; $0026
-                bsr     Miles_ResetOnFloor                     ; Offset_0x011EC6
+                bsr     Tails_ResetOnFloor                     ; Offset_0x011EC6
                 move.b  #$00, Obj_Ani_Number(A0)                         ; $001C
                 move.w  #$0000, Obj_Speed_Y(A0)                          ; $0012
                 move.w  Obj_Speed(A0), Obj_Inertia(A0)            ; $0010, $0014
 Offset_0x011EC4:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_ResetOnFloor:                                            ; Offset_0x011EC6
+Tails_ResetOnFloor:                                            ; Offset_0x011EC6
                 bclr    #$05, Obj_Status(A0)                             ; $0022
                 bclr    #$01, Obj_Status(A0)                             ; $0022
                 bclr    #$04, Obj_Status(A0)                             ; $0022
@@ -18779,26 +18848,26 @@ Offset_0x011EFC:
 Offset_0x011F28:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_Hurt:                                                    ; Offset_0x011F2A
+Tails_Hurt:                                                    ; Offset_0x011F2A
                 jsr     (SpeedToPos)                           ; Offset_0x00D1DA
                 addi.w  #$0030, Obj_Speed_Y(A0)                          ; $0012
                 btst    #$06, Obj_Status(A0)                             ; $0022
                 beq.s   Offset_0x011F44
                 subi.w  #$0020, Obj_Speed_Y(A0)                          ; $0012
 Offset_0x011F44:
-                bsr     Miles_HurtStop                         ; Offset_0x011F5E
-                bsr     Miles_LevelBoundaries                  ; Offset_0x0118FE
-                bsr     Miles_RecordMoves                      ; Offset_0x011376
-                bsr     Miles_Animate                          ; Offset_0x012010
-                bsr     Load_Miles_Dynamic_PLC                 ; Offset_0x0123EE
+                bsr     Tails_HurtStop                         ; Offset_0x011F5E
+                bsr     Tails_LevelBoundaries                  ; Offset_0x0118FE
+                bsr     Tails_RecordMoves                      ; Offset_0x011376
+                bsr     Tails_Animate                          ; Offset_0x012010
+                bsr     Load_Tails_Dynamic_PLC                 ; Offset_0x0123EE
                 jmp     (DisplaySprite)                        ; Offset_0x00D322
 ;-------------------------------------------------------------------------------
-Miles_HurtStop:                                                ; Offset_0x011F5E
-                move.w  (Miles_Level_Limits_Max_Y).w, D0             ; $FFFFEEFE
+Tails_HurtStop:                                                ; Offset_0x011F5E
+                move.w  (Tails_Level_Limits_Max_Y).w, D0             ; $FFFFEEFE
                 addi.w  #$00E0, D0
                 cmp.w   Obj_Y(A0), D0                                    ; $000C
-                bcs     Kill_Miles                             ; Offset_0x012544
-                bsr     Miles_Floor                            ; Offset_0x011CBA
+                bcs     Kill_Tails                             ; Offset_0x012544
+                bsr     Tails_Floor                            ; Offset_0x011CBA
                 btst    #$01, Obj_Status(A0)                             ; $0022
                 bne.s   Offset_0x011F9A
                 moveq   #$00, D0
@@ -18811,16 +18880,16 @@ Miles_HurtStop:                                                ; Offset_0x011F5E
 Offset_0x011F9A:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_Death:                                                   ; Offset_0x011F9C
-                bsr     Miles_GameOver                         ; Offset_0x011FB8
+Tails_Death:                                                   ; Offset_0x011F9C
+                bsr     Tails_GameOver                         ; Offset_0x011FB8
                 jsr     (ObjectFall)                           ; Offset_0x00D1AE
-                bsr     Miles_RecordMoves                      ; Offset_0x011376
-                bsr     Miles_Animate                          ; Offset_0x012010
-                bsr     Load_Miles_Dynamic_PLC                 ; Offset_0x0123EE
+                bsr     Tails_RecordMoves                      ; Offset_0x011376
+                bsr     Tails_Animate                          ; Offset_0x012010
+                bsr     Load_Tails_Dynamic_PLC                 ; Offset_0x0123EE
                 jmp     (DisplaySprite)                        ; Offset_0x00D322
 ;-------------------------------------------------------------------------------
-Miles_GameOver:                                                ; Offset_0x011FB8
-                move.w  (Miles_Level_Limits_Max_Y).w, D0             ; $FFFFEEFE
+Tails_GameOver:                                                ; Offset_0x011FB8
+                move.w  (Tails_Level_Limits_Max_Y).w, D0             ; $FFFFEEFE
                 addi.w  #$0100, D0
                 cmp.w   Obj_Y(A0), D0                                    ; $000C
                 bcc     Offset_0x011FFA
@@ -18838,7 +18907,7 @@ Miles_GameOver:                                                ; Offset_0x011FB8
 Offset_0x011FFA:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_ResetLevel:                                              ; Offset_0x011FFC
+Tails_ResetLevel:                                              ; Offset_0x011FFC
                 tst.w   Obj_Player_Spdsh_Cnt(A0)                         ; $003A
                 beq.s   Offset_0x01200E
                 subq.w  #$01, Obj_Player_Spdsh_Cnt(A0)                   ; $003A
@@ -18847,9 +18916,9 @@ Miles_ResetLevel:                                              ; Offset_0x011FFC
 Offset_0x01200E:
                 rts
 ;-------------------------------------------------------------------------------
-Miles_Animate:                                                 ; Offset_0x012010
+Tails_Animate:                                                 ; Offset_0x012010
                 lea     (TailsAniData), A1
-Miles_Animate_A1:                                              ; Offset_0x012016
+Tails_Animate_A1:                                              ; Offset_0x012016
                 moveq   #$00, D0
                 move.b  Obj_Ani_Number(A0), D0                           ; $001C
                 cmp.b   Obj_Ani_Flag(A0), D0                             ; $001D
@@ -19179,36 +19248,36 @@ TailsAni_HaulAss:
 TailsAni_Fly:
                 dc.b    $01, $5E, $5F, $FF
 ;-------------------------------------------------------------------------------
-Load_Miles_Tail_Dynamic_PLC:                                   ; Offset_0x0123C6
+Load_Tails_Tail_Dynamic_PLC:                                   ; Offset_0x0123C6
                 moveq   #$00, D0
                 move.b  Obj_Map_Id(A0), D0                               ; $001A
                 cmp.b   ($FFFFF7DF).w, D0
-                beq.s   Exit_Load_Miles_Dynamic_PLC            ; Offset_0x012440
+                beq.s   Exit_Load_Tails_Dynamic_PLC            ; Offset_0x012440
                 move.b  D0, ($FFFFF7DF).w
-                lea     (Miles_Dyn_Script), A2                 ; Offset_0x07446C
+                lea     (Tails_Dyn_Script), A2                 ; Offset_0x07446C
                 add.w   D0, D0
                 adda.w  $00(A2, D0), A2
                 move.w  (A2)+, D5
                 subq.w  #$01, D5
-                bmi.s   Exit_Load_Miles_Dynamic_PLC            ; Offset_0x012440
+                bmi.s   Exit_Load_Tails_Dynamic_PLC            ; Offset_0x012440
                 move.w  #$F600, D4
-                bra.s   Load_Miles_Dynamic_PLC_Loop            ; Offset_0x012414
+                bra.s   Load_Tails_Dynamic_PLC_Loop            ; Offset_0x012414
 ;-------------------------------------------------------------------------------
-Load_Miles_Dynamic_PLC:                                        ; Offset_0x0123EE
+Load_Tails_Dynamic_PLC:                                        ; Offset_0x0123EE
                 moveq   #$00, D0
                 move.b  Obj_Map_Id(A0), D0                               ; $001A
-Load_Miles_Dynamic_PLC_D0:                                     ;
+Load_Tails_Dynamic_PLC_D0:                                     ;
                 cmp.b   ($FFFFF7DE).w, D0
-                beq.s   Exit_Load_Miles_Dynamic_PLC            ; Offset_0x012440
+                beq.s   Exit_Load_Tails_Dynamic_PLC            ; Offset_0x012440
                 move.b  D0, ($FFFFF7DE).w
-                lea     (Miles_Dyn_Script), A2                 ; Offset_0x07446C
+                lea     (Tails_Dyn_Script), A2                 ; Offset_0x07446C
                 add.w   D0, D0
                 adda.w  $00(A2, D0), A2
                 move.w  (A2)+, D5
                 subq.w  #$01, D5
-                bmi.s   Exit_Load_Miles_Dynamic_PLC            ; Offset_0x012440
+                bmi.s   Exit_Load_Tails_Dynamic_PLC            ; Offset_0x012440
                 move.w  #$F400, D4
-Load_Miles_Dynamic_PLC_Loop:                                   ; Offset_0x012414
+Load_Tails_Dynamic_PLC_Loop:                                   ; Offset_0x012414
                 moveq   #$00, D1
                 move.w  (A2)+, D1
                 move.w  D1, D3
@@ -19217,21 +19286,21 @@ Load_Miles_Dynamic_PLC_Loop:                                   ; Offset_0x012414
                 addi.w  #$0010, D3
                 andi.w  #$0FFF, D1
                 lsl.l   #$05, D1
-                addi.l  #Art_Miles, D1                         ; Offset_0x064320
+                addi.l  #Art_Tails, D1                         ; Offset_0x064320
                 move.w  D4, D2
                 add.w   D3, D4
                 add.w   D3, D4
                 jsr     (DMA_68KtoVRAM)                        ; Offset_0x0015C4
-                dbra    D5, Load_Miles_Dynamic_PLC_Loop        ; Offset_0x012414
-Exit_Load_Miles_Dynamic_PLC:                                   ; Offset_0x012440
+                dbra    D5, Load_Tails_Dynamic_PLC_Loop        ; Offset_0x012414
+Exit_Load_Tails_Dynamic_PLC:                                   ; Offset_0x012440
                 rts
 ;===============================================================================
-; Object 0x02 - Miles
+; Object 0x02 - Tails
 ; <<<-
 ;===============================================================================
-Obj_0x05_Miles_Tail:                                           ; Offset_0x012442
+Obj_0x05_Tails_Tail:                                           ; Offset_0x012442
 ;===============================================================================
-; Objeto 0x05 - Rabo do Miles
+; Objeto 0x05 - Rabo do Tails
 ; ->>>
 ;===============================================================================
 ; Offset_0x012442:
@@ -19246,7 +19315,7 @@ Offset_0x012450:
 ;-------------------------------------------------------------------------------
 Offset_0x012454:
                 addq.b  #$02, Obj_Routine(A0)                            ; $0024
-                move.l  #Miles_Mappings, Obj_Map(A0)    ; Offset_0x0739E2, $0004
+                move.l  #Tails_Mappings, Obj_Map(A0)    ; Offset_0x0739E2, $0004
                 move.w  #$07B0, Obj_Art_VRAM(A0)                         ; $0002
                 bsr     ModifySpriteAttr_2P                    ; Offset_0x00DBBE
                 move.b  #$02, Obj_Priority(A0)                           ; $0018
@@ -19270,8 +19339,8 @@ Offset_0x0124A4:
                 move.b  Obj05AniSelection(PC, D0), Obj_Ani_Number(A0)    ; $001C
 Offset_0x0124B4:
                 lea     (Obj05AniData), A1
-                bsr     Miles_Animate_A1                       ; Offset_0x012016
-                bsr     Load_Miles_Tail_Dynamic_PLC            ; Offset_0x0123C6
+                bsr     Tails_Animate_A1                       ; Offset_0x012016
+                bsr     Load_Tails_Tail_Dynamic_PLC            ; Offset_0x0123C6
                 jsr     (DisplaySprite)                        ; Offset_0x00D322
                 rts
 ;-------------------------------------------------------------------------------
@@ -19338,18 +19407,18 @@ Obj05Ani_Pushing:
 Obj05Ani_Hanging:
                 dc.b    $09, $81, $82, $83, $84, $FF
 ;===============================================================================
-; Objeto 0x05 - Rabo do Miles
+; Objeto 0x05 - Rabo do Tails
 ; <<<-
 ;===============================================================================
 ;-------------------------------------------------------------------------------
-Kill_Miles:                                                    ; Offset_0x012544
+Kill_Tails:                                                    ; Offset_0x012544
 		jmp     (Kill_Player)                          ; Offset_0x02B57C
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x0A_Sonic_Miles_Underwater:                               ; Offset_0x01254C
+Obj_0x0A_Sonic_Tails_Underwater:                               ; Offset_0x01254C
 ;===============================================================================
-; Objeto 0x0A - Objeto de controle do Sonic / Miles embaixo da �gua
+; Objeto 0x0A - Objeto de controle do Sonic / Tails embaixo da �gua
 ; ->>>
 ;===============================================================================
 ; Offset_0x01254C:
@@ -19374,7 +19443,7 @@ Offset_0x01256C:
                 move.l  #Sonic_Underwater_Mappings, Obj_Map(A0) ; Offset_0x014CFC, $0004
                 tst.b   Obj_Control_Var_13(A0)                           ; $003F
                 beq.s   Offset_0x012586
-                move.l  #Miles_Underwater_Mappings, Obj_Map(A0) ; Offset_0x014D1E, $0004
+                move.l  #Tails_Underwater_Mappings, Obj_Map(A0) ; Offset_0x014D1E, $0004
 Offset_0x012586:
                 move.w  #$855B, Obj_Art_VRAM(A0)                         ; $0002
                 move.b  #$84, Obj_Flags(A0)                              ; $0001
@@ -19755,12 +19824,12 @@ Offset_0x012AE7:
 Offset_0x012AE9:
                 dc.b    $0E, $01, $02, $03, $04, $FC, $00
 ;===============================================================================
-; Objeto 0x0A - Objeto de controle do Sonic / Miles embaixo da �gua
+; Objeto 0x0A - Objeto de controle do Sonic / Tails embaixo da �gua
 ; <<<-
 ;===============================================================================
 Obj_0x38_Shield:                                               ; Offset_0x012AF0
 ;===============================================================================
-; Objeto 0x38 - Escudo do Sonic / Miles
+; Objeto 0x38 - Escudo do Sonic / Tails
 ; ->>>
 ;===============================================================================
 ; Offset_0x012AF0:
@@ -19802,12 +19871,12 @@ Offset_0x012B6A:
 Offset_0x012B6C:
                 jmp     (DeleteObject)                         ; Offset_0x00D314
 ;===============================================================================
-; Objeto 0x38 - Escudo do Sonic / Miles
+; Objeto 0x38 - Escudo do Sonic / Tails
 ; <<<-
 ;===============================================================================
 Obj_0x35_Invincibility:                                        ; Offset_0x012B72
 ;===============================================================================
-; Objeto 0x35 - Invencibilidade do Sonic / Miles
+; Objeto 0x35 - Invencibilidade do Sonic / Tails
 ; ->>>
 ;===============================================================================
 ; Offset_0x012B72:
@@ -20062,7 +20131,7 @@ Offset_0x012FC4:
                 dc.b    $F1, $05, $F4, $09, $04, $03, $F1, $04
                 dc.b    $F4, $09
 ;===============================================================================
-; Objeto 0x35 - Invencibilidade do Sonic / Miles
+; Objeto 0x35 - Invencibilidade do Sonic / Tails
 ; <<<-
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -22359,24 +22428,24 @@ Sonic_Underwater_Mappings:                                     ; Offset_0x014CFC
 		dc.w    Offset_0x014DA8-Sonic_Underwater_Mappings
 		dc.w    Offset_0x014DB2-Sonic_Underwater_Mappings
 		dc.w    Offset_0x014DBC-Sonic_Underwater_Mappings
-Miles_Underwater_Mappings:                                     ; Offset_0x014D1E
-		dc.w    Offset_0x014D40-Miles_Underwater_Mappings
-		dc.w    Offset_0x014D4A-Miles_Underwater_Mappings
-		dc.w    Offset_0x014D4A-Miles_Underwater_Mappings
-		dc.w    Offset_0x014D54-Miles_Underwater_Mappings
-		dc.w    Offset_0x014D5E-Miles_Underwater_Mappings
-		dc.w    Offset_0x014D68-Miles_Underwater_Mappings
-		dc.w    Offset_0x014D72-Miles_Underwater_Mappings
-		dc.w    Offset_0x014D7C-Miles_Underwater_Mappings
-		dc.w    Offset_0x014DBE-Miles_Underwater_Mappings
-		dc.w    Offset_0x014DBE-Miles_Underwater_Mappings
-		dc.w    Offset_0x014DBE-Miles_Underwater_Mappings
-		dc.w    Offset_0x014DBE-Miles_Underwater_Mappings
-		dc.w    Offset_0x014DBE-Miles_Underwater_Mappings
-		dc.w    Offset_0x014DBE-Miles_Underwater_Mappings
-		dc.w    Offset_0x014DA8-Miles_Underwater_Mappings
-		dc.w    Offset_0x014DB2-Miles_Underwater_Mappings
-		dc.w    Offset_0x014DBC-Miles_Underwater_Mappings
+Tails_Underwater_Mappings:                                     ; Offset_0x014D1E
+		dc.w    Offset_0x014D40-Tails_Underwater_Mappings
+		dc.w    Offset_0x014D4A-Tails_Underwater_Mappings
+		dc.w    Offset_0x014D4A-Tails_Underwater_Mappings
+		dc.w    Offset_0x014D54-Tails_Underwater_Mappings
+		dc.w    Offset_0x014D5E-Tails_Underwater_Mappings
+		dc.w    Offset_0x014D68-Tails_Underwater_Mappings
+		dc.w    Offset_0x014D72-Tails_Underwater_Mappings
+		dc.w    Offset_0x014D7C-Tails_Underwater_Mappings
+		dc.w    Offset_0x014DBE-Tails_Underwater_Mappings
+		dc.w    Offset_0x014DBE-Tails_Underwater_Mappings
+		dc.w    Offset_0x014DBE-Tails_Underwater_Mappings
+		dc.w    Offset_0x014DBE-Tails_Underwater_Mappings
+		dc.w    Offset_0x014DBE-Tails_Underwater_Mappings
+		dc.w    Offset_0x014DBE-Tails_Underwater_Mappings
+		dc.w    Offset_0x014DA8-Tails_Underwater_Mappings
+		dc.w    Offset_0x014DB2-Tails_Underwater_Mappings
+		dc.w    Offset_0x014DBC-Tails_Underwater_Mappings
 Offset_0x014D40:
 		dc.w    $0001
 		dc.l    $FC00008D, $0046FFFC
@@ -29754,8 +29823,8 @@ Star_Light_Chunks_Overwrite:                                   ; Offset_0x04ED28
 ;===============================================================================
 Art_Sonic:                                                     ; Offset_0x050000
 		incbin  'art/uncompressed/sonic.dat'
-Art_Miles:                                                     ; Offset_0x064320
-		incbin  'art/uncompressed/miles.dat'
+Art_Tails:                                                     ; Offset_0x064320
+		incbin  'art/uncompressed/tails.dat'
 ;-------------------------------------------------------------------------------
 Sonic_Mappings:                                                ; Offset_0x06FBE0
 		include "Map/Sonic.asm"
@@ -29772,10 +29841,10 @@ Art_Water_Splash_Dust:                                         ; Offset_0x071FFC
 Art_Water_Splash:                                              ; Offset_0x07393C
 		incbin  'art/nemesis/w_splash.nem'
 ;-------------------------------------------------------------------------------
-Miles_Mappings:                                                ; Offset_0x0739E2
+Tails_Mappings:                                                ; Offset_0x0739E2
 		include "Map/Tails.asm"
 ;-------------------------------------------------------------------------------
-Miles_Dyn_Script:                                              ; Offset_0x07446C
+Tails_Dyn_Script:                                              ; Offset_0x07446C
 		include "Map/TailsPLC.asm"
 ;-------------------------------------------------------------------------------
 Art_SEGA:                                                      ; Offset_0x074876
@@ -29790,8 +29859,8 @@ Title_Screen_R_Bg_Mappings:                                    ; Offset_0x0751EE
 		incbin  'map/eni/titscrb2.eni'
 Art_Title_Screen_Bg_Wings:                                     ; Offset_0x075436
 		incbin  'art/nemesis/titlescr.nem' ; Title Screen Wings and background
-Art_Title_Screen_Sonic_Miles:                                  ; Offset_0x076D98
-		incbin  'art/nemesis/sncmlscr.nem' ; Sonic And Miles in Title Screen
+Art_Title_Screen_Sonic_Tails:                                  ; Offset_0x076D98
+		incbin  'art/nemesis/snctlscr.nem' ; Sonic And Tails in Title Screen
 Art_FireBall:                                                  ; Offset_0x0778DC
 		incbin  'art/nemesis/fireball.nem'
 Art_GHz_Waterfall:                                             ; Offset_0x077A52
