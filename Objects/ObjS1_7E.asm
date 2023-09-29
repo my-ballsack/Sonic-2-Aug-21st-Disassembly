@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x7E - Tela com a pontuação e bonificação do Estágio Especial
+; Object 0x7E - Screen with scores and bonuses for the Special Stage
 ; ->>>
 ;===============================================================================
 ; Offset_0x00BF3E:
@@ -140,6 +140,6 @@ Special_Stage_Results_Screen_Pos:                              ; Offset_0x00C0BC
                 dc.w    $01EC, $011C, $00C4, $0203
                 dc.w    $03A0, $0120, $0138, $0206                   
 ;===============================================================================
-; Objeto 0x7E - Tela com a pontuação e bonificação do Estágio Especial
+; Object 0x7E - Screen with scores and bonuses for the Special Stage
 ; <<<-
 ;===============================================================================

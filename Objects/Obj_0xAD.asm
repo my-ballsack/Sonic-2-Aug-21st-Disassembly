@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0xAD - Plataforma embaixo do Inimigo Clucker na Sky Fortress
+; Object 0xAD - Plataforma embaixo do Inimigo Clucker na Sky Fortress
 ; ->>>
 ;===============================================================================
 ; Offset_0x02A47E:
@@ -36,6 +36,6 @@ Offset_0x02A4CA:
                 bsr.s   Offset_0x02A4B6
                 bra     Jmp_26_To_MarkObjGone                  ; Offset_0x02A7A0           
 ;===============================================================================
-; Objeto 0xAD - Plataforma embaixo do Inimigo Clucker na Sky Fortress
+; Object 0xAD - Plataforma embaixo do Inimigo Clucker na Sky Fortress
 ; <<<-
 ;===============================================================================

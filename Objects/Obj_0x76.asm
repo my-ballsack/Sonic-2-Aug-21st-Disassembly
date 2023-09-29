@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x76 - Plataforma com espinhos nas laterais na Dust Hill
+; Object 0x76 - Plataforma com espinhos nas laterais na Dust Hill
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x01DED4:
@@ -125,6 +125,6 @@ Offset_0x01E018:
                 dc.l    $F00F6048, $60240000
                 dc.l    $F00F6048, $60240020
 ;===============================================================================
-; Objeto 0x76 - Plataforma com espinhos nas laterais na Dust Hill
+; Object 0x76 - Plataforma com espinhos nas laterais na Dust Hill
 ; <<<- 
 ;===============================================================================

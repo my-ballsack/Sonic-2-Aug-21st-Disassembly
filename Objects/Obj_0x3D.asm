@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x3D - Obstásculo quebre para obter impulso na Oil Ocean
+; Object 0x3D - Obstásculo quebre para obter impulso na Oil Ocean
 ; ->>>
 ;===============================================================================  
 ; Offset_0x019BF8:
@@ -257,6 +257,6 @@ Offset_0x019F82:
                 dc.l    $08000002, $00010000
                 dc.l    $08000003, $00010008  
 ;===============================================================================
-; Objeto 0x3D - Obstásculo quebre para obter impulso na Oil Ocean
+; Object 0x3D - Obstásculo quebre para obter impulso na Oil Ocean
 ; <<<-
 ;===============================================================================

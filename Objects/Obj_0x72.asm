@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x72 - Atributo invisivel das esteiras na Casino Night / Metropolis
+; Object 0x72 - Atributo invisivel das esteiras na Casino Night / Metropolis
 ; ->>>
 ;===============================================================================
 ; Offset_0x01DA28:
@@ -50,6 +50,6 @@ Offset_0x01DA6A:
 Offset_0x01DAA4:
                 rts    
 ;===============================================================================
-; Objeto 0x72 - Atributo invisivel das esteiras na Casino Night / Metropolis
+; Object 0x72 - Atributo invisivel das esteiras na Casino Night / Metropolis
 ; <<<-
 ;===============================================================================

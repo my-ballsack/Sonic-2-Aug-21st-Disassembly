@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x2D - Porta automática na Chemical Plant / Hill Top / Metropolis
+; Object 0x2D - Porta automática na Chemical Plant / Hill Top / Metropolis
 ; ->>> 
 ;===============================================================================  
 ; Offset_0x00A22E
@@ -132,6 +132,6 @@ Offset_0x00A3D4:
                 dc.l    $E0070000, $0000FFF8
                 dc.l    $00070000, $0000FFF8 
 ;===============================================================================
-; Objeto 0x2D - Porta automática na Chemical Plant / Hill Top / Metropolis
+; Object 0x2D - Porta automática na Chemical Plant / Hill Top / Metropolis
 ; <<<- 
 ;===============================================================================

@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0xAB - Inimigo Grabber na Chemical Plant
-; ->>>          Objeto vinculado ao 0xA7
+; Object 0xAB - Inimigo Grabber na Chemical Plant
+; ->>>          Object vinculado ao 0xA7
 ;===============================================================================
 ; Offset_0x02A33C:
                 moveq   #$00, D0
@@ -71,6 +71,6 @@ Offset_0x02A3EA:
                 dc.w    $0001
                 dc.l    $FC00002C, $0016FFFC 
 ;===============================================================================
-; Objeto 0xAB - Inimigo Grabber na Chemical Plant
-; <<<-          Objeto vinculado ao 0xA7
+; Object 0xAB - Inimigo Grabber na Chemical Plant
+; <<<-          Object vinculado ao 0xA7
 ;===============================================================================

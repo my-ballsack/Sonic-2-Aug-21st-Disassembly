@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x65 - Plataformas sobre engrenagens na Metropolis
+; Object 0x65 - Plataformas sobre engrenagens na Metropolis
 ; ->>>
 ;===============================================================================
 ; Offset_0x01B894:
@@ -359,6 +359,6 @@ Offset_0x01BCCA:
                 dc.l    $F4061006, $1003FFF0
                 dc.l    $F4060806, $08030000
 ;===============================================================================
-; Objeto 0x65 - Plataformas sobre engrenagens na Metropolis
+; Object 0x65 - Plataformas sobre engrenagens na Metropolis
 ; <<<-
 ;===============================================================================

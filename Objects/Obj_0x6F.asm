@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x6F - Elevadores em forma de paralelogramos na Metropolis #3
+; Object 0x6F - Elevadores em forma de paralelogramos na Metropolis #3
 ; ->>> 
 ;===============================================================================
 ; Offset_0x01D354:
@@ -183,6 +183,6 @@ Offset_0x01D61C:
                 dc.l    $F00D1800, $18000040
                 dc.l    $E00D1800, $18000060             
 ;===============================================================================
-; Objeto 0x6F - Elevadores em forma de paralelogramos na Metropolis #3
+; Object 0x6F - Elevadores em forma de paralelogramos na Metropolis #3
 ; <<<- 
 ;===============================================================================

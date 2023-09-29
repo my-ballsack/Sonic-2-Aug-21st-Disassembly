@@ -1,5 +1,5 @@
 ;===============================================================================
-; Object 0x29 - Pontos obtidos ao destruir alguns objetos
+; Object 0x29 - Pontos obtidos ao destruir alguns Objects
 ; ->>> 
 ;===============================================================================
 ; Offset_0x00A922:
@@ -29,6 +29,6 @@ Offset_0x00A962:
                 addi.w  #$0018, Obj_Speed_Y(A0)                          ; $0012
                 bra     DisplaySprite                          ; Offset_0x00D322
 ;===============================================================================
-; Object 0x29 - Pontos obtidos ao destruir alguns objetos
+; Object 0x29 - Pontos obtidos ao destruir alguns Objects
 ; <<<- 
 ;===============================================================================

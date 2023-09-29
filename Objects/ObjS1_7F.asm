@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x7F - Esmeraldas na tela de pontuação e bonificação do
+; Object 0x7F - Esmeraldas na tela de pontuação e bonificação do
 ; ->>>          Estágio Especial
 ;===============================================================================
 ; Offset_0x00C0E4:
@@ -48,6 +48,6 @@ Offset_0x00C15C:
 Offset_0x00C172:
                 bra     DisplaySprite                          ; Offset_0x00D322 
 ;===============================================================================
-; Objeto 0x7F - Esmeraldas na tela de pontuação e bonificação do
+; Object 0x7F - Esmeraldas na tela de pontuação e bonificação do
 ; <<<-          Estágio Especial
 ;===============================================================================

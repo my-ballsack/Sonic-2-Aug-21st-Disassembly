@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x39 - Objeto de controle de Game Over / Time Over
+; Object 0x39 - Object de controle de Game Over / Time Over
 ; ->>>
 ;===============================================================================
 ; Offset_0x00BC44:
@@ -69,6 +69,6 @@ Offset_0x00BCF8:
 Offset_0x00BD02:
                 bra     DisplaySprite                          ; Offset_0x00D322     
 ;===============================================================================
-; Objeto 0x39 - Objeto de controle de Game Over / Time Over
+; Object 0x39 - Object de controle de Game Over / Time Over
 ; <<<-
 ;===============================================================================

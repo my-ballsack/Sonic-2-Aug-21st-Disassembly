@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x83 - Três plataformas girando na Neo Green Hill
+; Object 0x83 - Três plataformas girando na Neo Green Hill
 ; ->>>
 ;===============================================================================
 ; Offset_0x01F284:
@@ -202,6 +202,6 @@ Offset_0x01F4D6:
                 move.w  Obj_Control_Var_04(A0), D0                       ; $0030
                 bra     Jmp_07_To_MarkObjGone_2                ; Offset_0x01F530 
 ;===============================================================================
-; Objeto 0x83 - Três plataformas girando na Neo Green Hill
+; Object 0x83 - Três plataformas girando na Neo Green Hill
 ; <<<-
 ;===============================================================================

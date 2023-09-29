@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x50 - Imimigo cavalo marinho (Aquis) na Oil Ocean
+; Object 0x50 - Imimigo cavalo marinho (Aquis) na Oil Ocean
 ; ->>>
 ;===============================================================================
 ; Offset_0x021DAC:
@@ -448,6 +448,6 @@ Offset_0x02239E:
                 dc.l    $F8010022, $00110008
                 dc.l    $08050024, $0012FFF8
 ;===============================================================================
-; Objeto 0x50 - Imimigo cavalo marinho (Aquis) na Oil Ocean
+; Object 0x50 - Imimigo cavalo marinho (Aquis) na Oil Ocean
 ; <<<-
 ;===============================================================================

@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x51 - Imimigo cavalo marinho (Aquis) na Oil Ocean
+; Object 0x51 - Imimigo cavalo marinho (Aquis) na Oil Ocean
 ; ->>> 
 ;===============================================================================
 ; Offset_0x0223C8:
@@ -188,6 +188,6 @@ Offset_0x022600:
 Offset_0x02260A:
                 rts
 ;===============================================================================
-; Objeto 0x51 - Imimigo cavalo marinho (Aquis) na Oil Ocean
+; Object 0x51 - Imimigo cavalo marinho (Aquis) na Oil Ocean
 ; <<<- 
 ;===============================================================================

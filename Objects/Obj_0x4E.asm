@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x4E - Crocobot - Inimigo crocodilo na Hidden Palace
+; Object 0x4E - Crocobot - Inimigo crocodilo na Hidden Palace
 ; ->>> 
 ;===============================================================================
 ; Offset_0x021160:
@@ -191,6 +191,6 @@ Offset_0x02141E:
                 dc.l    $0001001E, $000F0004
                 dc.l    $00050028, $0014000C 
 ;===============================================================================
-; Objeto 0x4E - Crocobot - Inimigo crocodilo na Hidden Palace
+; Object 0x4E - Crocobot - Inimigo crocodilo na Hidden Palace
 ; <<<- 
 ;===============================================================================

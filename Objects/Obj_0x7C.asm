@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x7C - Estrutura de metal no fundo da Chemical Plant
+; Object 0x7C - Estrutura de metal no fundo da Chemical Plant
 ; ->>>
 ;===============================================================================  
 ; Offset_0x0160BE:
@@ -55,6 +55,6 @@ Offset_0x01612A:
                 dc.l    $600FB000, $B000FFF0
                 dc.l    $7F0FA000, $A000FFF0 
 ;===============================================================================
-; Objeto 0x7C - Estrutura de metal no fundo da Chemical Plant
+; Object 0x7C - Estrutura de metal no fundo da Chemical Plant
 ; <<<-
 ;===============================================================================

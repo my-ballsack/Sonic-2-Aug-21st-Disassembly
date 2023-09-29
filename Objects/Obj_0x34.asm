@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x34 - Tela com o nome das fases conhecido também conhecido como:
+; Object 0x34 - Tela com o nome das fases conhecido tambï¿½m conhecido como:
 ; ->>>        - Splash Screen, Title Cards, etc...
 ;===============================================================================
 ; Offset_0x00BA00:
@@ -139,6 +139,6 @@ Title_Cards_Config:                                            ; Offset_0x00BB34
                 dc.w    $0000, $0120, $FEE4, $0124, $03EC, $03EC, $01EC, $012C
                 dc.w    $0000, $0120, $FEE4, $0124, $03EC, $03EC, $01EC, $012C
 ;===============================================================================
-; Objeto 0x34 - Tela com o nome das fases conhecido também conhecido como:
+; Object 0x34 - Tela com o nome das fases conhecido tambï¿½m conhecido como:
 ; <<<-        - Splash Screen, Title Cards, etc...
 ;===============================================================================

@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x6A - Três caixas rodando na Dust Hill / Plataformas na Metropolis
+; Object 0x6A - Três caixas rodando na Dust Hill / Plataformas na Metropolis
 ; ->>> 
 ;===============================================================================  
 ; Offset_0x01C850:
@@ -181,6 +181,6 @@ Offset_0x01CAD2:
                 dc.l    $000F1810, $1808FFE0
                 dc.l    $000F1800, $18000000 
 ;===============================================================================
-; Objeto 0x6A - Três caixas rodando na Dust Hill / Plataformas na Metropolis
+; Object 0x6A - Três caixas rodando na Dust Hill / Plataformas na Metropolis
 ; <<<- 
 ;===============================================================================

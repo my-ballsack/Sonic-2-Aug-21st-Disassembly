@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x67 - Atributo dos teletransportes na Metropolis
+; Object 0x67 - Atributo dos teletransportes na Metropolis
 ; ->>> 
 ;===============================================================================
 ; Offset_0x01BEFC:
@@ -332,6 +332,6 @@ Offset_0x01C2EE:
                 dc.l    $00050000, $0000FFEC
                 dc.l    $00050000, $0000FFF8
 ;===============================================================================
-; Objeto 0x67 - Atributo dos teletransportes na Metropolis
+; Object 0x67 - Atributo dos teletransportes na Metropolis
 ; <<<- 
 ;===============================================================================

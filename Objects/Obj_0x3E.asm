@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x3E - Container de animais nas fases que contém chefe
+; Object 0x3E - Container de animais nas fases que contém chefe
 ; ->>>
 ;===============================================================================
 ; Offset_0x02AEE8:
@@ -229,6 +229,6 @@ Offset_0x02B1D8:
 Offset_0x02B1E2:
                 dc.w    $0000 
 ;===============================================================================
-; Objeto 0x3E - Container de animais nas fases que contém chefe
+; Object 0x3E - Container de animais nas fases que contém chefe
 ; <<<-
 ;===============================================================================

@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x78 - Plataformas que giram em torno de si mesmo, plataformas que
+; Object 0x78 - Plataformas que giram em torno de si mesmo, plataformas que
 ; ->>>          sobem ou descem quando tocadas na Chemical Plant e Escadas
 ;===============================================================================   
 ; Offset_0x01E2A8:
@@ -176,6 +176,6 @@ Offset_0x01E43A:
 Offset_0x01E462:
                 rts
 ;===============================================================================
-; Objeto 0x78 - Plataformas que giram em torno de si mesmo, plataformas que
+; Object 0x78 - Plataformas que giram em torno de si mesmo, plataformas que
 ; <<<-          sobem ou descem quando tocadas na Chemical Plant e Escadas
 ;===============================================================================

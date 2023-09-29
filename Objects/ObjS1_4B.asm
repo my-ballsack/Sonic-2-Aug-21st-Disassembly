@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0x4B - Anel gigante usado para acesso ao Estágio Especial, não usado
-; ->>>          Left over do Sonic 1
+; Object 0x4B - Giant ring used to access the Special Stage
+; ->>>          Not used, leftover from Sonic 1
 ;===============================================================================
 ; Offset_0x00AD26:
                 moveq   #$00, D0
@@ -62,6 +62,6 @@ Offset_0x00ADDA:
 Offset_0x00ADE6:
                 bra     DeleteObject                           ; Offset_0x00D314 
 ;===============================================================================
-; Objeto 0x4B - Anel gigante usado para acesso ao Estágio Especial, não usado
-; <<<-          Left over do Sonic 1
+; Object 0x4B - Giant ring used to access the Special Stage
+; <<<-          Not used, leftover from Sonic 1
 ;===============================================================================

@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x97 - Cabeça do inimigo Rexon na Hill Top (Inimigo tipo cobra que
+; Object 0x97 - Cabeça do inimigo Rexon na Hill Top (Inimigo tipo cobra que
 ; ->>>          atira bolas de fogo no jogador)
 ;===============================================================================
 ; Offset_0x0289CC:
@@ -270,6 +270,6 @@ Offset_0x028CA4:
                 dc.b    $06, $F2, $05, $F2, $04, $F2, $04, $F1
                 dc.b    $03, $F1, $02, $F1, $01, $F1, $01, $F1
 ;===============================================================================
-; Objeto 0x97 - Cabeça do inimigo Rexon na Hill Top (Inimigo tipo cobra que
+; Object 0x97 - Cabeça do inimigo Rexon na Hill Top (Inimigo tipo cobra que
 ; <<<-          atira bolas de fogo no jogador)
 ;===============================================================================

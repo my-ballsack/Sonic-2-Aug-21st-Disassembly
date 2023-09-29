@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x1F - Plataformas que desmoronam na Dust Hill / Oil Ocean
+; Object 0x1F - Plataformas que desmoronam na Dust Hill / Oil Ocean
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x009728:
@@ -143,6 +143,6 @@ Offset_0x009904:
                 move.w  #$00B9, D0
                 jmp     (Play_Sfx)                             ; Offset_0x001512              
 ;===============================================================================
-; Objeto 0x1F - Plataformas que desmoronam na Dust Hill / Oil Ocean
+; Object 0x1F - Plataformas que desmoronam na Dust Hill / Oil Ocean
 ; <<<- 
 ;===============================================================================

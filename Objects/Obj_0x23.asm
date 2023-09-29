@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x23 - Pilar que solta a parte debaixo na Neo Green Hill
+; Object 0x23 - Pilar que solta a parte debaixo na Neo Green Hill
 ; ->>> 
 ;===============================================================================
 ; Offset_0x01A644
@@ -138,6 +138,6 @@ Offset_0x01A7F0:
                 dc.l    $000D0079, $003CFFF0
                 dc.l    $10040081, $0040FFF0 
 ;===============================================================================
-; Objeto 0x23 - Pilar que solta a parte debaixo na Neo Green Hill
+; Object 0x23 - Pilar que solta a parte debaixo na Neo Green Hill
 ; <<<- 
 ;===============================================================================

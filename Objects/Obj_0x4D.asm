@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x4D - Rhinobot - Inimigo rinoceronte na Hidden Palace
+; Object 0x4D - Rhinobot - Inimigo rinoceronte na Hidden Palace
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x0228EC:
@@ -183,6 +183,6 @@ Offset_0x022B84:
                 dc.l    $00090028, $00140000
                 dc.l    $FB010030, $0018001A
 ;===============================================================================
-; Objeto 0x4D - Rhinobot - Inimigo rinoceronte na Hidden Palace
+; Object 0x4D - Rhinobot - Inimigo rinoceronte na Hidden Palace
 ; <<<- 
 ;===============================================================================

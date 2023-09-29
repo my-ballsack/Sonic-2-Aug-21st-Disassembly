@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x79 - Poste de reinício, utilizado para salvar a posição do jogador
+; Object 0x79 - Poste de reinício, utilizado para salvar a posição do jogador
 ; ->>>          na fase
 ;===============================================================================
 ; Offset_0x0144C0:
@@ -169,6 +169,6 @@ Offset_0x014744:
                 dc.l    $F8030006, $0003FFF8
                 dc.l    $F8030806, $08030000
 ;===============================================================================
-; Objeto 0x79 - Poste de reinício, utilizado para salvar a posição do jogador
+; Object 0x79 - Poste de reinício, utilizado para salvar a posição do jogador
 ; <<<-          na fase
 ;===============================================================================

@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x3A - Tela com a pontuação e bonificação da fase
+; Object 0x3A - Tela com a pontuação e bonificação da fase
 ; ->>> 
 ;===============================================================================  
 ; Offset_0x00BD06:
@@ -195,6 +195,6 @@ Level_Results_Screen_Pos:                                      ; Offset_0x00BF06
                 dc.w    $0560, $0120, $010C, $0204
                 dc.w    $020C, $014C, $00CC, $0205
 ;===============================================================================
-; Objeto 0x3A - Tela com a pontuação e bonificação da fase
+; Object 0x3A - Tela com a pontuação e bonificação da fase
 ; <<<- 
 ;===============================================================================

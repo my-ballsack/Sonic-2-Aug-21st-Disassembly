@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0xAE - Galo do inimigo Clucker na Sky Fortress
+; Object 0xAE - Galo do inimigo Clucker na Sky Fortress
 ; ->>>
 ;===============================================================================
 ; Offset_0x02A4D0:
@@ -224,6 +224,6 @@ Offset_0x02A77E:
                 dc.w    $0001
                 dc.l    $FC000818, $080CFFFC 
 ;===============================================================================
-; Objeto 0xAE - Galo do inimigo Clucker na Sky Fortress
+; Object 0xAE - Galo do inimigo Clucker na Sky Fortress
 ; <<<-
 ;===============================================================================

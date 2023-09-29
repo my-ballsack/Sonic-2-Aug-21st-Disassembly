@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0x9C - Fogo da turbina usada pelos inimigos Tutloid e Balkiry
-; ->>>          Objeto utilizado pelo 0x9A e 0xAC
+; Object 0x9C - Fogo da turbina usada pelos inimigos Tutloid e Balkiry
+; ->>>          Object utilizado pelo 0x9A e 0xAC
 ;===============================================================================
 ; Offset_0x029060:
                 moveq   #$00, D0
@@ -132,6 +132,6 @@ Offset_0x0291CE:
                 dc.w    $0001
                 dc.l    $FB000038, $001C001B
 ;===============================================================================
-; Objeto 0x9C - Fogo da turbina usada pelos inimigos Tutloid e Balkiry
-; <<<-          Objeto utilizado pelo 0x9A e 0xAC
+; Object 0x9C - Fogo da turbina usada pelos inimigos Tutloid e Balkiry
+; <<<-          Object utilizado pelo 0x9A e 0xAC
 ;===============================================================================

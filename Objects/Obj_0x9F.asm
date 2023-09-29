@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x9F - Inimigo Shellcracker na Metropolis
+; Object 0x9F - Inimigo Shellcracker na Metropolis
 ; ->>>
 ;===============================================================================
 ; Offset_0x0295B2:
@@ -112,6 +112,6 @@ Offset_0x0296C8:
                 move.w  #$0140, Obj_Timer(A0)                            ; $002A
                 rts
 ;===============================================================================
-; Objeto 0x9F - Inimigo Shellcracker na Metropolis
+; Object 0x9F - Inimigo Shellcracker na Metropolis
 ; <<<-
 ;===============================================================================

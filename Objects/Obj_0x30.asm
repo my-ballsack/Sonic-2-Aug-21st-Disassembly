@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x30 - Atributos dos tiles usados durante os terremotos na Hill Top
+; Object 0x30 - Atributos dos tiles usados durante os terremotos na Hill Top
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x01870C:
@@ -139,6 +139,6 @@ Offset_0x018834:
                 dc.b    $D3, $D3, $D2, $D2, $D1, $D1, $D0, $D0
                 dc.b    $D0, $D0, $D0, $D0
 ;===============================================================================
-; Objeto 0x30 - Atributos dos tiles usados durante os terremotos na Hill Top
+; Object 0x30 - Atributos dos tiles usados durante os terremotos na Hill Top
 ; <<<- 
 ;===============================================================================

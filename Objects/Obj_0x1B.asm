@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x1B - Propulsor automático na Chemical Plant
+; Object 0x1B - Propulsor automï¿½tico na Chemical Plant
 ; ->>> 
 ;===============================================================================  
 ; Offset_0x017114:
@@ -106,6 +106,6 @@ Offset_0x01724A:
 Offset_0x01725C:
                 dc.w    $0000 
 ;===============================================================================
-; Objeto 0x1B - Propulsor automático na Chemical Plant
+; Object 0x1B - Propulsor automï¿½tico na Chemical Plant
 ; <<<- 
 ;===============================================================================

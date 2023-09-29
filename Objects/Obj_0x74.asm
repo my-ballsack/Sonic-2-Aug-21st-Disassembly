@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x74 - Barreira invisível utilizada para bloquear passagens nas fases
+; Object 0x74 - Barreira invisível utilizada para bloquear passagens nas fases
 ; ->>>
 ;===============================================================================   
 ; Offset_0x015FBA:
@@ -79,6 +79,6 @@ Offset_0x01609C:
                 dc.l    $1005001C, $000EFF80
                 dc.l    $1005001C, $000E0070
 ;===============================================================================
-; Objeto 0x74 - Barreira invisível utilizada para bloquear passagens nas fases
+; Object 0x74 - Barreira invisível utilizada para bloquear passagens nas fases
 ; <<<-
 ;===============================================================================

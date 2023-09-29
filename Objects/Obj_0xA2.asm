@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0xA2 - Sub-objeto usado pelo inimigo Slicer na Metropolis.
+; Object 0xA2 - Sub-Object usado pelo inimigo Slicer na Metropolis.
 ; ->>>          Facas que são atiradas no jogador
 ;===============================================================================
 ; Offset_0x0299CE:
@@ -171,6 +171,6 @@ Offset_0x029C22:
                 dc.l    $F004181E, $180F0000
                 dc.l    $F800181D, $180E0008
 ;===============================================================================
-; Objeto 0xA2 - Sub-objeto usado pelo inimigo Slicer na Metropolis.
+; Object 0xA2 - Sub-Object usado pelo inimigo Slicer na Metropolis.
 ; <<<-          Facas que são atiradas no jogador
 ;===============================================================================

@@ -1,5 +1,5 @@
 ;===============================================================================
-; Object 0x28 - Flickies (pássaros, esquilos) que aparecem ao destruir iminigos
+; Object 0x28 - Flickies (birds, squirrels) that appear when destroying enemies
 ; ->>> 
 ;===============================================================================
 ; Offset_0x00A3E8
@@ -418,6 +418,6 @@ Offset_0x00A914:
                 subi.w  #$00B8, D0
                 rts   
 ;===============================================================================
-; Object 0x28 - Flickies (pássaros, esquilos) que aparecem ao destruir iminigos
+; Object 0x28 - Flickies (birds, squirrels) that appear when destroying enemies
 ; <<<- 
 ;===============================================================================

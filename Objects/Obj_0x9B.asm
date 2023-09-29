@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0x9B - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
-; ->>>          Objeto utilizado pelo 0x9A
+; Object 0x9B - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
+; ->>>          Object utilizado pelo 0x9A
 ;===============================================================================
 ; Offset_0x028FE4:
                 moveq   #$00, D0
@@ -32,7 +32,7 @@ Offset_0x02900E:
                 move.w  (A2)+, D0
                 add.w   D0, Obj_Y(A0)                                    ; $000C
 ;-------------------------------------------------------------------------------                
-Return_to_sub_routine: ; Usado por vários objetos              ; Offset_0x029026
+Return_to_sub_routine: ; Usado por vários Objects              ; Offset_0x029026
                 rts                                                              
 ;-------------------------------------------------------------------------------  
 Load_Turtloid_Sub_Obj_0x9B:                                    ; Offset_0x029028
@@ -50,6 +50,6 @@ Load_Turtloid_Sub_Obj_0x9B:                                    ; Offset_0x029028
 Offset_0x02905E:
                 rts 
 ;===============================================================================
-; Objeto 0x9B - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
-; <<<-          Objeto utilizado pelo 0x9A
+; Object 0x9B - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
+; <<<-          Object utilizado pelo 0x9A
 ;===============================================================================

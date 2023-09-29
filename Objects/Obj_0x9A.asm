@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x9A - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
+; Object 0x9A - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x028F08:
@@ -83,6 +83,6 @@ Offset_0x028FE0:
 Offset_0x028FE2:
                 rts
 ;===============================================================================
-; Objeto 0x9A - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
+; Object 0x9A - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
 ; <<<- 
 ;===============================================================================

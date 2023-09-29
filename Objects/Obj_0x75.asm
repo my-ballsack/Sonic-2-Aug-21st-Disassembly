@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x75 - Bola de espinhos com corrente na Dust Hill
+; Object 0x75 - Bola de espinhos com corrente na Dust Hill
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x01DCA4:
@@ -156,6 +156,6 @@ Offset_0x01DE88:
                 dc.l    $F0074040, $4020FFF0
                 dc.l    $F0074840, $48200000
 ;===============================================================================
-; Objeto 0x75 - Bola de espinhos com corrente na Dust Hill
+; Object 0x75 - Bola de espinhos com corrente na Dust Hill
 ; <<<- 
 ;===============================================================================

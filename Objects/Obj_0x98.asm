@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x98 - Armas usadas pelos inimigos. Ex: Coco atirado pelo Coconuts
+; Object 0x98 - Armas usadas pelos inimigos. Ex: Coco atirado pelo Coconuts
 ; ->>>
 ;===============================================================================
 ; Offset_0x028CE4:
@@ -87,6 +87,6 @@ Clucker_Bullet_Map_Ptr:                                        ; Offset_0x028D98
                 dc.w    $23EE
                 dc.b    $84, $05, $04, $98
 ;===============================================================================
-; Objeto 0x98 - Armas usadas pelos inimigos. Ex: Coco atirado pelo Coconuts
+; Object 0x98 - Armas usadas pelos inimigos. Ex: Coco atirado pelo Coconuts
 ; <<<-
 ;===============================================================================

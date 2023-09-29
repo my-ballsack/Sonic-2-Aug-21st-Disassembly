@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x2B - Pilar que sobe quando se aproxima e pode ser destruído na
+; Object 0x2B - Pilar que sobe quando se aproxima e pode ser destruï¿½do na
 ; ->>>          Neo Green Hill 
 ;===============================================================================  
 ; Offset_0x01A812:
@@ -343,6 +343,6 @@ Offset_0x01AE1A:
                 dc.l    $20050083, $0041FFF0
                 dc.l    $20050087, $00430000
 ;===============================================================================
-; Objeto 0x2B - Pilar que sobe quando se aproxima e pode ser destruído na
+; Object 0x2B - Pilar que sobe quando se aproxima e pode ser destruï¿½do na
 ; <<<-          Neo Green Hill 
 ;===============================================================================
