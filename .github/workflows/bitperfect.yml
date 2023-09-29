@@ -13,13 +13,8 @@ jobs:
       - name: Assemble
         run: .\build.bat
 
-      - name: Check if its bit-perfect
-        run: |
-          if (Test-Path -Path "s2built.bin") {
-            $comparisonResult = Compare-Object -ReferenceObject (Get-Content -Path "s2built.bin" -Encoding Byte) -DifferenceObject (Get-Content -Path "sonic2alpha.bin" -Encoding Byte) -IncludeEqual -ExcludeDifferent
-            if ($comparisonResult) {
-            exit 1
-            }
-          } else {
-            exit 1
-          }
+      - name: Setup Lua
+        uses: ljmf00/setup-lua@v1.0.0
+        
+      - name: Check bit-perfectness
+        run: lua ./chkbitperfect.lua
