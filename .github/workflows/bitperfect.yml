@@ -1,23 +1,23 @@
 name: Check bit-perfectness
 
-# Controls when the workflow will run
-on:
-  push:
-    branches:
-    - master
+on: [push, pull_request]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: windows-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
       - uses: actions/checkout@v3
 
-      # I probably could've rigged up an actual Powershell script but this works.
-      - name: Assemble then check if it's bit-perfect
-        run: .\chkbitperfect.bat
+      - name: Assemble
+        run: .\build.bat
+
+      - name: Check if its bit-perfect
+        run: |
+          if((Test-Path s2built.bin)) {
+            (Get-Content s2built.bin | Compare-Object -ReferenceObject (Get-Content sonic2alpha.bin)) | ForEach-Object { exit 0 }
+          } else {
+            echo "s2built.bin does not exist, probably due to an assembly error"
+            exit 1
+          }

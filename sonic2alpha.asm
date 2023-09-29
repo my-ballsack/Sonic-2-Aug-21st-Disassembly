@@ -121,7 +121,7 @@ PortC_OK:                                                      ; Offset_0x000292
 		bra.s   Game_Program                           ; Offset_0x000300
 ;-------------------------------------------------------------------------------
 InitValues:                                                    ; Offset_0x000294
-		dc.w    $8000, $3FFF, $0100
+		dc.w    $8000, $3FFF, $F100
 		dc.l    Z80_RAM_Start               ; $00A00000
 		dc.l    Z80_Bus_Request             ; $00A11100
 		dc.l    Z80_Reset                   ; $00A11200
