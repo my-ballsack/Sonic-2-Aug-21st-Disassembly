@@ -12,9 +12,6 @@ jobs:
 
       - name: Assemble
         run: .\build.bat
-
-      - name: Setup Lua
-        uses: ljmf00/setup-lua@v1.0.0
         
       - name: Check bit-perfectness
-        run: lua ./chkbitperfect.lua
+        run: .\chkbitperfect.bat
