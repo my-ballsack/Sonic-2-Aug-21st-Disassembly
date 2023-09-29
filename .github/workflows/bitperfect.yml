@@ -15,9 +15,11 @@ jobs:
 
       - name: Check if its bit-perfect
         run: |
-          if((Test-Path s2built.bin)) {
-            (Get-Content s2built.bin | Compare-Object -ReferenceObject (Get-Content sonic2alpha.bin)) | ForEach-Object { exit 0 }
+          if (Test-Path -Path "s2built.bin") {
+            $comparisonResult = Compare-Object -ReferenceObject (Get-Content -Path "s2built.bin" -Encoding Byte) -DifferenceObject (Get-Content -Path "sonic2alpha.bin" -Encoding Byte) -IncludeEqual -ExcludeDifferent
+            if ($comparisonResult) {
+            exit 1
+            }
           } else {
-            echo "s2built.bin does not exist, probably due to an assembly error"
             exit 1
           }
