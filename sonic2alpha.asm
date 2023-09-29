@@ -17,7 +17,11 @@ Offset_0x000040 equ $0040 ; Incorrect reference in Crawl ( Obj_0x9E.asm )
  include 'macros.asm'
  include 'constants.asm'
  include 'Sound/_smps2asm_inc.asm'
+
+; ASSEMBLY OPTIONS:
 RestoreSegaScreen = 0
+; If 1, it will make the SEGA screen the default screen on boot rather than the title screen.
+
 StartOfRom:
 	dc.l    $FFFFFE00, EntryPoint, BusError, AddressError
 	dc.l    IllegalInstr, ZeroDivide, ChkInstr, TrapvInstr
@@ -383,7 +387,7 @@ Art_Menu_Text:                                                 ; Offset_0x0005E8
 ;===============================================================================
 
 ;===============================================================================
-; Vertical interrupt
+; Vertical blank
 ; ->>>
 ;===============================================================================
 VBlank:                                                        ; Offset_0x000B08
@@ -765,12 +769,12 @@ Offset_0x001124:
 		startZ80                                             ; $00A11100
 		rts
 ;===============================================================================
-; Vertical interrupt
+; Vertical blank
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Horizontal interrupt
+; Horizontal blank
 ; ->>>
 ;===============================================================================
 HBlank:                                                        ; Offset_0x00117C
@@ -871,7 +875,7 @@ Offset_0x00129A:
 ;-------------------------------------------------------------------------------
 
 ;===============================================================================
-; Horizontal interrupt
+; Horizontal blank
 ; <<<-
 ;===============================================================================
 
@@ -881,7 +885,7 @@ Offset_0x00129A:
 ;===============================================================================
 Sound_Driver_Input:                                            ; Offset_0x0012AC
 		lea     (Sound_Buffer_Id&$00FFFFFF), A0              ; $00FFFFE0
-		lea     ($00A01B80), A1
+		lea     (Z80_RAM_Start+$1B80), A1
 		cmpi.b  #$80, $0008(A1)
 		bne.s   Offset_0x0012E0
 		move.b  $0000(A0), D0
@@ -1066,7 +1070,7 @@ Jmp_00_To_SoundDriverLoad                                      ; Offset_0x0014B8
 		nop
 		jmp     (SoundDriverLoad)                      ; Offset_0x0EC000
 ;-------------------------------------------------------------------------------
-; Z80_Init:   ; Inicializa��o do z80 n�o usado                 ; Offset_0x0014C0
+; Z80_Init:   ; Initialization of the Z80 (not used)                 ; Offset_0x0014C0
 		move.w  #$0100, (Z80_Bus_Request)                    ; $00A11100
 		move.w  #$0100, (Z80_Reset)                          ; $00A11200
 		lea     (Z80_RAM_Start), A1                          ; $00A00000
@@ -1103,7 +1107,7 @@ Play_Sfx_Ex:                                                   ; Offset_0x00151E
 Exit_Play_Sfx_Ex:                                              ; Offset_0x001528
 		rts
 ;===============================================================================
-; Routine to handle pausing
+; Routine to handle pausing the game
 ; ->>>
 ;===============================================================================
 Pause:                                                         ; Offset_0x00152A
@@ -1146,12 +1150,12 @@ Pause_SlowMotion:                                              ; Offset_0x001596
 		move.b  #$FF, (Sound_Buffer_Id).w                    ; $FFFFFFE0
 		rts
 ;===============================================================================
-; Routine to handle pausing
+; Routine to handle pausing the game
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Routine for loading mappings into the VDP
+; Routine for loading screen maps into the VDP
 ; ->>>
 ;===============================================================================
 ShowVDPGraphics:                                               ; Offset_0x0015A4
@@ -1166,6 +1170,11 @@ ShowVDPGraphics_TileLoop:                                      ; Offset_0x0015B6
 		add.l   D4, D0
 		dbra    D2, ShowVDPGraphics_LineLoop           ; Offset_0x0015B0
 		rts
+;===============================================================================
+; Routine for loading screen maps into the VDP
+; <<<-
+;===============================================================================
+
 ;===============================================================================
 DMA_68KtoVRAM:                                                 ; Offset_0x0015C4
 		include "_inc/DMA68KtoVRAM.asm"
@@ -1338,7 +1347,7 @@ Offset_0x001788:
 ;===============================================================================
 
 ;===============================================================================
-; Routines for loading graphics into the ArtLoadCues array according to D0
+; Routines for loading graphics from the ArtLoadCues array according to D0
 ; ->>>
 ;===============================================================================
 LoadPLC:                                                       ; Offset_0x001794
@@ -1382,7 +1391,7 @@ Offset_0x0017EC:
 		movem.l (A7)+, A1/A2
 		rts
 ;===============================================================================
-; Routines for loading graphics into the ArtLoadCues array according to D0
+; Routines for loading graphics from the ArtLoadCues array according to D0
 ; <<<-
 ;===============================================================================
 
@@ -1498,7 +1507,7 @@ Offset_0x0018F6:
 		dbra    D0, Offset_0x0018F6
 		rts
 ;===============================================================================
-; Load PLC's directly from ROM without queuing
+; Load PLCs directly from ROM without queuing
 ; ->>>
 ;===============================================================================
 RunPLC_ROM:                                                    ; Offset_0x001900
@@ -1520,7 +1529,7 @@ RunPLC_ROM_Loop:                                               ; Offset_0x001912
 		dbra    D1, RunPLC_ROM_Loop                    ; Offset_0x001912
 		rts
 ;===============================================================================
-; Load PLC's directly from ROM without queuing
+; Load PLCs directly from ROM without queuing
 ; <<<-
 ;===============================================================================
 
@@ -2374,7 +2383,7 @@ Offset_0x001F6A:
 		move.b  (A1)+, (A2)+
 		bra     Offset_0x001B86
 ;===============================================================================
-; Rotina de alterna��o de paleta de cores
+; Color palette cycling routine
 ; ->>>
 ;===============================================================================
 PalCycle_Load:                                                 ; Offset_0x001F70
@@ -2406,7 +2415,7 @@ PalCycle_Load_List:                                            ; Offset_0x001F88
 		dc.w    PalCycle_NGHz-PalCycle_Load_List       ; Offset_0x00228E
 		dc.w    PalCycle_DEz-PalCycle_Load_List        ; Offset_0x001FAA
 ;-------------------------------------------------------------------------------
-; Rotina para as fases sem paleta cicl�ca
+; Routine for zones without a cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_Lvl1:                                                 ; Offset_0x001FAA
@@ -2417,12 +2426,12 @@ PalCycle_GCz:
 PalCycle_DEz:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as fases sem paleta cicl�ca
+; Routine for zones without a cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Green Hill
+; Routine for Green Hills cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_GHz:                                                  ; Offset_0x001FAC
@@ -2439,12 +2448,12 @@ PalCycle_GHz:                                                  ; Offset_0x001FAC
 Offset_0x001FD8:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Green Hill
+; Routine for Green Hills cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Wood
+; Routine for Woods cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_Wz:                                                   ; Offset_0x001FDA
@@ -2463,12 +2472,12 @@ Offset_0x001FFC:
 Offset_0x002008:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Wood
+; Routine for Woods cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Metropolis
+; Routine for Metropolis cycling palettes
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_Mz:                                                   ; Offset_0x00200A
@@ -2514,12 +2523,12 @@ Offset_0x002096:
 Offset_0x00209E:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Metropolis
+; Routine for Metropolis cycling palettes
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Hill Top
+; Routine for Hill Tops cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_HTz:                                                  ; Offset_0x0020A0
@@ -2541,12 +2550,12 @@ Pal_HTzCyc_Data:                                               ; Offset_0x0020D4
 		dc.b    $0B, $0B, $0B, $0A, $08, $0A, $0B, $0B
 		dc.b    $0B, $0B, $0D, $0F, $0D, $0B, $0B, $0B
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Hill Top
+; Routine for Hill Tops cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Hidden Palace
+; Routine for Hidden Palaces cycling palettes
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_HPz:                                                  ; Offset_0x0020E4
@@ -2569,12 +2578,12 @@ Offset_0x002106:
 Offset_0x002124:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Hidden Palace
+; Routine for Hidden Palaces cycling palettes
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Oil Ocean
+; Routine for Oil Oceans Palaces cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_OOz:                                                  ; Offset_0x002126
@@ -2591,12 +2600,12 @@ PalCycle_OOz:                                                  ; Offset_0x002126
 Offset_0x002152:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Oil Ocean
+; Routine for Oil Oceans Palaces cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Dust Hill
+; Routine for Dust Hills cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_DHz:                                                  ; Offset_0x002154
@@ -2611,12 +2620,12 @@ PalCycle_DHz:                                                  ; Offset_0x002154
 Offset_0x00217A:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Dust Hill
+; Routine for Dust Hills cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Casino Night
+; Routine for Casino Nights cycling palettes
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_CNz:                                                  ; Offset_0x00217C
@@ -2657,12 +2666,12 @@ Offset_0x00220A:
 Offset_0x00221A:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Casino Night
+; Routine for Casino Nights cycling palettes
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Chemical Plant
+; Routine for Chemical Plants cycling palettes
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_CPz:                                                  ; Offset_0x00221C
@@ -2695,12 +2704,12 @@ Offset_0x00226C:
 Offset_0x00228C:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Chemical Plant
+; Routine for Chemical Plants cycling palettes
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Neo Green Hill
+; Routine for Neo Green Hill cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_NGHz:                                                 ; Offset_0x00228E
@@ -2718,7 +2727,7 @@ PalCycle_NGHz:                                                 ; Offset_0x00228E
 Offset_0x0022BA:
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas da Neo Green Hill
+; Routine for Neo Green Hill cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
 ; Pal_S1_Title_Screen: ; Left over                             ; Offset_0x0022BC
@@ -2794,7 +2803,7 @@ Pal_CPzCyc3:                                                   ; Offset_0x0024AE
 		dc.w    $000E, $000C, $000A, $0008, $0006, $0004, $0002, $0004
 		dc.w    $0006, $0008, $000A, $000C, $000E, $002E, $004E, $002E
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas do Super Sonic
+; Routine for Super Sonics cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_SuperSonic:                                           ; Offset_0x0024CE
@@ -2837,17 +2846,17 @@ Pal_SuperSonic_Cyc:                                            ; Offset_0x002548
 		incbin "Palettes/SuperSonic_C.bin"
 		even
 ;-------------------------------------------------------------------------------
-; Rotina para as paletas cicl�cas do Super Sonic
+; Routine for Super Sonics cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;===============================================================================
-; Rotina de alterna��o de paleta de cores
+; Color palette cycling routine
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotinas para escurecer / clarear a tela progressivamente
+; Routines for progressively fading out / in the screen
 ; ->>>
 ;===============================================================================
 Pal_FadeTo:                                                    ; Offset_0x0025C8
@@ -2978,7 +2987,7 @@ Pal_NoDec:                                                     ; Offset_0x0026E6
 		addq.w  #$02, A0
 		rts
 ;-------------------------------------------------------------------------------
-Pal_MakeWhite: ; Usado pelo Special Stage                      ; Offset_0x0026EA
+Pal_MakeWhite: ; Used by the Special Stage                      ; Offset_0x0026EA
 		move.w  #$003F, ($FFFFF626).w
 		moveq   #$00, D0
 		lea     (Palette_Buffer).w, A0                       ; $FFFFFB00
@@ -3052,7 +3061,7 @@ Pal_NoDec_2:                                                   ; Offset_0x002790
 		addq.w  #$02, A0
 		rts
 ;-------------------------------------------------------------------------------
-Pal_MakeFlash:  ; Usado pelo Special Stage                     ; Offset_0x002794
+Pal_MakeFlash:  ; Used by the Special Stage                     ; Offset_0x002794
 		move.w  #$003F, ($FFFFF626).w
 		move.w  #$0015, D4
 Offset_0x00279E:
@@ -3111,12 +3120,12 @@ Pal_NoAdd_2:                                                   ; Offset_0x00281E
 		addq.w  #$02, A0
 		rts
 ;===============================================================================
-; Rotinas para escurecer / clarear a tela progressivamente
+; Routines for progressively fading out / in the screen
 ; <<<-
 ;===============================================================================
 
 ;-------------------------------------------------------------------------------
-; Paleta cicl�ca do logo da SEGA
+; The SEGA logos cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
 PalCycle_Sega:                                                 ; Offset_0x002822
@@ -3201,7 +3210,7 @@ Pal_SegaCyc2:                                                  ; Offset_0x0028E4
 		dc.w    $0EE4, $0EC0, $0EC0, $0EC0, $0EEC, $0EEA, $0EE4, $0EC0
 		dc.w    $0EA0, $0E60, $0EEA, $0EE4, $0EC0, $0EA0, $0E80, $0E00
 ;-------------------------------------------------------------------------------
-; Paleta cicl�ca do logo da SEGA
+; The SEGA logos cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
 
@@ -3366,7 +3375,7 @@ Offset_0x003230:
 ;===============================================================================
 
 ;===============================================================================
-; Aguarda pela conclus�o do procedimento de interrup��o vertical
+; Wait for completion of the vertical blank
 ; ->>>
 ;===============================================================================
 Wait_For_VSync:                                                ; Offset_0x003250
@@ -3376,12 +3385,12 @@ Wait_For_VSync_Inf_Loop:                                       ; Offset_0x003254
 		bne.s   Wait_For_VSync_Inf_Loop                ; Offset_0x003254
 		rts
 ;===============================================================================
-; Aguarda pela conclus�o do procedimento de interrup��o vertical
+; Wait for completion of the vertical blank
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Gera��o de n�meros pseudo aleat�rios
+; Generation of pseudo random numbers
 ; ->>>
 ;===============================================================================
 PseudoRandomNumber:                                            ; Offset_0x00325C
@@ -3402,12 +3411,12 @@ Offset_0x003268:
 		move.l  D1, ($FFFFF636).w
 		rts
 ;===============================================================================
-; Gera��o de n�meros pseudo aleat�rios
+; Generation of pseudo random numbers
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para calcular o Seno usando tabela pr�-calculada
+; Routine to calculate a sine wave using a pre-calculated table
 ; ->>>
 ;===============================================================================
 CalcSine:                                                      ; Offset_0x003282
@@ -3423,12 +3432,12 @@ Sine_Table:                                                    ; Offset_0x00329A
 		incbin "misc/sinedata.bin"
 		even
 ;===============================================================================
-; Rotina para calcular o Seno usando tabela pr�-calculada
+; Routine to calculate a sine wave using a pre-calculated table
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para calcular o �ngulo usando tabela pr�-calculada
+; Routine to calculate an angle using a pre-calculated table
 ; ->>>
 ;===============================================================================
 CalcAngle:                                                     ; Offset_0x00351A
@@ -3482,12 +3491,12 @@ Angle_Table:                                                   ; Offset_0x003580
 		incbin "Misc/AngleData.bin"
 		even
 ;===============================================================================
-; Rotina para calcular o �ngulo usando tabela pr�-calculada
+; Routine to calculate an angle using a pre-calculated table
 ; <<<-
 ;===============================================================================
 		nop
 ;===============================================================================
-; Logo da SEGA
+; SEGA logo
 ; ->>>
 ;===============================================================================
 Sega_Screen:                                                   ; Offset_0x003684
@@ -3567,12 +3576,12 @@ Sega_GotoTitle:
 		move.b  #gm_TitleScreen, (Game_Mode).w         ; $04 ; $FFFFF600
 		rts
 ;===============================================================================
-; Logo da SEGA
+; SEGA logo
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Tela t�tulo
+; Title screen
 ; ->>>
 ;===============================================================================
 Title_Screen:                                                  ; Offset_0x0037B0
@@ -3623,7 +3632,8 @@ Offset_0x00382C:
 Title_ClrPalette:
 		move.l  D0, (A1)+
 		dbra    D1, Title_ClrPalette
-		moveq   #$03, D0                               ; load Sonic's palette, leftover from Sonic 1 when it had a presents screen
+		moveq   #$03, D0                               ; load Sonic's palette
+							       ; leftover from Sonic 1 when it had text before showing the title screen
 		bsr     PalLoad1                               ; Offset_0x002914
 		bsr     Pal_FadeTo                             ; Offset_0x0025C8
 		move    #$2700, SR
@@ -4154,7 +4164,7 @@ Offset_0x00419A:
 		adda.w  #$0080, A2
 		rts
 ;===============================================================================
-; Tela t�tulo
+; Title screen
 ; <<<-
 ;===============================================================================
 
@@ -4528,7 +4538,7 @@ Offset_0x0046A6:
 		bne.s   Offset_0x004676
 		rts
 ;-------------------------------------------------------------------------------
-; Modificar a superf�cie d��gua
+; Modify the water surface
 ; ->>>
 ;-------------------------------------------------------------------------------
 Change_Water_Surface_Pos:                                      ; Offset_0x0046AE
@@ -4547,12 +4557,12 @@ Offset_0x0046C4:
 Offset_0x0046D6:
 		rts
 ;-------------------------------------------------------------------------------
-; Modificar a superf�cie d��gua
+; Modify the water surface
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Efeitos embaixo d��gua
+; Underwater effects
 ; ->>>
 ;-------------------------------------------------------------------------------
 Water_Effects:                                                 ; Offset_0x0046D8
@@ -4589,7 +4599,7 @@ Offset_0x004730:
 Offset_0x004734:
 		rts
 ;-------------------------------------------------------------------------------
-; Efeitos embaixo d��gua
+; Underwater effects
 ; <<<-
 ;-------------------------------------------------------------------------------
 Water_Height_Array:                                            ; Offset_0x004736
@@ -4602,7 +4612,7 @@ Water_Height_Array:                                            ; Offset_0x004736
 		dc.w    $0600, $0600  ; GCz
 		dc.w    $0410, $0510  ; NGHz
 ;-------------------------------------------------------------------------------
-; Muda o n�vel d��gua nas fases
+; Changes the water level in the zones
 ; ->>>
 ;-------------------------------------------------------------------------------
 Dynamic_Water_Height:                                          ; Offset_0x004756
@@ -4654,7 +4664,7 @@ Dynamic_CPz_Water:                                             ; Offset_0x0047AC
 Offset_0x0047BA:
 		rts
 ;-------------------------------------------------------------------------------
-S1_Lz_Wind_Tunnels:  ; Left over do Sonic 1                    ; Offset_0x0047BC
+S1_Lz_Wind_Tunnels:  ; Leftover from Sonic 1                    ; Offset_0x0047BC
 		tst.w   (Debug_Mode_Flag_Index).w                    ; $FFFFFE08
 		bne     Offset_0x004898
 		lea     (S1_LZ_Wind_Data+$0008), A2            ; Offset_0x0048A2
@@ -4791,7 +4801,7 @@ Init_Demo_Control:                                             ; Offset_0x00495C
 		bne.s   Demo_Mode_Control                      ; Offset_0x0049DA
 		rts
 ;-------------------------------------------------------------------------------
-; Demo_Record: ; N�o usado                                    ;  Offset_0x004964
+; Demo_Record: ; Not used                                    ;  Offset_0x004964
 		lea     ($00FE8000), A1
 		move.w  ($FFFFF790).w, D0
 		adda.w  D0, A1
@@ -4908,7 +4918,7 @@ Demo_Index:                                                    ; Offset_0x004A70
 		dc.l    $00FE8000, $00FE8000, $00FE8000, $00FE8000
 		dc.l    $00FE8000
 ;-------------------------------------------------------------------------------
-Demo_End_Index: ; Left over do Sonic 1                         ; Offset_0x004AF8
+Demo_End_Index: ; Leftover from Sonic 1                         ; Offset_0x004AF8
 		dc.w    $008B, $0837, $0042, $085C, $006A, $085F, $002F, $082C
 		dc.w    $0021, $0803, $2830, $0808, $002E, $0815, $000F, $0846
 		dc.w    $001A, $08FF, $08CA, $0000, $0000, $0000, $0000, $0000
@@ -5069,7 +5079,7 @@ Offset_0x004D3C:
 ;===============================================================================
 
 ;===============================================================================
-; Verifica se esta no final da fase
+; Check if it's at the end of the zone
 ; ->>>
 ;===============================================================================
 Test_End_Level_Art_Load:                                       ; Offset_0x004D3E
@@ -5111,7 +5121,7 @@ Offset_0x004D84:
 Offset_0x004DB0:
 		rts
 ;===============================================================================
-; Verifica se esta no final da fase
+; Check if it's at the end of the zone
 ; <<<-
 ;===============================================================================
 Demo_Green_Hill:                                               ; Offset_0x004DB2
@@ -5145,7 +5155,7 @@ Jmp_00_To_Dynamic_Art_Cues:                                    ; Offset_0x0052B4
 		jmp     (Dynamic_Art_Cues)                     ; Offset_0x02C61C
 		dc.w    $0000
 ;===============================================================================
-; Rotina principal de controle dos Est�gios Especiais
+; Main control routine for the Special Stage
 ; ->>>
 ;===============================================================================
 Special_Stage:                                                 ; Offset_0x0052BC
@@ -5588,7 +5598,7 @@ SS_Bg_Animate_Data_02:                                         ; Offset_0x00598F
 		dc.b    $04, $02, $02, $03, $08, $FD, $04, $02
 		dc.b    $02, $03, $02, $FF, $00
 ;===============================================================================
-; Rotina principal de controle dos Est�gios Especiais
+; Main control routine for the Special Stage
 ; <<<-
 ;===============================================================================
 
@@ -5840,7 +5850,7 @@ Bg_Scroll_Speed_HPz:                                           ; Offset_0x005D0C
 		clr.l   (Camera_X_x2).w                              ; $FFFFEE08
 		rts
 ;-------------------------------------------------------------------------------
-; Bg_Scroll_Speed_SYz: ; Left Over Sonic 1                     ; Offset_0x005D18
+; Bg_Scroll_Speed_SYz: ; Leftover from Sonic 1                     ; Offset_0x005D18
 		asl.l   #$04, D0
 		move.l  D0, D2
 		asl.l   #$01, D0
@@ -5861,7 +5871,7 @@ Bg_Scroll_Speed_OOz:                                           ; Offset_0x005D30
 		clr.l   (Camera_X_x2).w                              ; $FFFFEE08
 		rts
 ;-------------------------------------------------------------------------------
-; Bg_Scroll_Speed_SYz: ; Left Over Sonic 1                     ; Offset_0x005D40
+; Bg_Scroll_Speed_SYz: ; Leftover from Sonic 1                     ; Offset_0x005D40
 		asl.l   #$04, D0
 		move.l  D0, D2
 		asl.l   #$01, D0
@@ -7613,7 +7623,7 @@ Offset_0x006EC6:
 Offset_0x006ECC:
 		rts
 ;-------------------------------------------------------------------------------
-; Scroll_Block_5: ; Left over do Sonic 1, n�o usado            ; Offset_0x006ECE
+; Scroll_Block_5: ; Leftover from Sonic 1, Not used            ; Offset_0x006ECE
 		move.l  (Camera_X_x4).w, D2                          ; $FFFFEE18
 		move.l  D2, D0
 		add.l   D4, D0
@@ -7635,7 +7645,7 @@ Offset_0x006EFA:
 Offset_0x006F00:
 		rts
 ;-------------------------------------------------------------------------------
-; Offset_0x006F02: ; Left over do Sonic 1, n�o usado
+; Offset_0x006F02: ; Leftover from Sonic 1, Not used
 		lea     (VDP_Control_Port), A5                       ; $00C00004
 		lea     (VDP_Data_Port), A6                          ; $00C00000
 		lea     (Scroll_Flag_Array+$0002).w, A2              ; $FFFFEE52
@@ -7946,7 +7956,7 @@ Offset_0x00723E:
 		bra     Offset_0x007358
 ;-------------------------------------------------------------------------------
 ; Rotina de controle da rolagem da fase Scrap Brain Zone 1
-; Left over do Sonic 1
+; Leftover from Sonic 1
 ; <<<-
 ;-------------------------------------------------------------------------------
 Offset_0x007254:
@@ -8665,7 +8675,7 @@ Main_Level_Load_16_128_Blocks:                                 ; Offset_0x0078AE
 		move.l  (A2)+, A0
 		bra.s   Main_Level_Load_Blocks_Convert16       ; Offset_0x0078DE
 ;-------------------------------------------------------------------------------
-; Offset_0x0078D0: ; Left Over do Sonic 1
+; Offset_0x0078D0: ; Leftover from Sonic 1
 		lea     (Blocks_Mem_Address).w, A1                   ; $FFFF9000
 		move.w  #$0000, D0
 		bsr     EnigmaDec                              ; Offset_0x001932
@@ -8803,7 +8813,7 @@ Offset_0x0079F2:
 ; <<<-
 ;===============================================================================
 
-; Offset_0x007A0C: ; N�o usado
+; Offset_0x007A0C: ; Not used
 		lea     ($00FE0000), A1
 		lea     ($00FE0080), A2
 		lea     (M68K_RAM_Start), A3                         ; $FFFF0000
@@ -8824,7 +8834,7 @@ Offset_0x007A4A:
 		dbra    D1, Offset_0x007A4A
 		rts
 ;-------------------------------------------------------------------------------
-; Offset_0x007A52: ; N�o usado
+; Offset_0x007A52: ; Not used
 		lea     ($00FE0000), A1
 		lea     (M68K_RAM_Start), A3                         ; $FFFF0000
 		moveq   #$1F, D0
@@ -9225,7 +9235,7 @@ Offset_0x007E90:
 		move.b  D1, (Vertical_Scrolling_Sub).w               ; $FFFFEEB6
 		rts
 ;-------------------------------------------------------------------------------
-; Offset_0x007E96: ; N�o usado
+; Offset_0x007E96: ; Not used
 		btst    #$00, ($FFFFF606).w
 		beq.s   Offset_0x007EA8
 		tst.w   ($FFFFEEE4).w
@@ -10628,7 +10638,7 @@ Jmp_00_To_Object_HitWall_Right:                                ; Offset_0x00903C
 ;-------------------------------------------------------------------------------
 Obj_0x17_Log_Spikes:                                           ; Offset_0x009044
 ;===============================================================================
-; Objeto 0x17 - Espinhos em espiral girando na Green Hill - Left over do Sonic 1
+; Objeto 0x17 - Espinhos em espiral girando na Green Hill - Leftover from Sonic 1
 ; ->>>
 ;===============================================================================
 ; Offset_0x009044
@@ -10739,7 +10749,7 @@ Offset_0x00917E:
 Log_Spikes_Mappings:                                           ; Offset_0x009186
                 include 'Map/obj17S1.asm'
 ;===============================================================================
-; Objeto 0x17 - Espinhos em espiral girando na Green Hill - Left over do Sonic 1
+; Objeto 0x17 - Espinhos em espiral girando na Green Hill - Leftover from Sonic 1
 ; <<<-
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -11545,7 +11555,7 @@ Offset_0x00AAA6:
                 dc.w    Offset_0x00AB80-Offset_0x00AAA6
                 dc.w    Offset_0x00AB8E-Offset_0x00AAA6
 ;-------------------------------------------------------------------------------
-; Offset_0x00AAB0: ; Dados n�o usados, Left over do Sonic 1
+; Offset_0x00AAB0: ; Dados Not useds, Leftover from Sonic 1
                 dc.b    $10, $00, $18, $00, $20, $00, $00, $10
                 dc.b    $00, $18, $00, $20, $10, $10, $18, $18
                 dc.b    $20, $20, $F0, $10, $E8, $18, $E0, $20
@@ -21976,7 +21986,7 @@ Lamp_Post_Mappings:                                            ; Offset_0x0146FA
 Obj_0x7D_Hidden_Bonus:                                         ; Offset_0x014768
 ;===============================================================================
 ; Objeto 0x7D - Bonus oculto no final das fases.
-; ->>>          Left Over do Sonic 1, n�o usado.
+; ->>>          Leftover from Sonic 1, Not used.
 ;===============================================================================
 ; Offset_0x014768:
                 moveq   #$00, D0
@@ -22055,7 +22065,7 @@ Hidden_Bonus_Mappings:                                         ; Offset_0x014842
                 include 'Map/obj7D.asm'
 ;===============================================================================
 ; Objeto 0x7D - Bonus oculto no final das fases.
-; <<<-          Left Over do Sonic 1, n�o usado.
+; <<<-          Leftover from Sonic 1, Not used.
 ;===============================================================================
 ;-------------------------------------------------------------------------------
 		nop
@@ -27165,7 +27175,7 @@ Jmp_00_To_TouchRings:                                          ; Offset_0x02B732
 		jmp     (TouchRings)                           ; Offset_0x00DEFC
 
 ;===============================================================================
-; Rotina para mostrar o leiaute dos Est�gios Especiais - Left over do Sonic 1
+; Rotina para mostrar o leiaute dos Est�gios Especiais - Leftover from Sonic 1
 ; ->>>
 ;===============================================================================
 Special_Stage_Show_Layout:                                     ; Offset_0x02B738
@@ -27549,12 +27559,12 @@ SS_6_Animate_Data:                                             ; Offset_0x02BC2C
 		dc.b    $4B, $4C, $4D, $4E, $4B, $4C, $4D, $4E
 		dc.b    $00, $00
 ;===============================================================================
-; Rotina para mostrar o leiaute dos Est�gios Especiais - Left over do Sonic 1
+; Rotina para mostrar o leiaute dos Est�gios Especiais - Leftover from Sonic 1
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para carregar o leiaute dos Est�gios Especiais - Left over do Sonic 1
+; Rotina para carregar o leiaute dos Est�gios Especiais - Leftover from Sonic 1
 ; ->>>
 ;===============================================================================
 Special_Stage_Layout_Index:                                    ; Offset_0x02BC36
@@ -28592,7 +28602,7 @@ Jmp_00_To_NemesisDecToRAM:                                     ; Offset_0x02D0F8
 		jmp     (NemesisDecToRAM)                      ; Offset_0x001666
 		dc.w    $0000
 ;===============================================================================
-; Rotina para carregar o leiaute dos Est�gios Especiais - Left over do Sonic 1
+; Rotina para carregar o leiaute dos Est�gios Especiais - Leftover from Sonic 1
 ; <<<-
 ;===============================================================================
 Obj_0x21_Head_Up_Display:                                      ; Offset_0x02D100
@@ -28693,7 +28703,7 @@ Offset_0x02D3C8:
 Offset_0x02D3F0:
 		rts
 ;-------------------------------------------------------------------------------
-Time_Over:    ; N�o usado                                      ; Offset_0x02D3F2
+Time_Over:    ; Not used                                      ; Offset_0x02D3F2
 		clr.b   (HUD_Timer_Refresh_Flag).w                   ; $FFFFFE1E
 		lea     (Obj_Memory_Address).w, A0                   ; $FFFFB000
 		move.l  A0, A2
@@ -29684,7 +29694,7 @@ DEz_Background_Map_Act_2:                                      ; Offset_0x049C36
 ; <<<-
 ;===============================================================================
 ; Anel gigante para acesso aos est�gios especiais.
-; N�o usado, left over do Sonic 1.
+; Not used, Leftover from Sonic 1.
 Art_Big_Ring:                                                  ; Offset_0x049C3A
 		incbin  'art/uncompressed/big_ring.dat'
 Previous_Build_Art_Big_Ring_Overwrite:                         ; Offset_0x04A87A
@@ -29875,7 +29885,7 @@ Art_HTz_Automatic_Door:                                        ; Offset_0x078072
 		incbin  'art/nemesis/htzautodoor.nem'
 Art_HTz_See_saw:                                               ; Offset_0x0780EA
 		incbin  'art/nemesis/see-saw.nem'
-Art_Unk_Fireball: ; N�o usado                                  ; Offset_0x078282
+Art_Unk_Fireball: ; Not used                                  ; Offset_0x078282
 		incbin  'art/nemesis/unkfball.nem'
 Art_HTz_Rock:                                                  ; Offset_0x078390
 		incbin  'art/nemesis/rock.nem'
@@ -30067,7 +30077,7 @@ Art_Bear:                                                      ; Offset_0x0803FA
 		incbin  'art/nemesis/bear.nem'
 Art_Rabbit:                                                    ; Offset_0x08053C
 		incbin  'art/nemesis/rabbit.nem'
-Art_HPz_Crocobot: ; N�o usado                                  ; Offset_0x080694
+Art_HPz_Crocobot: ; Not used                                  ; Offset_0x080694
 		incbin  'art/nemesis/crocobot.nem'
 Art_GHz_Buzzer:                                                ; Offset_0x080A36
 		incbin  'art/nemesis/buzzer.nem'
@@ -30079,19 +30089,19 @@ Art_Rhinobot:                                                  ; Offset_0x0812AC
 		incbin  'art/nemesis/rhinobot.nem'
 Art_Dinobot:                                                   ; Offset_0x081674
 		incbin  'art/nemesis/dinobot.nem'
-Art_Hpz_Piranha: ; N�o usado                                   ; Offset_0x081A4A
+Art_Hpz_Piranha: ; Not used                                   ; Offset_0x081A4A
 		incbin  'art/nemesis/piranha.nem'
 Art_Aquis:                                                     ; Offset_0x081F42
 		incbin  'art/nemesis/aquis.nem'
-Art_Spinning_Ball: ; N�o usado                                 ; Offset_0x0822A2
+Art_Spinning_Ball: ; Not used                                 ; Offset_0x0822A2
 		incbin  'art/nemesis/spinball.nem'
-Art_Blink:    ; N�o usado                                      ; Offset_0x082538
+Art_Blink:    ; Not used                                      ; Offset_0x082538
 		incbin  'art/nemesis/blink.nem'
-Art_Bubble_Monster: ; N�o usado                                ; Offset_0x082764
+Art_Bubble_Monster: ; Not used                                ; Offset_0x082764
 		incbin  'art/nemesis/bmonster.nem'
-Art_Ghz_Motobug: ; N�o usado                                   ; Offset_0x082986
+Art_Ghz_Motobug: ; Not used                                   ; Offset_0x082986
 		incbin  'art/nemesis/motobug.nem'
-Art_CNz_Crawl: ; N�o usado                                     ; Offset_0x082B82
+Art_CNz_Crawl: ; Not used                                     ; Offset_0x082B82
 		incbin  'art/nemesis/crawl.nem'
 Art_GHz_Masher:                                                ; Offset_0x082EE0
 		incbin  'art/nemesis/masher.nem'
