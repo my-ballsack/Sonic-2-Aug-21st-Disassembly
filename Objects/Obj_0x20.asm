@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x20 - Bolas de fogo usadas pelo Robotnik na Hill Top
+; Object 0x20 - Bolas de fogo usadas pelo Robotnik na Hill Top
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x017E34:
@@ -227,6 +227,6 @@ Offset_0x01810E:
                 dc.w    $0001
                 dc.l    $00050810, $0808FFF8
 ;===============================================================================
-; Objeto 0x20 - Bolas de fogo usadas pelo Robotnik na Hill Top
+; Object 0x20 - Bolas de fogo usadas pelo Robotnik na Hill Top
 ; <<<- 
 ;===============================================================================

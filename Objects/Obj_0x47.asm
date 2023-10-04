@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x47 - Interruptor usado para abrir certas portas nas fases
+; Object 0x47 - Interruptor usado para abrir certas portas nas fases
 ; ->>> 
 ;===============================================================================
 ; Offset_0x019B1C:
@@ -70,6 +70,6 @@ Offset_0x019BD8:
                 dc.w    $0001
                 dc.l    $F80D0000, $0000FFF0
 ;===============================================================================
-; Objeto 0x47 - Interruptor usado para abrir certas portas nas fases
+; Object 0x47 - Interruptor usado para abrir certas portas nas fases
 ; <<<- 
 ;===============================================================================

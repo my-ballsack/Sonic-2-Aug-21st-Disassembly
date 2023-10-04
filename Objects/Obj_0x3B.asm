@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x3B - Pedra roxa na Green Hill do Sonic 1 não usado (Left over)
+; Object 0x3B - Pedra roxa na Green Hill do Sonic 1 não usado (Left over)
 ; ->>>
 ;===============================================================================  
 ; Offset_0x00CBD4:
@@ -41,6 +41,6 @@ Offset_0x00CC3C:
                 dc.l    $F00B0000, $0000FFE8
                 dc.l    $F00B000C, $00060000
 ;===============================================================================
-; Objeto 0x3B - Pedra roxa na Green Hill do Sonic 1 não usado (Left over)
+; Object 0x3B - Pedra roxa na Green Hill do Sonic 1 não usado (Left over)
 ; <<<-
 ;===============================================================================

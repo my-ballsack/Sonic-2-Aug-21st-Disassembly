@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0xA0 - Sub-ojeto do objeto 0x9F - Inimigo Sheelcracker na Metropolis.
+; Object 0xA0 - Sub-ojeto do Object 0x9F - Inimigo Sheelcracker na Metropolis.
 ; ->>>          Concha do inimigo.
 ;===============================================================================
 ; Offset_0x0296DE:
@@ -189,6 +189,6 @@ Offset_0x0298FC:
                 dc.w    $0001
                 dc.l    $F40A0018, $000CFFF4   
 ;===============================================================================
-; Objeto 0xA0 - Sub-ojeto do objeto 0x9F - Inimigo Sheelcracker na Metropolis.
+; Object 0xA0 - Sub-ojeto do Object 0x9F - Inimigo Sheelcracker na Metropolis.
 ; <<<-          Concha do inimigo.
 ;===============================================================================

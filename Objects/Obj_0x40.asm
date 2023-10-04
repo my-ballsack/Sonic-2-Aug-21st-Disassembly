@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x40 - Molas tipo sanfona na Dust Hill, Chemical Plant e Neo Green Hill
+; Object 0x40 - Molas tipo sanfona na Dust Hill, Chemical Plant e Neo Green Hill
 ; ->>>
 ;===============================================================================    
 ; Offset_0x01B12C:
@@ -192,6 +192,6 @@ Offset_0x01B3C0:
                 dc.l    $E809000E, $0007FFE4
                 dc.l    $E80D0014, $000AFFFC                                    
 ;===============================================================================
-; Objeto 0x40 - Molas tipo sanfona na Dust Hill, Chemical Plant e Neo Green Hill
+; Object 0x40 - Molas tipo sanfona na Dust Hill, Chemical Plant e Neo Green Hill
 ; <<<-
 ;===============================================================================

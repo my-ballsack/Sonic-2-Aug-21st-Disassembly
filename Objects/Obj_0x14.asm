@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x14 - Gangorra na Hill com contrapeso que causa danos se tocado
+; Object 0x14 - Gangorra na Hill com contrapeso que causa danos se tocado
 ; ->>>
 ;===============================================================================
 ; Offset_0x016808:
@@ -341,6 +341,6 @@ Offset_0x016C6A:
                 dc.w    $0001
                 dc.l    $F8052000, $2000FFF8
 ;===============================================================================
-; Objeto 0x14 - Gangorra na Hill com contrapeso que causa danos se tocado
+; Object 0x14 - Gangorra na Hill com contrapeso que causa danos se tocado
 ; <<<-
 ;===============================================================================

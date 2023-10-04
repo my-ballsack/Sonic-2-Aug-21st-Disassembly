@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x09 - Sonic no Special Stage - Left over do Sonic 1
+; Object 0x09 - Sonic no Special Stage - Left over do Sonic 1
 ; ->>>
 ;===============================================================================
 ; Offset_0x02BF70:
@@ -582,6 +582,6 @@ Offset_0x02C606:
 Offset_0x02C610:
                 rts                
 ;===============================================================================
-; Objeto 0x09 - Sonic no Special Stage - Left over do Sonic 1
+; Object 0x09 - Sonic no Special Stage - Left over do Sonic 1
 ; <<<-
 ;===============================================================================

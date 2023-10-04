@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x96 - Corpo do inimigo Rexon na Hill Top (Inimigo tipo cobra que atira
+; Object 0x96 - Corpo do inimigo Rexon na Hill Top (Inimigo tipo cobra que atira
 ; ->>>          bolas de fogo no jogador)
 ;===============================================================================
 ; Offset_0x02891E:
@@ -66,6 +66,6 @@ Offset_0x0289C6:
                 bsr.s   Offset_0x0289B2
                 bra     Jmp_26_To_MarkObjGone                  ; Offset_0x02A7A0         
 ;===============================================================================
-; Objeto 0x96 - Corpo do inimigo Rexon na Hill Top (Inimigo tipo cobra que atira
+; Object 0x96 - Corpo do inimigo Rexon na Hill Top (Inimigo tipo cobra que atira
 ; <<<-          bolas de fogo no jogador)
 ;===============================================================================

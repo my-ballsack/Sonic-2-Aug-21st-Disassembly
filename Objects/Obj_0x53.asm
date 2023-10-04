@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x53 - Bolas e mini Robotniks a partir das bolas na Metropolis
+; Object 0x53 - Bolas e mini Robotniks a partir das bolas na Metropolis
 ; ->>>
 ;===============================================================================
 ; Offset_0x027B80:
@@ -239,6 +239,6 @@ Offset_0x027E68:
                 dc.l    $000A00B4, $005AFFE8
                 dc.l    $000A00BD, $005E0000 
 ;===============================================================================
-; Objeto 0x53 - Bolas e mini Robotniks a partir das bolas na Metropolis
+; Object 0x53 - Bolas e mini Robotniks a partir das bolas na Metropolis
 ; <<<-
 ;===============================================================================

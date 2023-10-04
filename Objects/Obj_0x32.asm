@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x32 - Pedra na Hill Top / Obstáculo nos tuneis da Chemical Plant
+; Object 0x32 - Pedra na Hill Top / Obstáculo nos tuneis da Chemical Plant
 ; ->>>
 ;===============================================================================
 ; Offset_0x01834A:
@@ -143,6 +143,6 @@ Break_Obstacle_Points:                                         ; Offset_0x018522
                 dc.w    $0032   ;  500
                 dc.w    $0064   ; 1000      
 ;===============================================================================
-; Objeto 0x32 - Pedra na Hill Top / Obstáculo nos tuneis da Chemical Plant
+; Object 0x32 - Pedra na Hill Top / Obstáculo nos tuneis da Chemical Plant
 ; <<<-
 ;===============================================================================

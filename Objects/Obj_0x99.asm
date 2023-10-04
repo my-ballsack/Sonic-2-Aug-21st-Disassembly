@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x99 - Inimigo Nebula na Sky Chase  (Joga bombas no jogador)
+; Object 0x99 - Inimigo Nebula na Sky Chase  (Joga bombas no jogador)
 ; ->>>
 ;===============================================================================
 ; Offset_0x028DA2:
@@ -108,6 +108,6 @@ Offset_0x028EFE:
                 dc.w    $0001
                 dc.l    $F8050018, $000CFFF8  
 ;===============================================================================
-; Objeto 0x99 - Inimigo Nebula na Sky Chase  (Joga bombas no jogador)
+; Object 0x99 - Inimigo Nebula na Sky Chase  (Joga bombas no jogador)
 ; <<<-
 ;===============================================================================

@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x82 -> Pilar cai ao pisar em cima na Neo Green Hill
+; Object 0x82 -> Pilar cai ao pisar em cima na Neo Green Hill
 ; ->>>
 ;===============================================================================
 ; Offset_0x01F018:
@@ -203,6 +203,6 @@ Offset_0x01F214:
                 dc.l    $200D2079, $203CFFF0
                 dc.l    $30042081, $2040FFF0
 ;===============================================================================
-; Objeto 0x82 -> Pilar cai ao pisar em cima na Neo Green Hill
+; Object 0x82 -> Pilar cai ao pisar em cima na Neo Green Hill
 ; <<<-
 ;===============================================================================

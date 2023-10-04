@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x3C - Parede quebrável na Green Hill do Sonic 1 não usado (Left over)
+; Object 0x3C - Parede quebrável na Green Hill do Sonic 1 não usado (Left over)
 ; ->>>
 ;===============================================================================  
 ; Offset_0x00CC50:
@@ -145,6 +145,6 @@ Offset_0x00CE62:
                 dc.l    $00050008, $00040000
                 dc.l    $10050008, $00040000
 ;===============================================================================
-; Objeto 0x3C - Parede quebrável na Green Hill do Sonic 1 não usado (Left over)
+; Object 0x3C - Parede quebrável na Green Hill do Sonic 1 não usado (Left over)
 ; <<<-
 ;===============================================================================

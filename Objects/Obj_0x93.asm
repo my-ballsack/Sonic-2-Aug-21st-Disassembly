@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x93 - Broca lançada pelo inimigo Spiker na Hill Top
+; Object 0x93 - Broca lançada pelo inimigo Spiker na Hill Top
 ; ->>>
 ;===============================================================================
 ; Offset_0x0285F8:
@@ -34,7 +34,7 @@ Offset_0x028634:
                 bsr     Jmp_19_To_SpeedToPos                   ; Offset_0x02A7C4
                 bra     Jmp_26_To_MarkObjGone                  ; Offset_0x02A7A0
 ;-------------------------------------------------------------------------------
-Spiker_Sub: ; Usado pelo objeto 0x92 - Spiker                  ; Offset_0x02864A
+Spiker_Sub: ; Usado pelo Object 0x92 - Spiker                  ; Offset_0x02864A
                 tst.b   Obj_Player_Status(A0)                            ; $002B
                 bne.s   Offset_0x02865E
                 bsr     Object_Check_Player_Position           ; Offset_0x027F1C
@@ -92,6 +92,6 @@ Offset_0x0286F0:
                 dc.w    $0001
                 dc.l    $EC07252C, $22A2FFF8
 ;===============================================================================
-; Objeto 0x93 - Broca lançada pelo inimigo Spiker na Hill Top
+; Object 0x93 - Broca lançada pelo inimigo Spiker na Hill Top
 ; <<<-
 ;===============================================================================

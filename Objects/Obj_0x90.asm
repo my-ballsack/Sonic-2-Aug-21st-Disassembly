@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0x90 -> Pedras espirrando quando o Grounder sai da parede na
-; ->>>           Neo Green Hill, carregado a partir do objeto 0x8D / 0x8E
+; Object 0x90 -> Pedras espirrando quando o Grounder sai da parede na
+; ->>>           Neo Green Hill, carregado a partir do Object 0x8D / 0x8E
 ;===============================================================================
 ; Offset_0x0281E4:
                 moveq   #$00, D0
@@ -165,6 +165,6 @@ Offset_0x0283AA:
                 dc.l    $F8050093, $0049FFF0
                 dc.l    $F8050097, $004B0000
 ;===============================================================================
-; Objeto 0x90 -> Pedras espirrando quando o Grounder sai da parede na
-; <<<-           Neo Green Hill, carregado a partir do objeto 0x8D / 0x8E
+; Object 0x90 -> Pedras espirrando quando o Grounder sai da parede na
+; <<<-           Neo Green Hill, carregado a partir do Object 0x8D / 0x8E
 ;===============================================================================

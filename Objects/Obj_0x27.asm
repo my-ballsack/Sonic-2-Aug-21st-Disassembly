@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x27 - Rotina de resposta ao toque nos objetos das fases
+; Object 0x27 - Rotina de resposta ao toque nos Objects das fases
 ; ->>> 
 ;===============================================================================
 ; Offset_0x016174:
@@ -68,6 +68,6 @@ Offset_0x01623E:
                 dc.w    $0001
                 dc.l    $F00F2034, $201AFFF0        
 ;===============================================================================
-; Objeto 0x27 - Rotina de resposta ao toque nos objetos das fases
+; Object 0x27 - Rotina de resposta ao toque nos Objects das fases
 ; <<<- 
 ;===============================================================================

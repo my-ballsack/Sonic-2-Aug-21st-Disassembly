@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x69 - Porca usada nos parafusos na Metropolis
+; Object 0x69 - Porca usada nos parafusos na Metropolis
 ; ->>> 
 ;===============================================================================
 ; Offset_0x01C624:
@@ -174,6 +174,6 @@ Offset_0x01C814:
                 dc.l    $F40E0018, $000CFFE8
                 dc.l    $F40A082D, $08160008
 ;===============================================================================
-; Objeto 0x69 - Porca usada nos parafusos na Metropolis
+; Object 0x69 - Porca usada nos parafusos na Metropolis
 ; <<<- 
 ;===============================================================================

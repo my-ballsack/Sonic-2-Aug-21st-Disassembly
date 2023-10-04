@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x41 - Molas amarelas / vermelhas - diagonal / horizontal / vertical
+; Object 0x41 - Molas amarelas / vermelhas - diagonal / horizontal / vertical
 ; ->>>
 ;===============================================================================    
 ; Offset_0x00E744:
@@ -683,6 +683,6 @@ Offset_0x00F074:
                 dc.l    $F505100C, $1006FFF6
                 dc.l    $F005101C, $100EFFF0                                                                          
 ;===============================================================================
-; Objeto 0x41 - Molas amarelas / vermelhas - diagonal / horizontal / vertical
+; Object 0x41 - Molas amarelas / vermelhas - diagonal / horizontal / vertical
 ; <<<-
 ;===============================================================================

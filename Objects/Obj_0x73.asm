@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x73 - Anéis girando, Sonic consegue andar em cima
+; Object 0x73 - Anéis girando, Sonic consegue andar em cima
 ; ->>>
 ;===============================================================================   
 ; Offset_0x01DAB0:
@@ -149,6 +149,6 @@ Offset_0x01DC7A:
                 dc.w    $0001
                 dc.l    $F8050000, $0000FFF8        
 ;===============================================================================
-; Objeto 0x73 - Anéis girando, Sonic consegue andar em cima
+; Object 0x73 - Anéis girando, Sonic consegue andar em cima
 ; <<<-
 ;===============================================================================

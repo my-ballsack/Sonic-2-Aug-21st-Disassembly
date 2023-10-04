@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x95 - Inimigo Sol na Hill Top (Possui 4 Bolas de fogo girando em
+; Object 0x95 - Inimigo Sol na Hill Top (Possui 4 Bolas de fogo girando em
 ; ->>>          torno de si e atira no jogador ao se aproximar)
 ;===============================================================================
 ; Offset_0x0286FA:
@@ -177,6 +177,6 @@ Offset_0x028914:
                 dc.w    $0001
                 dc.l    $F8058BAE, $8DE7FFF8   
 ;===============================================================================
-; Objeto 0x95 - Inimigo Sol na Hill Top (Possui 4 Bolas de fogo girando em
+; Object 0x95 - Inimigo Sol na Hill Top (Possui 4 Bolas de fogo girando em
 ; <<<-          torno de si e atira no jogador ao se aproximar)
 ;===============================================================================

@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0xA8 - Inimigo Grabber na Chemical Plant
-; ->>>          Objeto vinculado ao 0xA7
+; Object 0xA8 - Inimigo Grabber na Chemical Plant
+; ->>>          Object vinculado ao 0xA7
 ;===============================================================================
 ; Offset_0x02A2EE:
                 moveq   #$00, D0
@@ -18,6 +18,6 @@ Offset_0x02A300:
 Offset_0x02A304:
                 bra     Jmp_26_To_MarkObjGone                  ; Offset_0x02A7A0              
 ;===============================================================================
-; Objeto 0xA8 - Inimigo Grabber na Chemical Plant
-; <<<-          Objeto vinculado ao 0xA7
+; Object 0xA8 - Inimigo Grabber na Chemical Plant
+; <<<-          Object vinculado ao 0xA7
 ;===============================================================================

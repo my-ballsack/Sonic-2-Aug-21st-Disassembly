@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0x7C - Flash do Anel gigante usado para acesso ao Estágio Especial,
-; ->>>          não usado, Left over do Sonic 1
+; Object 0x7C - Flash of the giant Ring used to access the Special Stage
+; ->>>          Not used, leftover from Sonic 1
 ;===============================================================================
 ; Offset_0x00ADEA:
                 moveq   #$00, D0
@@ -57,6 +57,6 @@ Offset_0x00AE86:
 Offset_0x00AE94:
                 bra     DeleteObject                           ; Offset_0x00D314 
 ;===============================================================================
-; Objeto 0x7C - Flash do Anel gigante usado para acesso ao Estágio Especial,
-; <<<-          não usado, Left over do Sonic 1
+; Object 0x7C - Flash of the giant Ring used to access the Special Stage
+; <<<-          Not used, leftover from Sonic 1
 ;===============================================================================

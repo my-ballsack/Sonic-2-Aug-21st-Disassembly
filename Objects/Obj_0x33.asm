@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x33 - Aceleradores (Toque para ganhar impulso) na Oil Ocean
+; Object 0x33 - Aceleradores (Toque para ganhar impulso) na Oil Ocean
 ; ->>>
 ;===============================================================================
 ; Offset_0x018924:
@@ -242,6 +242,6 @@ Offset_0x018C4A:
                 dc.l    $0005000E, $0007FFF0
                 dc.l    $0005080E, $08070000 
 ;===============================================================================
-; Objeto 0x33 - Aceleradores (Toque para ganhar impulso) na Oil Ocean
+; Object 0x33 - Aceleradores (Toque para ganhar impulso) na Oil Ocean
 ; <<<-
 ;===============================================================================

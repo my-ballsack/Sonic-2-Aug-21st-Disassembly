@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x25 - Anéis - Este objeto não é usado pelos anéis normais nas fases
+; Object 0x25 - Anï¿½is - Este Object nï¿½o ï¿½ usado pelos anï¿½is normais nas fases
 ; ->>>
 ;===============================================================================    
 ; Offset_0x00AA98:
@@ -15,7 +15,7 @@ Offset_0x00AAA6:
                 dc.w    Offset_0x00AB80-Offset_0x00AAA6
                 dc.w    Offset_0x00AB8E-Offset_0x00AAA6     
 ;-------------------------------------------------------------------------------
-; Offset_0x00AAB0: ; Dados não usados, Left over do Sonic 1
+; Offset_0x00AAB0: ; Unused data, Leftover from Sonic 1
                 dc.b    $10, $00, $18, $00, $20, $00, $00, $10
                 dc.b    $00, $18, $00, $20, $10, $10, $18, $18
                 dc.b    $20, $20, $F0, $10, $E8, $18, $E0, $20
@@ -81,6 +81,6 @@ Offset_0x00AB80:
 Offset_0x00AB8E:
                 bra     DeleteObject                           ; Offset_0x00D314
 ;===============================================================================
-; Objeto 0x25 - Anéis - Este objeto não é usado pelos anéis normais nas fases
+; Object 0x25 - Anï¿½is - Este Object nï¿½o ï¿½ usado pelos anï¿½is normais nas fases
 ; <<<-
 ;===============================================================================

@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0xA7 - Inimigo Grabber (aranha) na Chemical Plant
+; Object 0xA7 - Inimigo Grabber (aranha) na Chemical Plant
 ; ->>>
 ;===============================================================================
 ; Offset_0x02A2D4:
@@ -18,6 +18,6 @@ Offset_0x02A2E6:
 Offset_0x02A2EA:
                 bra     Jmp_26_To_MarkObjGone                  ; Offset_0x02A7A0         
 ;===============================================================================
-; Objeto 0xA7 - Inimigo Grabber (aranha) na Chemical Plant
+; Object 0xA7 - Inimigo Grabber (aranha) na Chemical Plant
 ; <<<-
 ;===============================================================================

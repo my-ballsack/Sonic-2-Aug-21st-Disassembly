@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x66 - Objeto para as molas triangulares nas paredes da Metropolis
+; Object 0x66 - Object para as molas triangulares nas paredes da Metropolis
 ; ->>>
 ;===============================================================================
 ; Offset_0x01BCF4:
@@ -146,6 +146,6 @@ Offset_0x01BED2:
                 dc.l    $80050034, $001AFFF8
                 dc.l    $70050034, $001AFFF8  
 ;===============================================================================
-; Objeto 0x66 - Objeto para as molas triangulares nas paredes da Metropolis
+; Object 0x66 - Object para as molas triangulares nas paredes da Metropolis
 ; <<<-
 ;===============================================================================

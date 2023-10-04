@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x92 - Inimigo Spiker na Hill Top                              
+; Object 0x92 - Inimigo Spiker na Hill Top                              
 ; ->>>
 ;===============================================================================
 ; Offset_0x02851E:
@@ -70,6 +70,6 @@ Offset_0x0285EE:
                 move.b  Obj_Control_Var_01(A0), Obj_Routine(A0)   ; $0024, $002D
                 bra     Jmp_26_To_MarkObjGone                  ; Offset_0x02A7A0        
 ;===============================================================================
-; Objeto 0x92 - Inimigo Spiker na Hill Top
+; Object 0x92 - Inimigo Spiker na Hill Top
 ; <<<-
 ;===============================================================================

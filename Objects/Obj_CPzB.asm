@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto - Partes do chefe da Chemical Plant
+; Object - Partes do chefe da Chemical Plant
 ; ->>>
 ;===============================================================================
 ; Offset_0x022BBC
@@ -869,6 +869,6 @@ Offset_0x023848:
                 neg.w   Obj_Speed_Y(A0)                                  ; $0012
                 bra     Jmp_18_To_DisplaySprite                ; Offset_0x023F54   
 ;===============================================================================
-; Objeto - Partes do chefe da Chemical Plant
+; Object - Partes do chefe da Chemical Plant
 ; <<<-
 ;===============================================================================

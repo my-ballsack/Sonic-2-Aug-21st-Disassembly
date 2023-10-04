@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x37 - Perdendo anéis após sofrer algum dano
+; Object 0x37 - Perdendo anéis após sofrer algum dano
 ; ->>> 
 ;===============================================================================
 ; Offset_0x00ABD2
@@ -114,6 +114,6 @@ Offset_0x00AD14:
 Offset_0x00AD22:
                 bra     DeleteObject                           ; Offset_0x00D314 
 ;===============================================================================
-; Objeto 0x37 - Perdendo anéis após sofrer algum dano
+; Object 0x37 - Perdendo anéis após sofrer algum dano
 ; <<<- 
 ;===============================================================================

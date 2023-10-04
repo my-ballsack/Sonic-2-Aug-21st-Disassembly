@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x81 - Ponte que abre ao puxar as raizes na Dust Hill
+; Object 0x81 - Ponte que abre ao puxar as raizes na Dust Hill
 ; ->>>
 ;===============================================================================
 ; Offset_0x01ED8C:
@@ -188,6 +188,6 @@ Offset_0x01EFDC:
                 dc.w    $0001
                 dc.l    $F8050000, $0000FFF8 
 ;===============================================================================
-; Objeto 0x81 - Ponte que abre ao puxar as raizes na Dust Hill
+; Object 0x81 - Ponte que abre ao puxar as raizes na Dust Hill
 ; <<<-
 ;===============================================================================

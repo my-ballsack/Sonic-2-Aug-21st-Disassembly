@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0x54 - Robotnik na Metropolis
-; ->>>          Rotinas adicionais deste objeto no objeto 0x53 ( obj_0x53.asm )
+; Object 0x54 - Robotnik na Metropolis
+; ->>>          Rotinas adicionais deste Object no Object 0x53 ( obj_0x53.asm )
 ;===============================================================================
 ; Offset_0x027A90:
                 moveq   #$00, D0
@@ -73,6 +73,6 @@ Offset_0x027B6E:
                 move.w  D1, Obj_Speed_Y(A0)                              ; $0012
                 rts
 ;===============================================================================
-; Objeto 0x54 - Robotnik na Metropolis
-; <<<-          Rotinas adicionais deste objeto no objeto 0x53 ( obj_0x53.asm )
+; Object 0x54 - Robotnik na Metropolis
+; <<<-          Rotinas adicionais deste Object no Object 0x53 ( obj_0x53.asm )
 ;===============================================================================

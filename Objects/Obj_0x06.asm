@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x06 - Atributo invisível dos espirais na Emerald Hill / Metropolis
+; Object 0x06 - Atributo invisível dos espirais na Emerald Hill / Metropolis
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x0163A8:
@@ -284,6 +284,6 @@ Offset_0x0167BE:
 Offset_0x0167FC:
                 rts                                
 ;===============================================================================
-; Objeto 0x06 - Atributo invisível dos espirais na Emerald Hill / Metropolis
+; Object 0x06 - Atributo invisível dos espirais na Emerald Hill / Metropolis
 ; <<<- 
 ;===============================================================================

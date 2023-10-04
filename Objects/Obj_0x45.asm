@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x45 - Mola empurre para obter impulso na Oil Ocean
+; Object 0x45 - Mola empurre para obter impulso na Oil Ocean
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x018F20:
@@ -557,6 +557,6 @@ Offset_0x019814:
                 dc.l    $F4022019, $200C0002
                 dc.l    $F801001C, $000E0004 
 ;===============================================================================
-; Objeto 0x45 - Mola empurre para obter impulso na Oil Ocean
+; Object 0x45 - Mola empurre para obter impulso na Oil Ocean
 ; <<<- 
 ;===============================================================================

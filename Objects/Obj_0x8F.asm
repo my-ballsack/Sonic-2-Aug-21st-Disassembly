@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0x8F -> Parede que oculta o Grounder na Neo Green Hill
-; ->>>           Carregado a partir do objeto 0x8D / 0x8E
+; Object 0x8F -> Parede que oculta o Grounder na Neo Green Hill
+; ->>>           Carregado a partir do Object 0x8D / 0x8E
 ;===============================================================================
 ; Offset_0x02819E:
                 moveq   #$00, D0
@@ -31,6 +31,6 @@ Offset_0x0281C4:
 Offset_0x0281DC:
                 dc.b    $01, $FE, $01, $FF, $FF, $FE, $FF, $FF         
 ;===============================================================================
-; Objeto 0x8F -> Parede que oculta o Grounder na Neo Green Hill
-; <<<-           Carregado a partir do objeto 0x8D / 0x8E
+; Object 0x8F -> Parede que oculta o Grounder na Neo Green Hill
+; <<<-           Carregado a partir do Object 0x8D / 0x8E
 ;===============================================================================

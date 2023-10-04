@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0xA1 - Inimigo Slicer na Metropolis
+; Object 0xA1 - Inimigo Slicer na Metropolis
 ; ->>>
 ;===============================================================================
 ; Offset_0x029906:
@@ -73,6 +73,6 @@ Offset_0x0299B8:
 Offset_0x0299CA:
                 bra     Jmp_26_To_MarkObjGone                  ; Offset_0x02A7A0        
 ;===============================================================================
-; Objeto 0xA1 - Inimigo Slicer na Metropolis
+; Object 0xA1 - Inimigo Slicer na Metropolis
 ; <<<-
 ;===============================================================================

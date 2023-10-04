@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x1E - Atributo teletransportador dos tubos na Chemical Plant
+; Object 0x1E - Atributo teletransportador dos tubos na Chemical Plant
 ; ->>> 
 ;===============================================================================
 ; Offset_0x0173E4:
@@ -508,6 +508,6 @@ Offset_0x017E0E:
                 dc.w    $001C, $0D90, $02B0, $0C90, $02B0, $0C90, $00B0, $0E80
                 dc.w    $00B0, $1110, $00B0, $1110, $0230, $10F0, $0230                              
 ;===============================================================================
-; Objeto 0x1E - Atributo teletransportador dos tubos na Chemical Plant
+; Object 0x1E - Atributo teletransportador dos tubos na Chemical Plant
 ; <<<- 
 ;===============================================================================

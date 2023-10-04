@@ -1,6 +1,6 @@
 ;===============================================================================
-; Objeto 0x46 - Bola emcima da mola, após pressionar o botão a bola ejeta
-; ->>>          podendo ser usada como veículo na Oil Ocean - Objeto não usado
+; Object 0x46 - Bola emcima da mola, após pressionar o botão a bola ejeta
+; ->>>          podendo ser usada como veículo na Oil Ocean - Object não usado
 ;===============================================================================   
 ; Offset_0x01983E:
                 moveq   #$00, D0
@@ -205,6 +205,6 @@ Offset_0x019AD8:
                 dc.l    $F00D080C, $0806FFF0
                 dc.l    $000D100C, $1006FFF0 
 ;===============================================================================
-; Objeto 0x46 - Bola emcima da mola, após pressionar o botão a bola ejeta
-; ->>>          podendo ser usada como veículo na Oil Ocean - Objeto não usado
+; Object 0x46 - Bola emcima da mola, após pressionar o botão a bola ejeta
+; ->>>          podendo ser usada como veículo na Oil Ocean - Object não usado
 ;===============================================================================

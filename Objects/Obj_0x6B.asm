@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x6B - Plataformas na Metropolis / Blocos na Chemical Plant
+; Object 0x6B - Plataformas na Metropolis / Blocos na Chemical Plant
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x01CB0C:
@@ -263,6 +263,6 @@ Offset_0x01CDA4:
                 dc.w    $0001
                 dc.l    $F00F0000, $0000FFF0
 ;===============================================================================
-; Objeto 0x6B - Plataformas na Metropolis / Blocos na Chemical Plant
+; Object 0x6B - Plataformas na Metropolis / Blocos na Chemical Plant
 ; <<<- 
 ;===============================================================================

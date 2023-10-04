@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x2A - Barreira que sobe e desce na Dust Hill
+; Object 0x2A - Barreira que sobe e desce na Dust Hill
 ; ->>> 
 ;===============================================================================  
 ; Offset_0x00A158:
@@ -62,6 +62,6 @@ Offset_0x00A1FC:
                 dc.l    $200F1020, $1010FFF0
                 dc.l    $4009101A, $100DFFF0  
 ;===============================================================================
-; Objeto 0x2A - Barreira que sobe e desce na Dust Hill
+; Object 0x2A - Barreira que sobe e desce na Dust Hill
 ; <<<- 
 ;===============================================================================

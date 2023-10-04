@@ -1,5 +1,5 @@
 ;===============================================================================
-; Objeto 0x84 - Auto Spin - Hill Top, Hidden Palace, Casino Night
+; Object 0x84 - Auto Spin - Hill Top, Hidden Palace, Casino Night
 ; ->>>
 ;===============================================================================
 ; Offset_0x016248:
@@ -96,6 +96,6 @@ Offset_0x01636E:
                 dc.l    $10050038, $001CFF80
                 dc.l    $10050038, $001C0070                    
 ;===============================================================================
-; Objeto 0x84 - Auto Spin - Hill Top, Hidden Palace, Casino Night
+; Object 0x84 - Auto Spin - Hill Top, Hidden Palace, Casino Night
 ; <<<-
 ;===============================================================================
