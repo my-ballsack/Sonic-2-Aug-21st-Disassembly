@@ -23318,7 +23318,7 @@ Offset_0x015EF2:
                 move.b  Offset_0x015EEE(PC, D0), Obj_Col_Flags(A0)       ; $0020
                 move.l  #Lava_Attributes_Mappings, Obj_Map(A0) ; Offset_0x015F4E, $0004
                 move.w  #$8680, Obj_Art_VRAM(A0)                         ; $0002
-                move.b  #$84, Obj_Flags(A0)                              ; $0001
+                move.b  #$84, Obj_Flags(A0)                              ; $0001 This causes the object to be visible if the player dies.
                 move.b  #$80, Obj_Width(A0)                              ; $0019
                 move.b  #$04, Obj_Priority(A0)                           ; $0018
                 move.b  Obj_Subtype(A0), Obj_Map_Id(A0)           ; $001A, $0028
@@ -23328,7 +23328,7 @@ Offset_0x015F28:
                 bne.s   Offset_0x015F42
                 move.w  Obj_X(A0), D0                                    ; $0008
                 andi.w  #$FF80, D0
-                sub.w   ($FFFFF7DA).w, D0
+                sub.w   (Camera_X_pos_coarse).w, D0
                 cmpi.w  #$0280, D0
                 bhi     Jmp_02_To_DeleteObject                 ; Offset_0x016396
 Offset_0x015F42:
