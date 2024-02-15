@@ -4173,22 +4173,22 @@ Offset_0x00419A:
 ; ->>>
 ;===============================================================================
 MusicList:                                                     ; Offset_0x0041B8
-                dc.b    $82   ; GHZ
-                dc.b    $82   ; Zone 01
-                dc.b    $85   ; WZ
-                dc.b    $84   ; Zone 03
-                dc.b    $85   ; MTZ
-                dc.b    $85   ; MTZ Act 3
-                dc.b    $8C   ; Zone 06
-                dc.b    $86   ; HTZ
-                dc.b    $83   ; HPZ
-                dc.b    $8D   ; Zone 09
-                dc.b    $88   ; OOZ
-                dc.b    $8B   ; DHZ
-                dc.b    $89   ; CNZ
-                dc.b    $8E   ; CPZ
-                dc.b    $8E   ; GCZ
-                dc.b    $87   ; NGHZ
+                dc.b    $82	; GHZ
+                dc.b    $82	; Zone 01
+                dc.b    $85	; WZ
+                dc.b    $84	; Zone 03
+                dc.b    $85	; MTZ
+                dc.b    $85	; MTZ Act 3
+                dc.b    $8C	; Zone 06
+                dc.b    $86	; HTZ
+                dc.b    $83	; HPZ
+                dc.b    $8D	; Zone 09
+                dc.b    $88	; OOZ
+                dc.b    $8B	; DHZ
+                dc.b    $89	; CNZ
+                dc.b    $8E	; CPZ
+                dc.b    $8E	; GCZ
+                dc.b    $87	; NGHZ
 		even
 ;-------------------------------------------------------------------------------
 Level:                                                         ; Offset_0x0041C8
@@ -5645,23 +5645,23 @@ Level_Size_Load:                                               ; Offset_0x0059A4
 		bra     Level_Load_Player_Position             ; Offset_0x005B3E
 ;-------------------------------------------------------------------------------
 Level_Size_Array:                                              ; Offset_0x005A2E
-		dc.l    $000029A0, $00000320, $00002940, $00000420  ; GHZ
-		dc.l    $00003FFF, $00000720, $00003FFF, $00000720  ; Zone 01
-		dc.l    $00003FFF, $00000720, $00003FFF, $00000720  ; WZ
-		dc.l    $00003FFF, $00000720, $00003FFF, $00000720  ; Zone 03
-		dc.l    $00002280, $FF000800, $00001E80, $FF000800  ; MTZ
-		dc.l    $00002A80, $FF000800, $00003FFF, $FF000800  ; MTZ Act 3
-		dc.l    $00003FFF, $00000720, $00003FFF, $00000720  ; Zone 06
-		dc.l    $00002800, $00000720, $00003280, $00000720  ; HTZ
-		dc.l    $00003FFF, $00000720, $00003FFF, $00000720  ; HPZ
-		dc.l    $00003FFF, $00000720, $00003FFF, $00000720  ; Zone 09
-		dc.l    $00002F80, $00000680, $00002580, $00000680  ; OOZ
-		dc.l    $00002380, $03C00720, $00003FFF, $00600720  ; DHZ
-		dc.l    $00003FFF, $00000720, $00003FFF, $00000720  ; CNZ
-		dc.l    $00002780, $00000720, $00002880, $00000720  ; CPZ
-		dc.l    $00003FFF, $00000720, $00003FFF, $00000720  ; GCZ
-		dc.l    $000028C0, $020003A0, $000026C0, $018005A0  ; NGHZ
-		dc.l    $00003FFF, $00000720, $00003FFF, $00000720  ; DEZ
+		dc.l    $000029A0, $00000320, $00002940, $00000420	; GHZ
+		dc.l    $00003FFF, $00000720, $00003FFF, $00000720	; Zone 01
+		dc.l    $00003FFF, $00000720, $00003FFF, $00000720	; WZ
+		dc.l    $00003FFF, $00000720, $00003FFF, $00000720	; Zone 03
+		dc.l    $00002280, $FF000800, $00001E80, $FF000800	; MTZ
+		dc.l    $00002A80, $FF000800, $00003FFF, $FF000800	; MTZ Act 3
+		dc.l    $00003FFF, $00000720, $00003FFF, $00000720	; Zone 06
+		dc.l    $00002800, $00000720, $00003280, $00000720	; HTZ
+		dc.l    $00003FFF, $00000720, $00003FFF, $00000720	; HPZ
+		dc.l    $00003FFF, $00000720, $00003FFF, $00000720	; Zone 09
+		dc.l    $00002F80, $00000680, $00002580, $00000680	; OOZ
+		dc.l    $00002380, $03C00720, $00003FFF, $00600720	; DHZ
+		dc.l    $00003FFF, $00000720, $00003FFF, $00000720	; CNZ
+		dc.l    $00002780, $00000720, $00002880, $00000720	; CPZ
+		dc.l    $00003FFF, $00000720, $00003FFF, $00000720	; GCZ
+		dc.l    $000028C0, $020003A0, $000026C0, $018005A0	; NGHZ
+		dc.l    $00003FFF, $00000720, $00003FFF, $00000720	; DEZ
 ;===============================================================================
 ; Routine for loading level boundaries
 ; <<<-
@@ -5715,36 +5715,36 @@ Offset_0x005B9C:
 		rts
 ;-------------------------------------------------------------------------------
 Player_Start_Position_Array:                                   ; Offset_0x005BAA
-                incbin  'Level/Emerald Hill Zone/startposact1.bin'   ; GHZ1
-                incbin  'Level/Emerald Hill Zone/startposact2.bin'   ; GHZ2
-		dc.w    $0060, $028F, $0040, $02AF                   ; Zone 01
-		incbin  'Level/Wood Zone/startposact1.bin'           ; WZ1
-                incbin  'Level/Wood Zone/startposact2.bin'           ; WZ2
-		dc.w    $0060, $028F, $0040, $02AF                   ; Zone 03
-		incbin  'Level/Metropolis Zone/startposact1.bin'     ; MZ1
-                incbin  'Level/Metropolis Zone/startposact2.bin'     ; MZ2
-		incbin  'Level/Metropolis Zone/startposact3.bin'     ; MZ3
-                incbin  'Level/Metropolis Zone/startposact4.bin'     ; MZ4
-		dc.w    $0060, $028F, $0040, $02AF                   ; Zone 06
-		incbin  'Level/Hill Top Zone/startposact1.bin'       ; HTZ1
-                incbin  'Level/Hill Top Zone/startposact2.bin'       ; HTZ2
-                incbin  'Level/Hidden Palace Zone/startposact1.bin'  ; HPZ1
-                incbin  'Level/Hidden Palace Zone/startposact2.bin'  ; HPZ2
-		dc.w    $0060, $028F, $0040, $02AF                   ; Zone 09
-		incbin  'Level/Oil Ocean Zone/startposact1.bin'      ; OOZ1
-                incbin  'Level/Oil Ocean Zone/startposact2.bin'      ; OOZ2
-		incbin  'Level/Dust Hill Zone/startposact1.bin'      ; DHZ1
-                incbin  'Level/Dust Hill Zone/startposact2.bin'      ; DHZ2
-		incbin  'Level/Casino Night Zone/startposact1.bin'   ; CNZ1
-                incbin  'Level/Casino Night Zone/startposact2.bin'   ; CNZ2
-		incbin  'Level/Chemical Plant Zone/startposact1.bin' ; CPZ1
-                incbin  'Level/Chemical Plant Zone/startposact2.bin' ; CPZ2
-		incbin  'Level/Genocide City Zone/startposact1.bin'  ; GCZ1
-                incbin  'Level/Genocide City Zone/startposact2.bin'  ; GCZ2
-		incbin  'Level/Neo Green Hill Zone/startposact1.bin' ; NGHZ1
-                incbin  'Level/Neo Green Hill Zone/startposact2.bin' ; NGHZ2
-		incbin  'Level/Death Egg Zone/startposact1.bin'      ; DEZ1
-                incbin  'Level/Death Egg Zone/startposact2.bin'      ; DEZ2
+                incbin  'Level/Emerald Hill Zone/startposact1.bin'	; GHZ1
+                incbin  'Level/Emerald Hill Zone/startposact2.bin'	; GHZ2
+		dc.w    $0060, $028F, $0040, $02AF			; Zone 01
+		incbin  'Level/Wood Zone/startposact1.bin'		; WZ1
+                incbin  'Level/Wood Zone/startposact2.bin'		; WZ2
+		dc.w    $0060, $028F, $0040, $02AF			; Zone 03
+		incbin  'Level/Metropolis Zone/startposact1.bin'	; MZ1
+                incbin  'Level/Metropolis Zone/startposact2.bin'	; MZ2
+		incbin  'Level/Metropolis Zone/startposact3.bin'	; MZ3
+                incbin  'Level/Metropolis Zone/startposact4.bin'	; MZ4
+		dc.w    $0060, $028F, $0040, $02AF			; Zone 06
+		incbin  'Level/Hill Top Zone/startposact1.bin'		; HTZ1
+                incbin  'Level/Hill Top Zone/startposact2.bin'		; HTZ2
+                incbin  'Level/Hidden Palace Zone/startposact1.bin'	; HPZ1
+                incbin  'Level/Hidden Palace Zone/startposact2.bin'	; HPZ2
+		dc.w    $0060, $028F, $0040, $02AF			; Zone 09
+		incbin  'Level/Oil Ocean Zone/startposact1.bin'		; OOZ1
+                incbin  'Level/Oil Ocean Zone/startposact2.bin'		; OOZ2
+		incbin  'Level/Dust Hill Zone/startposact1.bin'		; DHZ1
+                incbin  'Level/Dust Hill Zone/startposact2.bin'		; DHZ2
+		incbin  'Level/Casino Night Zone/startposact1.bin'	; CNZ1
+                incbin  'Level/Casino Night Zone/startposact2.bin'	; CNZ2
+		incbin  'Level/Chemical Plant Zone/startposact1.bin'	; CPZ1
+                incbin  'Level/Chemical Plant Zone/startposact2.bin'	; CPZ2
+		incbin  'Level/Genocide City Zone/startposact1.bin'	; GCZ1
+                incbin  'Level/Genocide City Zone/startposact2.bin'	; GCZ2
+		incbin  'Level/Neo Green Hill Zone/startposact1.bin'	; NGHZ1
+                incbin  'Level/Neo Green Hill Zone/startposact2.bin'	; NGHZ2
+		incbin  'Level/Death Egg Zone/startposact1.bin'		; DEZ1
+                incbin  'Level/Death Egg Zone/startposact2.bin'		; DEZ2
                 even
 ;===============================================================================
 ; Routine to load the player's position on the screen
@@ -15694,7 +15694,101 @@ Offset_0x00EEEF:
                 dc.b    $09, $09, $FD, $04, $00                                   
 ;-------------------------------------------------------------------------------
 Springs_Mappings:                                              ; Offset_0x00EEFC
-                include 'Map/obj41.asm'                                                           
+                dc.w    Offset_0x00EF28-Springs_Mappings
+                dc.w    Offset_0x00EF3A-Springs_Mappings
+                dc.w    Offset_0x00EF44-Springs_Mappings
+                dc.w    Offset_0x00EF56-Springs_Mappings
+                dc.w    Offset_0x00EF68-Springs_Mappings
+                dc.w    Offset_0x00EF72-Springs_Mappings
+                dc.w    Offset_0x00EF84-Springs_Mappings
+                dc.w    Offset_0x00EF96-Springs_Mappings
+                dc.w    Offset_0x00EFB8-Springs_Mappings
+                dc.w    Offset_0x00EFD2-Springs_Mappings
+                dc.w    Offset_0x00EFF4-Springs_Mappings               
+Springs_Mappings_01:                                           ; Offset_0x00EF12
+                dc.w    Offset_0x00EF28-Springs_Mappings_01
+                dc.w    Offset_0x00EF3A-Springs_Mappings_01
+                dc.w    Offset_0x00EF44-Springs_Mappings_01
+                dc.w    Offset_0x00EF56-Springs_Mappings_01
+                dc.w    Offset_0x00EF68-Springs_Mappings_01
+                dc.w    Offset_0x00EF72-Springs_Mappings_01
+                dc.w    Offset_0x00EF84-Springs_Mappings_01
+                dc.w    Offset_0x00F016-Springs_Mappings_01
+                dc.w    Offset_0x00F038-Springs_Mappings_01
+                dc.w    Offset_0x00F052-Springs_Mappings_01
+                dc.w    Offset_0x00F074-Springs_Mappings_01                
+Offset_0x00EF28:
+                dc.w    $0002
+                dc.l    $F00D0000, $0000FFF0
+                dc.l    $00050008, $0004FFF8
+Offset_0x00EF3A:
+                dc.w    $0001
+                dc.l    $F80D0000, $0000FFF0
+Offset_0x00EF44:
+                dc.w    $0002
+                dc.l    $E00D0000, $0000FFF0
+                dc.l    $F007000C, $0006FFF8
+Offset_0x00EF56:
+                dc.w    $0002
+                dc.l    $F0030000, $00000000
+                dc.l    $F8010004, $0002FFF8
+Offset_0x00EF68:
+                dc.w    $0001
+                dc.l    $F0030000, $0000FFF8
+Offset_0x00EF72:
+                dc.w    $0002
+                dc.l    $F0030000, $00000010
+                dc.l    $F8090006, $0003FFF8
+Offset_0x00EF84:
+                dc.w    $0002
+                dc.l    $000D1000, $1000FFF0
+                dc.l    $F0051008, $1004FFF8
+Offset_0x00EF96:
+                dc.w    $0004
+                dc.l    $F00D0000, $0000FFF0
+                dc.l    $00050008, $00040000
+                dc.l    $FB05000C, $0006FFF6
+                dc.l    $0005201C, $200EFFF0
+Offset_0x00EFB8:
+                dc.w    $0003
+                dc.l    $F60D0000, $0000FFEA
+                dc.l    $06050008, $0004FFFA
+                dc.l    $0005201C, $200EFFF0
+Offset_0x00EFD2:
+                dc.w    $0004
+                dc.l    $E60D0000, $0000FFFB
+                dc.l    $F6050008, $0004000B
+                dc.l    $F30B0010, $0008FFF6
+                dc.l    $0005201C, $200EFFF0
+Offset_0x00EFF4:
+                dc.w    $0004
+                dc.l    $000D1000, $1000FFF0
+                dc.l    $F0051008, $10040000
+                dc.l    $F505100C, $1006FFF6
+                dc.l    $F005301C, $300EFFF0
+Offset_0x00F016:
+                dc.w    $0004
+                dc.l    $F00D0000, $0000FFF0
+                dc.l    $00050008, $00040000
+                dc.l    $FB05000C, $0006FFF6
+                dc.l    $0005001C, $000EFFF0
+Offset_0x00F038:
+                dc.w    $0003
+                dc.l    $F60D0000, $0000FFEA
+                dc.l    $06050008, $0004FFFA
+                dc.l    $0005001C, $000EFFF0
+Offset_0x00F052:
+                dc.w    $0004
+                dc.l    $E60D0000, $0000FFFB
+                dc.l    $F6050008, $0004000B
+                dc.l    $F30B0010, $0008FFF6
+                dc.l    $0005001C, $000EFFF0
+Offset_0x00F074:
+                dc.w    $0004
+                dc.l    $000D1000, $1000FFF0
+                dc.l    $F0051008, $10040000
+                dc.l    $F505100C, $1006FFF6
+                dc.l    $F005101C, $100EFFF0                                                           
 ;===============================================================================
 ; Object 0x41 - Yellow / Red Springs - Diagonal / Horizontal / Vertical
 ; <<<-
@@ -16722,22 +16816,22 @@ Sonic_Modes:                                                   ; Offset_0x00FC20
                 dc.w    Sonic_MdJump2-Sonic_Modes              ; Offset_0x00FE9C
 ;-------------------------------------------------------------------------------
 Sonic_MusicList:                                               ; Offset_0x00FC28
-                dc.b    $82  ; GHZ
-                dc.b    $82  ; Zone 01
-                dc.b    $85  ; WZ
-                dc.b    $84  ; Zone 03
-                dc.b    $85  ; MTZ
-                dc.b    $85  ; MTZ Act 3
-                dc.b    $8C  ; Zone 06
-                dc.b    $86  ; HTZ
-                dc.b    $83  ; HPZ
-                dc.b    $8D  ; Zone 09
-                dc.b    $88  ; OOZ
-                dc.b    $8B  ; DHZ
-                dc.b    $89  ; CNZ
-                dc.b    $8E  ; CPZ
-                dc.b    $8E  ; GCZ
-                dc.b    $87  ; NGHZ
+                dc.b    $82	; GHZ
+                dc.b    $82	; Zone 01
+                dc.b    $85	; WZ
+                dc.b    $84	; Zone 03
+                dc.b    $85	; MTZ
+                dc.b    $85	; MTZ Act 3
+                dc.b    $8C	; Zone 06
+                dc.b    $86	; HTZ
+                dc.b    $83	; HPZ
+                dc.b    $8D	; Zone 09
+                dc.b    $88	; OOZ
+                dc.b    $8B	; DHZ
+                dc.b    $89	; CNZ
+                dc.b    $8E	; CPZ
+                dc.b    $8E	; GCZ
+                dc.b    $87	; NGHZ
 ;-------------------------------------------------------------------------------
 Sonic_Display:                                                 ; Offset_0x00FC38
                 move.w  Obj_P_Invunerblt_Time(A0), D0                    ; $0030
@@ -18259,38 +18353,38 @@ Offset_0x010E9A:
 ;-------------------------------------------------------------------------------
 ;Offset_0x010EB0
 SonicAniData:
-                dc.w    SonAni_Walk-SonicAniData     ;0
-                dc.w    SonAni_Run-SonicAniData      ;1
-                dc.w    SonAni_Roll-SonicAniData     ;2
-                dc.w    SonAni_Roll2-SonicAniData    ;3
-                dc.w    SonAni_Push-SonicAniData     ;4
-                dc.w    SonAni_Wait-SonicAniData     ;5
-                dc.w    SonAni_Balance-SonicAniData  ;6
-                dc.w    SonAni_LookUp-SonicAniData   ;7
-                dc.w    SonAni_Duck-SonicAniData     ;8
-                dc.w    SonAni_Spindash-SonicAniData ;9
-                dc.w    SonAni_Blink-SonicAniData    ;$A
-                dc.w    SonAni_GetUp-SonicAniData    ;$B
-                dc.w    SonAni_Balance2-SonicAniData ;$C
-                dc.w    SonAni_Stop-SonicAniData     ;$D
-                dc.w    SonAni_Float-SonicAniData    ;$E
-                dc.w    SonAni_Float2-SonicAniData   ;$F
-                dc.w    SonAni_Spring-SonicAniData   ;$10
-                dc.w    SonAni_Hang-SonicAniData     ;$11
-                dc.w    SonAni_Dash2-SonicAniData    ;$12
-                dc.w    SonAni_Dash3-SonicAniData    ;$13
-                dc.w    SonAni_Hang2-SonicAniData    ;$14
-                dc.w    SonAni_Bubble-SonicAniData   ;$15
-                dc.w    SonAni_DeathBW-SonicAniData  ;$16
-                dc.w    SonAni_Drown-SonicAniData    ;$17
-                dc.w    SonAni_Death-SonicAniData    ;$18
-                dc.w    SonAni_Hurt-SonicAniData     ;$19
-                dc.w    SonAni_Hurt-SonicAniData     ;$1A
-                dc.w    SonAni_Slide-SonicAniData    ;$1B
-                dc.w    SonAni_Blank-SonicAniData    ;$1C
-                dc.w    SonAni_Balance3-SonicAniData ;$1D
-                dc.w    SonAni_Balance4-SonicAniData ;$1E
-                dc.w    SupSonAni_Transform-SonicAniData ;$1F
+                dc.w    SonAni_Walk-SonicAniData		;0
+                dc.w    SonAni_Run-SonicAniData			;1
+                dc.w    SonAni_Roll-SonicAniData		;2
+                dc.w    SonAni_Roll2-SonicAniData		;3
+                dc.w    SonAni_Push-SonicAniData		;4
+                dc.w    SonAni_Wait-SonicAniData		;5
+                dc.w    SonAni_Balance-SonicAniData		;6
+                dc.w    SonAni_LookUp-SonicAniData		;7
+                dc.w    SonAni_Duck-SonicAniData		;8
+                dc.w    SonAni_Spindash-SonicAniData		;9
+                dc.w    SonAni_Blink-SonicAniData		;$A
+                dc.w    SonAni_GetUp-SonicAniData		;$B
+                dc.w    SonAni_Balance2-SonicAniData		;$C
+                dc.w    SonAni_Stop-SonicAniData		;$D
+                dc.w    SonAni_Float-SonicAniData		;$E
+                dc.w    SonAni_Float2-SonicAniData		;$F
+                dc.w    SonAni_Spring-SonicAniData		;$10
+                dc.w    SonAni_Hang-SonicAniData		;$11
+                dc.w    SonAni_Dash2-SonicAniData		;$12
+                dc.w    SonAni_Dash3-SonicAniData		;$13
+                dc.w    SonAni_Hang2-SonicAniData		;$14
+                dc.w    SonAni_Bubble-SonicAniData		;$15
+                dc.w    SonAni_DeathBW-SonicAniData		;$16
+                dc.w    SonAni_Drown-SonicAniData		;$17
+                dc.w    SonAni_Death-SonicAniData		;$18
+                dc.w    SonAni_Hurt-SonicAniData		;$19
+                dc.w    SonAni_Hurt-SonicAniData		;$1A
+                dc.w    SonAni_Slide-SonicAniData		;$1B
+                dc.w    SonAni_Blank-SonicAniData		;$1C
+                dc.w    SonAni_Balance3-SonicAniData		;$1D
+                dc.w    SonAni_Balance4-SonicAniData		;$1E
+                dc.w    SupSonAni_Transform-SonicAniData	;$1F
 SonAni_Walk:
                 dc.b    $FF, $0F, $10, $11, $12, $13, $14, $0D
                 dc.b    $0E, $FF
@@ -18381,38 +18475,38 @@ SonAni_Balance4:
                 dc.b    $03, $CF, $C8, $C9, $CA, $CB, $FE, $04
 ;-------------------------------------------------------------------------------
 SuperSonicAniData:
-                dc.w    SupSonAni_Walk-SuperSonicAniData    ;0
-                dc.w    SupSonAni_Run-SuperSonicAniData     ;1
-                dc.w    SonAni_Roll-SuperSonicAniData       ;3
-                dc.w    SonAni_Roll2-SuperSonicAniData      ;4
-                dc.w    SupSonAni_Push-SuperSonicAniData    ;5
-                dc.w    SupSonAni_Stand-SuperSonicAniData   ;6
-                dc.w    SupSonAni_Balance-SuperSonicAniData ;7
-                dc.w    SonAni_LookUp-SuperSonicAniData     ;8
-                dc.w    SupSonAni_Duck-SuperSonicAniData    ;9
-                dc.w    SonAni_Spindash-SuperSonicAniData   ;$A
-                dc.w    SonAni_Blink-SuperSonicAniData      ;$B
-                dc.w    SonAni_GetUp-SuperSonicAniData      ;$C
-                dc.w    SonAni_Balance2-SuperSonicAniData   ;$D
-                dc.w    SonAni_Stop-SuperSonicAniData       ;$E
-                dc.w    SonAni_Float-SuperSonicAniData      ;$F
-                dc.w    SonAni_Float2-SuperSonicAniData     ;$10
-                dc.w    SonAni_Spring-SuperSonicAniData     ;$11
-                dc.w    SonAni_Hang-SuperSonicAniData       ;$12
-                dc.w    SonAni_Dash2-SuperSonicAniData      ;$13
-                dc.w    SonAni_Dash3-SuperSonicAniData      ;$14
-                dc.w    SonAni_Hang2-SuperSonicAniData      ;$15
-                dc.w    SonAni_Bubble-SuperSonicAniData     ;$16
-                dc.w    SonAni_DeathBW-SuperSonicAniData    ;$17
-                dc.w    SonAni_Drown-SuperSonicAniData      ;$18
-                dc.w    SonAni_Death-SuperSonicAniData      ;$19
-                dc.w    SonAni_Hurt-SuperSonicAniData       ;$1A
-                dc.w    SonAni_Hurt-SuperSonicAniData       ;$1B
-                dc.w    SonAni_Slide-SuperSonicAniData      ;$1C
-                dc.w    SonAni_Blank-SuperSonicAniData      ;$1D
-                dc.w    SonAni_Balance3-SuperSonicAniData   ;$1E
-                dc.w    SonAni_Balance4-SuperSonicAniData   ;$1F
-                dc.w    SupSonAni_Transform-SuperSonicAniData ;$20
+                dc.w    SupSonAni_Walk-SuperSonicAniData	;0
+                dc.w    SupSonAni_Run-SuperSonicAniData		;1
+                dc.w    SonAni_Roll-SuperSonicAniData		;3
+                dc.w    SonAni_Roll2-SuperSonicAniData		;4
+                dc.w    SupSonAni_Push-SuperSonicAniData	;5
+                dc.w    SupSonAni_Stand-SuperSonicAniData	;6
+                dc.w    SupSonAni_Balance-SuperSonicAniData	;7
+                dc.w    SonAni_LookUp-SuperSonicAniData		;8
+                dc.w    SupSonAni_Duck-SuperSonicAniData	;9
+                dc.w    SonAni_Spindash-SuperSonicAniData	;$A
+                dc.w    SonAni_Blink-SuperSonicAniData		;$B
+                dc.w    SonAni_GetUp-SuperSonicAniData		;$C
+                dc.w    SonAni_Balance2-SuperSonicAniData	;$D
+                dc.w    SonAni_Stop-SuperSonicAniData		;$E
+                dc.w    SonAni_Float-SuperSonicAniData		;$F
+                dc.w    SonAni_Float2-SuperSonicAniData		;$10
+                dc.w    SonAni_Spring-SuperSonicAniData		;$11
+                dc.w    SonAni_Hang-SuperSonicAniData		;$12
+                dc.w    SonAni_Dash2-SuperSonicAniData		;$13
+                dc.w    SonAni_Dash3-SuperSonicAniData		;$14
+                dc.w    SonAni_Hang2-SuperSonicAniData		;$15
+                dc.w    SonAni_Bubble-SuperSonicAniData		;$16
+                dc.w    SonAni_DeathBW-SuperSonicAniData	;$17
+                dc.w    SonAni_Drown-SuperSonicAniData		;$18
+                dc.w    SonAni_Death-SuperSonicAniData		;$19
+                dc.w    SonAni_Hurt-SuperSonicAniData		;$1A
+                dc.w    SonAni_Hurt-SuperSonicAniData		;$1B
+                dc.w    SonAni_Slide-SuperSonicAniData		;$1C
+                dc.w    SonAni_Blank-SuperSonicAniData		;$1D
+                dc.w    SonAni_Balance3-SuperSonicAniData	;$1E
+                dc.w    SonAni_Balance4-SuperSonicAniData	;$1F
+                dc.w    SupSonAni_Transform-SuperSonicAniData	;$20
 SupSonAni_Walk:
                 dc.b    $FF, $77, $78, $79, $7A, $7B, $7C, $75
                 dc.b    $76, $FF
@@ -18552,22 +18646,22 @@ Tails_Modes:                                                   ; Offset_0x01121A
                 dc.w    Tails_MdJump2-Tails_Modes              ; Offset_0x0114BA
 ;-------------------------------------------------------------------------------
 Tails_MusicList:                                               ; Offset_0x011222
-                dc.b    $82  ; GHZ
-                dc.b    $82  ; Zone 01
-                dc.b    $85  ; WZ
-                dc.b    $84  ; Zone 03
-                dc.b    $85  ; MTZ
-                dc.b    $85  ; MTZ Act 3
-                dc.b    $8C  ; Zone 06
-                dc.b    $86  ; HTZ
-                dc.b    $83  ; HPZ
-                dc.b    $8D  ; Zone 09
-                dc.b    $88  ; OOZ
-                dc.b    $8B  ; DHZ
-                dc.b    $89  ; CNZ
-                dc.b    $8E  ; CPZ
-                dc.b    $8E  ; GCZ
-                dc.b    $87  ; NGHZ
+                dc.b    $82	; GHZ
+                dc.b    $82	; Zone 01
+                dc.b    $85	; WZ
+                dc.b    $84	; Zone 03
+                dc.b    $85	; MTZ
+                dc.b    $85	; MTZ Act 3
+                dc.b    $8C	; Zone 06
+                dc.b    $86	; HTZ
+                dc.b    $83	; HPZ
+                dc.b    $8D	; Zone 09
+                dc.b    $88	; OOZ
+                dc.b    $8B	; DHZ
+                dc.b    $89	; CNZ
+                dc.b    $8E	; CPZ
+                dc.b    $8E	; GCZ
+                dc.b    $87	; NGHZ
 ;-------------------------------------------------------------------------------
 Tails_Display:                                                 ; Offset_0x011232
                 move.w  Obj_P_Invunerblt_Time(A0), D0                    ; $0030
@@ -19961,39 +20055,39 @@ Offset_0x012250:
 ;-------------------------------------------------------------------------------
 ;Offset_0x01227A:
 TailsAniData:
-                dc.w    TailsAni_Walk-TailsAniData     ;0
-                dc.w    TailsAni_Run-TailsAniData      ;1
-                dc.w    TailsAni_Roll-TailsAniData     ;2
-                dc.w    TailsAni_Roll2-TailsAniData    ;3
-                dc.w    TailsAni_Push-TailsAniData     ;4
-                dc.w    TailsAni_Wait-TailsAniData     ;5
-                dc.w    TailsAni_Balance-TailsAniData  ;6
-                dc.w    TailsAni_LookUp-TailsAniData   ;7
-                dc.w    TailsAni_Duck-TailsAniData     ;8
-                dc.w    TailsAni_Spindash-TailsAniData ;9
-                dc.w    TailsAni_Dummy1-TailsAniData   ;$A
-                dc.w    TailsAni_Dummy2-TailsAniData   ;$B
-                dc.w    TailsAni_Dummy3-TailsAniData   ;$C
-                dc.w    TailsAni_Stop-TailsAniData     ;$D
-                dc.w    TailsAni_Float-TailsAniData    ;$E
-                dc.w    TailsAni_Float2-TailsAniData   ;$F
-                dc.w    TailsAni_Spring-TailsAniData   ;$10
-                dc.w    TailsAni_Hang-TailsAniData     ;$11
-                dc.w    TailsAni_Blink-TailsAniData    ;$12
-                dc.w    TailsAni_Blink2-TailsAniData   ;$13
-                dc.w    TailsAni_Hang2-TailsAniData    ;$14
-                dc.w    TailsAni_Bubble-TailsAniData   ;$15
-                dc.w    TailsAni_DeathBW-TailsAniData  ;$16
-                dc.w    TailsAni_Drown-TailsAniData    ;$17
-                dc.w    TailsAni_Death-TailsAniData    ;$18
-                dc.w    TailsAni_Hurt-TailsAniData     ;$19
-                dc.w    TailsAni_Hurt2-TailsAniData    ;$1A
-                dc.w    TailsAni_Slide-TailsAniData    ;$1B
-                dc.w    TailsAni_Blank-TailsAniData    ;$1C
-                dc.w    TailsAni_Dummy4-TailsAniData   ;$1D
-                dc.w    TailsAni_Dummy5-TailsAniData   ;$1E
-                dc.w    TailsAni_HaulAss-TailsAniData  ;$1F hehe ass
-                dc.w    TailsAni_Fly-TailsAniData      ;$20
+                dc.w    TailsAni_Walk-TailsAniData	;0
+                dc.w    TailsAni_Run-TailsAniData	;1
+                dc.w    TailsAni_Roll-TailsAniData	;2
+                dc.w    TailsAni_Roll2-TailsAniData	;3
+                dc.w    TailsAni_Push-TailsAniData	;4
+                dc.w    TailsAni_Wait-TailsAniData	;5
+                dc.w    TailsAni_Balance-TailsAniData	;6
+                dc.w    TailsAni_LookUp-TailsAniData	;7
+                dc.w    TailsAni_Duck-TailsAniData	;8
+                dc.w    TailsAni_Spindash-TailsAniData	;9
+                dc.w    TailsAni_Dummy1-TailsAniData	;$A
+                dc.w    TailsAni_Dummy2-TailsAniData	;$B
+                dc.w    TailsAni_Dummy3-TailsAniData	;$C
+                dc.w    TailsAni_Stop-TailsAniData	;$D
+                dc.w    TailsAni_Float-TailsAniData	;$E
+                dc.w    TailsAni_Float2-TailsAniData	;$F
+                dc.w    TailsAni_Spring-TailsAniData	;$10
+                dc.w    TailsAni_Hang-TailsAniData	;$11
+                dc.w    TailsAni_Blink-TailsAniData	;$12
+                dc.w    TailsAni_Blink2-TailsAniData	;$13
+                dc.w    TailsAni_Hang2-TailsAniData	;$14
+                dc.w    TailsAni_Bubble-TailsAniData	;$15
+                dc.w    TailsAni_DeathBW-TailsAniData	;$16
+                dc.w    TailsAni_Drown-TailsAniData	;$17
+                dc.w    TailsAni_Death-TailsAniData	;$18
+                dc.w    TailsAni_Hurt-TailsAniData	;$19
+                dc.w    TailsAni_Hurt2-TailsAniData	;$1A
+                dc.w    TailsAni_Slide-TailsAniData	;$1B
+                dc.w    TailsAni_Blank-TailsAniData	;$1C
+                dc.w    TailsAni_Dummy4-TailsAniData	;$1D
+                dc.w    TailsAni_Dummy5-TailsAniData	;$1E
+                dc.w    TailsAni_HaulAss-TailsAniData	;$1F 
+                dc.w    TailsAni_Fly-TailsAniData	;$20
 TailsAni_Walk:
                 dc.b    $FF, $10, $11, $12, $13, $14, $15, $0E
                 dc.b    $0F, $FF
@@ -24989,7 +25083,87 @@ Jmp_04_To_MarkObjGone_2:                                       ; Offset_0x01E05E
 		jmp     (MarkObjGone_2)                        ; Offset_0x00D238
 ;-------------------------------------------------------------------------------
 Obj_0x77_Bridge:                                               ; Offset_0x01E064
-		include 'objects/obj_0x77.asm'
+;===============================================================================
+; Object 0x77 - Dust Hill Bridges
+; ->>> 
+;===============================================================================   
+; Offset_0x01E064:
+                moveq   #$00, D0
+                move.b  Obj_Routine(A0), D0                              ; $0024
+                move.w  Offset_0x01E072(PC, D0), D1
+                jmp     Offset_0x01E072(PC, D1)
+;-------------------------------------------------------------------------------
+Offset_0x01E072:
+                dc.w    Offset_0x01E076-Offset_0x01E072
+                dc.w    Offset_0x01E098-Offset_0x01E072    
+;-------------------------------------------------------------------------------
+Offset_0x01E076:
+                addq.b  #$02, Obj_Routine(A0)                            ; $0024
+                move.l  #DHz_Bridge_Mappings, Obj_Map(A0) ; Offset_0x01E140, $0004
+                move.w  #$643C, Obj_Art_VRAM(A0)                         ; $0002
+                bsr     Jmp_1D_To_ModifySpriteAttr_2P          ; Offset_0x01E29A
+                ori.b   #$04, Obj_Flags(A0)                              ; $0001
+                move.b  #$80, Obj_Width(A0)                              ; $0019 
+;-------------------------------------------------------------------------------
+Offset_0x01E098:
+                tst.b   Obj_Control_Var_08(A0)                           ; $0034
+                bne.s   Offset_0x01E0CC
+                lea     ($FFFFF7E0).w, A2
+                moveq   #$00, D0
+                move.b  Obj_Subtype(A0), D0                              ; $0028
+                btst    #$00, $00(A2, D0)
+                beq.s   Offset_0x01E0CC
+                move.b  #$01, Obj_Control_Var_08(A0)                     ; $0034
+                bchg    #00, Obj_Ani_Number(A0)                          ; $001C
+                tst.b   Obj_Flags(A0)                                    ; $0001
+                bpl.s   Offset_0x01E0CC
+                move.w  #$00BB, D0
+                jsr     (Play_Sfx)                             ; Offset_0x001512
+Offset_0x01E0CC:
+                lea     (DHz_Bridge_Animate_Data), A1          ; Offset_0x01E12C
+                jsr     (AnimateSprite)                        ; Offset_0x00D372
+                tst.b   Obj_Map_Id(A0)                                   ; $001A
+                bne.s   Offset_0x01E0F6
+                move.w  #$004B, D1
+                move.w  #$0008, D2
+                move.w  D2, D3
+                addq.w  #$01, D3
+                move.w  Obj_X(A0), D4                                    ; $0008
+                bsr     Jmp_11_To_SolidObject                  ; Offset_0x01E2A0
+                bra     Jmp_14_To_MarkObjGone                  ; Offset_0x01E294
+Offset_0x01E0F6:
+                move.b  Obj_Status(A0), D0                               ; $0022
+                andi.b  #$18, D0
+                beq.s   Offset_0x01E128
+                move.b  D0, D1
+                andi.b  #$08, D0
+                beq.s   Offset_0x01E112
+                lea     (Player_One).w, A1                           ; $FFFFB000
+                bclr    #$03, Obj_Status(A1)                             ; $0022
+Offset_0x01E112:
+                andi.b  #$10, D1
+                beq.s   Offset_0x01E122
+                lea     (Player_Two).w, A1                           ; $FFFFB040
+                bclr    #$03, Obj_Status(A1)                             ; $0022
+Offset_0x01E122:
+                andi.b  #$E7, Obj_Status(A0)                             ; $0022
+Offset_0x01E128:
+                bra     Jmp_14_To_MarkObjGone                  ; Offset_0x01E294        
+;-------------------------------------------------------------------------------    
+DHz_Bridge_Animate_Data:                                       ; Offset_0x01E12C
+                dc.w    Offset_0x01E130-DHz_Bridge_Animate_Data
+                dc.w    Offset_0x01E138-DHz_Bridge_Animate_Data
+Offset_0x01E130:
+                dc.b    $03, $04, $03, $02, $01, $00, $FE, $01
+Offset_0x01E138:
+                dc.b    $03, $00, $01, $02, $03, $04, $FE, $01     
+;-------------------------------------------------------------------------------
+DHz_Bridge_Mappings:                                           ; Offset_0x01E140
+                include 'Map/obj77.asm'   
+;===============================================================================
+; Object 0x77 - Dust Hill Bridges
+; <<<- 
+;===============================================================================		
 ;-------------------------------------------------------------------------------
 Jmp_14_To_MarkObjGone:                                         ; Offset_0x01E294
 		jmp     (MarkObjGone)                          ; Offset_0x00D200
@@ -30606,7 +30780,7 @@ Offset_0x02CBC8:
 ;===============================================================================
 
 ;===============================================================================
-; Rotina n�o usada para executar algum efeito na Chemical Plant
+; Routine Not Used to Perform Any Effect on Chemical Plant
 ; ->>>
 ;===============================================================================
 Offset_0x02CBCA:
@@ -30665,7 +30839,7 @@ Offset_0x02CBFE:
 		dbra    D1, Offset_0x02CBFE
 		rts
 ;===============================================================================
-; Rotina n�o usada para executar algum efeito na Chemical Plant
+; Routine Not Used to Perform Any Effect on Chemical Plant
 ; <<<-
 ;===============================================================================
 
