@@ -33118,47 +33118,47 @@ Sfx_A0_To_E9:                                                  ; Offset_0x0FEE00
 		z80_ptr	Sfx_E8
 		z80_ptr	Sfx_E9
 Sfx_A0:                                                        ; Offset_0x0FEE94
-		incbin  'sound/sfx_A0.snd'
+		include	'sound/sfx/A0 - Jump.asm'
 Sfx_A1:                                                        ; Offset_0x0FEEAA
-		incbin  'sound/sfx_A1.snd'
+		include	'sound/sfx/A1 - Checkpoint.asm'
 Sfx_A2:                                                        ; Offset_0x0FEED4
-		incbin  'sound/sfx_A2.snd'
+		include 'sound/sfx/A2 - Spike Switch.asm'
 Sfx_A3:                                                        ; Offset_0x0FEEF3
-		incbin  'sound/sfx_A3.snd'
+		include 'sound/sfx/A3 - Hurt.asm'
 Sfx_A4:                                                        ; Offset_0x0FEF25
-		incbin  'sound/sfx_A4.snd'
+		include 'sound/sfx/A4 - Skidding.asm'
 Sfx_A5:                                                        ; Offset_0x0FEF5A
-		incbin  'sound/sfx_A5.snd'
+		include 'sound/sfx/A5 - Block Push.asm'
 Sfx_A6:                                                        ; Offset_0x0FEF86
-		incbin  'sound/sfx_A6.snd'
+		include 'sound/sfx/A6 - Hurt by Spikes.asm'
 Sfx_A7:                                                        ; Offset_0x0FEFB5
-		incbin  'sound/sfx_A7.snd'
+		include 'sound/sfx/A7 - Push Block.asm'                
 Sfx_A8:                                                        ; Offset_0x0FEFE4
-		incbin  'sound/sfx_A8.snd'
+		include 'sound/sfx/A8 - SS Goal.asm'
 Sfx_A9:                                                        ; Offset_0x0FEFFE
-		incbin  'sound/sfx_A9.snd'
+		include 'sound/sfx/A9 - Special Stage Item (Unused).asm'
 Sfx_AA:                                                        ; Offset_0x0FF010
-		incbin  'sound/sfx_AA.snd'
+		include 'sound/sfx/AA - Splash.asm'
 Sfx_AB:                                                        ; Offset_0x0FF051
-		incbin  'sound/sfx_AB.snd'
+		include 'sound/sfx/AB - Swish.asm'
 Sfx_AC:                                                        ; Offset_0x0FF070
-		incbin  'sound/sfx_AC.snd'
+		include 'sound/sfx/AC - Boss Hit.asm'
 Sfx_AD:                                                        ; Offset_0x0FF0A4
-		incbin  'sound/sfx_AD.snd'
+		include 'sound/sfx/AD - Inhaling Bubble.asm'
 Sfx_AE:                                                        ; Offset_0x0FF0DA
-		incbin  'sound/sfx_AE.snd'
+		include 'sound/sfx/AE - Lava Ball.asm'
 Sfx_AF:                                                        ; Offset_0x0FF124
-		incbin  'sound/sfx_AF.snd'
+		include 'sound/sfx/AF - Shield.asm'
 Sfx_B0:                                                        ; Offset_0x0FF151
-		incbin  'sound/sfx_B0.snd'
+		include 'sound/sfx/B0 - Laser Beam.asm'
 Sfx_B1:                                                        ; Offset_0x0FF182
-		incbin  'sound/sfx_B1.snd'
+		include 'sound/sfx/B1 - Electricity (Unused).asm'
 Sfx_B2:                                                        ; Offset_0x0FF1AE
-		incbin  'sound/sfx_B2.snd'
+		include 'sound/sfx/B2 - Drown.asm'
 Sfx_B3:                                                        ; Offset_0x0FF1FD
-		incbin  'sound/sfx_B3.snd'
+		include 'sound/sfx/B3 - Fire Burn.asm'
 Sfx_B4:                                                        ; Offset_0x0FF22E
-		incbin  'sound/sfx_B4.snd'
+		include 'sound/sfx/B4 - Bumper.asm'
 Sfx_B5:                                                        ; Offset_0x0FF289
 		incbin  'sound/sfx_B5.snd'
 Sfx_B6:                                                        ; Offset_0x0FF29E
