@@ -33160,111 +33160,111 @@ Sfx_B3:                                                        ; Offset_0x0FF1FD
 Sfx_B4:                                                        ; Offset_0x0FF22E
 		include 'sound/sfx/B4 - Bumper.asm'
 Sfx_B5:                                                        ; Offset_0x0FF289
-		incbin  'sound/sfx_B5.snd'
+		include 'sound/sfx/B5 - Ring.asm'
 Sfx_B6:                                                        ; Offset_0x0FF29E
-		incbin  'sound/sfx_B6.snd'
+		include 'sound/sfx/B6 - Spikes Move.asm'
 Sfx_B7:                                                        ; Offset_0x0FF2BB
-		incbin  'sound/sfx_B7.snd'
+		include 'sound/sfx/B7 - Rumbling.asm'
 Sfx_B8:                                                        ; Offset_0x0FF2F6
-		incbin  'sound/sfx_B8.snd'
+		include 'sound/sfx/B8 - Unknown (Unused).asm'
 Sfx_B9:                                                        ; Offset_0x0FF313
-		incbin  'sound/sfx_B9.snd'
+		include 'sound/sfx/B9 - Smash.asm'
 Sfx_BA:                                                        ; Offset_0x0FF35D
-		incbin  'sound/sfx_BA.snd'
+		include 'sound/sfx/BA - Special Stage Glass (Unused).asm'
 Sfx_BB:                                                        ; Offset_0x0FF385
-		incbin  'sound/sfx_BB.snd'
+		include 'sound/sfx/BB - Door Slam.asm'
 Sfx_BC:                                                        ; Offset_0x0FF3B0
-		incbin  'sound/sfx_BC.snd'
+		include 'sound/sfx/BC - Spin Dash Release.asm'
 Sfx_BD:                                                        ; Offset_0x0FF3F1
-		incbin  'sound/sfx_BD.snd'
+		include 'sound/sfx/BD - Hammer.asm'
 Sfx_BE:                                                        ; Offset_0x0FF444
-		incbin  'sound/sfx_BE.snd'
+		include 'sound/sfx/BE - Roll.asm'
 Sfx_BF:                                                        ; Offset_0x0FF47E
-		incbin  'sound/sfx_BF.snd'
+		include 'sound/sfx/BF - Continue Jingle.asm'
 Sfx_C0:                                                        ; Offset_0x0FF4F0
-		incbin  'sound/sfx_C0.snd'
+		include 'sound/sfx/C0 - Basaran Flap.asm'
 Sfx_C1:                                                        ; Offset_0x0FF51E
-		incbin  'sound/sfx_C1.snd'
+		include 'sound/sfx/C1 - Explosion.asm'               
 Sfx_C2:                                                        ; Offset_0x0FF558
-		incbin  'sound/sfx_C2.snd'
+		include 'sound/sfx/C2 - Water Warning.asm'
 Sfx_C3:                                                        ; Offset_0x0FF569
-		incbin  'sound/sfx_C3.snd'
+		include 'sound/sfx/C3 - Enter Giant Ring (Unused).asm'
 Sfx_C4:                                                        ; Offset_0x0FF5E3
-		incbin  'sound/sfx_C4.snd'
+		include 'sound/sfx/C4 - Boss Explosion.asm'
 Sfx_C5:                                                        ; Offset_0x0FF60B
-		incbin  'sound/sfx_C5.snd'
+		include 'sound/sfx/C5 - Tally End.asm'
 Sfx_C6:                                                        ; Offset_0x0FF672
-		incbin  'sound/sfx_C6.snd'
+		include 'sound/sfx/C6 - Ring Spill.asm'
 Sfx_C7:                                                        ; Offset_0x0FF69A
-		incbin  'sound/sfx_C7.snd'
+		include 'sound/sfx/C7 - Chain Rise (Unused).asm'
 Sfx_C8:                                                        ; Offset_0x0FF6C8
-		incbin  'sound/sfx_C8.snd'
+		include 'sound/sfx/C8 - Flamethrower.asm'
 Sfx_C9:                                                        ; Offset_0x0FF6D9
-		incbin  'sound/sfx_C9.snd'
+		include 'sound/sfx/C9 - Hidden Bonus (Unused).asm'
 Sfx_CA:                                                        ; Offset_0x0FF706
-		incbin  'sound/sfx_CA.snd'
+		include 'sound/sfx/CA - Special Stage Entry.asm'
 Sfx_CB:                                                        ; Offset_0x0FF733
-		incbin  'sound/sfx_CB.snd'
+		include 'sound/sfx/CB - Slow Smash.asm'
 Sfx_CC:                                                        ; Offset_0x0FF766
-		incbin  'sound/sfx_CC.snd'
+		include 'sound/sfx/CC - Spring.asm'
 Sfx_CD:                                                        ; Offset_0x0FF7A0
-		incbin  'sound/sfx_CD.snd'
+		include 'sound/sfx/CD - Switch.asm'
 Sfx_CE:                                                        ; Offset_0x0FF7AD
-		incbin  'sound/sfx_CE.snd'
+		include 'sound/sfx/CE - Ring Left Speaker.asm'
 Sfx_CF:                                                        ; Offset_0x0FF7C2
-		incbin  'sound/sfx_CF.snd'
+		include 'sound/sfx/CF - Signpost.asm'
 Sfx_D0:                                                        ; Offset_0x0FF7F9
-		incbin  'sound/sfx_D0.snd'
+		include 'sound/sfx/D0 - CNZ Boss Zap.asm'
 Sfx_D1:                                                        ; Offset_0x0FF82C
-		incbin  'sound/sfx_D1.snd'
+		include 'sound/sfx/D1 - Unknown (Unused).asm'
 Sfx_D2:                                                        ; Offset_0x0FF865
-		incbin  'sound/sfx_D2.snd'
+		include 'sound/sfx/D2 - Unknown (Unused).asm'
 Sfx_D3:                                                        ; Offset_0x0FF8A2
-		incbin  'sound/sfx_D3.snd'
+		include 'sound/sfx/D3 - Signpost 2P.asm'
 Sfx_D4:                                                        ; Offset_0x0FF8E1
-		incbin  'sound/sfx_D4.snd'
+		include 'sound/sfx/D4 - OOZ Lid Pop.asm'               
 Sfx_D5:                                                        ; Offset_0x0FF909
-		incbin  'sound/sfx_D5.snd'
+		include 'sound/sfx/D5 - Sliding Spike.asm'                            
 Sfx_D6:                                                        ; Offset_0x0FF933
-		incbin  'sound/sfx_D6.snd'
+		include 'sound/sfx/D6 - CNZ Elevator.asm'
 Sfx_D7:                                                        ; Offset_0x0FF978
-		incbin  'sound/sfx_D7.snd'
+		include 'sound/sfx/D7 - Platform Knock.asm'
 Sfx_D8:                                                        ; Offset_0x0FF9A0
-		incbin  'sound/sfx_D8.snd'
-Sfx_D9:                                                        ; Offset_0x0FF9CA
-		incbin  'sound/sfx_D9.snd'
+		include 'sound/sfx/D8 - Bonus Bumper.asm'
+Sfx_D9:                                                        ; Offset_0x0FF9CA		
+                include 'sound/sfx/D9 - Large Bumper.asm'
 Sfx_DA:                                                        ; Offset_0x0FF9F7
-		incbin  'sound/sfx_DA.snd'
+		include 'sound/sfx/DA - Gloop.asm'
 Sfx_DB:                                                        ; Offset_0x0FFA24
-		incbin  'sound/sfx_DB.snd'
+		include 'sound/sfx/DB - Pre-Arrow Firing.asm'
 Sfx_DC:                                                        ; Offset_0x0FFA58
-		incbin  'sound/sfx_DC.snd'
+		include 'sound/sfx/DC - Fire.asm'
 Sfx_DD:                                                        ; Offset_0x0FFA9F
-		incbin  'sound/sfx_DD.snd'
+		include 'sound/sfx/DD - Arrow Stick.asm'
 Sfx_DE:                                                        ; Offset_0x0FFAC7
-		incbin  'sound/sfx_DE.snd'
+		include 'sound/sfx/DE - Helicopter.asm'
 Sfx_DF:                                                        ; Offset_0x0FFB01
-		incbin  'sound/sfx_DF.snd'
+		include 'sound/sfx/DF - Super Transform.asm'
 Sfx_E0:                                                        ; Offset_0x0FFB9D
-		incbin  'sound/sfx_E0.snd'
-Sfx_E1:                                                        ; Offset_0x0FFBD8
-		incbin  'sound/sfx_E1.snd'
+		include 'sound/sfx/E0 - Spin Dash Rev.asm'
+Sfx_E1:                                                        ; Offset_0x0FFBD8		                
+                include 'sound/sfx/E1 - Rumbling 2.asm'
 Sfx_E2:                                                        ; Offset_0x0FFC3F
-		incbin  'sound/sfx_E2.snd'
+		include 'sound/sfx/E2 - CNZ Launch.asm'                
 Sfx_E3:                                                        ; Offset_0x0FFC76
-		incbin  'sound/sfx_E3.snd'
+		include 'sound/sfx/E3 - Flipper.asm'
 Sfx_E4:                                                        ; Offset_0x0FFCA5
-		incbin  'sound/sfx_E4.snd'
+		include 'sound/sfx/E4 - HTZ Lift Click.asm'
 Sfx_E5:                                                        ; Offset_0x0FFCCD
-		incbin  'sound/sfx_E5.snd'
+		include 'sound/sfx/E5 - Leaves.asm'
 Sfx_E6:                                                        ; Offset_0x0FFCEE
-		incbin  'sound/sfx_E6.snd'
+		include 'sound/sfx/E6 - Mega Mack Drop.asm'
 Sfx_E7:                                                        ; Offset_0x0FFD28
-		incbin  'sound/sfx_E7.snd'
+		include 'sound/sfx/E7 - Drawbridge Move.asm'
 Sfx_E8:                                                        ; Offset_0x0FFD84
-		incbin  'sound/sfx_E8.snd'
+		include 'sound/sfx/E8 - Quick Door Slam.asm'
 Sfx_E9:                                                        ; Offset_0x0FFDAE
-		incbin  'sound/sfx_E9.snd'
+		include 'sound/sfx/E9 - Drawbridge Down.asm'
                 even
 ;===============================================================================
 ; Sound driver stuff

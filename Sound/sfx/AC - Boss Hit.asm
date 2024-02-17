@@ -1,6 +1,6 @@
 SoundAC_BossHit_Header:
 	smpsHeaderStartSong 2
-	smpsHeaderVoice     SoundAC_39_4B_Voices
+	smpsHeaderVoice     SoundAC_B9_CB_Voices
 	smpsHeaderTempoSFX  $01
 	smpsHeaderChanSFX   $01
 
@@ -17,7 +17,7 @@ SoundAC_BossHit_Loop00:
 	smpsLoop            $00, $04, SoundAC_BossHit_Loop00
 	smpsStop
 
-SoundAC_39_4B_Voices:
+SoundAC_B9_CB_Voices:
 ;	Voice $00
 ;	$F9
 ;	$21, $30, $10, $32, 	$1F, $1F, $1F, $1F, 	$05, $18, $09, $02
