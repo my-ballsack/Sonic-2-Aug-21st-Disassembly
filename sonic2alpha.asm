@@ -32952,21 +32952,21 @@ DAC_Sample_06:                                                 ; Offset_0x0EFA3C
 		z80_ptr	Music_Hidden_Palace_Final
 		z80_ptr	Music_Hidden_Palace_Final
 Music_Invencibility:                                           ; Offset_0x0F0012
-		incbin  'sound/music/invcb_97.snd'
+		incbin  'sound/music/Invcb_97.snd'
 Music_Extra_Life:                                              ; Offset_0x0F023D
-		incbin  'sound/music/1up_98.snd'
+		include 'sound/music/98 - Extra Life.asm'
 Music_Title_Screen:                                            ; Offset_0x0F032A
-		incbin  'sound/music/tscr_99.snd'
+		include 'sound/music/99 - Title Screen.asm'
 Music_Level_Results:                                           ; Offset_0x0F04FF
-		incbin  'sound/music/lres_9A.snd'
+		include 'sound/music/9A - End of Act.asm'
 Music_Time_Over_Game_Over:                                     ; Offset_0x0F0654
-		incbin  'sound/music/tgovr_9B.snd'
+		include 'sound/music/9B - Game Over.asm'
 Music_Continue:                                                ; Offset_0x0F07A3
-		incbin  'sound/music/cont_9c.snd'
+		include 'sound/music/9C - Continue.asm'
 Music_Get_Emerald:                                             ; Offset_0x0F0900
-		incbin  'sound/music/emrld_9d.snd'
+		include 'sound/music/9D - Got Emerald.asm'
 Music_Hidden_Palace_Final:                                     ; Offset_0x0F09CE
-		incbin  'sound/music/hpz_90.snd'
+		include 'sound/music/90 - HPZ Final.asm'
                 even
 ;-------------------------------------------------------------------------------
 		cnop    $00000000, $000F1E8C
@@ -32997,47 +32997,48 @@ Sega_Snd:                                                      ; Offset_0x0F1E8C
 		z80_ptr	Music_Super_Sonic
 		z80_ptr	Music_Hill_Top
 Music_Oil_Ocean_Beta:                                          ; Offset_0x0F802A
-		incbin  'sound/music/ooz_88.snd'
+		include 'sound/music/88 - OOZ.asm'
 Music_Green_Hill:                                              ; Offset_0x0F85AC
-		incbin  'sound/music/ghz_82.snd'
+		include 'sound/music/82 - GHZ.asm'
 Music_Metropolis:                                              ; Offset_0x0F8D1E
-		incbin  'sound/music/mz_85.snd'
+		include 'sound/music/85 - MTZ.asm'
 Music_Casino_Night:                                            ; Offset_0x0F9299
-		incbin  'sound/music/cnz_89.snd'
+		include 'sound/music/89 - CNZ.asm'
 Music_Dust_Hill:                                               ; Offset_0x0F99B6
-		incbin  'sound/music/dhz_8b.snd'
+		include 'sound/music/8B - DHZ.asm'
 Music_Hidden_Palace_Beta:                                      ; Offset_0x0FA056
+                ;include 'sound/music/83 - HPZ.asm'               
 		incbin  'sound/music/hpz_83.snd'
 Music_Neo_Green_Hill:                                          ; Offset_0x0FA54F
-		incbin  'sound/music/nghz_87.snd'
+		include 'sound/music/87 - NGHZ.asm'
 Music_Death_Egg:                                               ; Offset_0x0FACDC
-		incbin  'sound/music/dez_8a.snd'
+		include 'sound/music/8A - DEZ.asm'
 Music_Special_Stage:                                           ; Offset_0x0FB1C3
-		incbin  'sound/music/ss_92.snd'
+		include 'sound/music/92 - Special Stage.asm'
 Music_Level_Select_Menu:                                       ; Offset_0x0FB7CA
-		incbin  'sound/music/menu_91.snd'
+		include 'sound/music/91 - Options.asm'
 Music_End_Sequence:                                            ; Offset_0x0FB945
-		incbin  'sound/music/endsq_95.snd'
+		include 'sound/music/95 - Ending.asm'
 Music_Final_Boss:                                              ; Offset_0x0FBF3E
-		incbin  'sound/music/dezfb_94.snd'
+		include 'sound/music/94 - Final Boss.asm'
 Music_Chemical_Plant:                                          ; Offset_0x0FC276
-		incbin  'sound/music/cpz_8e.snd'
+		include 'sound/music/8E - CPZ.asm'
 Music_Level_Boss:                                              ; Offset_0x0FC8C1
-		incbin  'sound/music/boss_93.snd'
+		include 'sound/music/93 - Boss.asm'
 Music_Sky_Chase:                                               ; Offset_0x0FCB93
-		incbin  'sound/music/scz_8d.snd'
+		include 'sound/music/8D - SCZ.asm'
 Music_Oil_Ocean_Final:                                         ; Offset_0x0FCF96
-		incbin  'sound/music/ooz_84.snd'
+		include 'sound/music/84 - OOZ Final.asm'
 Music_Sky_Fortress:                                            ; Offset_0x0FD41A
-		incbin  'sound/music/sfz_8f.snd'
+		include 'sound/music/8F - SFZ.asm'
 Music_Green_Hill_Versus_Final:                                 ; Offset_0x0FD847
-		incbin  'sound/music/ghzvs_8c.snd'
+		include 'sound/music/8C - GHZ 2P.asm'
 Music_Versus_Result_Final:                                     ; Offset_0x0FDD60
-		incbin  'sound/music/vsres_81.snd'
+		include 'sound/music/81 - 2 Player Menu.asm'
 Music_Super_Sonic:                                             ; Offset_0x0FE1C3
-		incbin  'sound/music/super_96.snd'
+		include 'sound/music/96 - Super Sonic.asm'
 Music_Hill_Top:                                                ; Offset_0x0FE4B6
-		incbin  'sound/music/htz_86.snd'
+		include 'sound/music/86 - HTZ.asm'
                 even
 ;-------------------------------------------------------------------------------
 		cnop    $00000000, $000FEE00
