@@ -12,7 +12,7 @@
 ; * Dust Hill Zone = Mystic Cave Zone
 ; * Neo Green Hill Zone = Aquatic Ruin Zone
 ;-------------------------------------------------------------------------------
-Offset_0x000040 equ $0040 ; Incorrect reference in Crawl ( Obj_0x9E.asm )
+Offset_0x000040 equ $0040 ; Incorrect reference in Crawl ( Obj9E.asm )
 ;-------------------------------------------------------------------------------
 	include 'macros.asm'
 	include 'constants.asm'
@@ -9739,7 +9739,7 @@ DynResize_DEz:                                                 ; Offset_0x008466
 ; <<<-
 ;===============================================================================
 
-Obj_0x11_Bridge:                                               ; Offset_0x008468
+Obj11_Bridge:                                               ; Offset_0x008468
 ;===============================================================================
 ; Object 0x11 - Pontes na Green Hill / Hidden Palace
 ; ->>>
@@ -10216,7 +10216,7 @@ GHz_Bridge_Mappings:                                           ; Offset_0x008A6C
 ; Object 0x11 - Pontes na Green Hill / Hidden Palace
 ; <<<-
 ;===============================================================================
-Obj_0x15_Bridge:                                               ; Offset_0x008A84
+Obj15_Bridge:                                               ; Offset_0x008A84
 ;===============================================================================
 ; Object 0x15 - Plataformas tipo pend�lo na Neo Green Hill, Dust Hill e
 ; ->>>          Oil Ocean
@@ -10636,7 +10636,7 @@ Jmp_00_To_Object_HitWall_Right:                                ; Offset_0x00903C
 		jmp     (Object_HitWall_Right)                 ; Offset_0x01430A
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x17_Log_Spikes:                                           ; Offset_0x009044
+Obj17_Log_Spikes:                                           ; Offset_0x009044
 ;===============================================================================
 ; Object 0x17 - Espinhos em espiral girando na Green Hill - Leftover from Sonic 1
 ; ->>>
@@ -10755,7 +10755,7 @@ Log_Spikes_Mappings:                                           ; Offset_0x009186
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x18_Platforms:                                            ; Offset_0x0091E0
+Obj18_Platforms:                                            ; Offset_0x0091E0
 ;===============================================================================
 ; Object 0x18 - Platforms
 ; ->>>
@@ -11084,7 +11084,7 @@ NGHz_Platforms_Mappings:                                       ; Offset_0x009582
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x1A_Collapsing_Platforms:                                 ; Offset_0x0095DC
+Obj1A_Collapsing_Platforms:                                 ; Offset_0x0095DC
 ;===============================================================================
 ; Object 0x1A - Plataformas que desmoronam na Hidden Palace / Oil Ocean
 ; ->>>
@@ -11184,8 +11184,8 @@ Offset_0x009718:
 ; Object 0x1A - Plataformas que desmoronam na Hidden Palace / Oil Ocean
 ; <<<-
 ;===============================================================================
-Obj_0x1F_Collapsing_Platforms:                                 ; Offset_0x009728
-		include 'objects/obj_0x1F.asm'
+Obj1F_Collapsing_Platforms:                                 ; Offset_0x009728
+		include 'objects/Obj1F.asm'
 ;-------------------------------------------------------------------------------
 Collapsing_Platforms_Data:                                     ; Offset_0x009912
 		dc.b    $1C, $18, $14, $10, $1A, $16, $12, $0E
@@ -11252,7 +11252,7 @@ NGHz_Collapsing_Platforms_Mappings:                            ; Offset_0x009E7E
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x1C_Misc:                                                 ; Offset_0x009EE8
+Obj1C_Misc:                                                 ; Offset_0x009EE8
 ;===============================================================================
 ; Object 0x1C - Miscel�nea de Objects - Suporte das pontes na Emerald Hill,
 ; ->>>          postes na Hill Top, etc...
@@ -11332,7 +11332,7 @@ Offset_0x009F9C:
 ; Object 0x1C - Miscel�nea de Objects - Suporte das pontes na Emerald Hill,
 ; <<<-          postes na Hill Top, etc...
 ;===============================================================================
-Obj_0x71_Mz_HPz_Misc:                                          ; Offset_0x009FA0
+Obj71_Mz_HPz_Misc:                                          ; Offset_0x009FA0
 ;===============================================================================
 ; Object 0x71 - Miscel�nea de Objects - Suporte das pontes na Hidden Palace,
 ; ->>>          Orbs na Hidden Palace, bolhas de lava na Metropolis, etc...
@@ -11422,17 +11422,17 @@ Mz_Lava_Bubble_Mappings:                                       ; Offset_0x00A10A
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x2A_Up_Down_Pillar:                                       ; Offset_0x00A158
-		include 'objects/obj_0x2A.asm'
-Obj_0x2D_Automatic_Door:                                       ; Offset_0x00A22E
-		include 'objects/obj_0x2D.asm'
+Obj2A_Up_Down_Pillar:                                       ; Offset_0x00A158
+		include 'objects/Obj2A.asm'
+Obj2D_Automatic_Door:                                       ; Offset_0x00A22E
+		include 'objects/Obj2D.asm'
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x28_Flickies:                                             ; Offset_0x00A3E8
-		include 'objects/obj_0x28.asm'
-Obj_0x29_Enemy_Points:                                         ; Offset_0x00A922
-		include 'objects/obj_0x29.asm'
+Obj28_Flickies:                                             ; Offset_0x00A3E8
+		include 'objects/Obj28.asm'
+Obj29_Enemy_Points:                                         ; Offset_0x00A922
+		include 'objects/Obj29.asm'
 ;-------------------------------------------------------------------------------
 Flickies_Mappings:                                             ; Offset_0x00A978
 		dc.w    Offset_0x00A988-Flickies_Mappings
@@ -11537,7 +11537,7 @@ Offset_0x00AA86:
 		dc.l    $F805000A, $0005FFF0
 		dc.l    $F805000E, $00070000
 ;-------------------------------------------------------------------------------
-Obj_0x25_Rings:                                                ; Offset_0x00AA98
+Obj25_Rings:                                                ; Offset_0x00AA98
 ;===============================================================================
 ; Object 0x25 - An�is - Este Object n�o � usado pelos an�is normais nas fases
 ; ->>>
@@ -11650,8 +11650,8 @@ Offset_0x00ABCC:
 ; Rotina para adicionar an�is ao contador, verificando o limmite e bonificando
 ; <<<-          com vida extra ao adiquirir 100 e 200 an�is
 ;-------------------------------------------------------------------------------
-Obj_0x37_Rings_Lost:                                           ; Offset_0x00ABD2
-		include 'objects/obj_0x37.asm'
+Obj37_Rings_Lost:                                           ; Offset_0x00ABD2
+		include 'objects/Obj37.asm'
 Obj_S1_0x4B_Big_Ring:                                          ; Offset_0x00AD26
 		include 'objects/objs1_4B.asm'
 Obj_S1_0x7C_Big_Ring_Flash:                                    ; Offset_0x00ADEA
@@ -11763,10 +11763,10 @@ Offset_0x00B0E2:
 		dc.l    $000F1044, $1022FFE0
 		dc.l    $000F1844, $18220000
 ;-------------------------------------------------------------------------------
-Obj_0x26_Monitors:                                             ; Offset_0x00B104
-		include 'objects/obj_0x26.asm'
-Obj_0x2E_Monitors_Contents:                                    ; Offset_0x00B2D2
-		include 'objects/obj_0x2E.asm'
+Obj26_Monitors:                                             ; Offset_0x00B104
+		include 'objects/Obj26.asm'
+Obj2E_Monitors_Contents:                                    ; Offset_0x00B2D2
+		include 'objects/Obj2E.asm'
 ;-------------------------------------------------------------------------------
 ; Complementary routines referenced in Object 0x26
 ; ->>>
@@ -11865,7 +11865,7 @@ Monitors_Mappings:                                             ; Offset_0x00B580
 ; Complementary routines referenced in Object 0x26
 ; <<<-
 ;-------------------------------------------------------------------------------
-Obj_0x0E_Sonic_Tails:                                          ; Offset_0x00B660
+Obj0E_Sonic_Tails:                                          ; Offset_0x00B660
 ;===============================================================================
 ; Object 0x0E - Sonic and Tails on the Title Screen
 ; ->>>
@@ -11921,8 +11921,8 @@ Offset_0x00B6E2:
 ; Object 0x0E - Sonic and Tails on the Title Screen
 ; <<<-
 ;===============================================================================
-Obj_0x0F:                                                      ; Offset_0x00B6E6
-		include 'objects/obj_0x0F.asm'
+Obj0F:                                                      ; Offset_0x00B6E6
+		include 'objects/Obj0F.asm'
 ;-------------------------------------------------------------------------------
 S1_Sonic_In_Title_Screen_Animate_Data:                         ; Offset_0x00B802
 		dc.w    Offset_0x00B804-S1_Sonic_In_Title_Screen_Animate_Data
@@ -12017,12 +12017,12 @@ Tails_In_Title_Screen_Map:                                     ; Offset_0x00B9AC
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x34_Title_Cards:                                          ; Offset_0x00BA00
-		include 'objects/obj_0x34.asm'
-Obj_0x39_Time_Over_Game_Over:                                  ; Offset_0x00BC44
-		include 'objects/obj_0x39.asm'
-Obj_0x3A_Level_Results:                                        ; Offset_0x00BD06
-		include 'objects/obj_0x3A.asm'
+Obj34_Title_Cards:                                          ; Offset_0x00BA00
+		include 'objects/Obj34.asm'
+Obj39_Time_Over_Game_Over:                                  ; Offset_0x00BC44
+		include 'objects/Obj39.asm'
+Obj3A_Level_Results:                                        ; Offset_0x00BD06
+		include 'objects/Obj3A.asm'
 Obj_S1_0x7E_Special_Stage_Results:                             ; Offset_0x00BF3E
 		include 'objects/objs1_7E.asm'
 Obj_S1_0x7F_Emeralds:                                          ; Offset_0x00C0E4
@@ -12382,7 +12382,7 @@ Offset_0x00C816:
 ; Mapeamento das esmeraldas usadas na tela de resultado dos est�gios especiais
 ; <<<-
 ;-------------------------------------------------------------------------------
-Obj_0x36_Spikes:                                               ; Offset_0x00C818
+Obj36_Spikes:                                               ; Offset_0x00C818
 ;===============================================================================
 ; Object 0x36 - Spikes
 ; ->>> 
@@ -12610,13 +12610,13 @@ Spikes_Mappings:                                               ; Offset_0x00CA74
 ; Object 0x36 - Spikes
 ; <<<- 
 ;===============================================================================		
-Obj_0x3B_Rock:                                                 ; Offset_0x00CBD4
-		include 'objects/obj_0x3B.asm'
+Obj3B_Rock:                                                 ; Offset_0x00CBD4
+		include 'objects/Obj3B.asm'
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x3C_Breakable_Wall:                                       ; Offset_0x00CC50
-		include 'objects/obj_0x3C.asm'
+Obj3C_Breakable_Wall:                                       ; Offset_0x00CC50
+		include 'objects/Obj3C.asm'
 Obj_Null:                                                      ; Offset_0x00CEA4
 		bra     Obj_Null_2                             ; Offset_0x00D1AA
 ;===============================================================================
@@ -12658,180 +12658,180 @@ Load_Next_Object_2:                                            ; Offset_0x00CEE8
 		rts
 ;-------------------------------------------------------------------------------
 Object_List:                                                   ; Offset_0x00CEF2
-		dc.l    Obj_0x01_Sonic                         ; Offset_0x00FAF0
-		dc.l    Obj_0x02_Tails                         ; Offset_0x011130
-		dc.l    Obj_0x03_Layer_Switch                  ; Offset_0x014DC8
-		dc.l    Obj_0x04_Water_Surface                 ; Offset_0x0159CC
-		dc.l    Obj_0x05_Tails_Tail                    ; Offset_0x012442
-		dc.l    Obj_0x06_Spiral_Attributes             ; Offset_0x0163A8
-		dc.l    Obj_0x07_0il_Attributes                ; Offset_0x018E50
-		dc.l    Obj_0x08_Dust_Water_Splash             ; Offset_0x0131B0
-		dc.l    Obj_0x09_Sonic_In_Special_Stage        ; Offset_0x02BF70
-		dc.l    Obj_0x0A_Sonic_Tails_Underwater        ; Offset_0x01254C
-		dc.l    Obj_0x0B_Open_Close_Platform           ; Offset_0x0151C4
-		dc.l    Obj_0x0C_Unk_Platform                  ; Offset_0x01531C
-		dc.l    Obj_0x0D_End_Panel                     ; Offset_0x00F098
-		dc.l    Obj_0x0E_Sonic_Tails                   ; Offset_0x00B660
-		dc.l    Obj_0x0F                               ; Offset_0x00B6E6
+		dc.l    Obj01_Sonic                         ; Offset_0x00FAF0
+		dc.l    Obj02_Tails                         ; Offset_0x011130
+		dc.l    Obj03_Layer_Switch                  ; Offset_0x014DC8
+		dc.l    Obj04_Water_Surface                 ; Offset_0x0159CC
+		dc.l    Obj05_Tails_Tail                    ; Offset_0x012442
+		dc.l    Obj06_Spiral_Attributes             ; Offset_0x0163A8
+		dc.l    Obj07_0il_Attributes                ; Offset_0x018E50
+		dc.l    Obj08_Dust_Water_Splash             ; Offset_0x0131B0
+		dc.l    Obj09_Sonic_In_Special_Stage        ; Offset_0x02BF70
+		dc.l    Obj0A_Sonic_Tails_Underwater        ; Offset_0x01254C
+		dc.l    Obj0B_Open_Close_Platform           ; Offset_0x0151C4
+		dc.l    Obj0C_Unk_Platform                  ; Offset_0x01531C
+		dc.l    Obj0D_End_Panel                     ; Offset_0x00F098
+		dc.l    Obj0E_Sonic_Tails                   ; Offset_0x00B660
+		dc.l    Obj0F                               ; Offset_0x00B6E6
 		dc.l    Obj_Null_3                             ; Offset_0x02C612
-		dc.l    Obj_0x11_Bridge                        ; Offset_0x008468
-		dc.l    Obj_0x12_HPz_Master_Emerald            ; Offset_0x015420
-		dc.l    Obj_0x13_HPz_Waterfalls                ; Offset_0x0154A8
-		dc.l    Obj_0x14_Seesaw                        ; Offset_0x016808
-		dc.l    Obj_0x15_Bridge                        ; Offset_0x008A84
-		dc.l    Obj_0x16_Teleferics                    ; Offset_0x016C8C
-		dc.l    Obj_0x17_Log_Spikes                    ; Offset_0x009044
-		dc.l    Obj_0x18_Platforms                     ; Offset_0x0091E0
-		dc.l    Obj_0x19_Rotating_Platforms            ; Offset_0x016EB8
-		dc.l    Obj_0x1A_Collapsing_Platforms          ; Offset_0x0095DC
-		dc.l    Obj_0x1B_Speed_Booster                 ; Offset_0x017114
-		dc.l    Obj_0x1C_Misc                          ; Offset_0x009EE8
-		dc.l    Obj_0x1D_Worms                         ; Offset_0x01726C
-		dc.l    Obj_0x1E_Tube_Attributes               ; Offset_0x0173E4
-		dc.l    Obj_0x1F_Collapsing_Platforms          ; Offset_0x009728
-		dc.l    Obj_0x20_HTz_Boss_FireBall             ; Offset_0x017E34
-		dc.l    Obj_0x21_Head_Up_Display               ; Offset_0x02D100
-		dc.l    Obj_0x22_Arrow_Shooter                 ; Offset_0x01A44C
-		dc.l    Obj_0x23_Pillar                        ; Offset_0x01A644
-		dc.l    Obj_0x24_Oxygen_Bubbles                ; Offset_0x0149CC
-		dc.l    Obj_0x25_Rings                         ; Offset_0x00AA98
-		dc.l    Obj_0x26_Monitors                      ; Offset_0x00B104
-		dc.l    Obj_0x27_Object_Hit                    ; Offset_0x016174
-		dc.l    Obj_0x28_Flickies                      ; Offset_0x00A3E8
-		dc.l    Obj_0x29_Enemy_Points                  ; Offset_0x00A922
-		dc.l    Obj_0x2A_Up_Down_Pillar                ; Offset_0x00A158
-		dc.l    Obj_0x2B_Raising_Pillar                ; Offset_0x01A812
-		dc.l    Obj_0x2C_Leaves                        ; Offset_0x01AEB8
-		dc.l    Obj_0x2D_Automatic_Door                ; Offset_0x00A22E
-		dc.l    Obj_0x2E_Monitors_Contents             ; Offset_0x00B2D2
-		dc.l    Obj_0x2F_Breakable_Floor               ; Offset_0x01813C
-		dc.l    Obj_0x30_Earthquake_Tiles_Attributes   ; Offset_0x01870C
-		dc.l    Obj_0x31_Lava_Attributes               ; Offset_0x015EDC
-		dc.l    Obj_0x32_Breakable_Obstacle            ; Offset_0x01834A
-		dc.l    Obj_0x33_Touch_Booster                 ; Offset_0x018924
-		dc.l    Obj_0x34_Title_Cards                   ; Offset_0x00BA00
-		dc.l    Obj_0x35_Invincibility                 ; Offset_0x012B72
-		dc.l    Obj_0x36_Spikes                        ; Offset_0x00C818
-		dc.l    Obj_0x37_Rings_Lost                    ; Offset_0x00ABD2
-		dc.l    Obj_0x38_Shield                        ; Offset_0x012AF0
-		dc.l    Obj_0x39_Time_Over_Game_Over           ; Offset_0x00BC44
-		dc.l    Obj_0x3A_Level_Results                 ; Offset_0x00BD06
-		dc.l    Obj_0x3B_Rock                          ; Offset_0x00CBD4
-		dc.l    Obj_0x3C_Breakable_Wall                ; Offset_0x00CC50
-		dc.l    Obj_0x3D_Break_Boost                   ; Offset_0x019BF8
-		dc.l    Obj_0x3E_Egg_Prison                    ; Offset_0x02AEE8
-		dc.l    Obj_0x3F_Fans                          ; Offset_0x01F538
-		dc.l    Obj_0x40_Diagonal_Springs              ; Offset_0x01B12C
-		dc.l    Obj_0x41_Springs                       ; Offset_0x00E744
-		dc.l    Obj_0x42_Steam_Vent                    ; Offset_0x01B3EC
-		dc.l    Obj_0x43_Giant_Spikeball               ; Offset_0x018C70
-		dc.l    Obj_0x44_Red_Ball_Bumper               ; Offset_0x01486C
-		dc.l    Obj_0x45_Spring_Push_Boost             ; Offset_0x018F20
-		dc.l    Obj_0x46_Spring_Ball                   ; Offset_0x01983E
-		dc.l    Obj_0x47_Switch                        ; Offset_0x019B1C
-		dc.l    Obj_0x48_Cannon                        ; Offset_0x01A03C
-		dc.l    Obj_0x49_Waterfall                     ; Offset_0x015C8E
-		dc.l    Obj_0x4A_Octus                         ; Offset_0x021704
-		dc.l    Obj_0x4B_Buzzer                        ; Offset_0x023F78
-		dc.l    Obj_0x4C_Batbot                        ; Offset_0x01FA18
-		dc.l    Obj_0x4D_Rhinobot                      ; Offset_0x0228EC
-		dc.l    Obj_0x4E_Crocobot                      ; Offset_0x021160
-		dc.l    Obj_0x4F_Dinobot                       ; Offset_0x0219B4
-		dc.l    Obj_0x50_Aquis                         ; Offset_0x021DAC
-		dc.l    Obj_0x51_CNz_Boss                      ; Offset_0x0271CC
-		dc.l    Obj_0x52_HTz_Boss                      ; Offset_0x025860
-		dc.l    Obj_0x53_Mz_Boss_Balls_Robotniks       ; Offset_0x027B80
-		dc.l    Obj_0x54_Mz_Boss                       ; Offset_0x027A90
-		dc.l    Obj_0x55_Mz_Boss                       ; Offset_0x027A90
-		dc.l    Obj_0x56_GHz_Boss                      ; Offset_0x0200F8
-		dc.l    Obj_0x57_DHz_Boss                      ; Offset_0x026990
-		dc.l    Obj_0x58_GHz_Boss                      ; Offset_0x020372
-		dc.l    Obj_0x59_Snail                         ; Offset_0x022638
-		dc.l    Obj_0x5A                               ; Offset_0x021B18
-		dc.l    Obj_0x5B_GHz_Boss                      ; Offset_0x020786
-		dc.l    Obj_0x5C_Masher                        ; Offset_0x024294
-		dc.l    Obj_0x5D                               ; Offset_0x024394
+		dc.l    Obj11_Bridge                        ; Offset_0x008468
+		dc.l    Obj12_HPz_Master_Emerald            ; Offset_0x015420
+		dc.l    Obj13_HPz_Waterfalls                ; Offset_0x0154A8
+		dc.l    Obj14_Seesaw                        ; Offset_0x016808
+		dc.l    Obj15_Bridge                        ; Offset_0x008A84
+		dc.l    Obj16_Teleferics                    ; Offset_0x016C8C
+		dc.l    Obj17_Log_Spikes                    ; Offset_0x009044
+		dc.l    Obj18_Platforms                     ; Offset_0x0091E0
+		dc.l    Obj19_Rotating_Platforms            ; Offset_0x016EB8
+		dc.l    Obj1A_Collapsing_Platforms          ; Offset_0x0095DC
+		dc.l    Obj1B_Speed_Booster                 ; Offset_0x017114
+		dc.l    Obj1C_Misc                          ; Offset_0x009EE8
+		dc.l    Obj1D_Worms                         ; Offset_0x01726C
+		dc.l    Obj1E_Tube_Attributes               ; Offset_0x0173E4
+		dc.l    Obj1F_Collapsing_Platforms          ; Offset_0x009728
+		dc.l    Obj20_HTz_Boss_FireBall             ; Offset_0x017E34
+		dc.l    Obj21_Head_Up_Display               ; Offset_0x02D100
+		dc.l    Obj22_Arrow_Shooter                 ; Offset_0x01A44C
+		dc.l    Obj23_Pillar                        ; Offset_0x01A644
+		dc.l    Obj24_Oxygen_Bubbles                ; Offset_0x0149CC
+		dc.l    Obj25_Rings                         ; Offset_0x00AA98
+		dc.l    Obj26_Monitors                      ; Offset_0x00B104
+		dc.l    Obj27_Object_Hit                    ; Offset_0x016174
+		dc.l    Obj28_Flickies                      ; Offset_0x00A3E8
+		dc.l    Obj29_Enemy_Points                  ; Offset_0x00A922
+		dc.l    Obj2A_Up_Down_Pillar                ; Offset_0x00A158
+		dc.l    Obj2B_Raising_Pillar                ; Offset_0x01A812
+		dc.l    Obj2C_Leaves                        ; Offset_0x01AEB8
+		dc.l    Obj2D_Automatic_Door                ; Offset_0x00A22E
+		dc.l    Obj2E_Monitors_Contents             ; Offset_0x00B2D2
+		dc.l    Obj2F_Breakable_Floor               ; Offset_0x01813C
+		dc.l    Obj30_Earthquake_Tiles_Attributes   ; Offset_0x01870C
+		dc.l    Obj31_Lava_Attributes               ; Offset_0x015EDC
+		dc.l    Obj32_Breakable_Obstacle            ; Offset_0x01834A
+		dc.l    Obj33_Touch_Booster                 ; Offset_0x018924
+		dc.l    Obj34_Title_Cards                   ; Offset_0x00BA00
+		dc.l    Obj35_Invincibility                 ; Offset_0x012B72
+		dc.l    Obj36_Spikes                        ; Offset_0x00C818
+		dc.l    Obj37_Rings_Lost                    ; Offset_0x00ABD2
+		dc.l    Obj38_Shield                        ; Offset_0x012AF0
+		dc.l    Obj39_Time_Over_Game_Over           ; Offset_0x00BC44
+		dc.l    Obj3A_Level_Results                 ; Offset_0x00BD06
+		dc.l    Obj3B_Rock                          ; Offset_0x00CBD4
+		dc.l    Obj3C_Breakable_Wall                ; Offset_0x00CC50
+		dc.l    Obj3D_Break_Boost                   ; Offset_0x019BF8
+		dc.l    Obj3E_Egg_Prison                    ; Offset_0x02AEE8
+		dc.l    Obj3F_Fans                          ; Offset_0x01F538
+		dc.l    Obj40_Diagonal_Springs              ; Offset_0x01B12C
+		dc.l    Obj41_Springs                       ; Offset_0x00E744
+		dc.l    Obj42_Steam_Vent                    ; Offset_0x01B3EC
+		dc.l    Obj43_Giant_Spikeball               ; Offset_0x018C70
+		dc.l    Obj44_Red_Ball_Bumper               ; Offset_0x01486C
+		dc.l    Obj45_Spring_Push_Boost             ; Offset_0x018F20
+		dc.l    Obj46_Spring_Ball                   ; Offset_0x01983E
+		dc.l    Obj47_Switch                        ; Offset_0x019B1C
+		dc.l    Obj48_Cannon                        ; Offset_0x01A03C
+		dc.l    Obj49_Waterfall                     ; Offset_0x015C8E
+		dc.l    Obj4A_Octus                         ; Offset_0x021704
+		dc.l    Obj4B_Buzzer                        ; Offset_0x023F78
+		dc.l    Obj4C_Batbot                        ; Offset_0x01FA18
+		dc.l    Obj4D_Rhinobot                      ; Offset_0x0228EC
+		dc.l    Obj4E_Crocobot                      ; Offset_0x021160
+		dc.l    Obj4F_Dinobot                       ; Offset_0x0219B4
+		dc.l    Obj50_Aquis                         ; Offset_0x021DAC
+		dc.l    Obj51_CNz_Boss                      ; Offset_0x0271CC
+		dc.l    Obj52_HTz_Boss                      ; Offset_0x025860
+		dc.l    Obj53_Mz_Boss_Balls_Robotniks       ; Offset_0x027B80
+		dc.l    Obj54_Mz_Boss                       ; Offset_0x027A90
+		dc.l    Obj55_Mz_Boss                       ; Offset_0x027A90
+		dc.l    Obj56_GHz_Boss                      ; Offset_0x0200F8
+		dc.l    Obj57_DHz_Boss                      ; Offset_0x026990
+		dc.l    Obj58_GHz_Boss                      ; Offset_0x020372
+		dc.l    Obj59_Snail                         ; Offset_0x022638
+		dc.l    Obj5A                               ; Offset_0x021B18
+		dc.l    Obj5B_GHz_Boss                      ; Offset_0x020786
+		dc.l    Obj5C_Masher                        ; Offset_0x024294
+		dc.l    Obj5D                               ; Offset_0x024394
 		dc.l    Obj_Null                               ; Offset_0x00CEA4
 		dc.l    Obj_Null                               ; Offset_0x00CEA4
 		dc.l    Obj_Null                               ; Offset_0x00CEA4
 		dc.l    Obj_Null                               ; Offset_0x00CEA4
 		dc.l    Obj_Null                               ; Offset_0x00CEA4
 		dc.l    Obj_Null                               ; Offset_0x00CEA4
-		dc.l    Obj_0x64_Pistons                       ; Offset_0x01B6D4
-		dc.l    Obj_0x65_Platform_Over_Gear            ; Offset_0x01B894
-		dc.l    Obj_0x66_Springs_Wall                  ; Offset_0x01BCF4
-		dc.l    Obj_0x67_Teleport_Attributes           ; Offset_0x01BEFC
-		dc.l    Obj_0x68_Block_Harpon                  ; Offset_0x01C334
-		dc.l    Obj_0x69_Screw_Nut                     ; Offset_0x01C624
-		dc.l    Obj_0x6A_DHz_Three_Boxes_Mz_Ptfrm      ; Offset_0x01C850
-		dc.l    Obj_0x6B_Mz_Platform                   ; Offset_0x01CB0C
-		dc.l    Obj_0x6C_Mz_Moving_Platforms           ; Offset_0x01CDC8
-		dc.l    Obj_0x6D_Harpoon                       ; Offset_0x01C534
-		dc.l    Obj_0x6E_Machine                       ; Offset_0x01D140
+		dc.l    Obj64_Pistons                       ; Offset_0x01B6D4
+		dc.l    Obj65_Platform_Over_Gear            ; Offset_0x01B894
+		dc.l    Obj66_Springs_Wall                  ; Offset_0x01BCF4
+		dc.l    Obj67_Teleport_Attributes           ; Offset_0x01BEFC
+		dc.l    Obj68_Block_Harpon                  ; Offset_0x01C334
+		dc.l    Obj69_Screw_Nut                     ; Offset_0x01C624
+		dc.l    Obj6A_DHz_Three_Boxes_Mz_Ptfrm      ; Offset_0x01C850
+		dc.l    Obj6B_Mz_Platform                   ; Offset_0x01CB0C
+		dc.l    Obj6C_Mz_Moving_Platforms           ; Offset_0x01CDC8
+		dc.l    Obj6D_Harpoon                       ; Offset_0x01C534
+		dc.l    Obj6E_Machine                       ; Offset_0x01D140
 		dc.l    Obj_Ox6F_Parallelogram_Elevator        ; Offset_0x01D354
-		dc.l    Obj_0x70_Rotating_Gears                ; Offset_0x01D6AC
-		dc.l    Obj_0x71_Mz_HPz_Misc                   ; Offset_0x009FA0
-		dc.l    Obj_0x72_Conveyor_Belt_Attributes      ; Offset_0x01DA28
-		dc.l    Obj_0x73_Rotating_Rings                ; Offset_0x01DAB0
-		dc.l    Obj_0x74_Invisible_Block               ; Offset_0x015FBA
-		dc.l    Obj_0x75_Spikeball_Chain               ; Offset_0x01DCA4
-		dc.l    Obj_0x76_Platform_Spikes               ; Offset_0x01DED4
-		dc.l    Obj_0x77_Bridge                        ; Offset_0x01E064
-		dc.l    Obj_0x78_Stair_Case_Platforms          ; Offset_0x01E2A8
-		dc.l    Obj_0x79_Lamp_Post                     ; Offset_0x0144C0
-		dc.l    Obj_0x7A_Platform_Horizontal           ; Offset_0x01E47C
-		dc.l    Obj_0x7B_Spring_Tubes                  ; Offset_0x01E66C
-		dc.l    Obj_0x7C_Metal_Structure               ; Offset_0x0160BE
-		dc.l    Obj_0x7D_Hidden_Bonus                  ; Offset_0x014768
-		dc.l    Obj_0x7E_Super_Sonic_Stars             ; Offset_0x013552
-		dc.l    Obj_0x7F_Vines_Switch                  ; Offset_0x01E8A4
-		dc.l    Obj_0x80_Vines_Chain_Hook              ; Offset_0x01EA30
-		dc.l    Obj_0x81_Vertical_Bridge               ; Offset_0x01ED8C
-		dc.l    Obj_0x82_Falling_Pillar                ; Offset_0x01F018
-		dc.l    Obj_0x83_Three_Rotating_Platforms      ; Offset_0x01F284
-		dc.l    Obj_0x84_Auto_Spin                     ; Offset_0x016248
+		dc.l    Obj70_Rotating_Gears                ; Offset_0x01D6AC
+		dc.l    Obj71_Mz_HPz_Misc                   ; Offset_0x009FA0
+		dc.l    Obj72_Conveyor_Belt_Attributes      ; Offset_0x01DA28
+		dc.l    Obj73_Rotating_Rings                ; Offset_0x01DAB0
+		dc.l    Obj74_Invisible_Block               ; Offset_0x015FBA
+		dc.l    Obj75_Spikeball_Chain               ; Offset_0x01DCA4
+		dc.l    Obj76_Platform_Spikes               ; Offset_0x01DED4
+		dc.l    Obj77_Bridge                        ; Offset_0x01E064
+		dc.l    Obj78_Stair_Case_Platforms          ; Offset_0x01E2A8
+		dc.l    Obj79_Lamp_Post                     ; Offset_0x0144C0
+		dc.l    Obj7A_Platform_Horizontal           ; Offset_0x01E47C
+		dc.l    Obj7B_Spring_Tubes                  ; Offset_0x01E66C
+		dc.l    Obj7C_Metal_Structure               ; Offset_0x0160BE
+		dc.l    Obj7D_Hidden_Bonus                  ; Offset_0x014768
+		dc.l    Obj7E_Super_Sonic_Stars             ; Offset_0x013552
+		dc.l    Obj7F_Vines_Switch                  ; Offset_0x01E8A4
+		dc.l    Obj80_Vines_Chain_Hook              ; Offset_0x01EA30
+		dc.l    Obj81_Vertical_Bridge               ; Offset_0x01ED8C
+		dc.l    Obj82_Falling_Pillar                ; Offset_0x01F018
+		dc.l    Obj83_Three_Rotating_Platforms      ; Offset_0x01F284
+		dc.l    Obj84_Auto_Spin                     ; Offset_0x016248
 		dc.l    Obj_Null_2                             ; Offset_0x00D1AA
 		dc.l    Obj_Null_2                             ; Offset_0x00D1AA
 		dc.l    Obj_Null                               ; Offset_0x00CEA4
 		dc.l    Obj_Null                               ; Offset_0x00CEA4
-		dc.l    Obj_0x89_NGHz_Boss                     ; Offset_0x025FE0
-		dc.l    Obj_0x8A_S1_Credits                    ; Offset_0x02A7CC
+		dc.l    Obj89_NGHz_Boss                     ; Offset_0x025FE0
+		dc.l    Obj8A_S1_Credits                    ; Offset_0x02A7CC
 		dc.l    Obj_Null_2                             ; Offset_0x00D1AA
-		dc.l    Obj_0x8C_NGHz_Whisp                    ; Offset_0x027F84
-		dc.l    Obj_0x8D_Hidden_Grounder               ; Offset_0x0280A0
-		dc.l    Obj_0x8E_Grounder                      ; Offset_0x0280A0
-		dc.l    Obj_0x8F_Wall_Hidden_Grounder          ; Offset_0x02819E
-		dc.l    Obj_0x90_Rock_Hidden_Grounder          ; Offset_0x0281E4
-		dc.l    Obj_0x91_Chop_Chop                     ; Offset_0x0283BC
-		dc.l    Obj_0x92_Spiker                        ; Offset_0x02851E
-		dc.l    Obj_0x93_Spiker_Drill                  ; Offset_0x0285F8
-		dc.l    Obj_0x94_Rexon_Body                    ; Offset_0x02891E
-		dc.l    Obj_0x95_Sol                           ; Offset_0x0286FA
-		dc.l    Obj_0x96_Rexon_Body                    ; Offset_0x02891E
-		dc.l    Obj_0x97_Rexon_Head                    ; Offset_0x0289CC
-		dc.l    Obj_0x98_Enemies_Weapons               ; Offset_0x028CE4
-		dc.l    Obj_0x99_Nebula                        ; Offset_0x028DA2
-		dc.l    Obj_0x9A_Turtloid                      ; Offset_0x028F08
-		dc.l    Obj_0x9B_Turtloid_Rider                ; Offset_0x028FE4
-		dc.l    Obj_0x9C_Enemy_Boost                   ; Offset_0x029060
-		dc.l    Obj_0x9D_Coconuts                      ; Offset_0x0291D8
-		dc.l    Obj_0x9E_Crawlton                      ; Offset_0x0293F4
-		dc.l    Obj_0x9F_Shellcracker                  ; Offset_0x0295B2
-		dc.l    Obj_0xA0_Shellcracker_Craw             ; Offset_0x0296DE
-		dc.l    Obj_0xA1_Slicer                        ; Offset_0x029906
-		dc.l    Obj_0xA2_Slicer_Pincers                ; Offset_0x0299CE
-		dc.l    Obj_0xA3_Flasher                       ; Offset_0x029C34
-		dc.l    Obj_0xA4_Asteron                       ; Offset_0x029E94
-		dc.l    Obj_0xA5_Horizontal_Spiny              ; Offset_0x02A004
-		dc.l    Obj_0xA6_Vertical_Spiny                ; Offset_0x02A0A0
-		dc.l    Obj_0xA7_Grabber                       ; Offset_0x02A2D4
-		dc.l    Obj_0xA8_Grabber_Sub                   ; Offset_0x02A2EE
-		dc.l    Obj_0xA9_Grabber_Sub                   ; Offset_0x02A308
-		dc.l    Obj_0xAA_Grabber_Sub                   ; Offset_0x02A322
-		dc.l    Obj_0xAB_Grabber_Sub                   ; Offset_0x02A33C
-		dc.l    Obj_0xAC_Balkiry                       ; Offset_0x02A3F4
-		dc.l    Obj_0xAD_Clucker_Platform              ; Offset_0x02A47E
-		dc.l    Obj_0xAE_Clucker                       ; Offset_0x02A4D0
+		dc.l    Obj8C_NGHz_Whisp                    ; Offset_0x027F84
+		dc.l    Obj8D_Hidden_Grounder               ; Offset_0x0280A0
+		dc.l    Obj8E_Grounder                      ; Offset_0x0280A0
+		dc.l    Obj8F_Wall_Hidden_Grounder          ; Offset_0x02819E
+		dc.l    Obj90_Rock_Hidden_Grounder          ; Offset_0x0281E4
+		dc.l    Obj91_Chop_Chop                     ; Offset_0x0283BC
+		dc.l    Obj92_Spiker                        ; Offset_0x02851E
+		dc.l    Obj93_Spiker_Drill                  ; Offset_0x0285F8
+		dc.l    Obj94_Rexon_Body                    ; Offset_0x02891E
+		dc.l    Obj95_Sol                           ; Offset_0x0286FA
+		dc.l    Obj96_Rexon_Body                    ; Offset_0x02891E
+		dc.l    Obj97_Rexon_Head                    ; Offset_0x0289CC
+		dc.l    Obj98_Enemies_Weapons               ; Offset_0x028CE4
+		dc.l    Obj99_Nebula                        ; Offset_0x028DA2
+		dc.l    Obj9A_Turtloid                      ; Offset_0x028F08
+		dc.l    Obj9B_Turtloid_Rider                ; Offset_0x028FE4
+		dc.l    Obj9C_Enemy_Boost                   ; Offset_0x029060
+		dc.l    Obj9D_Coconuts                      ; Offset_0x0291D8
+		dc.l    Obj9E_Crawlton                      ; Offset_0x0293F4
+		dc.l    Obj9F_Shellcracker                  ; Offset_0x0295B2
+		dc.l    ObjA0_Shellcracker_Craw             ; Offset_0x0296DE
+		dc.l    ObjA1_Slicer                        ; Offset_0x029906
+		dc.l    ObjA2_Slicer_Pincers                ; Offset_0x0299CE
+		dc.l    ObjA3_Flasher                       ; Offset_0x029C34
+		dc.l    ObjA4_Asteron                       ; Offset_0x029E94
+		dc.l    ObjA5_Horizontal_Spiny              ; Offset_0x02A004
+		dc.l    ObjA6_Vertical_Spiny                ; Offset_0x02A0A0
+		dc.l    ObjA7_Grabber                       ; Offset_0x02A2D4
+		dc.l    ObjA8_Grabber_Sub                   ; Offset_0x02A2EE
+		dc.l    ObjA9_Grabber_Sub                   ; Offset_0x02A308
+		dc.l    ObjAA_Grabber_Sub                   ; Offset_0x02A322
+		dc.l    ObjAB_Grabber_Sub                   ; Offset_0x02A33C
+		dc.l    ObjAC_Balkiry                       ; Offset_0x02A3F4
+		dc.l    ObjAD_Clucker_Platform              ; Offset_0x02A47E
+		dc.l    ObjAE_Clucker                       ; Offset_0x02A4D0
 ;===============================================================================
 ; Carrega os Objects na mem�ria
 ; <<<-
@@ -15104,7 +15104,7 @@ Exit_Load_Object_List:                                         ; Offset_0x00E742
 ; Rotina para carregar a lista de Objects na mem�ria
 ; <<<-
 ;-------------------------------------------------------------------------------
-Obj_0x41_Springs:                                              ; Offset_0x00E744
+Obj41_Springs:                                              ; Offset_0x00E744
 ;===============================================================================
 ; Object 0x41 - Yellow / Red Springs - Diagonal / Horizontal / Vertical
 ; ->>>
@@ -15796,7 +15796,7 @@ Offset_0x00F074:
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x0D_End_Panel:                                            ; Offset_0x00F098
+Obj0D_End_Panel:                                            ; Offset_0x00F098
 ;===============================================================================
 ; Object 0x0D - Painel de fim de fase
 ; ->>>
@@ -16717,7 +16717,7 @@ Offset_0x00FAEC:
 		moveq   #$00, D4
 		rts
 ;-------------------------------------------------------------------------------
-Obj_0x01_Sonic:                                                ; Offset_0x00FAF0
+Obj01_Sonic:                                                ; Offset_0x00FAF0
 ;===============================================================================
 ; Object 0x01 - Sonic
 ; ->>>
@@ -18569,7 +18569,7 @@ Kill_Sonic:                                                    ; Offset_0x011128
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x02_Tails:                                                ; Offset_0x011130
+Obj02_Tails:                                                ; Offset_0x011130
 ;===============================================================================
 ; Object 0x02 - Tails
 ; ->>>
@@ -20221,7 +20221,7 @@ Exit_Load_Tails_Dynamic_PLC:                                   ; Offset_0x012440
 ; Object 0x02 - Tails
 ; <<<-
 ;===============================================================================
-Obj_0x05_Tails_Tail:                                           ; Offset_0x012442
+Obj05_Tails_Tail:                                           ; Offset_0x012442
 ;===============================================================================
 ; Object 0x05 - Tails' tails
 ; ->>>
@@ -20339,7 +20339,7 @@ Kill_Tails:                                                    ; Offset_0x012544
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x0A_Sonic_Tails_Underwater:                               ; Offset_0x01254C
+Obj0A_Sonic_Tails_Underwater:                               ; Offset_0x01254C
 ;===============================================================================
 ; Object 0x0A - Underwater bubbles
 ; ->>>
@@ -20750,7 +20750,7 @@ Offset_0x012AE9:
 ; Object 0x0A - Underwater bubbles
 ; <<<-
 ;===============================================================================
-Obj_0x38_Shield:                                               ; Offset_0x012AF0
+Obj38_Shield:                                               ; Offset_0x012AF0
 ;===============================================================================
 ; Object 0x38 - Sonic/Tails shield
 ; ->>>
@@ -20797,7 +20797,7 @@ Offset_0x012B6C:
 ; Object 0x38 - Sonic/Tails shield
 ; <<<-
 ;===============================================================================
-Obj_0x35_Invincibility:                                        ; Offset_0x012B72
+Obj35_Invincibility:                                        ; Offset_0x012B72
 ;===============================================================================
 ; Object 0x35 - Sonic/Tails invincibility stars
 ; ->>>
@@ -21071,7 +21071,7 @@ Shield_Mappings:                                               ; Offset_0x013074
 Invicibility_Stars_Mappings:                                   ; Offset_0x01314C
 		include 'Map/obj35.asm'
 ;-------------------------------------------------------------------------------
-Obj_0x08_Dust_Water_Splash:                                    ; Offset_0x0131B0
+Obj08_Dust_Water_Splash:                                    ; Offset_0x0131B0
 ;===============================================================================
 ; Object 0x08 - Spindash/Skid dust and water splash
 ; ->>>
@@ -21335,7 +21335,7 @@ Offset_0x01354E:
 ; <<<-
 ;===============================================================================
 
-Obj_0x7E_Super_Sonic_Stars:                                    ; Offset_0x013552
+Obj7E_Super_Sonic_Stars:                                    ; Offset_0x013552
 ;===============================================================================
 ; Object 0x7E - Super Sonic stars
 ; ->>>
@@ -22738,7 +22738,7 @@ Exit_Object_HitWall_Left:                                      ; Offset_0x0144BC
 ;===============================================================================
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x79_Lamp_Post:                                            ; Offset_0x0144C0
+Obj79_Lamp_Post:                                            ; Offset_0x0144C0
 ;===============================================================================
 ; Object 0x79 - Lamppost Checkpoint
 ; ->>>          
@@ -22896,7 +22896,7 @@ Lamp_Post_Mappings:                                            ; Offset_0x0146FA
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x7D_Hidden_Bonus:                                         ; Offset_0x014768
+Obj7D_Hidden_Bonus:                                         ; Offset_0x014768
 ;===============================================================================
 ; Object 0x7D - Hidden bonus points at the end of levels.
 ; ->>>          Leftover from Sonic 1, Not used.
@@ -22983,7 +22983,7 @@ Hidden_Bonus_Mappings:                                         ; Offset_0x014842
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x44_Red_Ball_Bumper:                                      ; Offset_0x01486C
+Obj44_Red_Ball_Bumper:                                      ; Offset_0x01486C
 ;===============================================================================
 ; Object 0x44 - Round Bumpers in Casino Night
 ; ->>>
@@ -23083,7 +23083,7 @@ Red_Ball_Bumper_Mappings:                                      ; Offset_0x014994
 ; Object 0x44 - Round Bumpers in Casino Night
 ; <<<-
 ;===============================================================================
-Obj_0x24_Oxygen_Bubbles:                                       ; Offset_0x0149CC
+Obj24_Oxygen_Bubbles:                                       ; Offset_0x0149CC
 ;===============================================================================
 ; Object 0x24 - Oxygen Bubbles in Neo Green Hill
 ; ->>>
@@ -23408,7 +23408,7 @@ Offset_0x014DBE:
 		dc.w    $0001
 		dc.l    $F4061F31, $1B98FFF8
 ;-------------------------------------------------------------------------------
-Obj_0x03_Layer_Switch:                                         ; Offset_0x014DC8
+Obj03_Layer_Switch:                                         ; Offset_0x014DC8
 ;===============================================================================
 ; Object 0x03 - Alternates the plane of the scenery relative to the player
 ; ->>>
@@ -23670,7 +23670,7 @@ Layer_Switch_Mappings:                                         ; Offset_0x0150E8
 ; Object 0x03 - Alternates the plane of the scenery relative to the player
 ; <<<-
 ;===============================================================================
-Obj_0x0B_Open_Close_Platform:                                  ; Offset_0x0151C4
+Obj0B_Open_Close_Platform:                                  ; Offset_0x0151C4
 ;===============================================================================
 ; Object 0x0B - Trap platform in Chemical Plant
 ; ->>>
@@ -23767,7 +23767,7 @@ Jmp_00_To_MarkObjGone:                                         ; Offset_0x015314
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x0C_Unk_Platform:                                         ; Offset_0x01531C
+Obj0C_Unk_Platform:                                         ; Offset_0x01531C
 ;===============================================================================
 ; Object 0x0C
 ; ->>>
@@ -23862,7 +23862,7 @@ Jmp_01_To_MarkObjGone:                                         ; Offset_0x015414
 Jmp_00_To_CalcSine:                                            ; Offset_0x01541A
 		jmp     (CalcSine)                             ; Offset_0x003282
 ;-------------------------------------------------------------------------------
-Obj_0x12_HPz_Master_Emerald:                                   ; Offset_0x015420
+Obj12_HPz_Master_Emerald:                                   ; Offset_0x015420
 ;===============================================================================
 ; Object 0x12 - Hidden Palace Emerald
 ; ->>>
@@ -23912,7 +23912,7 @@ Jmp_00_To_DisplaySprite:                                       ; Offset_0x01549C
 Jmp_00_To_DeleteObject:                                        ; Offset_0x0154A2
 		jmp     (DeleteObject)                         ; Offset_0x00D314
 ;-------------------------------------------------------------------------------
-Obj_0x13_HPz_Waterfalls:                                       ; Offset_0x0154A8
+Obj13_HPz_Waterfalls:                                       ; Offset_0x0154A8
 ;===============================================================================
 ; Object 0x13 - Waterfalls in Hidden Palace
 ; ->>>
@@ -24042,7 +24042,7 @@ Jmp_01_To_DisplaySprite:                                       ; Offset_0x0159C0
 Jmp_01_To_DeleteObject:                                        ; Offset_0x0159C6
 		jmp     (DeleteObject)                         ; Offset_0x00D314
 ;-------------------------------------------------------------------------------
-Obj_0x04_Water_Surface:                                        ; Offset_0x0159CC
+Obj04_Water_Surface:                                        ; Offset_0x0159CC
 ;===============================================================================
 ; Object 0x04 - Water Surface in Hidden Palace, Chemical Plant and
 ; ->>>          Neo Green Hill
@@ -24139,7 +24139,7 @@ NGHz_Water_Surface_Mappings:                                   ; Offset_0x015BEE
 ; Object 0x04 - Water Surface in Hidden Palace, Chemical Plant and
 ; <<<-          Neo Green Hill
 ;===============================================================================
-Obj_0x49_Waterfall:                                            ; Offset_0x015C8E
+Obj49_Waterfall:                                            ; Offset_0x015C8E
 ;===============================================================================
 ; Object 0x49 - Waterfalls in Green Hill
 ; ->>>
@@ -24206,7 +24206,7 @@ Waterfall_Mappings:                                            ; Offset_0x015D40
 ; Object 0x49 - Waterfalls in Green Hill
 ; <<<-
 ;===============================================================================
-Obj_0x31_Lava_Attributes:                                      ; Offset_0x015EDC
+Obj31_Lava_Attributes:                                      ; Offset_0x015EDC
 ;===============================================================================
 ; Object 0x31 - Atributo invis�vel das lavas na Hill Top / Metropolis
 ; ->>>
@@ -24257,7 +24257,7 @@ Lava_Attributes_Mappings:                                      ; Offset_0x015F4E
 ; Object 0x31 - Atributo invis�vel das lavas na Hill Top / Metropolis
 ; <<<-
 ;===============================================================================
-Obj_0x74_Invisible_Block:                                      ; Offset_0x015FBA
+Obj74_Invisible_Block:                                      ; Offset_0x015FBA
 ;===============================================================================
 ; Object 0x74 - Invisible Block
 ; ->>>
@@ -24322,12 +24322,12 @@ Invisible_Block_Mappings:                                      ; Offset_0x016052
 ; Object 0x74 - Invisible Block
 ; <<<-
 ;===============================================================================		
-Obj_0x7C_Metal_Structure:                                      ; Offset_0x0160BE
-		include 'objects/obj_0x7C.asm'
-Obj_0x27_Object_Hit:                                           ; Offset_0x016174
-		include 'objects/obj_0x27.asm'
-Obj_0x84_Auto_Spin:                                            ; Offset_0x016248
-		include 'objects/obj_0x84.asm'
+Obj7C_Metal_Structure:                                      ; Offset_0x0160BE
+		include 'objects/Obj7C.asm'
+Obj27_Object_Hit:                                           ; Offset_0x016174
+		include 'objects/Obj27.asm'
+Obj84_Auto_Spin:                                            ; Offset_0x016248
+		include 'objects/Obj84.asm'
 ;-------------------------------------------------------------------------------
 Jmp_02_To_DisplaySprite:                                       ; Offset_0x016390
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -24338,8 +24338,8 @@ Jmp_00_To_ModifySpriteAttr_2P:                                 ; Offset_0x01639C
 Jmp_00_To_Check_Object_On_Screen:                              ; Offset_0x0163A2
 		jmp     (Check_Object_On_Screen)               ; Offset_0x00DD66
 ;-------------------------------------------------------------------------------
-Obj_0x06_Spiral_Attributes:                                    ; Offset_0x0163A8
-		include 'objects/obj_0x06.asm'
+Obj06_Spiral_Attributes:                                    ; Offset_0x0163A8
+		include 'objects/Obj06.asm'
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
@@ -24348,8 +24348,8 @@ Jmp_01_To_CalcSine:                                            ; Offset_0x016800
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x14_Seesaw:                                               ; Offset_0x016808
-		include 'objects/obj_0x14.asm'
+Obj14_Seesaw:                                               ; Offset_0x016808
+		include 'objects/Obj14.asm'
 ;-------------------------------------------------------------------------------
 Jmp_00_To_SingleObjectLoad_2:                                  ; Offset_0x016C74
 		jmp     (SingleObjectLoad_2)                   ; Offset_0x00E714
@@ -24360,8 +24360,8 @@ Jmp_00_To_ObjectFall:                                          ; Offset_0x016C80
 Jmp_00_To_MarkObjGone_2:                                       ; Offset_0x016C86
 		jmp     (MarkObjGone_2)                        ; Offset_0x00D238
 ;-------------------------------------------------------------------------------
-Obj_0x16_Teleferics:                                           ; Offset_0x016C8C
-		include 'objects/obj_0x16.asm'
+Obj16_Teleferics:                                           ; Offset_0x016C8C
+		include 'objects/Obj16.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_03_To_DeleteObject:                                        ; Offset_0x016E98
@@ -24376,8 +24376,8 @@ Jmp_00_To_SpeedToPos:                                          ; Offset_0x016EB0
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x19_Rotating_Platforms:                                   ; Offset_0x016EB8
-		include 'objects/obj_0x19.asm'
+Obj19_Rotating_Platforms:                                   ; Offset_0x016EB8
+		include 'objects/Obj19.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_03_To_DisplaySprite:                                       ; Offset_0x0170FC
@@ -24389,8 +24389,8 @@ Jmp_03_To_ModifySpriteAttr_2P:                                 ; Offset_0x017108
 Jmp_01_To_SpeedToPos:                                          ; Offset_0x01710E
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x1B_Speed_Booster:                                        ; Offset_0x017114
-		include 'objects/obj_0x1B.asm'
+Obj1B_Speed_Booster:                                        ; Offset_0x017114
+		include 'objects/Obj1B.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_03_To_MarkObjGone:                                         ; Offset_0x017260
@@ -24398,8 +24398,8 @@ Jmp_03_To_MarkObjGone:                                         ; Offset_0x017260
 Jmp_04_To_ModifySpriteAttr_2P:                                 ; Offset_0x017266
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
 ;-------------------------------------------------------------------------------
-Obj_0x1D_Worms:                                                ; Offset_0x01726C
-		include 'objects/obj_0x1D.asm'
+Obj1D_Worms:                                                ; Offset_0x01726C
+		include 'objects/Obj1D.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_04_To_MarkObjGone:                                         ; Offset_0x0173CC
@@ -24411,15 +24411,15 @@ Jmp_00_To_ModifySpriteAttr_2P_A1:                              ; Offset_0x0173D8
 Jmp_02_To_SpeedToPos:                                          ; Offset_0x0173DE
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x1E_Tube_Attributes:                                      ; Offset_0x0173E4
-		include 'objects/obj_0x1E.asm'
+Obj1E_Tube_Attributes:                                      ; Offset_0x0173E4
+		include 'objects/Obj1E.asm'
 ;-------------------------------------------------------------------------------
 Jmp_00_To_MarkObjGone_3:                                       ; Offset_0x017E2C
 		jmp     (MarkObjGone_3)                        ; Offset_0x00D26C
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x20_HTz_Boss_FireBall:                                    ; Offset_0x017E34
-		include 'objects/obj_0x20.asm'
+Obj20_HTz_Boss_FireBall:                                    ; Offset_0x017E34
+		include 'objects/Obj20.asm'
 ;-------------------------------------------------------------------------------
 Jmp_05_To_DeleteObject:                                        ; Offset_0x018118
 		jmp     (DeleteObject)                         ; Offset_0x00D314
@@ -24434,10 +24434,10 @@ Jmp_05_To_ModifySpriteAttr_2P:                                 ; Offset_0x018130
 Jmp_03_To_SpeedToPos:                                          ; Offset_0x018136
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x2F_Breakable_Floor:                                      ; Offset_0x01813C
-		include 'objects/obj_0x2F.asm'
-Obj_0x32_Breakable_Obstacle:                                   ; Offset_0x01834A
-		include 'objects/obj_0x32.asm'
+Obj2F_Breakable_Floor:                                      ; Offset_0x01813C
+		include 'objects/Obj2F.asm'
+Obj32_Breakable_Obstacle:                                   ; Offset_0x01834A
+		include 'objects/Obj32.asm'
 ;-------------------------------------------------------------------------------
 Breakable_Floor_Mappings:                                      ; Offset_0x01852A
 		include 'Map/obj2F.asm'
@@ -24480,8 +24480,8 @@ Jmp_00_To_SolidObject:                                         ; Offset_0x018700
 Jmp_04_To_SpeedToPos:                                          ; Offset_0x018706
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x30_Earthquake_Tiles_Attributes:                          ; Offset_0x01870C
-		include 'objects/obj_0x30.asm'
+Obj30_Earthquake_Tiles_Attributes:                          ; Offset_0x01870C
+		include 'objects/Obj30.asm'
 ;-------------------------------------------------------------------------------
 Jmp_07_To_DeleteObject:                                        ; Offset_0x018900
 		jmp     (DeleteObject)                         ; Offset_0x00D314
@@ -24496,8 +24496,8 @@ Jmp_00_To_SolidObject_2:                                       ; Offset_0x018918
 Jmp_00_To_SolidObject_3:                                       ; Offset_0x01891E
 		jmp     (SolidObject_3)                        ; Offset_0x00F3F0
 ;-------------------------------------------------------------------------------
-Obj_0x33_Touch_Booster:                                        ; Offset_0x018924
-		include 'objects/obj_0x33.asm'
+Obj33_Touch_Booster:                                        ; Offset_0x018924
+		include 'objects/Obj33.asm'
 ;-------------------------------------------------------------------------------
 Jmp_07_To_MarkObjGone:                                         ; Offset_0x018C5C
 		jmp     (MarkObjGone)                          ; Offset_0x00D200
@@ -24507,15 +24507,15 @@ Jmp_01_To_SolidObject:                                         ; Offset_0x018C68
 		jmp     (SolidObject)                          ; Offset_0x00F344
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x43_Giant_Spikeball:                                      ; Offset_0x018C70
-		include 'objects/obj_0x43.asm'
+Obj43_Giant_Spikeball:                                      ; Offset_0x018C70
+		include 'objects/Obj43.asm'
 ;-------------------------------------------------------------------------------
 Jmp_05_To_SingleObjectLoad_2:                                  ; Offset_0x018E44
 		jmp     (SingleObjectLoad_2)                   ; Offset_0x00E714
 Jmp_07_To_ModifySpriteAttr_2P:                                 ; Offset_0x018E4A
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
 ;-------------------------------------------------------------------------------
-Obj_0x07_0il_Attributes:                                       ; Offset_0x018E50
+Obj07_0il_Attributes:                                       ; Offset_0x018E50
 ;===============================================================================
 ; Object 0x07 - Oil in Oil Ocean
 ; ->>> 
@@ -24602,10 +24602,10 @@ Oil_KillCharacter:                                             ; Offset_0x018F14
 Jmp_00_To_Platform_Object_A1:                                  ; Offset_0x018F1A
 		jmp     (Platform_Object_A1)                   ; Offset_0x00F842
 ;-------------------------------------------------------------------------------
-Obj_0x45_Spring_Push_Boost:                                    ; Offset_0x018F20
-		include 'objects/obj_0x45.asm'
-Obj_0x46_Spring_Ball:                                          ; Offset_0x01983E
-		include 'objects/obj_0x46.asm'
+Obj45_Spring_Push_Boost:                                    ; Offset_0x018F20
+		include 'objects/Obj45.asm'
+Obj46_Spring_Ball:                                          ; Offset_0x01983E
+		include 'objects/Obj46.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_08_To_DeleteObject:                                        ; Offset_0x019AEC
@@ -24625,8 +24625,8 @@ Offset_0x019B10:
 Jmp_05_To_SpeedToPos:                                          ; Offset_0x019B16
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x47_Switch:                                               ; Offset_0x019B1C
-		include 'objects/obj_0x47.asm'
+Obj47_Switch:                                               ; Offset_0x019B1C
+		include 'objects/Obj47.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_09_To_MarkObjGone:                                         ; Offset_0x019BE4
@@ -24637,8 +24637,8 @@ Jmp_03_To_SolidObject:                                         ; Offset_0x019BF0
 		jmp     (SolidObject)                          ; Offset_0x00F344
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x3D_Break_Boost:                                          ; Offset_0x019BF8
-		include 'objects/obj_0x3D.asm'
+Obj3D_Break_Boost:                                          ; Offset_0x019BF8
+		include 'objects/Obj3D.asm'
 ;-------------------------------------------------------------------------------
 Jmp_05_To_DisplaySprite:                                       ; Offset_0x01A004
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -24660,8 +24660,8 @@ Jmp_06_To_SpeedToPos:                                          ; Offset_0x01A034
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x48_Cannon:                                               ; Offset_0x01A03C
-		include 'objects/obj_0x48.asm'
+Obj48_Cannon:                                               ; Offset_0x01A03C
+		include 'objects/Obj48.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_06_To_DisplaySprite:                                       ; Offset_0x01A438
@@ -24672,8 +24672,8 @@ Jmp_0B_To_ModifySpriteAttr_2P:                                 ; Offset_0x01A444
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x22_Arrow_Shooter:                                        ; Offset_0x01A44C
-		include 'objects/obj_0x22.asm'
+Obj22_Arrow_Shooter:                                        ; Offset_0x01A44C
+		include 'objects/Obj22.asm'
 ;-------------------------------------------------------------------------------
 Jmp_0A_To_DeleteObject:                                        ; Offset_0x01A620
 		jmp     (DeleteObject)                         ; Offset_0x00D314
@@ -24688,10 +24688,10 @@ Jmp_0C_To_ModifySpriteAttr_2P:                                 ; Offset_0x01A638
 Jmp_07_To_SpeedToPos:                                          ; Offset_0x01A63E
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x23_Pillar:                                               ; Offset_0x01A644
-		include 'objects/obj_0x23.asm'
-Obj_0x2B_Raising_Pillar:                                       ; Offset_0x01A812
-		include 'objects/obj_0x2B.asm'
+Obj23_Pillar:                                               ; Offset_0x01A644
+		include 'objects/Obj23.asm'
+Obj2B_Raising_Pillar:                                       ; Offset_0x01A812
+		include 'objects/Obj2B.asm'
 ;-------------------------------------------------------------------------------
 Jmp_07_To_DisplaySprite:                                       ; Offset_0x01AE8C
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -24709,8 +24709,8 @@ Jmp_08_To_SpeedToPos:                                          ; Offset_0x01AEB0
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x2C_Leaves:                                               ; Offset_0x01AEB8
-		include 'objects/obj_0x2C.asm'
+Obj2C_Leaves:                                               ; Offset_0x01AEB8
+		include 'objects/Obj2C.asm'
 ;-------------------------------------------------------------------------------
 Jmp_08_To_DisplaySprite:                                       ; Offset_0x01B10C
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -24724,8 +24724,8 @@ Jmp_02_To_CalcSine:                                            ; Offset_0x01B124
 		jmp     (CalcSine)                             ; Offset_0x003282
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x40_Diagonal_Springs:                                     ; Offset_0x01B12C
-		include 'objects/obj_0x40.asm'
+Obj40_Diagonal_Springs:                                     ; Offset_0x01B12C
+		include 'objects/Obj40.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_0E_To_MarkObjGone:                                         ; Offset_0x01B3D4
@@ -24737,8 +24737,8 @@ Jmp_0E_To_ModifySpriteAttr_2P:                                 ; Offset_0x01B3E0
 Jmp_00_To_SolidObject_3_A1:                                    ; Offset_0x01B3E6
 		jmp     (SolidObject_3_A1)                     ; Offset_0x00F406
 ;-------------------------------------------------------------------------------
-Obj_0x42_Steam_Vent:                                           ; Offset_0x01B3EC
-		include 'objects/obj_0x42.asm'
+Obj42_Steam_Vent:                                           ; Offset_0x01B3EC
+		include 'objects/Obj42.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_09_To_DisplaySprite:                                       ; Offset_0x01B6B0
@@ -24754,16 +24754,16 @@ Jmp_0F_To_ModifySpriteAttr_2P:                                 ; Offset_0x01B6C8
 Jmp_01_To_SolidObject_2_A1:                                    ; Offset_0x01B6CE
 		jmp     (SolidObject_2_A1)                     ; Offset_0x00F3B4
 ;-------------------------------------------------------------------------------
-Obj_0x64_Pistons:                                              ; Offset_0x01B6D4
-		include 'objects/obj_0x64.asm'
+Obj64_Pistons:                                              ; Offset_0x01B6D4
+		include 'objects/Obj64.asm'
 ;-------------------------------------------------------------------------------
 Jmp_10_To_ModifySpriteAttr_2P:                                 ; Offset_0x01B888
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
 Jmp_06_To_SolidObject:                                         ; Offset_0x01B88E
 		jmp     (SolidObject)                          ; Offset_0x00F344
 ;-------------------------------------------------------------------------------
-Obj_0x65_Platform_Over_Gear:                                   ; Offset_0x01B894
-		include 'objects/obj_0x65.asm'
+Obj65_Platform_Over_Gear:                                   ; Offset_0x01B894
+		include 'objects/Obj65.asm'
 ;-------------------------------------------------------------------------------
 Jmp_10_To_MarkObjGone:                                         ; Offset_0x01BCDC
 		jmp     (MarkObjGone)                          ; Offset_0x00D200
@@ -24774,8 +24774,8 @@ Jmp_11_To_ModifySpriteAttr_2P:                                 ; Offset_0x01BCE8
 Jmp_07_To_SolidObject:                                         ; Offset_0x01BCEE
 		jmp     (SolidObject)                          ; Offset_0x00F344
 ;-------------------------------------------------------------------------------
-Obj_0x66_Springs_Wall:                                         ; Offset_0x01BCF4
-		include 'objects/obj_0x66.asm'
+Obj66_Springs_Wall:                                         ; Offset_0x01BCF4
+		include 'objects/Obj66.asm'
 ;-------------------------------------------------------------------------------
 Jmp_0A_To_DisplaySprite:                                       ; Offset_0x01BEE4
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -24786,8 +24786,8 @@ Jmp_12_To_ModifySpriteAttr_2P:                                 ; Offset_0x01BEF0
 Jmp_02_To_SolidObject_2_A1:                                    ; Offset_0x01BEF6
 		jmp     (SolidObject_2_A1)                     ; Offset_0x00F3B4
 ;-------------------------------------------------------------------------------
-Obj_0x67_Teleport_Attributes:                                  ; Offset_0x01BEFC
-		include 'objects/obj_0x67.asm'
+Obj67_Teleport_Attributes:                                  ; Offset_0x01BEFC
+		include 'objects/Obj67.asm'
 ;-------------------------------------------------------------------------------
 Jmp_0B_To_DisplaySprite:                                       ; Offset_0x01C320
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -24797,10 +24797,10 @@ Jmp_03_To_MarkObjGone_3:                                       ; Offset_0x01C32C
 		jmp     (MarkObjGone_3)                        ; Offset_0x00D26C
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x68_Block_Harpon:                                         ; Offset_0x01C334
-		include 'objects/obj_0x68.asm'
-Obj_0x6D_Harpoon:                                              ; Offset_0x01C534
-		include 'objects/obj_0x6D.asm'
+Obj68_Block_Harpon:                                         ; Offset_0x01C334
+		include 'objects/Obj68.asm'
+Obj6D_Harpoon:                                              ; Offset_0x01C534
+		include 'objects/Obj6D.asm'
 ;-------------------------------------------------------------------------------
 Jmp_11_To_MarkObjGone:                                         ; Offset_0x01C604
 		jmp     (MarkObjGone)                          ; Offset_0x00D200
@@ -24814,8 +24814,8 @@ Jmp_01_To_MarkObjGone_2:                                       ; Offset_0x01C61C
 		jmp     (MarkObjGone_2)                        ; Offset_0x00D238
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x69_Screw_Nut:                                            ; Offset_0x01C624
-		include 'objects/obj_0x69.asm'
+Obj69_Screw_Nut:                                            ; Offset_0x01C624
+		include 'objects/Obj69.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_12_To_MarkObjGone:                                         ; Offset_0x01C830
@@ -24830,8 +24830,8 @@ Jmp_09_To_SpeedToPos:                                          ; Offset_0x01C848
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x6A_DHz_Three_Boxes_Mz_Ptfrm:                             ; Offset_0x01C850
-		include 'objects/obj_0x6A.asm'
+Obj6A_DHz_Three_Boxes_Mz_Ptfrm:                             ; Offset_0x01C850
+		include 'objects/Obj6A.asm'
 ;-------------------------------------------------------------------------------
 Jmp_0A_To_SingleObjectLoad_2:                                  ; Offset_0x01CAF4
 		jmp     (SingleObjectLoad_2)                   ; Offset_0x00E714
@@ -24842,8 +24842,8 @@ Jmp_0A_To_SolidObject:                                         ; Offset_0x01CB00
 Jmp_02_To_MarkObjGone_2:                                       ; Offset_0x01CB06
 		jmp     (MarkObjGone_2)                        ; Offset_0x00D238
 ;-------------------------------------------------------------------------------
-Obj_0x6B_Mz_Platform:                                          ; Offset_0x01CB0C
-		include 'objects/obj_0x6B.asm'
+Obj6B_Mz_Platform:                                          ; Offset_0x01CB0C
+		include 'objects/Obj6B.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_16_To_ModifySpriteAttr_2P:                                 ; Offset_0x01CDB0
@@ -24855,8 +24855,8 @@ Jmp_03_To_MarkObjGone_2:                                       ; Offset_0x01CDBC
 Jmp_0A_To_SpeedToPos:                                          ; Offset_0x01CDC2
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x6C_Mz_Moving_Platforms:                                  ; Offset_0x01CDC8
-		include 'objects/obj_0x6C.asm'
+Obj6C_Mz_Moving_Platforms:                                  ; Offset_0x01CDC8
+		include 'objects/Obj6C.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_0C_To_DisplaySprite:                                       ; Offset_0x01D11C
@@ -24872,8 +24872,8 @@ Jmp_00_To_Platform_Object:                                     ; Offset_0x01D134
 Jmp_0B_To_SpeedToPos:                                          ; Offset_0x01D13A
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x6E_Machine:                                              ; Offset_0x01D140
-		include 'objects/obj_0x6E.asm'
+Obj6E_Machine:                                              ; Offset_0x01D140
+		include 'objects/Obj6E.asm'
 ;-------------------------------------------------------------------------------
 Jmp_18_To_ModifySpriteAttr_2P:                                 ; Offset_0x01D348
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
@@ -24881,7 +24881,7 @@ Jmp_0C_To_SolidObject:                                         ; Offset_0x01D34E
 		jmp     (SolidObject)                          ; Offset_0x00F344
 ;-------------------------------------------------------------------------------
 Obj_Ox6F_Parallelogram_Elevator:                               ; Offset_0x01D354
-		include 'objects/obj_0x6F.asm'
+		include 'objects/Obj6F.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_19_To_ModifySpriteAttr_2P:                                 ; Offset_0x01D6A0
@@ -24889,8 +24889,8 @@ Jmp_19_To_ModifySpriteAttr_2P:                                 ; Offset_0x01D6A0
 Offset_0x01D6A6:
 		jmp     (Offset_0x00F442)
 ;-------------------------------------------------------------------------------
-Obj_0x70_Rotating_Gears:                                       ; Offset_0x01D6AC
-		include 'objects/obj_0x70.asm'
+Obj70_Rotating_Gears:                                       ; Offset_0x01D6AC
+		include 'objects/Obj70.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_0B_To_SingleObjectLoad_2:                                  ; Offset_0x01DA14
@@ -24901,16 +24901,16 @@ Jmp_0D_To_SolidObject:                                         ; Offset_0x01DA20
 		jmp     (SolidObject)                          ; Offset_0x00F344
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x72_Conveyor_Belt_Attributes:                             ; Offset_0x01DA28
-		include 'objects/obj_0x72.asm'
+Obj72_Conveyor_Belt_Attributes:                             ; Offset_0x01DA28
+		include 'objects/Obj72.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_04_To_MarkObjGone_3:                                       ; Offset_0x01DAA8
 		jmp     (MarkObjGone_3)                        ; Offset_0x00D26C
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x73_Rotating_Rings:                                       ; Offset_0x01DAB0
-		include 'objects/obj_0x73.asm'
+Obj73_Rotating_Rings:                                       ; Offset_0x01DAB0
+		include 'objects/Obj73.asm'
 ;-------------------------------------------------------------------------------
 Jmp_0D_To_DisplaySprite:                                       ; Offset_0x01DC84
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -24924,8 +24924,8 @@ Jmp_0E_To_SolidObject:                                         ; Offset_0x01DC9C
 		jmp     (SolidObject)                          ; Offset_0x00F344
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x75_Spikeball_Chain:                                      ; Offset_0x01DCA4
-		include 'objects/obj_0x75.asm'
+Obj75_Spikeball_Chain:                                      ; Offset_0x01DCA4
+		include 'objects/Obj75.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_00_To_DisplaySprite_Param:                                 ; Offset_0x01DE9C
@@ -24948,7 +24948,7 @@ Jmp_0F_To_SolidObject:                                         ; Offset_0x01DECC
 		jmp     (SolidObject)                          ; Offset_0x00F344
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x76_Platform_Spikes:                                      ; Offset_0x01DED4
+Obj76_Platform_Spikes:                                      ; Offset_0x01DED4
 ;===============================================================================
 ; Object 0x76 - Platform with spikes on the sides in Dust Hill
 ; ->>> 
@@ -25082,7 +25082,7 @@ Jmp_10_To_SolidObject:                                         ; Offset_0x01E058
 Jmp_04_To_MarkObjGone_2:                                       ; Offset_0x01E05E
 		jmp     (MarkObjGone_2)                        ; Offset_0x00D238
 ;-------------------------------------------------------------------------------
-Obj_0x77_Bridge:                                               ; Offset_0x01E064
+Obj77_Bridge:                                               ; Offset_0x01E064
 ;===============================================================================
 ; Object 0x77 - Dust Hill Bridges
 ; ->>> 
@@ -25173,8 +25173,8 @@ Jmp_11_To_SolidObject:                                         ; Offset_0x01E2A0
 		jmp     (SolidObject)                          ; Offset_0x00F344
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x78_Stair_Case_Platforms:                                 ; Offset_0x01E2A8
-		include 'objects/obj_0x78.asm'
+Obj78_Stair_Case_Platforms:                                 ; Offset_0x01E2A8
+		include 'objects/Obj78.asm'
 ;-------------------------------------------------------------------------------
 Jmp_0D_To_SingleObjectLoad_2:                                  ; Offset_0x01E464
 		jmp     (SingleObjectLoad_2)                   ; Offset_0x00E714
@@ -25185,7 +25185,7 @@ Jmp_12_To_SolidObject:                                         ; Offset_0x01E470
 Jmp_05_To_MarkObjGone_2:                                       ; Offset_0x01E476
 		jmp     (MarkObjGone_2)                        ; Offset_0x00D238
 ;-------------------------------------------------------------------------------
-Obj_0x7A_Platform_Horizontal:                                  ; Offset_0x01E47C
+Obj7A_Platform_Horizontal:                                  ; Offset_0x01E47C
 ;===============================================================================
 ; Object 0x7A - Horizontal moving platforms in Chemical Plant and Dust Hill
 ; ->>>          
@@ -25357,7 +25357,7 @@ Jmp_1E_To_ModifySpriteAttr_2P:                                 ; Offset_0x01E660
 Jmp_01_To_Platform_Object:                                     ; Offset_0x01E666
 		jmp     (Platform_Object)                      ; Offset_0x00F82C
 ;-------------------------------------------------------------------------------
-Obj_0x7B_Spring_Tubes:                                         ; Offset_0x01E66C
+Obj7B_Spring_Tubes:                                         ; Offset_0x01E66C
 ;===============================================================================
 ; Object 0x7B - Springs on the tubes in Chemical Plant
 ; ->>>
@@ -25532,7 +25532,7 @@ Jmp_03_To_SolidObject_2_A1:                                    ; Offset_0x01E89C
 		jmp     (SolidObject_2_A1)                     ; Offset_0x00F3B4
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x7F_Vines_Switch:                                         ; Offset_0x01E8A4
+Obj7F_Vines_Switch:                                         ; Offset_0x01E8A4
 ;===============================================================================
 ; Object 0x7F - Vines used as switches to lift bridges in Dust Hill
 ; ->>>          
@@ -25642,7 +25642,7 @@ Jmp_15_To_MarkObjGone:                                         ; Offset_0x01EA24
 Jmp_20_To_ModifySpriteAttr_2P:                                 ; Offset_0x01EA2A
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
 ;-------------------------------------------------------------------------------
-Obj_0x80_Vines_Chain_Hook:                                     ; Offset_0x01EA30
+Obj80_Vines_Chain_Hook:                                     ; Offset_0x01EA30
 ;===============================================================================
 ; Object 0x80 - Chain with hook in the Sky Fortress.
 ; ->>>          Roots that can hang from Dust Hill.
@@ -25803,8 +25803,8 @@ Jmp_16_To_MarkObjGone:                                         ; Offset_0x01ED80
 Jmp_21_To_ModifySpriteAttr_2P:                                 ; Offset_0x01ED86
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
 ;-------------------------------------------------------------------------------
-Obj_0x81_Vertical_Bridge:                                      ; Offset_0x01ED8C
-		include 'objects/obj_0x81.asm'
+Obj81_Vertical_Bridge:                                      ; Offset_0x01ED8C
+		include 'objects/Obj81.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_01_To_DisplaySprite_Param:                                 ; Offset_0x01EFE8
@@ -25824,8 +25824,8 @@ Jmp_04_To_CalcSine:                                            ; Offset_0x01F00C
 Jmp_13_To_SolidObject:                                         ; Offset_0x01F012
 		jmp     (SolidObject)                          ; Offset_0x00F344
 ;-------------------------------------------------------------------------------
-Obj_0x82_Falling_Pillar:                                       ; Offset_0x01F018
-		include 'objects/obj_0x82.asm'
+Obj82_Falling_Pillar:                                       ; Offset_0x01F018
+		include 'objects/Obj82.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_01_To_ObjHitFloor:                                         ; Offset_0x01F260
@@ -25841,8 +25841,8 @@ Jmp_06_To_MarkObjGone_2:                                       ; Offset_0x01F278
 Jmp_0C_To_SpeedToPos:                                          ; Offset_0x01F27E
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x83_Three_Rotating_Platforms:                             ; Offset_0x01F284
-		include 'objects/obj_0x83.asm'
+Obj83_Three_Rotating_Platforms:                             ; Offset_0x01F284
+		include 'objects/Obj83.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_02_To_DisplaySprite_Param:                                 ; Offset_0x01F500
@@ -25865,8 +25865,8 @@ Jmp_07_To_MarkObjGone_2:                                       ; Offset_0x01F530
 		jmp     (MarkObjGone_2)                        ; Offset_0x00D238
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x3F_Fans:                                                 ; Offset_0x01F538
-		include 'objects/obj_0x3F.asm'
+Obj3F_Fans:                                                 ; Offset_0x01F538
+		include 'objects/Obj3F.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_17_To_MarkObjGone:                                         ; Offset_0x01F8E4
@@ -25893,7 +25893,7 @@ Jmp_01_To_ObjectFall:                                          ; Offset_0x01FA10
 		jmp     (ObjectFall)                           ; Offset_0x00D1AE
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x4C_Batbot:                                               ; Offset_0x01FA18
+Obj4C_Batbot:                                               ; Offset_0x01FA18
 ;===============================================================================
 ; Object 0x4C - Batbot - Bat enemy in Hidden Palace
 ; ->>>
@@ -26127,7 +26127,7 @@ Jmp_0D_To_SpeedToPos:                                          ; Offset_0x01FE98
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Previus_Build_Obj_0x52_Piranha: ; Object 0x52 in Sonic 2 Beta  ; Offset_0x01FEA0
+Previus_Build_Obj52_Piranha: ; Object 0x52 in Sonic 2 Beta  ; Offset_0x01FEA0
 		include 'objects/objpb_52.asm'
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
@@ -26139,10 +26139,10 @@ Jmp_0E_To_SpeedToPos:                                          ; Offset_0x0200F0
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x56_GHz_Boss:                                             ; Offset_0x0200F8
-		include 'objects/obj_0x56.asm'
-Obj_0x58_GHz_Boss:                                             ; Offset_0x020372
-		include 'objects/obj_0x58.asm'
+Obj56_GHz_Boss:                                             ; Offset_0x0200F8
+		include 'objects/Obj56.asm'
+Obj58_GHz_Boss:                                             ; Offset_0x020372
+		include 'objects/Obj58.asm'
 ;-------------------------------------------------------------------------------
 Jmp_13_To_DisplaySprite:                                       ; Offset_0x0204FC
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -26153,10 +26153,10 @@ Jmp_03_To_ModifySpriteAttr_2P_A1:                              ; Offset_0x020508
 Jmp_27_To_ModifySpriteAttr_2P:                                 ; Offset_0x02050E
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
 ;===============================================================================
-; Complemento do Object 0x56 - Chefe na Green Hill
+; Object 0x56 Add-on - Boss in Green Hill
 ; ->>>
 ;===============================================================================
-Obj_0x56_GHz_Boss_Sub_2:                                       ; Offset_0x020514
+Obj56_GHz_Boss_Sub_2:                                       ; Offset_0x020514
 		moveq   #$00, D0
 		move.b  Obj_Routine_2(A0), D0                            ; $0025
 		move.w  Offset_0x020522(PC, D0), D1
@@ -26351,16 +26351,16 @@ Offset_0x02076C:
 		bset    #$03, Obj_Control_Var_01(A0)                     ; $002D
 		rts
 ;===============================================================================
-; Complemento do Object 0x56 - Chefe na Green Hill
+; Object 0x56 Add-on - Boss in Green Hill
 ; <<<-
 ;===============================================================================
-Obj_0x5B_GHz_Boss:                                             ; Offset_0x020786
-		include 'objects/obj_0x5B.asm'
+Obj5B_GHz_Boss:                                             ; Offset_0x020786
+		include 'objects/Obj5B.asm'
 ;===============================================================================
-; Complemento do Object 0x56 - Chefe na Green Hill
+; Object 0x56 Add-on - Boss in Green Hill
 ; ->>>
 ;===============================================================================
-Obj_0x56_GHz_Boss_Sub_3:                                       ; Offset_0x020A32
+Obj56_GHz_Boss_Sub_3:                                       ; Offset_0x020A32
 		jsr     (SingleObjectLoad_2)                   ; Offset_0x00E714
 		bne.s   Offset_0x020AAA
 		move.b  #$5B, Obj_Id(A1)                                 ; $0000
@@ -26447,7 +26447,7 @@ Offset_0x020B9A:
 Offset_0x020BFA:
 		rts
 ;-------------------------------------------------------------------------------
-Obj_0x56_GHz_Boss_Sub_4:                                       ; Offset_0x020BFC
+Obj56_GHz_Boss_Sub_4:                                       ; Offset_0x020BFC
 		jsr     (SingleObjectLoad_2)                   ; Offset_0x00E714
 		bne.s   Offset_0x020C44
 		move.b  #$5B, Obj_Id(A1)                                 ; $0000
@@ -26462,7 +26462,7 @@ Obj_0x56_GHz_Boss_Sub_4:                                       ; Offset_0x020BFC
 		move.l  Obj_Y(A0), Obj_Y(A1)                      ; $000C, $000C
 		move.b  #$02, Obj_Routine(A1)                            ; $0024
 Offset_0x020C44:
-		bsr     Obj_0x56_GHz_Boss_Sub_3                ; Offset_0x020A32
+		bsr     Obj56_GHz_Boss_Sub_3                ; Offset_0x020A32
 		subi.w  #$0008, Obj_Control_Var_0C(A0)                   ; $0038
 		move.w  #$2A00, Obj_X(A0)                                ; $0008
 		move.w  #$02C0, Obj_Y(A0)                                ; $000C
@@ -26637,8 +26637,8 @@ Jmp_28_To_ModifySpriteAttr_2P:                                 ; Offset_0x021154
 Jmp_0F_To_SpeedToPos:                                          ; Offset_0x02115A
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x4E_Crocobot:                                             ; Offset_0x021160
-		include 'objects/obj_0x4E.asm'
+Obj4E_Crocobot:                                             ; Offset_0x021160
+		include 'objects/Obj4E.asm'
 ;-------------------------------------------------------------------------------
 Jmp_1D_To_MarkObjGone:                                         ; Offset_0x021440
 		jmp     (MarkObjGone)                          ; Offset_0x00D200
@@ -26672,8 +26672,8 @@ Jmp_11_To_SpeedToPos:                                          ; Offset_0x0216FC
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x4A_Octus:                                                ; Offset_0x021704
-		include 'objects/obj_0x4A.asm'
+Obj4A_Octus:                                                ; Offset_0x021704
+		include 'objects/Obj4A.asm'
 ;-------------------------------------------------------------------------------
 Jmp_15_To_DisplaySprite:                                       ; Offset_0x021994
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -26687,7 +26687,7 @@ Jmp_05_To_ObjectFall:                                          ; Offset_0x0219AC
 		jmp     (ObjectFall)                           ; Offset_0x00D1AE
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x4F_Dinobot:                                              ; Offset_0x0219B4
+Obj4F_Dinobot:                                              ; Offset_0x0219B4
 ;===============================================================================
 ; Object 0x4F - Dinobot - Inimigo dinossauro na Hidden Palace
 ; ->>>
@@ -26808,8 +26808,8 @@ Jmp_12_To_SpeedToPos:                                          ; Offset_0x021B10
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x5A:                                                      ; Offset_0x021B18
-		include 'objects/obj_0x5A.asm'
+Obj5A:                                                      ; Offset_0x021B18
+		include 'objects/Obj5A.asm'
 ;-------------------------------------------------------------------------------
 Jmp_09_To_SingleObjectLoad:                                    ; Offset_0x021D98
 		jmp     (SingleObjectLoad)                     ; Offset_0x00E6FE
@@ -26819,9 +26819,9 @@ Jmp_0E_To_AnimateSprite:                                       ; Offset_0x021DA4
 		jmp     (AnimateSprite)                        ; Offset_0x00D372
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x50_Aquis:                                                ; Offset_0x021DAC
-		include 'objects/obj_0x50.asm'
-Previus_Build_Obj_0x51_Aquis: ; Object 0x51 in Sonic 2 Beta    ; Offset_0x0223C8
+Obj50_Aquis:                                                ; Offset_0x021DAC
+		include 'objects/Obj50.asm'
+Previus_Build_Obj51_Aquis: ; Object 0x51 in Sonic 2 Beta    ; Offset_0x0223C8
 		include 'objects/objpb_51.asm'
 ;-------------------------------------------------------------------------------
 Jmp_17_To_DisplaySprite:                                       ; Offset_0x02260C
@@ -26840,7 +26840,7 @@ Jmp_13_To_SpeedToPos:                                          ; Offset_0x022630
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x59_Snail:                                                ; Offset_0x022638
+Obj59_Snail:                                                ; Offset_0x022638
 ;===============================================================================
 ; Object 0x59 - Snail Badnik in Green Hill (Unused)
 ; ->>>
@@ -27036,9 +27036,9 @@ Jmp_08_To_ObjectFall:                                          ; Offset_0x0228E0
 Jmp_14_To_SpeedToPos:                                          ; Offset_0x0228E6
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x4D_Rhinobot:                                             ; Offset_0x0228EC
+Obj4D_Rhinobot:                                             ; Offset_0x0228EC
 ;===============================================================================
-; Object 0x4D - Rhinobot - Inimigo rinoceronte na Hidden Palace
+; Object 0x4D - Stegway - Badnik in Hidden Palace
 ; ->>>
 ;===============================================================================
 ; Offset_0x0228EC:
@@ -27161,7 +27161,7 @@ Offset_0x022A51:
 Rhinobot_Mappings:                                             ; Offset_0x022A56
                   include 'Map/obj4D.asm'
 ;===============================================================================
-; Object 0x4D - Rhinobot - Inimigo rinoceronte na Hidden Palace
+; Object 0x4D - Stegway - Badnik in Hidden Palace
 ; <<<-
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -27768,7 +27768,7 @@ Jmp_0A_To_ObjectFall:                                          ; Offset_0x023F6C
 Jmp_15_To_SpeedToPos:                                          ; Offset_0x023F72
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x4B_Buzzer:                                               ; Offset_0x023F78
+Obj4B_Buzzer:                                               ; Offset_0x023F78
 ;===============================================================================
 ; Object 0x4B - Buzzer Enemy in Green Hill
 ; ->>> 
@@ -27982,7 +27982,7 @@ Jmp_16_To_SpeedToPos:                                          ; Offset_0x02428C
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x5C_Masher:                                               ; Offset_0x024294
+Obj5C_Masher:                                               ; Offset_0x024294
 ;===============================================================================
 ; Object 0x5C - Masher (Piranha) Enemy in Green Hill
 ; ->>> 
@@ -28060,8 +28060,8 @@ Jmp_2C_To_ModifySpriteAttr_2P:                                 ; Offset_0x024388
 Jmp_17_To_SpeedToPos:                                          ; Offset_0x02438E
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 ;-------------------------------------------------------------------------------
-Obj_0x5D:                                                      ; Offset_0x024394
-		include 'objects/obj_0x5D.asm'
+Obj5D:                                                      ; Offset_0x024394
+		include 'objects/Obj5D.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_19_To_DisplaySprite:                                       ; Offset_0x025834
@@ -28080,8 +28080,8 @@ Jmp_18_To_SpeedToPos:                                          ; Offset_0x025858
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x52_HTz_Boss:                                             ; Offset_0x025860
-		include 'objects/obj_0x52.asm'
+Obj52_HTz_Boss:                                             ; Offset_0x025860
+		include 'objects/Obj52.asm'
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 Jmp_1A_To_DisplaySprite:                                       ; Offset_0x025FB0
@@ -28096,13 +28096,13 @@ Jmp_14_To_AnimateSprite:                                       ; Offset_0x025FC8
 		jmp     (AnimateSprite)                        ; Offset_0x00D372
 Jmp_05_To_ObjHitFloor:                                         ; Offset_0x025FCE
 		jmp     (ObjHitFloor)                          ; Offset_0x014204
-Jmp_00_To_Obj_0x20_HTz_Boss_FireBall:                          ; Offset_0x025FD4
-		jmp     (Obj_0x20_HTz_Boss_FireBall)           ; Offset_0x017E34
+Jmp_00_To_Obj20_HTz_Boss_FireBall:                          ; Offset_0x025FD4
+		jmp     (Obj20_HTz_Boss_FireBall)           ; Offset_0x017E34
 Jmp_2E_To_ModifySpriteAttr_2P:                                 ; Offset_0x025FDA
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
 ;-------------------------------------------------------------------------------
-Obj_0x89_NGHz_Boss:                                            ; Offset_0x025FE0
-		include 'objects/obj_0x89.asm'
+Obj89_NGHz_Boss:                                            ; Offset_0x025FE0
+		include 'objects/Obj89.asm'
 ;-------------------------------------------------------------------------------
 Jmp_1B_To_DisplaySprite:                                       ; Offset_0x02696C
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -28117,8 +28117,8 @@ Jmp_02_To_PseudoRandomNumber:                                  ; Offset_0x026984
 Jmp_15_To_SolidObject:                                         ; Offset_0x02698A
 		jmp     (SolidObject)                          ; Offset_0x00F344
 ;-------------------------------------------------------------------------------
-Obj_0x57_DHz_Boss:                                             ; Offset_0x026990
-		include 'objects/obj_0x57.asm'
+Obj57_DHz_Boss:                                             ; Offset_0x026990
+		include 'objects/Obj57.asm'
 ;-------------------------------------------------------------------------------
 Jmp_1C_To_DisplaySprite:                                       ; Offset_0x0271AC
 		jmp     (DisplaySprite)                        ; Offset_0x00D322
@@ -28132,8 +28132,8 @@ Jmp_0C_To_ObjectFall:                                          ; Offset_0x0271C4
 		jmp     (ObjectFall)                           ; Offset_0x00D1AE
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x51_CNz_Boss:                                             ; Offset_0x0271CC
-		include 'objects/obj_0x51.asm'
+Obj51_CNz_Boss:                                             ; Offset_0x0271CC
+		include 'objects/Obj51.asm'
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 Jmp_1D_To_DisplaySprite:                                       ; Offset_0x027A78
@@ -28145,11 +28145,11 @@ Jmp_0E_To_SingleObjectLoad:                                    ; Offset_0x027A84
 Jmp_04_To_PseudoRandomNumber:                                  ; Offset_0x027A8A
 		jmp     (PseudoRandomNumber)                   ; Offset_0x00325C
 ;-------------------------------------------------------------------------------
-Obj_0x54_Mz_Boss:                                              ; Offset_0x027A90
-Obj_0x55_Mz_Boss:                                              ; Offset_0x027A90
-		include 'objects/obj_0x54.asm'
-Obj_0x53_Mz_Boss_Balls_Robotniks:                              ; Offset_0x027B80
-		include 'objects/obj_0x53.asm'
+Obj54_Mz_Boss:                                              ; Offset_0x027A90
+Obj55_Mz_Boss:                                              ; Offset_0x027A90
+		include 'objects/Obj54.asm'
+Obj53_Mz_Boss_Balls_Robotniks:                              ; Offset_0x027B80
+		include 'objects/Obj53.asm'
 ;-------------------------------------------------------------------------------
 		dc.w    $0000
 Jmp_1E_To_DisplaySprite:                                       ; Offset_0x027E8C
@@ -28181,40 +28181,40 @@ Object_Settings:                                               ; Offset_0x027EA4
 		rts
 ;-------------------------------------------------------------------------------
 ObjSet_List:                                                   ; Offset_0x027ED6
-		dc.w    Obj_0x8C_Ptr-ObjSet_List               ; Offset_0x028068
-		dc.w    Obj_0x8E_Ptr-ObjSet_List               ; Offset_0x0282D4
-		dc.w    Obj_0x8F_Ptr-ObjSet_List               ; Offset_0x0282DE
-		dc.w    Obj_0x90_Ptr-ObjSet_List               ; Offset_0x0282E8
-		dc.w    Obj_0x91_Ptr-ObjSet_List               ; Offset_0x0284F6
-		dc.w    Obj_0x92_Ptr-ObjSet_List               ; Offset_0x028678
-		dc.w    Obj_0x96_Rexon_Body-ObjSet_List        ; Offset_0x02891E
-		dc.w    Obj_0x96_Ptr-ObjSet_List               ; Offset_0x028C6A
+		dc.w    Obj8C_Ptr-ObjSet_List               ; Offset_0x028068
+		dc.w    Obj8E_Ptr-ObjSet_List               ; Offset_0x0282D4
+		dc.w    Obj8F_Ptr-ObjSet_List               ; Offset_0x0282DE
+		dc.w    Obj90_Ptr-ObjSet_List               ; Offset_0x0282E8
+		dc.w    Obj91_Ptr-ObjSet_List               ; Offset_0x0284F6
+		dc.w    Obj92_Ptr-ObjSet_List               ; Offset_0x028678
+		dc.w    Obj96_Rexon_Body-ObjSet_List        ; Offset_0x02891E
+		dc.w    Obj96_Ptr-ObjSet_List               ; Offset_0x028C6A
 		dc.w    Rexon_Fireball_Map_Ptr-ObjSet_List     ; Offset_0x028D52
-		dc.w    Obj_0x99_Ptr-ObjSet_List               ; Offset_0x028E5A
+		dc.w    Obj99_Ptr-ObjSet_List               ; Offset_0x028E5A
 		dc.w    Nebula_Bomb_Map_Ptr-ObjSet_List        ; Offset_0x028D5C
-		dc.w    Obj_0x9A_Ptr-ObjSet_List               ; Offset_0x029110
-		dc.w    Obj_0x9B_Ptr-ObjSet_List               ; Offset_0x02911A
-		dc.w    Obj_0x9C_Ptr-ObjSet_List               ; Offset_0x029124
+		dc.w    Obj9A_Ptr-ObjSet_List               ; Offset_0x029110
+		dc.w    Obj9B_Ptr-ObjSet_List               ; Offset_0x02911A
+		dc.w    Obj9C_Ptr-ObjSet_List               ; Offset_0x029124
 		dc.w    Turtloid_Bullet_Map_Ptr-ObjSet_List    ; Offset_0x028D66
-		dc.w    Obj_0x9D_Ptr-ObjSet_List               ; Offset_0x02935C
+		dc.w    Obj9D_Ptr-ObjSet_List               ; Offset_0x02935C
 		dc.w    Coconuts_Coconut_Map_Ptr-ObjSet_List   ; Offset_0x028D70
-		dc.w    Obj_0x9E_Ptr-ObjSet_List               ; Offset_0x02958E
+		dc.w    Obj9E_Ptr-ObjSet_List               ; Offset_0x02958E
 		dc.w    Offset_0x029842-ObjSet_List
 		dc.w    Offset_0x02984C-ObjSet_List
-		dc.w    Obj_0xA1_Ptr-ObjSet_List               ; Offset_0x029AB6
-		dc.w    Obj_0xA2_Ptr-ObjSet_List               ; Offset_0x029AC0
+		dc.w    ObjA1_Ptr-ObjSet_List               ; Offset_0x029AB6
+		dc.w    ObjA2_Ptr-ObjSet_List               ; Offset_0x029AC0
 		dc.w    Offset_0x029D76-ObjSet_List
-		dc.w    Obj_0xA4_Ptr-ObjSet_List               ; Offset_0x029FA0
+		dc.w    ObjA4_Ptr-ObjSet_List               ; Offset_0x029FA0
 		dc.w    Asteron_Spikes_Map_Ptr-ObjSet_List     ; Offset_0x028D7A
-		dc.w    Obj_0xA5_Ptr-ObjSet_List               ; Offset_0x02A1C8
+		dc.w    ObjA5_Ptr-ObjSet_List               ; Offset_0x02A1C8
 		dc.w    Spiny_Shot_Map_Ptr-ObjSet_List         ; Offset_0x028D84
-		dc.w    Obj_0xA7_Ptr-ObjSet_List               ; Offset_0x02A356
-		dc.w    Obj_0xA8_Ptr-ObjSet_List               ; Offset_0x02A360
-		dc.w    Obj_0xA9_Ptr-ObjSet_List               ; Offset_0x02A36A
+		dc.w    ObjA7_Ptr-ObjSet_List               ; Offset_0x02A356
+		dc.w    ObjA8_Ptr-ObjSet_List               ; Offset_0x02A360
+		dc.w    ObjA9_Ptr-ObjSet_List               ; Offset_0x02A36A
 		dc.w    Grabber_Unk_Map_Ptr-ObjSet_List        ; Offset_0x028D8E
-		dc.w    Obj_0xAC_Ptr-ObjSet_List               ; Offset_0x02A424
-		dc.w    Obj_0xAD_Ptr-ObjSet_List               ; Offset_0x02A5DE
-		dc.w    Obj_0xAE_Ptr-ObjSet_List               ; Offset_0x02A5E8
+		dc.w    ObjAC_Ptr-ObjSet_List               ; Offset_0x02A424
+		dc.w    ObjAD_Ptr-ObjSet_List               ; Offset_0x02A5DE
+		dc.w    ObjAE_Ptr-ObjSet_List               ; Offset_0x02A5E8
 		dc.w    Clucker_Bullet_Map_Ptr-ObjSet_List     ; Offset_0x028D98
 ;-------------------------------------------------------------------------------
 Object_Check_Player_Position:                                  ; Offset_0x027F1C
@@ -28271,39 +28271,39 @@ Offset_0x027F78:
 ; Rotina usada para inicializar o par�metro de alguns Objects
 ; <<<-
 ;-------------------------------------------------------------------------------
-Obj_0x8C_NGHz_Whisp:                                           ; Offset_0x027F84
-		include 'objects/obj_0x8C.asm'
-Obj_0x8D_Hidden_Grounder:                                      ; Offset_0x0280A0
-Obj_0x8E_Grounder:                                             ; Offset_0x0280A0
-		include 'objects/obj_0x8E.asm'
-Obj_0x8F_Wall_Hidden_Grounder:                                 ; Offset_0x02819E
-		include 'objects/obj_0x8F.asm'
-Obj_0x90_Rock_Hidden_Grounder:                                 ; Offset_0x0281E4
-		include 'objects/obj_0x90.asm'
-Obj_0x91_Chop_Chop:                                            ; Offset_0x0283BC
-		include 'objects/obj_0x91.asm'
-Obj_0x92_Spiker:                                               ; Offset_0x02851E
-		include 'objects/obj_0x92.asm'
-Obj_0x93_Spiker_Drill:                                         ; Offset_0x0285F8
-		include 'objects/obj_0x93.asm'
-Obj_0x95_Sol:                                                  ; Offset_0x0286FA
-		include 'objects/obj_0x95.asm'
-Obj_0x94_Rexon_Body:                                           ; Offset_0x02891E
-Obj_0x96_Rexon_Body:                                           ; Offset_0x02891E
-		include 'objects/obj_0x96.asm'
-Obj_0x97_Rexon_Head:                                           ; Offset_0x0289CC
-		include 'objects/obj_0x97.asm'
-Obj_0x98_Enemies_Weapons:                                      ; Offset_0x028CE4
-		include 'objects/obj_0x98.asm'
-Obj_0x99_Nebula:                                               ; Offset_0x028DA2
-		include 'objects/obj_0x99.asm'
-Obj_0x9A_Turtloid:                                             ; Offset_0x028F08
-		include 'objects/obj_0x9A.asm'
-Obj_0x9B_Turtloid_Rider:                                       ; Offset_0x028FE4
-		include 'objects/obj_0x9B.asm'
-Obj_0x9C_Enemy_Boost:                                          ; Offset_0x029060
-		include 'objects/obj_0x9C.asm'
-Obj_0x9D_Coconuts:                                             ; Offset_0x0291D8
+Obj8C_NGHz_Whisp:                                           ; Offset_0x027F84
+		include 'objects/Obj8C.asm'
+Obj8D_Hidden_Grounder:                                      ; Offset_0x0280A0
+Obj8E_Grounder:                                             ; Offset_0x0280A0
+		include 'objects/Obj8E.asm'
+Obj8F_Wall_Hidden_Grounder:                                 ; Offset_0x02819E
+		include 'objects/Obj8F.asm'
+Obj90_Rock_Hidden_Grounder:                                 ; Offset_0x0281E4
+		include 'objects/Obj90.asm'
+Obj91_Chop_Chop:                                            ; Offset_0x0283BC
+		include 'objects/Obj91.asm'
+Obj92_Spiker:                                               ; Offset_0x02851E
+		include 'objects/Obj92.asm'
+Obj93_Spiker_Drill:                                         ; Offset_0x0285F8
+		include 'objects/Obj93.asm'
+Obj95_Sol:                                                  ; Offset_0x0286FA
+		include 'objects/Obj95.asm'
+Obj94_Rexon_Body:                                           ; Offset_0x02891E
+Obj96_Rexon_Body:                                           ; Offset_0x02891E
+		include 'objects/Obj96.asm'
+Obj97_Rexon_Head:                                           ; Offset_0x0289CC
+		include 'objects/Obj97.asm'
+Obj98_Enemies_Weapons:                                      ; Offset_0x028CE4
+		include 'objects/Obj98.asm'
+Obj99_Nebula:                                               ; Offset_0x028DA2
+		include 'objects/Obj99.asm'
+Obj9A_Turtloid:                                             ; Offset_0x028F08
+		include 'objects/Obj9A.asm'
+Obj9B_Turtloid_Rider:                                       ; Offset_0x028FE4
+		include 'objects/Obj9B.asm'
+Obj9C_Enemy_Boost:                                          ; Offset_0x029060
+		include 'objects/Obj9C.asm'
+Obj9D_Coconuts:                                             ; Offset_0x0291D8
 ;===============================================================================
 ; Object 0x9D - Coconuts Enemy in Green Hill
 ; ->>>
@@ -28440,7 +28440,7 @@ Offset_0x029352:
 Offset_0x029354:
                 dc.w    $FFF5, $0100, $000B, $FF00         
 ;------------------------------------------------------------------------------- 
-Obj_0x9D_Ptr:                                                  ; Offset_0x02935C
+Obj9D_Ptr:                                                  ; Offset_0x02935C
                 dc.l    Coconuts_Mappings                      ; Offset_0x029374
                 dc.w    $03EE
                 dc.b    $04, $05, $0C, $09     
@@ -28459,40 +28459,40 @@ Coconuts_Mappings:                                             ; Offset_0x029374
 ; Object 0x9D - Coconuts Enemy in Green Hill
 ; <<<-
 ;===============================================================================		
-Obj_0x9E_Crawlton:                                             ; Offset_0x0293F4
-		include 'objects/obj_0x9E.asm'
-Obj_0x9F_Shellcracker:                                         ; Offset_0x0295B2
-		include 'objects/obj_0x9F.asm'
-Obj_0xA0_Shellcracker_Craw:                                    ; Offset_0x0296DE
-		include 'objects/obj_0xA0.asm'
-Obj_0xA1_Slicer:                                               ; Offset_0x029906
-		include 'objects/obj_0xA1.asm'
-Obj_0xA2_Slicer_Pincers:                                       ; Offset_0x0299CE
-		include 'objects/obj_0xA2.asm'
-Obj_0xA3_Flasher:                                              ; Offset_0x029C34
-		include 'objects/obj_0xA3.asm'
-Obj_0xA4_Asteron:                                              ; Offset_0x029E94
-		include 'objects/obj_0xA4.asm'
-Obj_0xA5_Horizontal_Spiny:                                     ; Offset_0x02A004
-		include 'objects/obj_0xA5.asm'
-Obj_0xA6_Vertical_Spiny:                                       ; Offset_0x02A0A0
-		include 'objects/obj_0xA6.asm'
-Obj_0xA7_Grabber:                                              ; Offset_0x02A2D4
-		include 'objects/obj_0xA7.asm'
-Obj_0xA8_Grabber_Sub:                                          ; Offset_0x02A2EE
-		include 'objects/obj_0xA8.asm'
-Obj_0xA9_Grabber_Sub:                                          ; Offset_0x02A308
-		include 'objects/obj_0xA9.asm'
-Obj_0xAA_Grabber_Sub:                                          ; Offset_0x02A322
-		include 'objects/obj_0xAA.asm'
-Obj_0xAB_Grabber_Sub:                                          ; Offset_0x02A33C
-		include 'objects/obj_0xAB.asm'
-Obj_0xAC_Balkiry:                                              ; Offset_0x02A3F4
-		include 'objects/obj_0xAC.asm'
-Obj_0xAD_Clucker_Platform:                                     ; Offset_0x02A47E
-		include 'objects/obj_0xAD.asm'
-Obj_0xAE_Clucker:                                              ; Offset_0x02A4D0
-		include 'objects/obj_0xAE.asm'
+Obj9E_Crawlton:                                             ; Offset_0x0293F4
+		include 'objects/Obj9E.asm'
+Obj9F_Shellcracker:                                         ; Offset_0x0295B2
+		include 'objects/Obj9F.asm'
+ObjA0_Shellcracker_Craw:                                    ; Offset_0x0296DE
+		include 'objects/ObjA0.asm'
+ObjA1_Slicer:                                               ; Offset_0x029906
+		include 'objects/ObjA1.asm'
+ObjA2_Slicer_Pincers:                                       ; Offset_0x0299CE
+		include 'objects/ObjA2.asm'
+ObjA3_Flasher:                                              ; Offset_0x029C34
+		include 'objects/ObjA3.asm'
+ObjA4_Asteron:                                              ; Offset_0x029E94
+		include 'objects/ObjA4.asm'
+ObjA5_Horizontal_Spiny:                                     ; Offset_0x02A004
+		include 'objects/ObjA5.asm'
+ObjA6_Vertical_Spiny:                                       ; Offset_0x02A0A0
+		include 'objects/ObjA6.asm'
+ObjA7_Grabber:                                              ; Offset_0x02A2D4
+		include 'objects/ObjA7.asm'
+ObjA8_Grabber_Sub:                                          ; Offset_0x02A2EE
+		include 'objects/ObjA8.asm'
+ObjA9_Grabber_Sub:                                          ; Offset_0x02A308
+		include 'objects/ObjA9.asm'
+ObjAA_Grabber_Sub:                                          ; Offset_0x02A322
+		include 'objects/ObjAA.asm'
+ObjAB_Grabber_Sub:                                          ; Offset_0x02A33C
+		include 'objects/ObjAB.asm'
+ObjAC_Balkiry:                                              ; Offset_0x02A3F4
+		include 'objects/ObjAC.asm'
+ObjAD_Clucker_Platform:                                     ; Offset_0x02A47E
+		include 'objects/ObjAD.asm'
+ObjAE_Clucker:                                              ; Offset_0x02A4D0
+		include 'objects/ObjAE.asm'
 ;-------------------------------------------------------------------------------
 Jmp_03_To_DisplaySprite_Param:                                 ; Offset_0x02A788
 		jmp     (DisplaySprite_Param)                  ; Offset_0x00D35E
@@ -28518,16 +28518,16 @@ Jmp_19_To_SpeedToPos:                                          ; Offset_0x02A7C4
 		jmp     (SpeedToPos)                           ; Offset_0x00D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x8A_S1_Credits:                                           ; Offset_0x02A7CC
-		include 'objects/obj_0x8A.asm'
+Obj8A_S1_Credits:                                           ; Offset_0x02A7CC
+		include 'objects/Obj8A.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_30_To_ModifySpriteAttr_2P:                                 ; Offset_0x02AEE0
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_0x3E_Egg_Prison:                                           ; Offset_0x02AEE8
-		include 'objects/obj_0x3E.asm'
+Obj3E_Egg_Prison:                                           ; Offset_0x02AEE8
+		include 'objects/Obj3E.asm'
 ;-------------------------------------------------------------------------------
 Jmp_31_To_ModifySpriteAttr_2P:                                 ; Offset_0x02B1E4
 		jmp     (ModifySpriteAttr_2P)                  ; Offset_0x00DBBE
@@ -29730,7 +29730,7 @@ Offset_0x02BF68:
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj_0x09_Sonic_In_Special_Stage:                               ; Offset_0x02BF70
+Obj09_Sonic_In_Special_Stage:                               ; Offset_0x02BF70
 ;===============================================================================
 ; Object 0x09 - Sonic in Special Stage - Leftover from Sonic 1
 ; ->>>
@@ -31037,8 +31037,8 @@ Jmp_00_To_NemesisDecToRAM:                                     ; Offset_0x02D0F8
 ; Routine to load the layout of the Special Stages - Leftover from Sonic 1
 ; <<<-
 ;===============================================================================
-Obj_0x21_Head_Up_Display:                                      ; Offset_0x02D100
-		include 'objects/obj_0x21.asm'
+Obj21_Head_Up_Display:                                      ; Offset_0x02D100
+		include 'objects/Obj21.asm'
 ;-------------------------------------------------------------------------------
 AddPoints:                                                     ; Offset_0x02D2D4
 		move.b  #$01, (HUD_Score_Refresh_Flag).w             ; $FFFFFE1F
@@ -32950,9 +32950,9 @@ DAC_Sample_06:                                                 ; Offset_0x0EFA3C
 		z80_ptr	Music_Continue
 		z80_ptr	Music_Get_Emerald
 		z80_ptr	Music_Hidden_Palace_Final
-		z80_ptr	Music_Hidden_Palace_Final
+		z80_ptr	Music_Hidden_Palace_Final                
 Music_Invencibility:                                           ; Offset_0x0F0012
-		incbin  'sound/music/Invcb_97.snd'
+		incbin  'sound/music/Invcb_97.snd'                
 Music_Extra_Life:                                              ; Offset_0x0F023D
 		include 'sound/music/98 - Extra Life.asm'
 Music_Title_Screen:                                            ; Offset_0x0F032A
@@ -33007,7 +33007,7 @@ Music_Casino_Night:                                            ; Offset_0x0F9299
 Music_Dust_Hill:                                               ; Offset_0x0F99B6
 		include 'sound/music/8B - DHZ.asm'
 Music_Hidden_Palace_Beta:                                      ; Offset_0x0FA056
-                ;include 'sound/music/83 - HPZ.asm'               
+                ;include 'sound/music/83 - HPZ.asm'        
 		incbin  'sound/music/hpz_83.snd'
 Music_Neo_Green_Hill:                                          ; Offset_0x0FA54F
 		include 'sound/music/87 - NGHZ.asm'
