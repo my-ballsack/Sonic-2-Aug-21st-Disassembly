@@ -9741,7 +9741,7 @@ DynResize_DEz:                                                 ; Offset_0x008466
 
 Obj11_Bridge:                                               ; Offset_0x008468
 ;===============================================================================
-; Object 0x11 - Pontes na Green Hill / Hidden Palace
+; Object 0x11 - Bridges in Green Hill / Hidden Palace
 ; ->>>
 ;===============================================================================
 ; Offset_0x008468:
@@ -10208,12 +10208,12 @@ Offset_0x008924:
                 dc.b    $C5, $D4, $E1, $EC, $F4, $FB, $FE, $FF
 ;-------------------------------------------------------------------------------
 HPz_Bridge_Mappings:                                           ; Offset_0x008A24
-                include 'mappings/sprite/obj11hpz.asm'
+                include 'mappings/sprite/obj11_hpz.asm'
 ;-------------------------------------------------------------------------------
 GHz_Bridge_Mappings:                                           ; Offset_0x008A6C
-                include 'mappings/sprite/obj11ghz.asm'
+                include 'mappings/sprite/obj11_ghz.asm'
 ;===============================================================================
-; Object 0x11 - Pontes na Green Hill / Hidden Palace
+; Object 0x11 - Bridges in Green Hill / Hidden Palace
 ; <<<-
 ;===============================================================================
 Obj15_Bridge:                                               ; Offset_0x008A84
@@ -10617,16 +10617,16 @@ Offset_0x008F6A:
                 bra     MarkObjGone                            ; Offset_0x00D200
 ;-------------------------------------------------------------------------------
 OOz_Swing_Platforms_Mappings:                                  ; Offset_0x008F82
-                include 'mappings/sprite/obj15ooz.asm'
+                include 'mappings/sprite/obj15_ooz.asm'
 ;-------------------------------------------------------------------------------
 NGHz_Swing_Platforms_Mappings:                                 ; Offset_0x008FB8
                 include 'mappings/sprite/obj83.asm'                        ; also used in Obj83
 ;-------------------------------------------------------------------------------
 DHz_Swing_Platforms_Mappings:                                  ; Offset_0x008FF0
-                include 'mappings/sprite/obj7Adhz.asm'                     ; also used in Obj7A
+                include 'mappings/sprite/obj7A_dhz.asm'                    ; also used in Obj7A
 ;-------------------------------------------------------------------------------
 DHz_Swing_Platforms_Mappings_01:                               ; Offset_0x009024
-                include 'mappings/sprite/obj15dhz.asm'
+                include 'mappings/sprite/obj15_dhz.asm'
 ;===============================================================================
 ; Object 0x15 - Plataformas tipo pend�lo na Neo Green Hill, Dust Hill e
 ; <<<-          Oil Ocean
@@ -10747,7 +10747,7 @@ Offset_0x00917E:
                 bra     DisplaySprite                          ; Offset_0x00D322
 ;-------------------------------------------------------------------------------
 Log_Spikes_Mappings:                                           ; Offset_0x009186
-                include 'mappings/sprite/obj17S1.asm'
+                include 'mappings/sprite/obj17_S1.asm'
 ;===============================================================================
 ; Object 0x17 - Espinhos em espiral girando na Green Hill - Leftover from Sonic 1
 ; <<<-
@@ -11073,10 +11073,10 @@ Offset_0x009522:
                 rts
 ;-------------------------------------------------------------------------------
 GHz_HTz_Platforms_Mappings:                                    ; Offset_0x00952A
-                include 'mappings/sprite/obj18ghzhtz.asm'
+                include 'mappings/sprite/obj18_ghz_htz.asm'
 ;-------------------------------------------------------------------------------
 NGHz_Platforms_Mappings:                                       ; Offset_0x009582
-                include 'mappings/sprite/obj18nghz.asm'
+                include 'mappings/sprite/obj18_nghz.asm'
 ;===============================================================================
 ; Object 0x18 - Platforms
 ; <<<-
@@ -11368,10 +11368,10 @@ Offset_0x00995C:
 		dc.b    $30, $30, $30, $30, $30, $30, $30, $30
 ;-------------------------------------------------------------------------------
 Collapsing_Platforms_Mappings:                                 ; Offset_0x00998C
-                include 'mappings/sprite/obj1Aghz.asm'                     ; unused leftover (the green hill from sonic 1)
+                include 'mappings/sprite/obj1A_ghzS1.asm'                  ; unused leftover (the green hill from sonic 1)
 ;-------------------------------------------------------------------------------
 Collapsing_Platforms_Mappings_2:                               ; Offset_0x009C2C
-		include 'mappings/sprite/obj1FS1.asm'                      ; unused leftover (for Sonic 1 Zones MZ, SLZ, SBZ)
+		include 'mappings/sprite/obj1F_S1.asm'                     ; unused leftover (for Sonic 1 Zones MZ, SLZ, SBZ)
 ;-------------------------------------------------------------------------------
 Offset_0x009CFC:
 		dc.b    $10, $10, $10, $10, $10, $10, $10, $10
@@ -11386,23 +11386,23 @@ Offset_0x009D0C:
 		dc.b    $10, $10, $10, $10, $10, $10, $10, $10
 ;-------------------------------------------------------------------------------
 HPz_Collapsing_Platforms_Mappings:                             ; Offset_0x009D3C
-		include 'mappings/sprite/obj1Ahpz.asm'
+		include 'mappings/sprite/obj1A_hpz.asm'
 ;-------------------------------------------------------------------------------
 OOz_Collapsing_Platforms_Mappings:                             ; Offset_0x009DE6
-		include 'mappings/sprite/obj1Fooz.asm'
+		include 'mappings/sprite/obj1F_ooz.asm'
 ;-------------------------------------------------------------------------------
 DHz_Collapsing_Platforms_Mappings:                             ; Offset_0x009E26
-		include 'mappings/sprite/obj1Fdhz.asm'
+		include 'mappings/sprite/obj1F_dhz.asm'
 ;-------------------------------------------------------------------------------
 NGHz_Collapsing_Platforms_Mappings:                            ; Offset_0x009E7E
-		include 'mappings/sprite/obj1Fnghz.asm'
+		include 'mappings/sprite/obj1F_nghz.asm'
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
 Obj1C_Misc:                                                 ; Offset_0x009EE8
 ;===============================================================================
-; Object 0x1C - Miscel�nea de Objects - Suporte das pontes na Emerald Hill,
-; ->>>          postes na Hill Top, etc...
+; Object 0x1C - Miscellaneous Objects - Support of the bridges on Emerald Hill,
+; <<<-          poles in Hill Top, etc...
 ;===============================================================================
 ; Offset_0x009EE8:
                 moveq   #$00, D0
@@ -11476,13 +11476,13 @@ Offset_0x009F6A:
 Offset_0x009F9C:
                 bra     MarkObjGone                            ; Offset_0x00D200
 ;===============================================================================
-; Object 0x1C - Miscel�nea de Objects - Suporte das pontes na Emerald Hill,
-; <<<-          postes na Hill Top, etc...
+; Object 0x1C - Miscellaneous Objects - Support of the bridges on Emerald Hill,
+; <<<-          poles in Hill Top, etc...
 ;===============================================================================
 Obj71_Mz_HPz_Misc:                                          ; Offset_0x009FA0
 ;===============================================================================
-; Object 0x71 - Miscel�nea de Objects - Suporte das pontes na Hidden Palace,
-; ->>>          Orbs na Hidden Palace, bolhas de lava na Metropolis, etc...
+; Object 0x71 - Miscellaneous Objects - Support of the bridges in the Hidden Palace,
+; <<<-          Orbs in the Hidden Palace, lava bubbles in the Metropolis, etc...
 ;===============================================================================
 ; Offset_0x009FA0:
                 moveq   #$00, D0
@@ -11548,24 +11548,24 @@ Offset_0x00A042:
 Hpz_Orbs_Mappings:                                             ; Offset_0x00A046
                 include 'mappings/sprite/obj71.asm'
 ;===============================================================================
-; Object 0x71 - Miscel�nea de Objects - Suporte das pontes na Hidden Palace,
-; <<<-          Orbs na Hidden Palace, bolhas de lava na Metropolis, etc...
+; Object 0x71 - Miscellaneous Objects - Support of the bridges in the Hidden Palace,
+; <<<-          Orbs in the Hidden Palace, lava bubbles in the Metropolis, etc...
 ;===============================================================================
 ;-------------------------------------------------------------------------------
 HTz_Misc_Mappings:                                             ; Offset_0x00A086
-	        include 'mappings/sprite/obj1Chtz.asm'
+	        include 'mappings/sprite/obj1C_htz.asm'
 ;-------------------------------------------------------------------------------
 NGHz_Misc_Mappings:
-		include 'mappings/sprite/obj1Cnghz.asm'
+		include 'mappings/sprite/obj1C_nghz.asm'
 ;-------------------------------------------------------------------------------
 OOz_Misc_Mappings:                                             ; Offset_0x00A0B6
-		include 'mappings/sprite/obj1Cooz.asm'
+		include 'mappings/sprite/obj1C_ooz.asm'
 ;-------------------------------------------------------------------------------
 Mz_Misc_Mappings:                                              ; Offset_0x00A0E6
-		include 'mappings/sprite/obj1Cmtz.asm'
+		include 'mappings/sprite/obj1C_mtz.asm'
 ;-------------------------------------------------------------------------------
 Mz_Lava_Bubble_Mappings:                                       ; Offset_0x00A10A
-		include 'mappings/sprite/obj71mtz.asm'
+		include 'mappings/sprite/obj71_mtz.asm'
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
@@ -13432,33 +13432,7 @@ Offset_0x00B944:
 		dc.l    $FC040000, $0000FFF8
 ;-------------------------------------------------------------------------------
 Sonic_Tails_Mappings:                                          ; Offset_0x00B94E
-		dc.w    Sonic_In_Title_Screen_Map-Sonic_Tails_Mappings ; Offset_0x00B952
-		dc.w    Tails_In_Title_Screen_Map-Sonic_Tails_Mappings ; Offset_0x00B9AC
-Sonic_In_Title_Screen_Map:                                     ; Offset_0x00B952
-		dc.w    $000B
-		dc.l    $D40D0000, $0000FFD8
-		dc.l    $CC0E0008, $0004FFF8
-		dc.l    $CC070014, $000A0018
-		dc.l    $E40F001C, $000EFFE0
-		dc.l    $E40B002C, $00160000
-		dc.l    $EC070038, $001C0018
-		dc.l    $040F0040, $0020FFD8
-		dc.l    $040F0050, $0028FFF8
-		dc.l    $0C060060, $00300018
-		dc.l    $24040066, $0033FFE8
-		dc.l    $240D0068, $0034FFF8
-Tails_In_Title_Screen_Map:                                     ; Offset_0x00B9AC
-		dc.w    $000A
-		dc.l    $DC060070, $0038FFEC
-		dc.l    $F40F0076, $003BFFD4
-		dc.l    $F40F0086, $0043FFF4
-		dc.l    $E4090096, $004BFFFC
-		dc.l    $DC0B009C, $004E0014
-		dc.l    $FC0800A8, $00540014
-		dc.l    $040500AB, $00550014
-		dc.l    $140400AF, $0057FFD4
-		dc.l    $140D00B1, $0058FFE4
-		dc.l    $140D00B9, $005C0004
+		include 'mappings/sprite/obj0E.asm'
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
@@ -14084,7 +14058,7 @@ Offset_0x00C172:
 ; <<<-          Estágio Especial
 ;===============================================================================
 ;-------------------------------------------------------------------------------
-; Mapeamento dos t�tulos das fases
+; Sonic 1 Title Card Mappings
 ; ->>>
 ;-------------------------------------------------------------------------------
 Title_Cards_Mappings:                                          ; Offset_0x00C176
@@ -14206,7 +14180,7 @@ Fz_TC_Map:                                                     ; Offset_0x00C404
 		dc.l    $F8050000, $00000004  ; A
 		dc.l    $F8050026, $00130014  ; L
 ;-------------------------------------------------------------------------------
-; Mapeamento dos t�tulos das fases
+; Sonic 1 Title Card Mappings
 ; <<<-
 ;-------------------------------------------------------------------------------
 
@@ -14923,7 +14897,7 @@ Object_List:                                                   ; Offset_0x00CEF2
 		dc.l    Obj0D_End_Panel                     ; Offset_0x00F098
 		dc.l    Obj0E_Sonic_Tails                   ; Offset_0x00B660
 		dc.l    Obj0F                               ; Offset_0x00B6E6
-		dc.l    Obj_Null_3                             ; Offset_0x02C612
+		dc.l    Obj_Null_3                          ; Offset_0x02C612
 		dc.l    Obj11_Bridge                        ; Offset_0x008468
 		dc.l    Obj12_HPz_Master_Emerald            ; Offset_0x015420
 		dc.l    Obj13_HPz_Waterfalls                ; Offset_0x0154A8
@@ -18973,48 +18947,48 @@ Obj01_Sonic:                                                ; Offset_0x00FAF0
 ; ->>>
 ;===============================================================================
 ; Offset_0x00FAF0:
-                tst.w   (Debug_Mode_Flag_Index).w                    ; $FFFFFE08
-                beq.s   Obj_Sonic                              ; Offset_0x00FAFC
-                jmp     (Debug_Mode)                           ; Offset_0x02DE64
+		tst.w   (Debug_Mode_Flag_Index).w                    ; $FFFFFE08
+		beq.s   Obj_Sonic                              ; Offset_0x00FAFC
+		jmp     (Debug_Mode)                           ; Offset_0x02DE64
 ;-------------------------------------------------------------------------------
 Obj_Sonic                                                      ; Offset_0x00FAFC
-                moveq   #$00, D0
-                move.b  Obj_Routine(A0), D0                              ; $0024
-                move.w  Sonic_Index(PC, D0), D1                ; Offset_0x00FB0A
-                jmp     Sonic_Index(PC, D1)                    ; Offset_0x00FB0A
+		moveq   #$00, D0
+		move.b  Obj_Routine(A0), D0                              ; $0024
+		move.w  Sonic_Index(PC, D0), D1                ; Offset_0x00FB0A
+		jmp     Sonic_Index(PC, D1)                    ; Offset_0x00FB0A
 ;-------------------------------------------------------------------------------
 Sonic_Index:                                                   ; Offset_0x00FB0A
-                dc.w    Sonic_Main-Sonic_Index                 ; Offset_0x00FB14
-                dc.w    Sonic_Control-Sonic_Index              ; Offset_0x00FB96
-                dc.w    Sonic_Hurt-Sonic_Index                 ; Offset_0x010AAA
-                dc.w    Sonic_Death-Sonic_Index                ; Offset_0x010B3E
-                dc.w    Sonic_ResetLevel-Sonic_Index           ; Offset_0x010BDE
+		dc.w    Sonic_Main-Sonic_Index                 ; Offset_0x00FB14
+		dc.w    Sonic_Control-Sonic_Index              ; Offset_0x00FB96
+		dc.w    Sonic_Hurt-Sonic_Index                 ; Offset_0x010AAA
+		dc.w    Sonic_Death-Sonic_Index                ; Offset_0x010B3E
+		dc.w    Sonic_ResetLevel-Sonic_Index           ; Offset_0x010BDE
 ;-------------------------------------------------------------------------------
 Sonic_Main:                                                    ; Offset_0x00FB14
-                addq.b  #$02, Obj_Routine(A0)                            ; $0024
-                move.b  #$13, Obj_Height_2(A0)                           ; $0016
-                move.b  #$09, Obj_Width_2(A0)                            ; $0017
-                move.l  #Sonic_Mappings, Obj_Map(A0)    ; Offset_0x06FBE0, $0004
-                move.w  #$0780, Obj_Art_VRAM(A0)                         ; $0002
-                bsr     ModifySpriteAttr_2P                    ; Offset_0x00DBBE
-                move.b  #$02, Obj_Priority(A0)                           ; $0018
-                move.b  #$18, Obj_Width(A0)                              ; $0019
-                move.b  #$04, Obj_Flags(A0)                              ; $0001
-                move.w  #$0600, (Sonic_Max_Speed).w                  ; $FFFFF760
-                move.w  #$000C, (Sonic_Acceleration).w               ; $FFFFF762
-                move.w  #$0080, (Sonic_Deceleration).w               ; $FFFFF764
-                move.b  #$0C, Obj_Player_Top_Solid(A0)                   ; $003E
-                move.b  #$0D, Obj_Player_LRB_Solid(A0)                   ; $003F
-                move.b  #$00, Obj_P_Flips_Remaining(A0)                  ; $002C
-                move.b  #$04, Obj_Player_Flip_Speed(A0)                  ; $002D
-                move.b  #$00, (Super_Sonic_Flag).w                   ; $FFFFFE19
-                move.b  #$1E, Obj_Subtype(A0)                            ; $0028
-                move.w  #$0000, ($FFFFEED2).w
-                move.w  #$003F, D2
+		addq.b  #$02, Obj_Routine(A0)                            ; $0024
+		move.b  #$13, Obj_Height_2(A0)                           ; $0016
+		move.b  #$09, Obj_Width_2(A0)                            ; $0017
+		move.l  #Sonic_Mappings, Obj_Map(A0)    ; Offset_0x06FBE0, $0004
+		move.w  #$0780, Obj_Art_VRAM(A0)                         ; $0002
+		bsr     ModifySpriteAttr_2P                    ; Offset_0x00DBBE
+		move.b  #$02, Obj_Priority(A0)                           ; $0018
+		move.b  #$18, Obj_Width(A0)                              ; $0019
+		move.b  #$04, Obj_Flags(A0)                              ; $0001
+		move.w  #$0600, (Sonic_Max_Speed).w                  ; $FFFFF760
+		move.w  #$000C, (Sonic_Acceleration).w               ; $FFFFF762
+		move.w  #$0080, (Sonic_Deceleration).w               ; $FFFFF764
+		move.b  #$0C, Obj_Player_Top_Solid(A0)                   ; $003E
+		move.b  #$0D, Obj_Player_LRB_Solid(A0)                   ; $003F
+		move.b  #$00, Obj_P_Flips_Remaining(A0)                  ; $002C
+		move.b  #$04, Obj_Player_Flip_Speed(A0)                  ; $002D
+		move.b  #$00, (Super_Sonic_Flag).w                   ; $FFFFFE19
+		move.b  #$1E, Obj_Subtype(A0)                            ; $0028
+		move.w  #$0000, ($FFFFEED2).w
+		move.w  #$003F, D2
 Offset_0x00FB88:
-                bsr     CopySonicMovesForTails                 ; Offset_0x00FCD4
-                move.w  #$0000, $00(A1, D0)
-                dbra    D2, Offset_0x00FB88
+		bsr     CopySonicMovesForTails                 ; Offset_0x00FCD4
+		move.w  #$0000, $00(A1, D0)
+		dbra    D2, Offset_0x00FB88
 ;-------------------------------------------------------------------------------
 Sonic_Control:                                                 ; Offset_0x00FB96
                 tst.w   (Debug_Mode_Active_Flag).w                   ; $FFFFFFFA
@@ -26384,7 +26358,7 @@ Water_Surface_Mappings:                                        ; Offset_0x015AFE
                 include 'mappings/sprite/obj04.asm'
 ;-------------------------------------------------------------------------------
 NGHz_Water_Surface_Mappings:                                   ; Offset_0x015BEE
-                include 'mappings/sprite/obj04nghz.asm'
+                include 'mappings/sprite/obj04_nghz.asm'
 ;===============================================================================
 ; Object 0x04 - Water Surface in Hidden Palace, Chemical Plant and
 ; <<<-          Neo Green Hill
@@ -26683,26 +26657,7 @@ Offset_0x016208:
                 bra     Jmp_02_To_DisplaySprite                ; Offset_0x016390    
 ;-------------------------------------------------------------------------------            
 Object_Hit_Mappings:                                           ; Offset_0x01620C
-                dc.w    Offset_0x016216-Object_Hit_Mappings
-                dc.w    Offset_0x016220-Object_Hit_Mappings
-                dc.w    Offset_0x01622A-Object_Hit_Mappings
-                dc.w    Offset_0x016234-Object_Hit_Mappings
-                dc.w    Offset_0x01623E-Object_Hit_Mappings
-Offset_0x016216:
-                dc.w    $0001
-                dc.l    $F8050000, $0000FFF8
-Offset_0x016220:
-                dc.w    $0001
-                dc.l    $F00F2004, $2002FFF0
-Offset_0x01622A:
-                dc.w    $0001
-                dc.l    $F00F2014, $200AFFF0
-Offset_0x016234:
-                dc.w    $0001
-                dc.l    $F00F2024, $2012FFF0
-Offset_0x01623E:
-                dc.w    $0001
-                dc.l    $F00F2034, $201AFFF0        
+		include 'mappings/sprite/obj27.asm'       
 ;===============================================================================
 ; Object 0x27 - Rotina de resposta ao toque nos Objects das fases
 ; <<<- 
@@ -27835,23 +27790,7 @@ Offset_0x01709A:
                 rts             
 ;-------------------------------------------------------------------------------
 Rotating_Platforms_Mappings:                                   ; Offset_0x0170AE
-                dc.w    Offset_0x0170B4-Rotating_Platforms_Mappings
-                dc.w    Offset_0x0170C6-Rotating_Platforms_Mappings
-                dc.w    Offset_0x0170D8-Rotating_Platforms_Mappings
-Offset_0x0170B4:
-                dc.w    $0002
-                dc.l    $F00F0000, $0000FFE0
-                dc.l    $F00F0800, $08000000
-Offset_0x0170C6:
-                dc.w    $0002
-                dc.l    $F00B0000, $0000FFE8
-                dc.l    $F00B0800, $08000000
-Offset_0x0170D8:
-                dc.w    $0004
-                dc.l    $F00E0000, $0000FFC0
-                dc.l    $F00E000C, $0006FFE0
-                dc.l    $F00E080C, $08060000
-                dc.l    $F00E0800, $08000020
+                include 'mappings/sprite/obj19.asm'               
 ;===============================================================================
 ; Object 0x19 - Platformas rotatórias - Oil Ocean...
 ; <<<- 
@@ -27966,15 +27905,7 @@ Offset_0x01723A:
                 jmp     (Play_Sfx)                             ; Offset_0x001512   
 ;-------------------------------------------------------------------------------
 CPz_Speed_Booster_Mappings:                                    ; Offset_0x017244
-                dc.w    Offset_0x01724A-CPz_Speed_Booster_Mappings
-                dc.w    Offset_0x01724A-CPz_Speed_Booster_Mappings
-                dc.w    Offset_0x01725C-CPz_Speed_Booster_Mappings
-Offset_0x01724A:
-                dc.w    $0002
-                dc.l    $F8050000, $0000FFE8
-                dc.l    $F8050000, $00000008
-Offset_0x01725C:
-                dc.w    $0000 
+                include 'mappings/sprite/obj1B.asm'                
 ;===============================================================================
 ; Object 0x1B - Propulsor autom�tico na Chemical Plant
 ; <<<- 
@@ -28101,10 +28032,7 @@ Offset_0x0173BA:
                 bra     Jmp_04_To_MarkObjGone                  ; Offset_0x0173CC          
 ;-------------------------------------------------------------------------------
 Worms_Mappings:                                                ; Offset_0x0173BE
-                dc.w    Offset_0x0173C0-Worms_Mappings
-Offset_0x0173C0:
-                dc.w    $0001
-                dc.l    $F8050000, $0000FFF8
+		include 'mappings/sprite/obj1D.asm'               
 ;===============================================================================
 ; Object 0x1D - Inimigo Verme na Chemical Plant
 ; <<<-
@@ -28641,7 +28569,7 @@ Jmp_00_To_MarkObjGone_3:                                       ; Offset_0x017E2C
 ;-------------------------------------------------------------------------------
 Obj20_HTz_Boss_FireBall:                                    ; Offset_0x017E34
 ;===============================================================================
-; Object 0x20 - Bolas de fogo usadas pelo Robotnik na Hill Top
+; Object 0x20 - Fireballs used by Robotnik in Hill Top
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x017E34:
@@ -28869,7 +28797,7 @@ Offset_0x01810E:
                 dc.w    $0001
                 dc.l    $00050810, $0808FFF8
 ;===============================================================================
-; Object 0x20 - Bolas de fogo usadas pelo Robotnik na Hill Top
+; Object 0x20 - Fireballs used by Robotnik in Hill Top
 ; <<<- 
 ;===============================================================================		
 ;-------------------------------------------------------------------------------
@@ -28888,7 +28816,7 @@ Jmp_03_To_SpeedToPos:                                          ; Offset_0x018136
 ;-------------------------------------------------------------------------------
 Obj2F_Breakable_Floor:                                      ; Offset_0x01813C
 ;===============================================================================
-; Object 0x2F - Obstáculo quebravél no chão na Hill Top
+; Object 0x2F - Breakable floor in Hill Top
 ; ->>> 
 ;===============================================================================
 ; Offset_0x01813C:
@@ -29045,12 +28973,12 @@ Offset_0x018322:
                 dc.w    $FF40, $FA00, $00C0, $FA00, $FF60, $FB00, $00A0, $FB00
                 dc.w    $FF80, $FC00, $0080, $FC00
 ;===============================================================================
-; Object 0x2F - Obstáculo quebravél no chão na Hill Top
+; Object 0x2F - Breakable floor in Hill Top
 ; <<<- 
 ;===============================================================================
 Obj32_Breakable_Obstacle:                                   ; Offset_0x01834A
 ;===============================================================================
-; Object 0x32 - Pedra na Hill Top / Obstáculo nos tuneis da Chemical Plant
+; Object 0x32 - Hill Top rock / Obstacle in the Chemical Plant Tunnels
 ; ->>>
 ;===============================================================================
 ; Offset_0x01834A:
@@ -29194,7 +29122,7 @@ Break_Obstacle_Points:                                         ; Offset_0x018522
                 dc.w    $0032   ;  500
                 dc.w    $0064   ; 1000      
 ;===============================================================================
-; Object 0x32 - Pedra na Hill Top / Obstáculo nos tuneis da Chemical Plant
+; Object 0x32 - Hill Top rock / Obstacle in the Chemical Plant Tunnels
 ; <<<-
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -29202,24 +29130,10 @@ Breakable_Floor_Mappings:                                      ; Offset_0x01852A
 		include 'mappings/sprite/obj2F.asm'
 ;-------------------------------------------------------------------------------
 HTz_Rock_Mappings:                                             ; Offset_0x018682
-		dc.w    Offset_0x018684-HTz_Rock_Mappings
-Offset_0x018684:
-		dc.w    $0006
-		dc.l    $F0050000, $0000FFE8
-		dc.l    $F0050004, $0002FFF8
-		dc.l    $F0050008, $00040008
-		dc.l    $0005000C, $0006FFE8
-		dc.l    $00050010, $0008FFF8
-		dc.l    $00050010, $00080008
+		include 'mappings/sprite/obj32_htz.asm'
 ;-------------------------------------------------------------------------------
 CPz_Tunel_Obstacle_Mappings:                                   ; Offset_0x0186B6
-		dc.w    Offset_0x0186B8-CPz_Tunel_Obstacle_Mappings
-Offset_0x0186B8:
-		dc.w    $0004
-		dc.l    $F0050000, $0000FFF0
-		dc.l    $F0050800, $08000000
-		dc.l    $00050000, $0000FFF0
-		dc.l    $00050800, $08000000
+		include 'mappings/sprite/obj32_cpz.asm'
 ;-------------------------------------------------------------------------------
 		nop
 Jmp_04_To_DisplaySprite:                                       ; Offset_0x0186DC
@@ -40425,7 +40339,7 @@ Jmp_12_To_SpeedToPos:                                          ; Offset_0x021B10
 ;-------------------------------------------------------------------------------
 Obj5A:                                                      ; Offset_0x021B18
 ;===============================================================================
-; Object 0x5A 
+; Object 0x5A - Crawl (shield badnik) from CNZ (Unused)
 ; ->>> 
 ;===============================================================================   
 ; Offset_0x021B18:
@@ -40442,7 +40356,7 @@ Offset_0x021B26:
 Offset_0x021B2C:
                 subi.b  #$01, Obj_Subtype(A0)                            ; $0028
                 bpl     Offset_0x021BD2
-                move.l  #Offset_0x021CA4, Obj_Map(A0)                    ; $0004
+                move.l  #Crawl_Mappings, Obj_Map(A0)                     ; $0004
                 move.w  #$03C4, Obj_Art_VRAM(A0)                         ; $0002
                 ori.b   #$04, Obj_Flags(A0)                              ; $0001
                 move.b  #$04, Obj_Priority(A0)                           ; $0018
@@ -40454,7 +40368,7 @@ Offset_0x021B2C:
                 bne.s   Offset_0x021BD2
                 move.b  #$5A, Obj_Id(A1)                                 ; $0000
                 move.b  #$04, Obj_Routine(A1)                            ; $0024
-                move.l  #Offset_0x021CA4, Obj_Map(A1)                    ; $0004
+                move.l  #Crawl_Mappings, Obj_Map(A1)                     ; $0004
                 move.w  #$03C4, Obj_Art_VRAM(A1)                         ; $0002
                 move.b  #$04, Obj_Priority(A1)                           ; $0018
                 move.b  #$0A, Obj_Col_Flags(A0)                          ; $0020
@@ -40547,62 +40461,11 @@ Offset_0x021C9D:
 Offset_0x021CA0:
                 dc.b    $0F, $08, $FF, $00       
 ;-------------------------------------------------------------------------------  
-Offset_0x021CA4:
-                dc.w    Offset_0x021CB6-Offset_0x021CA4
-                dc.w    Offset_0x021CC0-Offset_0x021CA4
-                dc.w    Offset_0x021CCA-Offset_0x021CA4
-                dc.w    Offset_0x021CE4-Offset_0x021CA4
-                dc.w    Offset_0x021CFE-Offset_0x021CA4
-                dc.w    Offset_0x021D08-Offset_0x021CA4
-                dc.w    Offset_0x021D22-Offset_0x021CA4
-                dc.w    Offset_0x021D4C-Offset_0x021CA4
-                dc.w    Offset_0x021D86-Offset_0x021CA4
-Offset_0x021CB6:
-                dc.w    $0001
-                dc.l    $F8010000, $0000FFFC
-Offset_0x021CC0:
-                dc.w    $0001
-                dc.l    $F8050002, $0001FFF8
-Offset_0x021CCA:
-                dc.w    $0003
-                dc.l    $F8050002, $0001FFF4
-                dc.l    $F8050002, $0001FFFC
-                dc.l    $F5010000, $0000FFFC
-Offset_0x021CE4:
-                dc.w    $0003
-                dc.l    $F8050002, $0001FFF0
-                dc.l    $F8050002, $00010000
-                dc.l    $F7050002, $0001FFF8
-Offset_0x021CFE:
-                dc.w    $0001
-                dc.l    $08040006, $0003FFFC
-Offset_0x021D08:
-                dc.w    $0003
-                dc.l    $00040006, $0003FFFC
-                dc.l    $080C0008, $0004FFEC
-                dc.l    $0800000C, $0006000C
-Offset_0x021D22:
-                dc.w    $0005
-                dc.l    $F8040006, $0003FFFC
-                dc.l    $000C0008, $0004FFEC
-                dc.l    $0000000C, $0006000C
-                dc.l    $080C000D, $0006FFEC
-                dc.l    $08000011, $0008000C
-Offset_0x021D4C:
-                dc.w    $0007
-                dc.l    $F0040006, $0003FFFC
-                dc.l    $F80C0008, $0004FFEC
-                dc.l    $F800000C, $0006000C
-                dc.l    $000C000D, $0006FFEC
-                dc.l    $00000011, $0008000C
-                dc.l    $080C0012, $0009FFEC
-                dc.l    $08000016, $000B000C
-Offset_0x021D86:
-                dc.w    $0002
-                dc.l    $F00F0017, $000BFFEC
-                dc.l    $F8020027, $0013000C
+;Offset_0x021CA4:
+Crawl_Mappings:
+                include 'mappings/sprite/obj5A.asm'
 ;===============================================================================
-; Object 0x5A
+; Object 0x5A - Crawl (shield badnik) from CNZ (Unused)
 ; <<<- 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -40616,7 +40479,7 @@ Jmp_0E_To_AnimateSprite:                                       ; Offset_0x021DA4
 ;-------------------------------------------------------------------------------
 Obj50_Aquis:                                                ; Offset_0x021DAC
 ;===============================================================================
-; Object 0x50 - Imimigo cavalo marinho (Aquis) na Oil Ocean
+; Object 0x50 - Seahorse Badnik (Aquis) in Oil Ocean
 ; ->>>
 ;===============================================================================
 ; Offset_0x021DAC:
@@ -40990,82 +40853,9 @@ Offset_0x022273:
                 dc.b    $00     
 ;-------------------------------------------------------------------------------  
 Aquis_Mappings:                                                ; Offset_0x02227C
-                dc.w    Offset_0x022296-Aquis_Mappings
-                dc.w    Offset_0x0222B0-Aquis_Mappings
-                dc.w    Offset_0x0222BA-Aquis_Mappings
-                dc.w    Offset_0x0222C4-Aquis_Mappings
-                dc.w    Offset_0x0222E6-Aquis_Mappings
-                dc.w    Offset_0x022308-Aquis_Mappings
-                dc.w    Offset_0x022312-Aquis_Mappings
-                dc.w    Offset_0x02231C-Aquis_Mappings
-                dc.w    Offset_0x022326-Aquis_Mappings
-                dc.w    Offset_0x022330-Aquis_Mappings
-                dc.w    Offset_0x022352-Aquis_Mappings
-                dc.w    Offset_0x022374-Aquis_Mappings
-                dc.w    Offset_0x02239E-Aquis_Mappings
-Offset_0x022296:
-                dc.w    $0003
-                dc.l    $E80D0000, $0000FFF0
-                dc.l    $F8090016, $000BFFF8
-                dc.l    $08050024, $0012FFF8
-Offset_0x0222B0:
-                dc.w    $0001
-                dc.l    $F8050028, $0014FFF8
-Offset_0x0222BA:
-                dc.w    $0001
-                dc.l    $F805002C, $0016FFF8
-Offset_0x0222C4:
-                dc.w    $0004
-                dc.l    $E8090008, $0004FFF0
-                dc.l    $E801000E, $00070008
-                dc.l    $F8090016, $000BFFF8
-                dc.l    $08050024, $0012FFF8
-Offset_0x0222E6:
-                dc.w    $0004
-                dc.l    $E8090010, $0008FFF0
-                dc.l    $E801000E, $00070008
-                dc.l    $F8090016, $000BFFF8
-                dc.l    $08050024, $0012FFF8
-Offset_0x022308:
-                dc.w    $0001
-                dc.l    $F8010030, $0018FFFC
-Offset_0x022312:
-                dc.w    $0001
-                dc.l    $F8010032, $0019FFFC
-Offset_0x02231C:
-                dc.w    $0001
-                dc.l    $F8010034, $001AFFFC
-Offset_0x022326:
-                dc.w    $0001
-                dc.l    $F80D0036, $001BFFF0
-Offset_0x022330:
-                dc.w    $0004
-                dc.l    $E80D0000, $0000FFF0
-                dc.l    $F805001C, $000EFFF8
-                dc.l    $F8010020, $00100008
-                dc.l    $08050024, $0012FFF8
-Offset_0x022352:
-                dc.w    $0004
-                dc.l    $E80D0000, $0000FFF0
-                dc.l    $F805001C, $000EFFF8
-                dc.l    $F8010022, $00110008
-                dc.l    $08050024, $0012FFF8
-Offset_0x022374:
-                dc.w    $0005
-                dc.l    $E8090008, $0004FFF0
-                dc.l    $E801000E, $00070008
-                dc.l    $F805001C, $000EFFF8
-                dc.l    $F8010020, $00100008
-                dc.l    $08050024, $0012FFF8
-Offset_0x02239E:
-                dc.w    $0005
-                dc.l    $E8090010, $0008FFF0
-                dc.l    $E801000E, $00070008
-                dc.l    $F805001C, $000EFFF8
-                dc.l    $F8010022, $00110008
-                dc.l    $08050024, $0012FFF8
+                include 'mappings/sprite/obj50.asm'
 ;===============================================================================
-; Object 0x50 - Imimigo cavalo marinho (Aquis) na Oil Ocean
+; Object 0x50 - Seahorse Badnik (Aquis) in Oil Ocean
 ; <<<-
 ;===============================================================================
 Previus_Build_Obj51_Aquis: ; Object 0x51 in Sonic 2 Beta    ; Offset_0x0223C8
@@ -43374,7 +43164,7 @@ Jmp_17_To_SpeedToPos:                                          ; Offset_0x02438E
 ;-------------------------------------------------------------------------------
 Obj5D:                                                      ; Offset_0x024394
 ;===============================================================================
-; Object 0x5D - ???
+; Object 0x5D - CPZ Boss (Unused)
 ; ->>> 
 ;===============================================================================
 ; Offset_0x024394:
@@ -44563,7 +44353,7 @@ Offset_0x0257F0:
                 dc.l    $40002084, $20420000
                 dc.l    $48002084, $20420000
 ;===============================================================================
-; Object 0x5D - ???
+; Object 0x5D - CPZ Boss (Unused)
 ; <<<- 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -49654,15 +49444,7 @@ Obj9E_Ptr:                                                  ; Offset_0x02958E
                 dc.b    $04, $04, $80, $0B
 ;------------------------------------------------------------------------------- 
 Crawlton_Mappings:                                             ; Offset_0x029598
-                dc.w    Offset_0x02959E-Crawlton_Mappings
-                dc.w    Offset_0x02959E-Crawlton_Mappings
-                dc.w    Offset_0x0295A8-Crawlton_Mappings
-Offset_0x02959E:
-                dc.w    $0001
-                dc.l    $F8090000, $0000FFF0
-Offset_0x0295A8:
-                dc.w    $0001
-                dc.l    $F8050006, $0003FFF8                   
+                include 'mappings/sprite/obj9E.asm'                   
 ;===============================================================================
 ; Object 0x9E - Inimigo Crawlton na Dust Hill
 ; <<<-
@@ -49941,41 +49723,7 @@ Offset_0x029860:
                 dc.b    $0E, $00, $02, $01, $FF, $00   
 ;-------------------------------------------------------------------------------
 Shellcracker_Mappings:                                         ; Offset_0x029866
-                dc.w    Offset_0x029872-Shellcracker_Mappings
-                dc.w    Offset_0x029894-Shellcracker_Mappings
-                dc.w    Offset_0x0298B6-Shellcracker_Mappings
-                dc.w    Offset_0x0298D8-Shellcracker_Mappings
-                dc.w    Offset_0x0298F2-Shellcracker_Mappings
-                dc.w    Offset_0x0298FC-Shellcracker_Mappings
-Offset_0x029872:
-                dc.w    $0004
-                dc.l    $EC0A0018, $000CFFE0
-                dc.l    $F8040021, $00100008
-                dc.l    $F40A0000, $0000FFE8
-                dc.l    $F40A0800, $08000000
-Offset_0x029894:
-                dc.w    $0004
-                dc.l    $EC0A0018, $000CFFE0
-                dc.l    $F8040021, $00100008
-                dc.l    $F4060812, $0809FFF0
-                dc.l    $F40A0809, $08040000
-Offset_0x0298B6:
-                dc.w    $0004
-                dc.l    $EC0A0018, $000CFFE0
-                dc.l    $F8040021, $00100008
-                dc.l    $F40A0009, $0004FFE8
-                dc.l    $F4060012, $00090000
-Offset_0x0298D8:
-                dc.w    $0003
-                dc.l    $F8040021, $00100008
-                dc.l    $F40A0000, $0000FFE8
-                dc.l    $F40A0800, $08000000
-Offset_0x0298F2:
-                dc.w    $0001
-                dc.l    $FC000023, $0011FFFC
-Offset_0x0298FC:
-                dc.w    $0001
-                dc.l    $F40A0018, $000CFFF4   
+                include 'mappings/sprite/obj9F.asm' 
 ;===============================================================================
 ; Object 0xA0 - Sub-ojeto do Object 0x9F - Inimigo Sheelcracker na Metropolis.
 ; <<<-          Concha do inimigo.
@@ -56687,7 +56435,7 @@ Sfx_E8:                                                        ; Offset_0x0FFD84
 		include 'sound/sfx/E8 - Quick Door Slam.asm'
 Sfx_E9:                                                        ; Offset_0x0FFDAE
 		include 'sound/sfx/E9 - Drawbridge Down.asm'
-                even
+		even
 ;===============================================================================
 ; Sound driver stuff
 ; <<<-
