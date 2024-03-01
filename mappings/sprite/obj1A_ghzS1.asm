@@ -1,8 +1,8 @@
-                dc.w    Offset_0x009994-Collapsing_Platforms_Mappings
-		dc.w    Offset_0x009A16-Collapsing_Platforms_Mappings
-		dc.w    Offset_0x009A98-Collapsing_Platforms_Mappings
-		dc.w    Offset_0x009B62-Collapsing_Platforms_Mappings
-Offset_0x009994:
+                dc.w    loc_9994-Collapsing_Platforms_Mappings
+		dc.w    loc_9A16-Collapsing_Platforms_Mappings
+		dc.w    loc_9A98-Collapsing_Platforms_Mappings
+		dc.w    loc_9B62-Collapsing_Platforms_Mappings
+loc_9994:
 		dc.w    $0010
 		dc.l    $C80E0057, $002B0010
 		dc.l    $D00D0063, $0031FFF0
@@ -20,7 +20,7 @@ Offset_0x009994:
 		dc.l    $000500B3, $0059FFD0
 		dc.l    $100D00AB, $00550010
 		dc.l    $100500B7, $005B0000
-Offset_0x009A16:
+loc_9A16:
 		dc.w    $0010
 		dc.l    $C80E0057, $002B0010
 		dc.l    $D00D0063, $0031FFF0
@@ -38,7 +38,7 @@ Offset_0x009A16:
 		dc.l    $000500B7, $005BFFD0
 		dc.l    $100D00AB, $00550010
 		dc.l    $100500B7, $005B0000
-Offset_0x009A98:
+loc_9A98:
 		dc.w    $0019
 		dc.l    $C806005D, $002E0020
 		dc.l    $C8060057, $002B0010
@@ -65,7 +65,7 @@ Offset_0x009A98:
 		dc.l    $100500AB, $00550020
 		dc.l    $100500AB, $00550010
 		dc.l    $100500B7, $005B0000
-Offset_0x009B62:
+loc_9B62:
 		dc.w    $0019
 		dc.l    $C806005D, $002E0020
 		dc.l    $C8060057, $002B0010

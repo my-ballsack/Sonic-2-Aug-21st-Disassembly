@@ -1,850 +1,850 @@
-Sonic_PLC:                                               ; Offset_0x0714E0
-                dc.w    Offset_0x07168C-Sonic_PLC
-                dc.w    Offset_0x07168E-Sonic_PLC
-                dc.w    Offset_0x071698-Sonic_PLC
-                dc.w    Offset_0x07169E-Sonic_PLC
-                dc.w    Offset_0x0716A8-Sonic_PLC
-                dc.w    Offset_0x0716B2-Sonic_PLC
-                dc.w    Offset_0x0716BE-Sonic_PLC
-                dc.w    Offset_0x0716C6-Sonic_PLC
-                dc.w    Offset_0x0716CC-Sonic_PLC
-                dc.w    Offset_0x0716D2-Sonic_PLC
-                dc.w    Offset_0x0716D8-Sonic_PLC
-                dc.w    Offset_0x0716DE-Sonic_PLC
-                dc.w    Offset_0x0716E8-Sonic_PLC
-                dc.w    Offset_0x0716F2-Sonic_PLC
-                dc.w    Offset_0x0716FA-Sonic_PLC
-                dc.w    Offset_0x071704-Sonic_PLC
-                dc.w    Offset_0x07170C-Sonic_PLC
-                dc.w    Offset_0x071712-Sonic_PLC
-                dc.w    Offset_0x07171A-Sonic_PLC
-                dc.w    Offset_0x071724-Sonic_PLC
-                dc.w    Offset_0x07172C-Sonic_PLC
-                dc.w    Offset_0x071732-Sonic_PLC
-                dc.w    Offset_0x07173C-Sonic_PLC
-                dc.w    Offset_0x071748-Sonic_PLC
-                dc.w    Offset_0x071752-Sonic_PLC
-                dc.w    Offset_0x07175C-Sonic_PLC
-                dc.w    Offset_0x071768-Sonic_PLC
-                dc.w    Offset_0x071774-Sonic_PLC
-                dc.w    Offset_0x07177E-Sonic_PLC
-                dc.w    Offset_0x07178A-Sonic_PLC
-                dc.w    Offset_0x071792-Sonic_PLC
-                dc.w    Offset_0x07179A-Sonic_PLC
-                dc.w    Offset_0x0717A2-Sonic_PLC
-                dc.w    Offset_0x0717A8-Sonic_PLC
-                dc.w    Offset_0x0717B0-Sonic_PLC
-                dc.w    Offset_0x0717B8-Sonic_PLC
-                dc.w    Offset_0x0717C0-Sonic_PLC
-                dc.w    Offset_0x0717C6-Sonic_PLC
-                dc.w    Offset_0x0717D0-Sonic_PLC
-                dc.w    Offset_0x0717DC-Sonic_PLC
-                dc.w    Offset_0x0717E6-Sonic_PLC
-                dc.w    Offset_0x0717F0-Sonic_PLC
-                dc.w    Offset_0x0717FA-Sonic_PLC
-                dc.w    Offset_0x071806-Sonic_PLC
-                dc.w    Offset_0x071810-Sonic_PLC
-                dc.w    Offset_0x07181A-Sonic_PLC
-                dc.w    Offset_0x071820-Sonic_PLC
-                dc.w    Offset_0x071826-Sonic_PLC
-                dc.w    Offset_0x07182C-Sonic_PLC
-                dc.w    Offset_0x071832-Sonic_PLC
-                dc.w    Offset_0x07183C-Sonic_PLC
-                dc.w    Offset_0x071844-Sonic_PLC
-                dc.w    Offset_0x07184E-Sonic_PLC
-                dc.w    Offset_0x071856-Sonic_PLC
-                dc.w    Offset_0x07185C-Sonic_PLC
-                dc.w    Offset_0x071862-Sonic_PLC
-                dc.w    Offset_0x071868-Sonic_PLC
-                dc.w    Offset_0x07186E-Sonic_PLC
-                dc.w    Offset_0x071876-Sonic_PLC
-                dc.w    Offset_0x07187C-Sonic_PLC
-                dc.w    Offset_0x071884-Sonic_PLC
-                dc.w    Offset_0x07188A-Sonic_PLC
-                dc.w    Offset_0x07188E-Sonic_PLC
-                dc.w    Offset_0x071892-Sonic_PLC
-                dc.w    Offset_0x071896-Sonic_PLC
-                dc.w    Offset_0x07189A-Sonic_PLC
-                dc.w    Offset_0x07189E-Sonic_PLC
-                dc.w    Offset_0x0718A2-Sonic_PLC
-                dc.w    Offset_0x0718A6-Sonic_PLC
-                dc.w    Offset_0x0718AA-Sonic_PLC
-                dc.w    Offset_0x0718AE-Sonic_PLC
-                dc.w    Offset_0x0718B2-Sonic_PLC
-                dc.w    Offset_0x0718B6-Sonic_PLC
-                dc.w    Offset_0x0718BE-Sonic_PLC
-                dc.w    Offset_0x0718C6-Sonic_PLC
-                dc.w    Offset_0x0718CE-Sonic_PLC
-                dc.w    Offset_0x0718D6-Sonic_PLC
-                dc.w    Offset_0x0718DA-Sonic_PLC
-                dc.w    Offset_0x0718DE-Sonic_PLC
-                dc.w    Offset_0x0718E4-Sonic_PLC
-                dc.w    Offset_0x0718EA-Sonic_PLC
-                dc.w    Offset_0x0718F2-Sonic_PLC
-                dc.w    Offset_0x0718FA-Sonic_PLC
-                dc.w    Offset_0x071900-Sonic_PLC
-                dc.w    Offset_0x071906-Sonic_PLC
-                dc.w    Offset_0x07190E-Sonic_PLC
-                dc.w    Offset_0x071906-Sonic_PLC
-                dc.w    Offset_0x071914-Sonic_PLC
-                dc.w    Offset_0x071914-Sonic_PLC
-                dc.w    Offset_0x07191C-Sonic_PLC
-                dc.w    Offset_0x071924-Sonic_PLC
-                dc.w    Offset_0x07192C-Sonic_PLC
-                dc.w    Offset_0x071932-Sonic_PLC
-                dc.w    Offset_0x07193C-Sonic_PLC
-                dc.w    Offset_0x071946-Sonic_PLC
-                dc.w    Offset_0x07194E-Sonic_PLC
-                dc.w    Offset_0x071956-Sonic_PLC
-                dc.w    Offset_0x07195E-Sonic_PLC
-                dc.w    Offset_0x071964-Sonic_PLC
-                dc.w    Offset_0x071968-Sonic_PLC
-                dc.w    Offset_0x07196E-Sonic_PLC
-                dc.w    Offset_0x071976-Sonic_PLC
-                dc.w    Offset_0x07197E-Sonic_PLC
-                dc.w    Offset_0x071986-Sonic_PLC
-                dc.w    Offset_0x07198C-Sonic_PLC
-                dc.w    Offset_0x071992-Sonic_PLC
-                dc.w    Offset_0x07199A-Sonic_PLC
-                dc.w    Offset_0x0719A0-Sonic_PLC
-                dc.w    Offset_0x0719A8-Sonic_PLC
-                dc.w    Offset_0x0719B0-Sonic_PLC
-                dc.w    Offset_0x0719B4-Sonic_PLC
-                dc.w    Offset_0x0719BC-Sonic_PLC
-                dc.w    Offset_0x0719C4-Sonic_PLC
-                dc.w    Offset_0x0719D0-Sonic_PLC
-                dc.w    Offset_0x0719DC-Sonic_PLC
-                dc.w    Offset_0x0719E2-Sonic_PLC
-                dc.w    Offset_0x0719E8-Sonic_PLC
-                dc.w    Offset_0x0719EE-Sonic_PLC
-                dc.w    Offset_0x0719F6-Sonic_PLC
-                dc.w    Offset_0x071A00-Sonic_PLC
-                dc.w    Offset_0x071A08-Sonic_PLC
-                dc.w    Offset_0x071A0E-Sonic_PLC
-                dc.w    Offset_0x071A16-Sonic_PLC
-                dc.w    Offset_0x071A20-Sonic_PLC
-                dc.w    Offset_0x071A28-Sonic_PLC
-                dc.w    Offset_0x071A2E-Sonic_PLC
-                dc.w    Offset_0x071A38-Sonic_PLC
-                dc.w    Offset_0x071A44-Sonic_PLC
-                dc.w    Offset_0x071A50-Sonic_PLC
-                dc.w    Offset_0x071A5C-Sonic_PLC
-                dc.w    Offset_0x071A6A-Sonic_PLC
-                dc.w    Offset_0x071A78-Sonic_PLC
-                dc.w    Offset_0x071A84-Sonic_PLC
-                dc.w    Offset_0x071A90-Sonic_PLC
-                dc.w    Offset_0x071A98-Sonic_PLC
-                dc.w    Offset_0x071AA0-Sonic_PLC
-                dc.w    Offset_0x071AA8-Sonic_PLC
-                dc.w    Offset_0x071AAE-Sonic_PLC
-                dc.w    Offset_0x071AB6-Sonic_PLC
-                dc.w    Offset_0x071ABE-Sonic_PLC
-                dc.w    Offset_0x071AC6-Sonic_PLC
-                dc.w    Offset_0x071ACC-Sonic_PLC
-                dc.w    Offset_0x071AD6-Sonic_PLC
-                dc.w    Offset_0x071AE2-Sonic_PLC
-                dc.w    Offset_0x071AEC-Sonic_PLC
-                dc.w    Offset_0x071AF6-Sonic_PLC
-                dc.w    Offset_0x071B00-Sonic_PLC
-                dc.w    Offset_0x071B0C-Sonic_PLC
-                dc.w    Offset_0x071B16-Sonic_PLC
-                dc.w    Offset_0x071B20-Sonic_PLC
-                dc.w    Offset_0x071B28-Sonic_PLC
-                dc.w    Offset_0x071B32-Sonic_PLC
-                dc.w    Offset_0x071B3A-Sonic_PLC
-                dc.w    Offset_0x071B40-Sonic_PLC
-                dc.w    Offset_0x071B48-Sonic_PLC
-                dc.w    Offset_0x071B52-Sonic_PLC
-                dc.w    Offset_0x071B5A-Sonic_PLC
-                dc.w    Offset_0x071B60-Sonic_PLC
-                dc.w    Offset_0x071B6C-Sonic_PLC
-                dc.w    Offset_0x071B7A-Sonic_PLC
-                dc.w    Offset_0x071B86-Sonic_PLC
-                dc.w    Offset_0x071B92-Sonic_PLC
-                dc.w    Offset_0x071BA0-Sonic_PLC
-                dc.w    Offset_0x071BAE-Sonic_PLC
-                dc.w    Offset_0x071BBA-Sonic_PLC
-                dc.w    Offset_0x071BC8-Sonic_PLC
-                dc.w    Offset_0x071BD0-Sonic_PLC
-                dc.w    Offset_0x071BD8-Sonic_PLC
-                dc.w    Offset_0x071BE0-Sonic_PLC
-                dc.w    Offset_0x071BE6-Sonic_PLC
-                dc.w    Offset_0x071BEE-Sonic_PLC
-                dc.w    Offset_0x071BF6-Sonic_PLC
-                dc.w    Offset_0x071BFE-Sonic_PLC
-                dc.w    Offset_0x071C04-Sonic_PLC
-                dc.w    Offset_0x071C0E-Sonic_PLC
-                dc.w    Offset_0x071C1A-Sonic_PLC
-                dc.w    Offset_0x071C26-Sonic_PLC
-                dc.w    Offset_0x071C30-Sonic_PLC
-                dc.w    Offset_0x071C3A-Sonic_PLC
-                dc.w    Offset_0x071C46-Sonic_PLC
-                dc.w    Offset_0x071C52-Sonic_PLC
-                dc.w    Offset_0x071C5E-Sonic_PLC
-                dc.w    Offset_0x071C68-Sonic_PLC
-                dc.w    Offset_0x071C72-Sonic_PLC
-                dc.w    Offset_0x071C7C-Sonic_PLC
-                dc.w    Offset_0x071C88-Sonic_PLC
-                dc.w    Offset_0x071C92-Sonic_PLC
-                dc.w    Offset_0x071C9C-Sonic_PLC
-                dc.w    Offset_0x071CA6-Sonic_PLC
-                dc.w    Offset_0x071CB2-Sonic_PLC
-                dc.w    Offset_0x071CBC-Sonic_PLC
-                dc.w    Offset_0x071CC6-Sonic_PLC
-                dc.w    Offset_0x071CD0-Sonic_PLC
-                dc.w    Offset_0x071CDA-Sonic_PLC
-                dc.w    Offset_0x071CE0-Sonic_PLC
-                dc.w    Offset_0x071CE8-Sonic_PLC
-                dc.w    Offset_0x071CF0-Sonic_PLC
-                dc.w    Offset_0x071CF8-Sonic_PLC
-                dc.w    Offset_0x071D00-Sonic_PLC
-                dc.w    Offset_0x071D08-Sonic_PLC
-                dc.w    Offset_0x071D10-Sonic_PLC
-                dc.w    Offset_0x071D18-Sonic_PLC
-                dc.w    Offset_0x071D20-Sonic_PLC
-                dc.w    Offset_0x071D28-Sonic_PLC
-                dc.w    Offset_0x071D34-Sonic_PLC
-                dc.w    Offset_0x071D3E-Sonic_PLC
-                dc.w    Offset_0x071D48-Sonic_PLC
-                dc.w    Offset_0x071D52-Sonic_PLC
-                dc.w    Offset_0x071D5A-Sonic_PLC
-                dc.w    Offset_0x071D62-Sonic_PLC
-                dc.w    Offset_0x071D6A-Sonic_PLC
-                dc.w    Offset_0x071D74-Sonic_PLC
-                dc.w    Offset_0x071D7E-Sonic_PLC
-                dc.w    Offset_0x071D88-Sonic_PLC
-Offset_0x07168C:
+Sonic_PLC:                                               ; loc_714E0
+                dc.w    loc_7168C-Sonic_PLC
+                dc.w    loc_7168E-Sonic_PLC
+                dc.w    loc_71698-Sonic_PLC
+                dc.w    loc_7169E-Sonic_PLC
+                dc.w    loc_716A8-Sonic_PLC
+                dc.w    loc_716B2-Sonic_PLC
+                dc.w    loc_716BE-Sonic_PLC
+                dc.w    loc_716C6-Sonic_PLC
+                dc.w    loc_716CC-Sonic_PLC
+                dc.w    loc_716D2-Sonic_PLC
+                dc.w    loc_716D8-Sonic_PLC
+                dc.w    loc_716DE-Sonic_PLC
+                dc.w    loc_716E8-Sonic_PLC
+                dc.w    loc_716F2-Sonic_PLC
+                dc.w    loc_716FA-Sonic_PLC
+                dc.w    loc_71704-Sonic_PLC
+                dc.w    loc_7170C-Sonic_PLC
+                dc.w    loc_71712-Sonic_PLC
+                dc.w    loc_7171A-Sonic_PLC
+                dc.w    loc_71724-Sonic_PLC
+                dc.w    loc_7172C-Sonic_PLC
+                dc.w    loc_71732-Sonic_PLC
+                dc.w    loc_7173C-Sonic_PLC
+                dc.w    loc_71748-Sonic_PLC
+                dc.w    loc_71752-Sonic_PLC
+                dc.w    loc_7175C-Sonic_PLC
+                dc.w    loc_71768-Sonic_PLC
+                dc.w    loc_71774-Sonic_PLC
+                dc.w    loc_7177E-Sonic_PLC
+                dc.w    loc_7178A-Sonic_PLC
+                dc.w    loc_71792-Sonic_PLC
+                dc.w    loc_7179A-Sonic_PLC
+                dc.w    loc_717A2-Sonic_PLC
+                dc.w    loc_717A8-Sonic_PLC
+                dc.w    loc_717B0-Sonic_PLC
+                dc.w    loc_717B8-Sonic_PLC
+                dc.w    loc_717C0-Sonic_PLC
+                dc.w    loc_717C6-Sonic_PLC
+                dc.w    loc_717D0-Sonic_PLC
+                dc.w    loc_717DC-Sonic_PLC
+                dc.w    loc_717E6-Sonic_PLC
+                dc.w    loc_717F0-Sonic_PLC
+                dc.w    loc_717FA-Sonic_PLC
+                dc.w    loc_71806-Sonic_PLC
+                dc.w    loc_71810-Sonic_PLC
+                dc.w    loc_7181A-Sonic_PLC
+                dc.w    loc_71820-Sonic_PLC
+                dc.w    loc_71826-Sonic_PLC
+                dc.w    loc_7182C-Sonic_PLC
+                dc.w    loc_71832-Sonic_PLC
+                dc.w    loc_7183C-Sonic_PLC
+                dc.w    loc_71844-Sonic_PLC
+                dc.w    loc_7184E-Sonic_PLC
+                dc.w    loc_71856-Sonic_PLC
+                dc.w    loc_7185C-Sonic_PLC
+                dc.w    loc_71862-Sonic_PLC
+                dc.w    loc_71868-Sonic_PLC
+                dc.w    loc_7186E-Sonic_PLC
+                dc.w    loc_71876-Sonic_PLC
+                dc.w    loc_7187C-Sonic_PLC
+                dc.w    loc_71884-Sonic_PLC
+                dc.w    loc_7188A-Sonic_PLC
+                dc.w    loc_7188E-Sonic_PLC
+                dc.w    loc_71892-Sonic_PLC
+                dc.w    loc_71896-Sonic_PLC
+                dc.w    loc_7189A-Sonic_PLC
+                dc.w    loc_7189E-Sonic_PLC
+                dc.w    loc_718A2-Sonic_PLC
+                dc.w    loc_718A6-Sonic_PLC
+                dc.w    loc_718AA-Sonic_PLC
+                dc.w    loc_718AE-Sonic_PLC
+                dc.w    loc_718B2-Sonic_PLC
+                dc.w    loc_718B6-Sonic_PLC
+                dc.w    loc_718BE-Sonic_PLC
+                dc.w    loc_718C6-Sonic_PLC
+                dc.w    loc_718CE-Sonic_PLC
+                dc.w    loc_718D6-Sonic_PLC
+                dc.w    loc_718DA-Sonic_PLC
+                dc.w    loc_718DE-Sonic_PLC
+                dc.w    loc_718E4-Sonic_PLC
+                dc.w    loc_718EA-Sonic_PLC
+                dc.w    loc_718F2-Sonic_PLC
+                dc.w    loc_718FA-Sonic_PLC
+                dc.w    loc_71900-Sonic_PLC
+                dc.w    loc_71906-Sonic_PLC
+                dc.w    loc_7190E-Sonic_PLC
+                dc.w    loc_71906-Sonic_PLC
+                dc.w    loc_71914-Sonic_PLC
+                dc.w    loc_71914-Sonic_PLC
+                dc.w    loc_7191C-Sonic_PLC
+                dc.w    loc_71924-Sonic_PLC
+                dc.w    loc_7192C-Sonic_PLC
+                dc.w    loc_71932-Sonic_PLC
+                dc.w    loc_7193C-Sonic_PLC
+                dc.w    loc_71946-Sonic_PLC
+                dc.w    loc_7194E-Sonic_PLC
+                dc.w    loc_71956-Sonic_PLC
+                dc.w    loc_7195E-Sonic_PLC
+                dc.w    loc_71964-Sonic_PLC
+                dc.w    loc_71968-Sonic_PLC
+                dc.w    loc_7196E-Sonic_PLC
+                dc.w    loc_71976-Sonic_PLC
+                dc.w    loc_7197E-Sonic_PLC
+                dc.w    loc_71986-Sonic_PLC
+                dc.w    loc_7198C-Sonic_PLC
+                dc.w    loc_71992-Sonic_PLC
+                dc.w    loc_7199A-Sonic_PLC
+                dc.w    loc_719A0-Sonic_PLC
+                dc.w    loc_719A8-Sonic_PLC
+                dc.w    loc_719B0-Sonic_PLC
+                dc.w    loc_719B4-Sonic_PLC
+                dc.w    loc_719BC-Sonic_PLC
+                dc.w    loc_719C4-Sonic_PLC
+                dc.w    loc_719D0-Sonic_PLC
+                dc.w    loc_719DC-Sonic_PLC
+                dc.w    loc_719E2-Sonic_PLC
+                dc.w    loc_719E8-Sonic_PLC
+                dc.w    loc_719EE-Sonic_PLC
+                dc.w    loc_719F6-Sonic_PLC
+                dc.w    loc_71A00-Sonic_PLC
+                dc.w    loc_71A08-Sonic_PLC
+                dc.w    loc_71A0E-Sonic_PLC
+                dc.w    loc_71A16-Sonic_PLC
+                dc.w    loc_71A20-Sonic_PLC
+                dc.w    loc_71A28-Sonic_PLC
+                dc.w    loc_71A2E-Sonic_PLC
+                dc.w    loc_71A38-Sonic_PLC
+                dc.w    loc_71A44-Sonic_PLC
+                dc.w    loc_71A50-Sonic_PLC
+                dc.w    loc_71A5C-Sonic_PLC
+                dc.w    loc_71A6A-Sonic_PLC
+                dc.w    loc_71A78-Sonic_PLC
+                dc.w    loc_71A84-Sonic_PLC
+                dc.w    loc_71A90-Sonic_PLC
+                dc.w    loc_71A98-Sonic_PLC
+                dc.w    loc_71AA0-Sonic_PLC
+                dc.w    loc_71AA8-Sonic_PLC
+                dc.w    loc_71AAE-Sonic_PLC
+                dc.w    loc_71AB6-Sonic_PLC
+                dc.w    loc_71ABE-Sonic_PLC
+                dc.w    loc_71AC6-Sonic_PLC
+                dc.w    loc_71ACC-Sonic_PLC
+                dc.w    loc_71AD6-Sonic_PLC
+                dc.w    loc_71AE2-Sonic_PLC
+                dc.w    loc_71AEC-Sonic_PLC
+                dc.w    loc_71AF6-Sonic_PLC
+                dc.w    loc_71B00-Sonic_PLC
+                dc.w    loc_71B0C-Sonic_PLC
+                dc.w    loc_71B16-Sonic_PLC
+                dc.w    loc_71B20-Sonic_PLC
+                dc.w    loc_71B28-Sonic_PLC
+                dc.w    loc_71B32-Sonic_PLC
+                dc.w    loc_71B3A-Sonic_PLC
+                dc.w    loc_71B40-Sonic_PLC
+                dc.w    loc_71B48-Sonic_PLC
+                dc.w    loc_71B52-Sonic_PLC
+                dc.w    loc_71B5A-Sonic_PLC
+                dc.w    loc_71B60-Sonic_PLC
+                dc.w    loc_71B6C-Sonic_PLC
+                dc.w    loc_71B7A-Sonic_PLC
+                dc.w    loc_71B86-Sonic_PLC
+                dc.w    loc_71B92-Sonic_PLC
+                dc.w    loc_71BA0-Sonic_PLC
+                dc.w    loc_71BAE-Sonic_PLC
+                dc.w    loc_71BBA-Sonic_PLC
+                dc.w    loc_71BC8-Sonic_PLC
+                dc.w    loc_71BD0-Sonic_PLC
+                dc.w    loc_71BD8-Sonic_PLC
+                dc.w    loc_71BE0-Sonic_PLC
+                dc.w    loc_71BE6-Sonic_PLC
+                dc.w    loc_71BEE-Sonic_PLC
+                dc.w    loc_71BF6-Sonic_PLC
+                dc.w    loc_71BFE-Sonic_PLC
+                dc.w    loc_71C04-Sonic_PLC
+                dc.w    loc_71C0E-Sonic_PLC
+                dc.w    loc_71C1A-Sonic_PLC
+                dc.w    loc_71C26-Sonic_PLC
+                dc.w    loc_71C30-Sonic_PLC
+                dc.w    loc_71C3A-Sonic_PLC
+                dc.w    loc_71C46-Sonic_PLC
+                dc.w    loc_71C52-Sonic_PLC
+                dc.w    loc_71C5E-Sonic_PLC
+                dc.w    loc_71C68-Sonic_PLC
+                dc.w    loc_71C72-Sonic_PLC
+                dc.w    loc_71C7C-Sonic_PLC
+                dc.w    loc_71C88-Sonic_PLC
+                dc.w    loc_71C92-Sonic_PLC
+                dc.w    loc_71C9C-Sonic_PLC
+                dc.w    loc_71CA6-Sonic_PLC
+                dc.w    loc_71CB2-Sonic_PLC
+                dc.w    loc_71CBC-Sonic_PLC
+                dc.w    loc_71CC6-Sonic_PLC
+                dc.w    loc_71CD0-Sonic_PLC
+                dc.w    loc_71CDA-Sonic_PLC
+                dc.w    loc_71CE0-Sonic_PLC
+                dc.w    loc_71CE8-Sonic_PLC
+                dc.w    loc_71CF0-Sonic_PLC
+                dc.w    loc_71CF8-Sonic_PLC
+                dc.w    loc_71D00-Sonic_PLC
+                dc.w    loc_71D08-Sonic_PLC
+                dc.w    loc_71D10-Sonic_PLC
+                dc.w    loc_71D18-Sonic_PLC
+                dc.w    loc_71D20-Sonic_PLC
+                dc.w    loc_71D28-Sonic_PLC
+                dc.w    loc_71D34-Sonic_PLC
+                dc.w    loc_71D3E-Sonic_PLC
+                dc.w    loc_71D48-Sonic_PLC
+                dc.w    loc_71D52-Sonic_PLC
+                dc.w    loc_71D5A-Sonic_PLC
+                dc.w    loc_71D62-Sonic_PLC
+                dc.w    loc_71D6A-Sonic_PLC
+                dc.w    loc_71D74-Sonic_PLC
+                dc.w    loc_71D7E-Sonic_PLC
+                dc.w    loc_71D88-Sonic_PLC
+loc_7168C:
                 dc.w    $0000
-Offset_0x07168E:
+loc_7168E:
                 dc.w    $0004
                 dc.w    $3000, $3004, $5008, $500E
-Offset_0x071698:
+loc_71698:
                 dc.w    $0002
                 dc.w    $B014, $5020
-Offset_0x07169E:
+loc_7169E:
                 dc.w    $0004
                 dc.w    $3026, $302A, $302E, $5032
-Offset_0x0716A8:
+loc_716A8:
                 dc.w    $0004
                 dc.w    $3026, $3038, $302E, $5032
-Offset_0x0716B2:
+loc_716B2:
                 dc.w    $0005
                 dc.w    $3026, $3038, $302E, $1032, $303C
-Offset_0x0716BE:
+loc_716BE:
                 dc.w    $0003
                 dc.w    $3026, $7040, $5032
-Offset_0x0716C6:
+loc_716C6:
                 dc.w    $0002
                 dc.w    $B048, $1054
-Offset_0x0716CC:
+loc_716CC:
                 dc.w    $0002
                 dc.w    $B056, $3062
-Offset_0x0716D2:
+loc_716D2:
                 dc.w    $0002
                 dc.w    $B056, $3066
-Offset_0x0716D8:
+loc_716D8:
                 dc.w    $0002
                 dc.w    $B06A, $7076
-Offset_0x0716DE:
+loc_716DE:
                 dc.w    $0004
                 dc.w    $307E, $3082, $5086, $500E
-Offset_0x0716E8:
+loc_716E8:
                 dc.w    $0004
                 dc.w    $308C, $3090, $3094, $500E
-Offset_0x0716F2:
+loc_716F2:
                 dc.w    $0003
                 dc.w    $7098, $10A0, $F0A2
-Offset_0x0716FA:
+loc_716FA:
                 dc.w    $0004
                 dc.w    $7098, $10B2, $B0B4, $10C0
-Offset_0x071704:
+loc_71704:
                 dc.w    $0003
                 dc.w    $70C2, $50CA, $30D0
-Offset_0x07170C:
+loc_7170C:
                 dc.w    $0002
                 dc.w    $50D4, $F0DA
-Offset_0x071712:
+loc_71712:
                 dc.w    $0003
                 dc.w    $50D4, $F0EA, $10FA
-Offset_0x07171A:
+loc_7171A:
                 dc.w    $0004
                 dc.w    $50D4, $10FC, $B0FE, $110A
-Offset_0x071724:
+loc_71724:
                 dc.w    $0003
                 dc.w    $70C2, $510C, $3112
-Offset_0x07172C:
+loc_7172C:
                 dc.w    $0002
                 dc.w    $7098, $B116
-Offset_0x071732:
+loc_71732:
                 dc.w    $0004
                 dc.w    $5122, $5128, $312E, $1132
-Offset_0x07173C:
+loc_7173C:
                 dc.w    $0005
                 dc.w    $5122, $1134, $7136, $313E, $1142
-Offset_0x071748:
+loc_71748:
                 dc.w    $0004
                 dc.w    $7144, $314C, $1150, $3152
-Offset_0x071752:
+loc_71752:
                 dc.w    $0004
                 dc.w    $5156, $115C, $315E, $B162
-Offset_0x07175C:
+loc_7175C:
                 dc.w    $0005
                 dc.w    $5156, $116E, $7170, $1178, $317A
-Offset_0x071768:
+loc_71768:
                 dc.w    $0005
                 dc.w    $5156, $117E, $7180, $3188, $118C
-Offset_0x071774:
+loc_71774:
                 dc.w    $0004
                 dc.w    $7144, $318E, $1192, $3194
-Offset_0x07177E:
+loc_7177E:
                 dc.w    $0005
                 dc.w    $5122, $5198, $119E, $11A0, $31A2
-Offset_0x07178A:
+loc_7178A:
                 dc.w    $0003
                 dc.w    $71A6, $B1AE, $31BA
-Offset_0x071792:
+loc_71792:
                 dc.w    $0003
                 dc.w    $71A6, $B1BE, $31CA
-Offset_0x07179A:
+loc_7179A:
                 dc.w    $0003
                 dc.w    $71CE, $31D6, $31DA
-Offset_0x0717A2:
+loc_717A2:
                 dc.w    $0002
                 dc.w    $71DE, $B1E6
-Offset_0x0717A8:
+loc_717A8:
                 dc.w    $0003
                 dc.w    $71DE, $31F2, $B1F6
-Offset_0x0717B0:
+loc_717B0:
                 dc.w    $0003
                 dc.w    $71DE, $B202, $320E
-Offset_0x0717B8:
+loc_717B8:
                 dc.w    $0003
                 dc.w    $71CE, $3212, $3216
-Offset_0x0717C0:
+loc_717C0:
                 dc.w    $0002
                 dc.w    $71A6, $B21A
-Offset_0x0717C6:
+loc_717C6:
                 dc.w    $0004
                 dc.w    $3226, $722A, $7232, $123A
-Offset_0x0717D0:
+loc_717D0:
                 dc.w    $0005
                 dc.w    $323C, $5240, $722A, $7246, $123A
-Offset_0x0717DC:
+loc_717DC:
                 dc.w    $0004
                 dc.w    $724E, $7256, $325E, $1262
-Offset_0x0717E6:
+loc_717E6:
                 dc.w    $0004
                 dc.w    $7264, $726C, $5274, $127A
-Offset_0x0717F0:
+loc_717F0:
                 dc.w    $0004
                 dc.w    $527C, $726C, $7282, $127A
-Offset_0x0717FA:
+loc_717FA:
                 dc.w    $0005
                 dc.w    $328A, $528E, $726C, $7294, $127A
-Offset_0x071806:
+loc_71806:
                 dc.w    $0004
                 dc.w    $729C, $7256, $32A4, $1262
-Offset_0x071810:
+loc_71810:
                 dc.w    $0004
                 dc.w    $72A8, $722A, $52B0, $123A
-Offset_0x07181A:
+loc_7181A:
                 dc.w    $0002
                 dc.w    $52B6, $F2BC
-Offset_0x071820:
+loc_71820:
                 dc.w    $0002
                 dc.w    $52CC, $F2D2
-Offset_0x071826:
+loc_71826:
                 dc.w    $0002
                 dc.w    $52B6, $F2E2
-Offset_0x07182C:
+loc_7182C:
                 dc.w    $0002
                 dc.w    $52CC, $F2F2
-Offset_0x071832:
+loc_71832:
                 dc.w    $0004
                 dc.w    $5302, $1308, $730A, $5312
-Offset_0x07183C:
+loc_7183C:
                 dc.w    $0003
                 dc.w    $7318, $7320, $5328
-Offset_0x071844:
+loc_71844:
                 dc.w    $0004
                 dc.w    $5302, $132E, $7330, $5338
-Offset_0x07184E:
+loc_7184E:
                 dc.w    $0003
                 dc.w    $7318, $733E, $5346
-Offset_0x071856:
+loc_71856:
                 dc.w    $0002
                 dc.w    $734C, $B354
-Offset_0x07185C:
+loc_7185C:
                 dc.w    $0002
                 dc.w    $7360, $B368
-Offset_0x071862:
+loc_71862:
                 dc.w    $0002
                 dc.w    $734C, $B374
-Offset_0x071868:
+loc_71868:
                 dc.w    $0002
                 dc.w    $7360, $B380
-Offset_0x07186E:
+loc_7186E:
                 dc.w    $0003
                 dc.w    $138C, $738E, $B396
-Offset_0x071876:
+loc_71876:
                 dc.w    $0002
                 dc.w    $73A2, $B3AA
-Offset_0x07187C:
+loc_7187C:
                 dc.w    $0003
                 dc.w    $13B6, $738E, $B3C0
-Offset_0x071884:
+loc_71884:
                 dc.w    $0002
                 dc.w    $73A2, $B3CC
-Offset_0x07188A:
+loc_7188A:
                 dc.w    $0001
                 dc.w    $F400
-Offset_0x07188E:
+loc_7188E:
                 dc.w    $0001
                 dc.w    $F410
-Offset_0x071892:
+loc_71892:
                 dc.w    $0001
                 dc.w    $F420
-Offset_0x071896:
+loc_71896:
                 dc.w    $0001
                 dc.w    $F430
-Offset_0x07189A:
+loc_7189A:
                 dc.w    $0001
                 dc.w    $F440
-Offset_0x07189E:
+loc_7189E:
                 dc.w    $0001
                 dc.w    $F450
-Offset_0x0718A2:
+loc_718A2:
                 dc.w    $0001
                 dc.w    $F460
-Offset_0x0718A6:
+loc_718A6:
                 dc.w    $0001
                 dc.w    $F470
-Offset_0x0718AA:
+loc_718AA:
                 dc.w    $0001
                 dc.w    $F480
-Offset_0x0718AE:
+loc_718AE:
                 dc.w    $0001
                 dc.w    $F490
-Offset_0x0718B2:
+loc_718B2:
                 dc.w    $0001
                 dc.w    $F4A0
-Offset_0x0718B6:
+loc_718B6:
                 dc.w    $0003
                 dc.w    $53D8, $53DE, $73E4
-Offset_0x0718BE:
+loc_718BE:
                 dc.w    $0003
                 dc.w    $53D8, $53EC, $53F2
-Offset_0x0718C6:
+loc_718C6:
                 dc.w    $0003
                 dc.w    $53D8, $53DE, $73B8
-Offset_0x0718CE:
+loc_718CE:
                 dc.w    $0003
                 dc.w    $53D8, $53EC, $54B0
-Offset_0x0718D6:
+loc_718D6:
                 dc.w    $0001
                 dc.w    $B4B6
-Offset_0x0718DA:
+loc_718DA:
                 dc.w    $0001
                 dc.w    $F4C2
-Offset_0x0718DE:
+loc_718DE:
                 dc.w    $0002
                 dc.w    $14D2, $F4D4
-Offset_0x0718E4:
+loc_718E4:
                 dc.w    $0002
                 dc.w    $34E4, $F4E8
-Offset_0x0718EA:
+loc_718EA:
                 dc.w    $0003
                 dc.w    $F4F8, $1508, $350A
-Offset_0x0718F2:
+loc_718F2:
                 dc.w    $0003
                 dc.w    $F50E, $151E, $3520
-Offset_0x0718FA:
+loc_718FA:
                 dc.w    $0002
                 dc.w    $B524, $5530
-Offset_0x071900:
+loc_71900:
                 dc.w    $0002
                 dc.w    $B536, $5542
-Offset_0x071906:
+loc_71906:
                 dc.w    $0003
                 dc.w    $3548, $B54C, $1558
-Offset_0x07190E:
+loc_7190E:
                 dc.w    $0002
                 dc.w    $155A, $755C
-Offset_0x071914:
+loc_71914:
                 dc.w    $0003
                 dc.w    $1564, $B566, $1572
-Offset_0x07191C:
+loc_7191C:
                 dc.w    $0003
                 dc.w    $3574, $B578, $1584
-Offset_0x071924:
+loc_71924:
                 dc.w    $0003
                 dc.w    $5586, $F58C, $159C
-Offset_0x07192C:
+loc_7192C:
                 dc.w    $0002
                 dc.w    $B59E, $35AA
-Offset_0x071932:
+loc_71932:
                 dc.w    $0004
                 dc.w    $15AE, $B5B0, $15BC, $75BE
-Offset_0x07193C:
+loc_7193C:
                 dc.w    $0004
                 dc.w    $15AE, $B5C6, $15BC, $75BE
-Offset_0x071946:
+loc_71946:
                 dc.w    $0003
                 dc.w    $75D2, $15DA, $B5DC
-Offset_0x07194E:
+loc_7194E:
                 dc.w    $0003
                 dc.w    $55E8, $B5EE, $15FA
-Offset_0x071956:
+loc_71956:
                 dc.w    $0003
                 dc.w    $B5FC, $1608, $360A
-Offset_0x07195E:
+loc_7195E:
                 dc.w    $0002
                 dc.w    $B60E, $161A
-Offset_0x071964:
+loc_71964:
                 dc.w    $0001
                 dc.w    $F61C
-Offset_0x071968:
+loc_71968:
                 dc.w    $0002
                 dc.w    $B62C, $1638
-Offset_0x07196E:
+loc_7196E:
                 dc.w    $0003
                 dc.w    $163A, $B63C, $1648
-Offset_0x071976:
+loc_71976:
                 dc.w    $0003
                 dc.w    $564A, $B650, $365C
-Offset_0x07197E:
+loc_7197E:
                 dc.w    $0003
                 dc.w    $3660, $B664, $1670
-Offset_0x071986:
+loc_71986:
                 dc.w    $0002
                 dc.w    $B672, $167E
-Offset_0x07198C:
+loc_7198C:
                 dc.w    $0002
                 dc.w    $1680, $B682
-Offset_0x071992:
+loc_71992:
                 dc.w    $0003
                 dc.w    $368E, $B692, $169E
-Offset_0x07199A:
+loc_7199A:
                 dc.w    $0002
                 dc.w    $36A0, $F6A4
-Offset_0x0719A0:
+loc_719A0:
                 dc.w    $0003
                 dc.w    $76B4, $36BC, $56C0
-Offset_0x0719A8:
+loc_719A8:
                 dc.w    $0003
                 dc.w    $76C6, $36BC, $56CE
-Offset_0x0719B0:
+loc_719B0:
                 dc.w    $0001
                 dc.w    $B7D6
-Offset_0x0719B4:
+loc_719B4:
                 dc.w    $0003
                 dc.w    $B7E2, $17EE, $57F0
-Offset_0x0719BC:
+loc_719BC:
                 dc.w    $0003
                 dc.w    $87F6, $0A18, $8800
-Offset_0x0719C4:
+loc_719C4:
                 dc.w    $0005
                 dc.w    $2809, $180C, $380E, $8812, $081B
-Offset_0x0719D0:
+loc_719D0:
                 dc.w    $0005
                 dc.w    $281C, $181F, $380E, $8812, $081B
-Offset_0x0719DC:
+loc_719DC:
                 dc.w    $0002
                 dc.w    $8821, $882A
-Offset_0x0719E2:
+loc_719E2:
                 dc.w    $0002
                 dc.w    $8833, $882A
-Offset_0x0719E8:
+loc_719E8:
                 dc.w    $0002
                 dc.w    $883C, $882A
-Offset_0x0719EE:
+loc_719EE:
                 dc.w    $0003
                 dc.w    $B6D4, $10A0, $F0A2
-Offset_0x0719F6:
+loc_719F6:
                 dc.w    $0004
                 dc.w    $B6D4, $10B2, $B0B4, $10C0
-Offset_0x071A00:
+loc_71A00:
                 dc.w    $0003
                 dc.w    $B6E0, $50CA, $30D0
-Offset_0x071A08:
+loc_71A08:
                 dc.w    $0002
                 dc.w    $86EC, $F0DA
-Offset_0x071A0E:
+loc_71A0E:
                 dc.w    $0003
                 dc.w    $86EC, $F0EA, $10FA
-Offset_0x071A16:
+loc_71A16:
                 dc.w    $0004
                 dc.w    $86EC, $10FC, $B0FE, $110A
-Offset_0x071A20:
+loc_71A20:
                 dc.w    $0003
                 dc.w    $B6E0, $510C, $3112
-Offset_0x071A28:
+loc_71A28:
                 dc.w    $0002
                 dc.w    $B6D4, $B116
-Offset_0x071A2E:
+loc_71A2E:
                 dc.w    $0004
                 dc.w    $76F5, $312E, $5128, $1132
-Offset_0x071A38:
+loc_71A38:
                 dc.w    $0005
                 dc.w    $76F5, $1134, $7136, $313E, $1142
-Offset_0x071A44:
+loc_71A44:
                 dc.w    $0005
                 dc.w    $86FD, $314C, $0706, $1150, $3152
-Offset_0x071A50:
+loc_71A50:
                 dc.w    $0005
                 dc.w    $0707, $7708, $115C, $315E, $B162
-Offset_0x071A5C:
+loc_71A5C:
                 dc.w    $0006
                 dc.w    $0707, $7708, $116E, $1178, $7170, $317A
-Offset_0x071A6A:
+loc_71A6A:
                 dc.w    $0006
                 dc.w    $0707, $7708, $117E, $7180, $3188, $118C
-Offset_0x071A78:
+loc_71A78:
                 dc.w    $0005
                 dc.w    $86FD, $318E, $0706, $1192, $3194
-Offset_0x071A84:
+loc_71A84:
                 dc.w    $0005
                 dc.w    $76F5, $119E, $5198, $01A0, $31A2
-Offset_0x071A90:
+loc_71A90:
                 dc.w    $0003
                 dc.w    $B710, $B1AE, $31BA
-Offset_0x071A98:
+loc_71A98:
                 dc.w    $0003
                 dc.w    $B710, $B1BE, $31CA
-Offset_0x071AA0:
+loc_71AA0:
                 dc.w    $0003
                 dc.w    $B71C, $31D6, $31DA
-Offset_0x071AA8:
+loc_71AA8:
                 dc.w    $0002
                 dc.w    $8728, $B1E6
-Offset_0x071AAE:
+loc_71AAE:
                 dc.w    $0003
                 dc.w    $8728, $31F2, $B1F6
-Offset_0x071AB6:
+loc_71AB6:
                 dc.w    $0003
                 dc.w    $8728, $B202, $320E
-Offset_0x071ABE:
+loc_71ABE:
                 dc.w    $0003
                 dc.w    $B71C, $3212, $3216
-Offset_0x071AC6:
+loc_71AC6:
                 dc.w    $0002
                 dc.w    $B710, $B21A
-Offset_0x071ACC:
+loc_71ACC:
                 dc.w    $0004
                 dc.w    $3226, $7731, $7232, $0739
-Offset_0x071AD6:
+loc_71AD6:
                 dc.w    $0005
                 dc.w    $323C, $5240, $7731, $7246, $0739
-Offset_0x071AE2:
+loc_71AE2:
                 dc.w    $0004
                 dc.w    $724E, $773A, $325E, $1742
-Offset_0x071AEC:
+loc_71AEC:
                 dc.w    $0004
                 dc.w    $7264, $B744, $5274, $0750
-Offset_0x071AF6:
+loc_71AF6:
                 dc.w    $0004
                 dc.w    $527C, $B744, $7282, $0750
-Offset_0x071B00:
+loc_71B00:
                 dc.w    $0005
                 dc.w    $328A, $528E, $B744, $7294, $0750
-Offset_0x071B0C:
+loc_71B0C:
                 dc.w    $0004
                 dc.w    $729C, $773A, $32A4, $1742
-Offset_0x071B16:
+loc_71B16:
                 dc.w    $0004
                 dc.w    $72A8, $7731, $52B0, $0739
-Offset_0x071B20:
+loc_71B20:
                 dc.w    $0003
                 dc.w    $B751, $10A0, $F0A2
-Offset_0x071B28:
+loc_71B28:
                 dc.w    $0004
                 dc.w    $B751, $10B2, $B0B4, $10C0
-Offset_0x071B32:
+loc_71B32:
                 dc.w    $0003
                 dc.w    $B75D, $50CA, $30D0
-Offset_0x071B3A:
+loc_71B3A:
                 dc.w    $0002
                 dc.w    $8769, $F0DA
-Offset_0x071B40:
+loc_71B40:
                 dc.w    $0003
                 dc.w    $8769, $F0EA, $10FA
-Offset_0x071B48:
+loc_71B48:
                 dc.w    $0004
                 dc.w    $8769, $10FC, $B0FE, $110A
-Offset_0x071B52:
+loc_71B52:
                 dc.w    $0003
                 dc.w    $B75D, $510C, $3112
-Offset_0x071B5A:
+loc_71B5A:
                 dc.w    $0002
                 dc.w    $B751, $B116
-Offset_0x071B60:
+loc_71B60:
                 dc.w    $0005
                 dc.w    $1772, $7774, $5128, $312E, $1132
-Offset_0x071B6C:
+loc_71B6C:
                 dc.w    $0006
                 dc.w    $1772, $7774, $1134, $7136, $313E, $1142
-Offset_0x071B7A:
+loc_71B7A:
                 dc.w    $0005
                 dc.w    $577C, $3782, $314C, $1150, $3152
-Offset_0x071B86:
+loc_71B86:
                 dc.w    $0005
                 dc.w    $1786, $7788, $115C, $315E, $B162
-Offset_0x071B92:
+loc_71B92:
                 dc.w    $0006
                 dc.w    $1786, $7788, $116E, $1178, $7170, $317A
-Offset_0x071BA0:
+loc_71BA0:
                 dc.w    $0006
                 dc.w    $1786, $7788, $117E, $7180, $3188, $118C
-Offset_0x071BAE:
+loc_71BAE:
                 dc.w    $0005
                 dc.w    $577C, $3782, $318E, $1192, $3194
-Offset_0x071BBA:
+loc_71BBA:
                 dc.w    $0006
                 dc.w    $1772, $7774, $5198, $119E, $31A2, $11A0
-Offset_0x071BC8:
+loc_71BC8:
                 dc.w    $0003
                 dc.w    $B790, $B1AE, $31BA
-Offset_0x071BD0:
+loc_71BD0:
                 dc.w    $0003
                 dc.w    $B790, $B1BE, $31CA
-Offset_0x071BD8:
+loc_71BD8:
                 dc.w    $0003
                 dc.w    $B79C, $31D6, $31DA
-Offset_0x071BE0:
+loc_71BE0:
                 dc.w    $0002
                 dc.w    $87A8, $B1E6
-Offset_0x071BE6:
+loc_71BE6:
                 dc.w    $0003
                 dc.w    $87A8, $31F2, $B1F6
-Offset_0x071BEE:
+loc_71BEE:
                 dc.w    $0003
                 dc.w    $87A8, $B202, $320E
-Offset_0x071BF6:
+loc_71BF6:
                 dc.w    $0003
                 dc.w    $B79C, $3212, $3216
-Offset_0x071BFE:
+loc_71BFE:
                 dc.w    $0002
                 dc.w    $B790, $B21A
-Offset_0x071C04:
+loc_71C04:
                 dc.w    $0004
                 dc.w    $3226, $B7B1, $7232, $07BD
-Offset_0x071C0E:
+loc_71C0E:
                 dc.w    $0005
                 dc.w    $323C, $5240, $B7B1, $7246, $07BD
-Offset_0x071C1A:
+loc_71C1A:
                 dc.w    $0005
                 dc.w    $724E, $17BE, $77C0, $325E, $07C8
-Offset_0x071C26:
+loc_71C26:
                 dc.w    $0004
                 dc.w    $7264, $B7C9, $5274, $07D5
-Offset_0x071C30:
+loc_71C30:
                 dc.w    $0004
                 dc.w    $527C, $B7C9, $7282, $07D5
-Offset_0x071C3A:
+loc_71C3A:
                 dc.w    $0005
                 dc.w    $328A, $528E, $B7C9, $7294, $07D5
-Offset_0x071C46:
+loc_71C46:
                 dc.w    $0005
                 dc.w    $729C, $17BE, $77C0, $32A4, $07C8
-Offset_0x071C52:
+loc_71C52:
                 dc.w    $0005
                 dc.w    $72A8, $17B2, $77B5, $52B0, $07BD
-Offset_0x071C5E:
+loc_71C5E:
                 dc.w    $0004
                 dc.w    $2845, $0848, $3849, $584D
-Offset_0x071C68:
+loc_71C68:
                 dc.w    $0004
                 dc.w    $1853, $B855, $2861, $1864
-Offset_0x071C72:
+loc_71C72:
                 dc.w    $0004
                 dc.w    $2866, $3869, $286D, $3870
-Offset_0x071C7C:
+loc_71C7C:
                 dc.w    $0005
                 dc.w    $2874, $7877, $387F, $1883, $0885
-Offset_0x071C88:
+loc_71C88:
                 dc.w    $0004
                 dc.w    $5886, $088C, $3849, $588D
-Offset_0x071C92:
+loc_71C92:
                 dc.w    $0004
                 dc.w    $1893, $B895, $2861, $08A1
-Offset_0x071C9C:
+loc_71C9C:
                 dc.w    $0004
                 dc.w    $58A2, $3869, $08A8, $58A9
-Offset_0x071CA6:
+loc_71CA6:
                 dc.w    $0005
                 dc.w    $2874, $78AF, $38B7, $18BB, $0885
-Offset_0x071CB2:
+loc_71CB2:
                 dc.w    $0004
                 dc.w    $58BD, $38C3, $38C7, $78CB
-Offset_0x071CBC:
+loc_71CBC:
                 dc.w    $0004
                 dc.w    $58D3, $38D9, $38C7, $78DD
-Offset_0x071CC6:
+loc_71CC6:
                 dc.w    $0004
                 dc.w    $58BD, $38C3, $38C7, $78E5
-Offset_0x071CD0:
+loc_71CD0:
                 dc.w    $0004
                 dc.w    $58D3, $38D9, $38C7, $78ED
-Offset_0x071CDA:
+loc_71CDA:
                 dc.w    $0002
                 dc.w    $28F5, $B8F8
-Offset_0x071CE0:
+loc_71CE0:
                 dc.w    $0003
                 dc.w    $8904, $290D, $3910
-Offset_0x071CE8:
+loc_71CE8:
                 dc.w    $0003
                 dc.w    $8833, $290D, $3910
-Offset_0x071CF0:
+loc_71CF0:
                 dc.w    $0003
                 dc.w    $883C, $290D, $3910
-Offset_0x071CF8:
+loc_71CF8:
                 dc.w    $0003
                 dc.w    $8904, $290D, $3914
-Offset_0x071D00:
+loc_71D00:
                 dc.w    $0003
                 dc.w    $8833, $290D, $3914
-Offset_0x071D08:
+loc_71D08:
                 dc.w    $0003
                 dc.w    $883C, $290D, $3914
-Offset_0x071D10:
+loc_71D10:
                 dc.w    $0003
                 dc.w    $B918, $3924, $3928
-Offset_0x071D18:
+loc_71D18:
                 dc.w    $0003
                 dc.w    $B92C, $3938, $3928
-Offset_0x071D20:
+loc_71D20:
                 dc.w    $0003
                 dc.w    $B93C, $3948, $3928
-Offset_0x071D28:
+loc_71D28:
                 dc.w    $0005
                 dc.w    $B94C, $1924, $1958, $193A, $3928
-Offset_0x071D34:
+loc_71D34:
                 dc.w    $0004
                 dc.w    $795A, $5962, $3968, $596C
-Offset_0x071D3E:
+loc_71D3E:
                 dc.w    $0004
                 dc.w    $7972, $5962, $397A, $597E
-Offset_0x071D48:
+loc_71D48:
                 dc.w    $0004
                 dc.w    $7984, $5962, $598C, $5992
-Offset_0x071D52:
+loc_71D52:
                 dc.w    $0003
                 dc.w    $3998, $B99C, $39A8
-Offset_0x071D5A:
+loc_71D5A:
                 dc.w    $0003
                 dc.w    $39AC, $B9B0, $39BC
-Offset_0x071D62:
+loc_71D62:
                 dc.w    $0003
                 dc.w    $39C0, $B9C4, $39BC
-Offset_0x071D6A:
+loc_71D6A:
                 dc.w    $0004
                 dc.w    $79D0, $79D8, $19E0, $39E2
-Offset_0x071D74:
+loc_71D74:
                 dc.w    $0004
                 dc.w    $79E6, $79EE, $19E0, $39E2
-Offset_0x071D7E:
+loc_71D7E:
                 dc.w    $0004
                 dc.w    $79F6, $79FE, $19E0, $39E2
-Offset_0x071D88:
+loc_71D88:
                 dc.w    $0002
                 dc.w    $5A06, $BA0C

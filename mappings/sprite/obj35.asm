@@ -1,35 +1,35 @@
-                dc.w    Offset_0x01315E-Invicibility_Stars_Mappings
-		dc.w    Offset_0x013160-Invicibility_Stars_Mappings
-		dc.w    Offset_0x01316A-Invicibility_Stars_Mappings
-		dc.w    Offset_0x013174-Invicibility_Stars_Mappings
-		dc.w    Offset_0x01317E-Invicibility_Stars_Mappings
-		dc.w    Offset_0x013188-Invicibility_Stars_Mappings
-		dc.w    Offset_0x013192-Invicibility_Stars_Mappings
-		dc.w    Offset_0x01319C-Invicibility_Stars_Mappings
-		dc.w    Offset_0x0131A6-Invicibility_Stars_Mappings
-Offset_0x01315E:
+                dc.w    loc_1315E-Invicibility_Stars_Mappings
+		dc.w    loc_13160-Invicibility_Stars_Mappings
+		dc.w    loc_1316A-Invicibility_Stars_Mappings
+		dc.w    loc_13174-Invicibility_Stars_Mappings
+		dc.w    loc_1317E-Invicibility_Stars_Mappings
+		dc.w    loc_13188-Invicibility_Stars_Mappings
+		dc.w    loc_13192-Invicibility_Stars_Mappings
+		dc.w    loc_1319C-Invicibility_Stars_Mappings
+		dc.w    loc_131A6-Invicibility_Stars_Mappings
+loc_1315E:
 		dc.w    $0000
-Offset_0x013160:
+loc_13160:
 		dc.w    $0001
 		dc.l    $F8010000, $0000FFFC
-Offset_0x01316A:
+loc_1316A:
 		dc.w    $0001
 		dc.l    $F8010002, $0001FFFC
-Offset_0x013174:
+loc_13174:
 		dc.w    $0001
 		dc.l    $F8010004, $0002FFFC
-Offset_0x01317E:
+loc_1317E:
 		dc.w    $0001
 		dc.l    $F8010006, $0003FFFC
-Offset_0x013188:
+loc_13188:
 		dc.w    $0001
 		dc.l    $F8010008, $0004FFFC
-Offset_0x013192:
+loc_13192:
 		dc.w    $0001
 		dc.l    $F805000A, $0005FFF8
-Offset_0x01319C:
+loc_1319C:
 		dc.w    $0001
 		dc.l    $F805000E, $0007FFF8
-Offset_0x0131A6:
+loc_131A6:
 		dc.w    $0001
 		dc.l    $F00F0012, $0009FFF0    

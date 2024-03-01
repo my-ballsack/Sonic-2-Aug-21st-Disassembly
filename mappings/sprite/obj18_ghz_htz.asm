@@ -1,10 +1,10 @@
-                dc.w    Offset_0x00952E-GHz_HTz_Platforms_Mappings
-                dc.w    Offset_0x009540-GHz_HTz_Platforms_Mappings
-Offset_0x00952E:
+                dc.w    loc_952E-GHz_HTz_Platforms_Mappings
+                dc.w    loc_9540-GHz_HTz_Platforms_Mappings
+loc_952E:
                 dc.w    $0002
                 dc.l    $F40F0056, $002BFFE0
                 dc.l    $F40F0856, $082B0000
-Offset_0x009540:
+loc_9540:
                 dc.w    $0008
                 dc.l    $CC07000A, $0005FFE0
                 dc.l    $CC0D0012, $0009FFF0

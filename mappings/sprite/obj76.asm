@@ -1,5 +1,5 @@
-                dc.w    Offset_0x01E018-Platform_Spikes_Mappings
-Offset_0x01E018:
+                dc.w    loc_1E018-Platform_Spikes_Mappings
+loc_1E018:
                 dc.w    $0006
                 dc.l    $F005242C, $2216FFC0
                 dc.l    $0005242C, $2216FFC0

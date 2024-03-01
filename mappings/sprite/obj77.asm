@@ -1,9 +1,9 @@
-		dc.w    Offset_0x01E14A-DHz_Bridge_Mappings
-		dc.w    Offset_0x01E18C-DHz_Bridge_Mappings
-		dc.w    Offset_0x01E1CE-DHz_Bridge_Mappings
-		dc.w    Offset_0x01E210-DHz_Bridge_Mappings
-		dc.w    Offset_0x01E252-DHz_Bridge_Mappings
-Offset_0x01E14A:
+		dc.w    loc_1E14A-DHz_Bridge_Mappings
+		dc.w    loc_1E18C-DHz_Bridge_Mappings
+		dc.w    loc_1E1CE-DHz_Bridge_Mappings
+		dc.w    loc_1E210-DHz_Bridge_Mappings
+		dc.w    loc_1E252-DHz_Bridge_Mappings
+loc_1E14A:
                 dc.w    $0008
                 dc.l    $F8050000, $0000FFC0
                 dc.l    $F8050000, $0000FFD0
@@ -13,7 +13,7 @@ Offset_0x01E14A:
                 dc.l    $F8050000, $00000010
                 dc.l    $F8050000, $00000020
                 dc.l    $F8050000, $00000030
-Offset_0x01E18C:
+loc_1E18C:
                 dc.w    $0008
                 dc.l    $F8050000, $0000FFC0
                 dc.l    $FE050000, $0000FFCE
@@ -23,7 +23,7 @@ Offset_0x01E18C:
                 dc.l    $04050000, $00000013
                 dc.l    $FE050000, $00000022
                 dc.l    $F8050000, $00000030
-Offset_0x01E1CE:
+loc_1E1CE:
                 dc.w    $0008
                 dc.l    $F8050000, $0000FFC0
                 dc.l    $03050000, $0000FFCB
@@ -33,7 +33,7 @@ Offset_0x01E1CE:
                 dc.l    $0E050000, $0000001A
                 dc.l    $03050000, $00000025
                 dc.l    $F8050000, $00000030
-Offset_0x01E210:
+loc_1E210:
                 dc.w    $0008
                 dc.l    $F8050000, $0000FFC0
                 dc.l    $06050000, $0000FFC6
@@ -43,7 +43,7 @@ Offset_0x01E210:
                 dc.l    $15050000, $00000024
                 dc.l    $06050000, $0000002A
                 dc.l    $F8050000, $00000030
-Offset_0x01E252:
+loc_1E252:
                 dc.w    $0008
                 dc.l    $F8050000, $0000FFC0
                 dc.l    $08050000, $0000FFC0

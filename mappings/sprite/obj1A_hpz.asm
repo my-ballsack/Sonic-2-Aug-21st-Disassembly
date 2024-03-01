@@ -1,7 +1,7 @@
-                dc.w    Offset_0x009D42-HPz_Collapsing_Platforms_Mappings
-		dc.w    Offset_0x009D84-HPz_Collapsing_Platforms_Mappings
-		dc.w    Offset_0x009D84-HPz_Collapsing_Platforms_Mappings
-Offset_0x009D42:
+                dc.w    loc_9D42-HPz_Collapsing_Platforms_Mappings
+		dc.w    loc_9D84-HPz_Collapsing_Platforms_Mappings
+		dc.w    loc_9D84-HPz_Collapsing_Platforms_Mappings
+loc_9D42:
 		dc.w    $0008
 		dc.l    $F00D0000, $0000FFD0
 		dc.l    $000D0008, $0004FFD0
@@ -11,7 +11,7 @@ Offset_0x009D42:
 		dc.l    $0005080C, $08060000
 		dc.l    $F00D0800, $08000010
 		dc.l    $000D0808, $08040010
-Offset_0x009D84:
+loc_9D84:
 		dc.w    $000C
 		dc.l    $F0050000, $0000FFD0
 		dc.l    $F0050004, $0002FFE0

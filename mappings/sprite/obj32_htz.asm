@@ -1,5 +1,5 @@
-		dc.w    Offset_0x018684-HTz_Rock_Mappings
-Offset_0x018684:
+		dc.w    loc_18684-HTz_Rock_Mappings
+loc_18684:
 		dc.w    $0006
 		dc.l    $F0050000, $0000FFE8
 		dc.l    $F0050004, $0002FFF8

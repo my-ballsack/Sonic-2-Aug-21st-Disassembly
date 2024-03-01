@@ -1,12 +1,12 @@
-                dc.w    Offset_0x009E82-NGHz_Collapsing_Platforms_Mappings
-		dc.w    Offset_0x009EA4-NGHz_Collapsing_Platforms_Mappings
-Offset_0x009E82:
+                dc.w    loc_9E82-NGHz_Collapsing_Platforms_Mappings
+		dc.w    loc_9EA4-NGHz_Collapsing_Platforms_Mappings
+loc_9E82:
 		dc.w    $0004
 		dc.l    $F00D0055, $002AFFE0
 		dc.l    $F00D0855, $082A0000
 		dc.l    $000D00A3, $0051FFE0
 		dc.l    $000D08A3, $08510000
-Offset_0x009EA4:
+loc_9EA4:
 		dc.w    $0008
 		dc.l    $F0050055, $002AFFE0
 		dc.l    $F0050059, $002CFFF0

@@ -1,7 +1,7 @@
-                dc.w    Offset_0x009DEC-OOz_Collapsing_Platforms_Mappings
-		dc.w    Offset_0x009DEC-OOz_Collapsing_Platforms_Mappings
-		dc.w    Offset_0x009DEC-OOz_Collapsing_Platforms_Mappings
-Offset_0x009DEC:
+                dc.w    loc_9DEC-OOz_Collapsing_Platforms_Mappings
+		dc.w    loc_9DEC-OOz_Collapsing_Platforms_Mappings
+		dc.w    loc_9DEC-OOz_Collapsing_Platforms_Mappings
+loc_9DEC:
 		dc.w    $0007
 		dc.l    $F00F0810, $0808FFC0
 		dc.l    $F00F0810, $0808FFE0
