@@ -445,20 +445,20 @@ VBlank_00:
 		startZ80
 		bra.s   loc_B5E
 loc_BBC:
-		tst.b   (Water_Level_Flag).w                         ; $FFFFF730
+		tst.b   (Water_Level_Flag).w
 		beq     loc_C60
-		move.w  (VDP_Control_Port), D0                       ; $00C00004
-		btst    #$06, (Hardware_Id).w                        ; $FFFFFFF8
+		move.w  (VDP_Control_Port), D0
+		btst    #$06, (Hardware_Id).w
 		beq.s   loc_BDA
 		move.w  #$0700, D0
 loc_BD6:
 		dbra    D0, loc_BD6
 loc_BDA:
 		move.w  #$0001, ($FFFFF644).w
-		stopZ80                                              ; $00A11100
+		stopZ80
 		tst.b   ($FFFFF64E).w
 		bne.s   loc_C1E
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9580, (A5)
 		move.w  #$977F, (A5)
@@ -467,7 +467,7 @@ loc_BDA:
 		move.w  ($FFFFF640).w, (A5)
 		bra.s   loc_C42
 loc_C1E:
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9540, (A5)
 		move.w  #$977F, (A5)
@@ -475,78 +475,78 @@ loc_C1E:
 		move.w  #$0080, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
 loc_C42:
-		move.w  (Horizontal_Interrupt_Count).w, (A5)         ; $FFFFF624
-		move.w  #$8230, (VDP_Control_Port)                   ; $00C00004
-		jsr     (Sound_Driver_Input)                   ; loc_12AC
-		startZ80                                             ; $00A11100
+		move.w  (Horizontal_Interrupt_Count).w, (A5)
+		move.w  #$8230, (VDP_Control_Port)
+		jsr     (Sound_Driver_Input)
+		startZ80
 		bra     loc_B5E
 loc_C60:
-		move.w  (VDP_Control_Port), D0                       ; $00C00004
-		move.l  #$40000010, (VDP_Control_Port)               ; $00C00004
-		move.l  ($FFFFF616).w, (VDP_Data_Port)               ; $00C00000
-		btst    #$06, (Hardware_Id).w                        ; $FFFFFFF8
+		move.w  (VDP_Control_Port), D0
+		move.l  #$40000010, (VDP_Control_Port)
+		move.l  ($FFFFF616).w, (VDP_Data_Port)
+		btst    #$06, (Hardware_Id).w
 		beq.s   loc_C88
 		move.w  #$0700, D0
 loc_C84:
 		dbra    D0, loc_C84
 loc_C88:
 		move.w  #$0001, ($FFFFF644).w
-		move.w  (Horizontal_Interrupt_Count).w, (VDP_Control_Port) ; $FFFFF624, $00C00004
-		move.w  #$8230, (VDP_Control_Port)                   ; $00C00004
+		move.w  (Horizontal_Interrupt_Count).w, (VDP_Control_Port)
+		move.w  #$8230, (VDP_Control_Port)
 		move.l  ($FFFFF61E).w, ($FFFFEEEC).w
-		stopZ80                                              ; $00A11100
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		stopZ80
+		lea     (VDP_Control_Port), A5
 		move.l  #$94019340, (A5)
 		move.l  #$96FC9500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7800, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		jsr     (Sound_Driver_Input)                   ; loc_12AC
-		startZ80                                             ; $00A11100
+		jsr     (Sound_Driver_Input)
+		startZ80
 		bra     loc_B5E
 ;-------------------------------------------------------------------------------
-VBlank_02:                                                     ; loc_CEC
+VBlank_02:
 		bsr     loc_10BE
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+		tst.w   (Timer_Count_Down).w
 		beq     loc_CFC
-		subq.w  #$01, (Timer_Count_Down).w                   ; $FFFFF614
+		subq.w  #$01, (Timer_Count_Down).w
 loc_CFC:
 		rts
 ;-------------------------------------------------------------------------------
-VBlank_14:                                                     ; loc_CFE
-		stopZ80                                              ; $00A11100
-		bsr     Control_Ports_Read                     ; loc_132C
-		startZ80                                             ; $00A11100
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+VBlank_14:
+		stopZ80
+		bsr     Control_Ports_Read
+		startZ80
+		tst.w   (Timer_Count_Down).w
 		beq     loc_D28
-		subq.w  #$01, (Timer_Count_Down).w                   ; $FFFFF614
+		subq.w  #$01, (Timer_Count_Down).w
 loc_D28:
 		rts
 ;-------------------------------------------------------------------------------
-VBlank_04:                                                     ; loc_D2A
+VBlank_04:
 		bsr     loc_10BE
 		bsr     loc_1856
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+		tst.w   (Timer_Count_Down).w
 		beq     loc_D3E
-		subq.w  #$01, (Timer_Count_Down).w                   ; $FFFFF614
+		subq.w  #$01, (Timer_Count_Down).w
 loc_D3E:
 		rts
 ;-------------------------------------------------------------------------------
-VBlank_06:                                                     ; loc_D40
+VBlank_06:
 		bsr     loc_10BE
 		rts
 ;-------------------------------------------------------------------------------
-VBlank_10:                                                     ; loc_D46
-		cmpi.b  #gm_SpecialStage, (Game_Mode).w        ; $10 ; $FFFFF600
-		beq     VBlank_0A                              ; loc_E72
+VBlank_10:
+		cmpi.b  #gm_SpecialStage, (Game_Mode).w
+		beq     VBlank_0A
 ;-------------------------------------------------------------------------------
-VBlank_08:                                                     ; loc_D50
-		stopZ80                                              ; $00A11100
-		bsr     Control_Ports_Read                     ; loc_132C
+VBlank_08:
+		stopZ80
+		bsr     Control_Ports_Read
 		tst.b   ($FFFFF64E).w
 		bne.s   loc_D92
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9580, (A5)
 		move.w  #$977F, (A5)
@@ -555,7 +555,7 @@ VBlank_08:                                                     ; loc_D50
 		move.w  ($FFFFF640).w, (A5)
 		bra.s   loc_DB6
 loc_D92:
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9540, (A5)
 		move.w  #$977F, (A5)
@@ -563,87 +563,87 @@ loc_D92:
 		move.w  #$0080, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
 loc_DB6:
-		move.w  (Horizontal_Interrupt_Count).w, (A5)         ; $FFFFF624
-		move.w  #$8230, (VDP_Control_Port)                   ; $00C00004
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		move.w  (Horizontal_Interrupt_Count).w, (A5)
+		move.w  #$8230, (VDP_Control_Port)
+		lea     (VDP_Control_Port), A5
 		move.l  #$940193C0, (A5)
 		move.l  #$96F09500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7C00, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94019340, (A5)
 		move.l  #$96FC9500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7800, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		bsr     Process_DMA                            ; loc_1622
-		jsr     (Sound_Driver_Input)                   ; loc_12AC
-		startZ80                                             ; $00A11100
-		movem.l (Camera_X).w, D0-D7                          ; $FFFFEE00
+		bsr     Process_DMA
+		jsr     (Sound_Driver_Input)
+		startZ80
+		movem.l (Camera_X).w, D0-D7
 		movem.l D0-D7, ($FFFFEE60).w
-		movem.l (Camera_X_2).w, D0-D7                        ; $FFFFEE20
+		movem.l (Camera_X_2).w, D0-D7
 		movem.l D0-D7, ($FFFFEE80).w
-		movem.l (Scroll_Flag_Array).w, D0-D3                 ; $FFFFEE50
-		movem.l D0-D3, (Scroll_Flag_Array_2).w               ; $FFFFEEA0
+		movem.l (Scroll_Flag_Array).w, D0-D3
+		movem.l D0-D3, (Scroll_Flag_Array_2).w
 		move.l  ($FFFFF61E).w, ($FFFFEEEC).w
-		cmpi.b  #$5C, (Scanlines_Count).w                    ; $FFFFF625
-		bcc.s   DemoTime                               ; loc_E56
+		cmpi.b  #$5C, (Scanlines_Count).w
+		bcc.s   DemoTime
 		move.b  #$01, ($FFFFF64F).w
 		rts
-DemoTime:                                                      ; loc_E56
-		bsr     LoadTilesAsYouMove                     ; loc_6F2E
-		jsr     (HudUpdate)                            ; loc_2D316
+DemoTime:
+		bsr     LoadTilesAsYouMove
+		jsr     (HudUpdate)
 		bsr     loc_1872
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
-		beq     Exit_DemoTime                          ; loc_E70
-		subq.w  #$01, (Timer_Count_Down).w                   ; $FFFFF614
-Exit_DemoTime:                                                 ; loc_E70
+		tst.w   (Timer_Count_Down).w
+		beq     Exit_DemoTime
+		subq.w  #$01, (Timer_Count_Down).w
+Exit_DemoTime:
 		rts
 ;-------------------------------------------------------------------------------
-VBlank_0A:                                                     ; loc_E72
-		stopZ80                                              ; $00A11100
-		bsr     Control_Ports_Read                     ; loc_132C
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+VBlank_0A:
+		stopZ80
+		bsr     Control_Ports_Read
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9580, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$C000, (A5)
 		move.w  #$0080, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94019340, (A5)
 		move.l  #$96FC9500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7800, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$940193C0, (A5)
 		move.l  #$96F09500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7C00, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		bsr     Process_DMA                            ; loc_1622
-		jsr     (Sound_Driver_Input)                   ; loc_12AC
-		startZ80                                             ; $00A11100
-		bsr     Special_Stage_Pal_Cycle                ; loc_5626
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+		bsr     Process_DMA
+		jsr     (Sound_Driver_Input)
+		startZ80
+		bsr     Special_Stage_Pal_Cycle
+		tst.w   (Timer_Count_Down).w
 		beq     loc_F16
-		subq.w  #$01, (Timer_Count_Down).w                   ; $FFFFF614
+		subq.w  #$01, (Timer_Count_Down).w
 loc_F16:
 		rts
 ;-------------------------------------------------------------------------------
-VBlank_0C:                                                     ; loc_F18
-VBlank_18:                                                     ; loc_F18
-		stopZ80                                              ; $00A11100
-		bsr     Control_Ports_Read                     ; loc_132C
+VBlank_0C:
+VBlank_18:
+		stopZ80
+		bsr     Control_Ports_Read
 		tst.b   ($FFFFF64E).w
 		bne.s   loc_F5A
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9580, (A5)
 		move.w  #$977F, (A5)
@@ -652,7 +652,7 @@ VBlank_18:                                                     ; loc_F18
 		move.w  ($FFFFF640).w, (A5)
 		bra.s   loc_F7E
 loc_F5A:
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9540, (A5)
 		move.w  #$977F, (A5)
@@ -660,81 +660,81 @@ loc_F5A:
 		move.w  #$0080, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
 loc_F7E:
-		move.w  (Horizontal_Interrupt_Count).w, (A5)         ; $FFFFF624
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		move.w  (Horizontal_Interrupt_Count).w, (A5)
+		lea     (VDP_Control_Port), A5
 		move.l  #$940193C0, (A5)
 		move.l  #$96F09500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7C00, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94019340, (A5)
 		move.l  #$96FC9500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7800, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		bsr     Process_DMA                            ; loc_1622
-		jsr     (Sound_Driver_Input)                   ; loc_12AC
-		startZ80                                             ; $00A11100
-		movem.l (Camera_X).w, D0-D7                          ; $FFFFEE00
+		bsr     Process_DMA
+		jsr     (Sound_Driver_Input)
+		startZ80
+		movem.l (Camera_X).w, D0-D7
 		movem.l D0-D7, ($FFFFEE60).w
-		movem.l (Scroll_Flag_Array).w, D0/D1                 ; $FFFFEE50
-		movem.l D0/D1, (Scroll_Flag_Array_2).w               ; $FFFFEEA0
-		bsr     LoadTilesAsYouMove                     ; loc_6F2E
-		jsr     (HudUpdate)                            ; loc_2D316
+		movem.l (Scroll_Flag_Array).w, D0/D1
+		movem.l D0/D1, (Scroll_Flag_Array_2).w
+		bsr     LoadTilesAsYouMove
+		jsr     (HudUpdate)
 		bsr     loc_1856
 		rts
 ;-------------------------------------------------------------------------------
-VBlank_0E:                                                     ; loc_1004
+VBlank_0E:
 		bsr     loc_10BE
 		addq.b  #$01, ($FFFFF628).w
-		move.b  #$0E, (VBlank_Index).w                       ; $FFFFF62A
+		move.b  #$0E, (VBlank_Index).w
 		rts
 ;-------------------------------------------------------------------------------
-VBlank_12:                                                     ; loc_1014
+VBlank_12:
 		bsr     loc_10BE
-		move.w  (Horizontal_Interrupt_Count).w, (A5)         ; $FFFFF624
+		move.w  (Horizontal_Interrupt_Count).w, (A5)
 		bra     loc_1856
 ;-------------------------------------------------------------------------------
-VBlank_16:                                                     ; loc_1020
-		stopZ80                                              ; $00A11100
-		bsr     Control_Ports_Read                     ; loc_132C
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+VBlank_16:
+		stopZ80
+		bsr     Control_Ports_Read
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9580, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$C000, (A5)
 		move.w  #$0080, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94019340, (A5)
 		move.l  #$96FC9500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7800, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$940193C0, (A5)
 		move.l  #$96F09500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7C00, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		jsr     (Sound_Driver_Input)                   ; loc_12AC
-		startZ80                                             ; $00A11100
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+		jsr     (Sound_Driver_Input)
+		startZ80
+		tst.w   (Timer_Count_Down).w
 		beq     loc_10BC
-		subq.w  #$01, (Timer_Count_Down).w                   ; $FFFFF614
+		subq.w  #$01, (Timer_Count_Down).w
 loc_10BC:
 		rts
 loc_10BE:
-		stopZ80                                              ; $00A11100
-		bsr     Control_Ports_Read                     ; loc_132C
+		stopZ80
+		bsr     Control_Ports_Read
 		tst.b   ($FFFFF64E).w
 		bne.s   loc_1100
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9580, (A5)
 		move.w  #$977F, (A5)
@@ -743,7 +743,7 @@ loc_10BE:
 		move.w  ($FFFFF640).w, (A5)
 		bra.s   loc_1124
 loc_1100:
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94009340, (A5)
 		move.l  #$96FD9540, (A5)
 		move.w  #$977F, (A5)
@@ -751,22 +751,22 @@ loc_1100:
 		move.w  #$0080, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
 loc_1124:
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$94019340, (A5)
 		move.l  #$96FC9500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7800, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.l  #$940193C0, (A5)
 		move.l  #$96F09500, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7C00, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		jsr     (Sound_Driver_Input)                   ; loc_12AC
-		startZ80                                             ; $00A11100
+		jsr     (Sound_Driver_Input)
+		startZ80
 		rts
 ;===============================================================================
 ; Vertical blank
@@ -777,40 +777,40 @@ loc_1124:
 ; Horizontal blank
 ; ->>>
 ;===============================================================================
-HBlank:                                                        ; loc_117C
+HBlank:
 		tst.w   ($FFFFF644).w
 		beq     loc_1226
-		tst.w   (Two_Player_Flag).w                          ; $FFFFFFD8
-		beq     Pal_To_ColorRAM                        ; loc_1228
+		tst.w   (Two_Player_Flag).w
+		beq     Pal_To_ColorRAM
 		move.w  #$0000, ($FFFFF644).w
 		move.l  A5, -(A7)
 		move.l  D0, -(A7)
 loc_1196:
-		move.w  (VDP_Control_Port), D0                       ; $00C00004
+		move.w  (VDP_Control_Port), D0
 		andi.w  #$0004, D0
 		beq.s   loc_1196
 		move.w  ($FFFFF60C).w, D0
 		andi.b  #$BF, D0
-		move.w  D0, (VDP_Control_Port)                       ; $00C00004
-		move.w  #$8228, (VDP_Control_Port)                   ; $00C00004
-		move.l  #$40000010, (VDP_Control_Port)               ; $00C00004
-		move.l  ($FFFFEEEC).w, (VDP_Data_Port)               ; $00C00000
-		stopZ80                                              ; $00A11100
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		move.w  D0, (VDP_Control_Port)
+		move.w  #$8228, (VDP_Control_Port)
+		move.l  #$40000010, (VDP_Control_Port)
+		move.l  ($FFFFEEEC).w, (VDP_Data_Port)
+		stopZ80
+		lea     (VDP_Control_Port), A5
 		move.l  #$94019340, (A5)
 		move.l  #$96EE9580, (A5)
 		move.w  #$977F, (A5)
 		move.w  #$7800, (A5)
 		move.w  #$0083, ($FFFFF640).w
 		move.w  ($FFFFF640).w, (A5)
-		startZ80                                             ; $00A11100
+		startZ80
 loc_1208:
-		move.w  (VDP_Control_Port), D0                       ; $00C00004
+		move.w  (VDP_Control_Port), D0
 		andi.w  #$0004, D0
 		beq.s   loc_1208
 		move.w  ($FFFFF60C).w, D0
 		ori.b   #$40, D0
-		move.w  D0, (VDP_Control_Port)                       ; $00C00004
+		move.w  D0, (VDP_Control_Port)
 		move.l  (A7)+, D0
 		move.l  (A7)+, A5
 loc_1226:
@@ -823,9 +823,9 @@ Pal_To_ColorRAM:                                               ; loc_1228
 		move    #$2700, SR
 		move.w  #$0000, ($FFFFF644).w
 		movem.l A0/A1, -(A7)
-		lea     (VDP_Data_Port), A1                          ; $00C00000
+		lea     (VDP_Data_Port), A1
 		lea     ($FFFFFA80).w, A0
-		move.l  #Color_RAM_Address, $0004(A1)                ; $C0000000
+		move.l  #Color_RAM_Address, $0004(A1)
 		move.l  (A0)+, (A1)
 		move.l  (A0)+, (A1)
 		move.l  (A0)+, (A1)
@@ -866,7 +866,7 @@ Pal_To_ColorRAM:                                               ; loc_1228
 loc_129A:
 		clr.b   ($FFFFF64F).w
 		movem.l D0-D7/A0-A6, -(A7)
-		bsr     DemoTime                               ; loc_E56
+		bsr     DemoTime
 		movem.l (A7)+, D0-D7/A0-A6
 		rte
 ;-------------------------------------------------------------------------------
@@ -883,8 +883,8 @@ loc_129A:
 ; Routine to transfer the selected sound to play on the Z80
 ; ->>>
 ;===============================================================================
-Sound_Driver_Input:                                            ; loc_12AC
-		lea     (Sound_Buffer_Id&$00FFFFFF), A0              ; $00FFFFE0
+Sound_Driver_Input:
+		lea     (Sound_Buffer_Id&$00FFFFFF), A0
 		lea     (Z80_RAM_Start+$1B80), A1
 		cmpi.b  #$80, $0008(A1)
 		bne.s   loc_12E0
@@ -920,13 +920,13 @@ loc_12F6:
 ; Initialize ports 0, 1, and expansion
 ; ->>>
 ;===============================================================================
-Control_Ports_Init:                                            ; loc_12FC
-		stopZ80                                              ; $00A11100
+Control_Ports_Init:
+		stopZ80
 		moveq   #$40, D0
-		move.b  D0, (IO_Port_0_Control+$0001)                ; $00A10009
-		move.b  D0, (IO_Port_1_Control+$0001)                ; $00A1000B
-		move.b  D0, (IO_Expansion_Control+$0001)             ; $00A1000D
-		startZ80                                             ; $00A11100
+		move.b  D0, (IO_Port_0_Control+$0001)
+		move.b  D0, (IO_Port_1_Control+$0001)
+		move.b  D0, (IO_Expansion_Control+$0001)
+		startZ80
 		rts
 ;===============================================================================
 ; Initialize ports 0, 1, and expansion
@@ -937,12 +937,12 @@ Control_Ports_Init:                                            ; loc_12FC
 ; Read ports 0, 1 and expansion
 ; ->>>
 ;===============================================================================
-Control_Ports_Read:                                            ; loc_132C
-		lea     (Control_Ports_Buffer_Data).w, A0            ; $FFFFF604
-		lea     (IO_Joypad_Port_0), A1                       ; $00A10003
-		bsr.s   Control_Ports_Read_Data                ; loc_133A
+Control_Ports_Read:
+		lea     (Control_Ports_Buffer_Data).w, A0
+		lea     (IO_Joypad_Port_0), A1
+		bsr.s   Control_Ports_Read_Data
 		addq.w  #$02, A1
-Control_Ports_Read_Data:                                       ; loc_133A
+Control_Ports_Read_Data:
 		move.b  #$00, (A1)
 		nop
 		nop
@@ -971,22 +971,22 @@ Control_Ports_Read_Data:                                       ; loc_133A
 ; VDPRegSetup
 ; ->>>
 ;===============================================================================
-VDPRegSetup:                                                   ; loc_1368
-		lea     (VDP_Control_Port), A0                       ; $00C00004
-		lea     (VDP_Data_Port), A1                          ; $00C00000
-		lea     (VDPRegSetup_Array), A2                ; loc_13F2
+VDPRegSetup:
+		lea     (VDP_Control_Port), A0
+		lea     (VDP_Data_Port), A1
+		lea     (VDPRegSetup_Array), A2
 		moveq   #$12, D7
 loc_137C:
 		move.w  (A2)+, (A0)
 		dbra    D7, loc_137C
-		move.w  (VDPRegSetup_Array+$0002), D0          ; loc_13F4
+		move.w  (VDPRegSetup_Array+$0002), D0
 		move.w  D0, ($FFFFF60C).w
-		move.w  #$8ADF, (Horizontal_Interrupt_Count).w ; 224 linhas ; $FFFFF624
+		move.w  #$8ADF, (Horizontal_Interrupt_Count).w ; 224 lines
 		moveq   #$00, D0
-		move.l  #$40000010, (VDP_Control_Port)               ; $00C00004
+		move.l  #$40000010, (VDP_Control_Port)
 		move.w  D0, (A1)
 		move.w  D0, (A1)
-		move.l  #$C0000000, (VDP_Control_Port)               ; $00C00004
+		move.l  #$C0000000, (VDP_Control_Port)
 		move.w  #$003F, D7
 loc_13B0:
 		move.w  D0, (A1)
@@ -994,12 +994,12 @@ loc_13B0:
 		clr.l   ($FFFFF616).w
 		clr.l   ($FFFFF61A).w
 		move.l  D1, -(A7)
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.w  #$8F01, (A5)
 		move.l  #$94FF93FF, (A5)
 		move.w  #$9780, (A5)
 		move.l  #$40000080, (A5)
-		move.w  #$0000, (VDP_Data_Port)                      ; $00C00000
+		move.w  #$0000, (VDP_Data_Port)
 loc_13E2:
 		move.w  (A5), D1
 		btst    #$01, D1
@@ -1008,7 +1008,7 @@ loc_13E2:
 		move.l  (A7)+, D1
 		rts
 ;-------------------------------------------------------------------------------
-VDPRegSetup_Array:                                             ; loc_13F2
+VDPRegSetup_Array:
 		dc.w    $8004, $8134, $8230, $8328, $8407, $857C, $8600, $8700
 		dc.w    $8800, $8900, $8A00, $8B00, $8C81, $8D3F, $8E00, $8F02
 		dc.w    $9001, $9100, $9200
@@ -1021,133 +1021,133 @@ VDPRegSetup_Array:                                             ; loc_13F2
 ; ClearScreen
 ; ->>>
 ;===============================================================================
-ClearScreen:                                                   ; loc_1418
-		stopZ80                                              ; $00A11100
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+ClearScreen:
+		stopZ80
+		lea     (VDP_Control_Port), A5
 		move.w  #$8F01, (A5)
 		move.l  #$940F93FF, (A5)
 		move.w  #$9780, (A5)
 		move.l  #$40000083, (A5)
-		move.w  #$0000, (VDP_Data_Port)                      ; $00C00000
-ClearScreen_DMAWait:                                           ; loc_144C
+		move.w  #$0000, (VDP_Data_Port)
+ClearScreen_DMAWait
 		move.w  (A5), D1
 		btst    #$01, D1
-		bne.s   ClearScreen_DMAWait                    ; loc_144C
+		bne.s   ClearScreen_DMAWait
 		move.w  #$8F02, (A5)
-		lea     (VDP_Control_Port), A5                       ; $00C00004
+		lea     (VDP_Control_Port), A5
 		move.w  #$8F01, (A5)
 		move.l  #$940F93FF, (A5)
 		move.w  #$9780, (A5)
 		move.l  #$60000083, (A5)
-		move.w  #$0000, (VDP_Data_Port)                      ; $00C00000
-ClearScreen_DMAWait_2:                                         ; loc_147A
+		move.w  #$0000, (VDP_Data_Port)
+ClearScreen_DMAWait_2:
 		move.w  (A5), D1
 		btst    #$01, D1
-		bne.s   ClearScreen_DMAWait_2                  ; loc_147A
+		bne.s   ClearScreen_DMAWait_2
 		move.w  #$8F02, (A5)
 		clr.l   ($FFFFF616).w
 		clr.l   ($FFFFF61A).w
 		lea     ($FFFFF800).w, A1
 		moveq   #$00, D0
 		move.w  #$00A0, D1
-ClearScreen_ClearBuffer1:                                      ; loc_1498
+ClearScreen_ClearBuffer1:
 		move.l  D0, (A1)+
-		dbra    D1, ClearScreen_ClearBuffer1           ; loc_1498
-		lea     (Scroll_Buffer_Data).w, A1                   ; $FFFFE000
+		dbra    D1, ClearScreen_ClearBuffer1
+		lea     (Scroll_Buffer_Data).w, A1
 		moveq   #$00, D0
 		move.w  #$0100, D1
-ClearScreen_ClearBuffer2:                                      ; loc_14A8
+ClearScreen_ClearBuffer2:
 		move.l  D0, (A1)+
-		dbra    D1, ClearScreen_ClearBuffer2           ; loc_14A8
-		startZ80                                             ; $00A11100
+		dbra    D1, ClearScreen_ClearBuffer2
+		startZ80
 		rts
 ;===============================================================================
 ; ClearScreen
 ; <<<-
 ;===============================================================================
 
-Jmp_00_To_SoundDriverLoad                                      ; loc_14B8
+Jmp_00_To_SoundDriverLoad
 		nop
-		jmp     (SoundDriverLoad)                      ; loc_EC000
+		jmp     (SoundDriverLoad)
 ;-------------------------------------------------------------------------------
-; Z80_Init:   ; Initialization of the Z80 (not used)                 ; loc_14C0
-		move.w  #$0100, (Z80_Bus_Request)                    ; $00A11100
-		move.w  #$0100, (Z80_Reset)                          ; $00A11200
-		lea     (Z80_RAM_Start), A1                          ; $00A00000
+; Z80_Init:   ; Initialization of the Z80 (not used)
+		move.w  #$0100, (Z80_Bus_Request)
+		move.w  #$0100, (Z80_Reset)
+		lea     (Z80_RAM_Start), A1
 		move.b  #$F3, (A1)+
 		move.b  #$F3, (A1)+
 		move.b  #$C3, (A1)+
 		move.b  #$00, (A1)+
 		move.b  #$00, (A1)+
-		move.w  #$0000, (Z80_Reset)                          ; $00A11200
+		move.w  #$0000, (Z80_Reset)
 		nop
 		nop
 		nop
 		nop
-		move.w  #$0100, (Z80_Reset)                          ; $00A11200
-		startZ80                                             ; $00A11100
+		move.w  #$0100, (Z80_Reset)
+		startZ80
 		rts
 ;-------------------------------------------------------------------------------
-Play_Music:                                                    ; loc_150C
-		move.b  D0, (Sound_Buffer_Id).w                      ; $FFFFFFE0
+Play_Music:
+		move.b  D0, (Sound_Buffer_Id).w
 		rts
 ;-------------------------------------------------------------------------------
-Play_Sfx:                                                      ; loc_1512
-		move.b  D0, (Sound_Buffer_Id+$0001).w                ; $FFFFFFE1
+Play_Sfx:
+		move.b  D0, (Sound_Buffer_Id+$0001).w
 		rts
 ;-------------------------------------------------------------------------------
-Play_Music_Ex:                                                 ; loc_1518
-		move.b  D0, (Sound_Buffer_Id+$0002).w                ; $FFFFFFE2
+Play_Music_Ex:
+		move.b  D0, (Sound_Buffer_Id+$0002).w
 		rts
 ;-------------------------------------------------------------------------------
-Play_Sfx_Ex:                                                   ; loc_151E
+Play_Sfx_Ex:
 		tst.b   $0001(A0)
-		bpl.s   Exit_Play_Sfx_Ex                       ; loc_1528
-		move.b  D0, (Sound_Buffer_Id+$0001).w                ; $FFFFFFE1
-Exit_Play_Sfx_Ex:                                              ; loc_1528
+		bpl.s   Exit_Play_Sfx_Ex
+		move.b  D0, (Sound_Buffer_Id+$0001).w
+Exit_Play_Sfx_Ex:
 		rts
 ;===============================================================================
 ; Routine to handle pausing the game
 ; ->>>
 ;===============================================================================
-Pause:                                                         ; loc_152A
+Pause:
 		nop
-		tst.b   (Life_Count).w                               ; $FFFFFE12
-		beq     Unpause                                ; loc_158E
-		tst.w   (Pause_Status).w                             ; $FFFFF63A
-		bne.s   Pause_AlreadyPaused                    ; loc_1542
-		btst    #$07, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
-		beq.s   Pause_DoNothing                        ; loc_1594
-Pause_AlreadyPaused:                                           ; loc_1542
-		move.w  #$0001, (Pause_Status).w                     ; $FFFFF63A
-		move.b  #$FE, (Sound_Buffer_Id).w                    ; $FFFFFFE0
-Pause_Loop:                                                    ; loc_154E
-		move.b  #$10, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
+		tst.b   (Life_Count).w
+		beq     Unpause
+		tst.w   (Pause_Status).w
+		bne.s   Pause_AlreadyPaused
+		btst    #$07, (Control_Ports_Buffer_Data+$0001).w
+		beq.s   Pause_DoNothing
+Pause_AlreadyPaused:
+		move.w  #$0001, (Pause_Status).w
+		move.b  #$FE, (Sound_Buffer_Id).w
+Pause_Loop:
+		move.b  #$10, (VBlank_Index).w
+		bsr     Wait_For_VSync
 		tst.b   ($FFFFFFD1).w
-		beq.s   Pause_CheckStart                       ; loc_1580
-		btst    #$06, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
-		beq.s   Pause_CheckBC                          ; loc_1570
-		move.b  #gm_TitleScreen, (Game_Mode).w         ; $04 ; $FFFFF600
+		beq.s   Pause_CheckStart
+		btst    #$06, (Control_Ports_Buffer_Data+$0001).w
+		beq.s   Pause_CheckBC
+		move.b  #gm_TitleScreen, (Game_Mode).w
 		nop
 		bra.s   loc_1588
-Pause_CheckBC:                                                 ; loc_1570
-		btst    #$04, (Control_Ports_Buffer_Data).w          ; $FFFFF604
-		bne.s   Pause_SlowMotion                       ; loc_1596
-		btst    #$05, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
-		bne.s   Pause_SlowMotion                       ; loc_1596
-Pause_CheckStart:                                              ; loc_1580
-		btst    #$07, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
-		beq.s   Pause_Loop                             ; loc_154E
+Pause_CheckBC:
+		btst    #$04, (Control_Ports_Buffer_Data).w
+		bne.s   Pause_SlowMotion
+		btst    #$05, (Control_Ports_Buffer_Data+$0001).w
+		bne.s   Pause_SlowMotion
+Pause_CheckStart:
+		btst    #$07, (Control_Ports_Buffer_Data+$0001).w
+		beq.s   Pause_Loop
 loc_1588:
-		move.b  #$FF, (Sound_Buffer_Id).w                    ; $FFFFFFE0
-Unpause:                                                       ; loc_158E
-		move.w  #$0000, (Pause_Status).w                     ; $FFFFF63A
-Pause_DoNothing:                                               ; loc_1594
+		move.b  #$FF, (Sound_Buffer_Id).w
+Unpause:
+		move.w  #$0000, (Pause_Status).w
+Pause_DoNothing:
 		rts
-Pause_SlowMotion:                                              ; loc_1596
-		move.w  #$0001, (Pause_Status).w                     ; $FFFFF63A
-		move.b  #$FF, (Sound_Buffer_Id).w                    ; $FFFFFFE0
+Pause_SlowMotion:
+		move.w  #$0001, (Pause_Status).w
+		move.b  #$FF, (Sound_Buffer_Id).w
 		rts
 ;===============================================================================
 ; Routine to handle pausing the game
@@ -1158,17 +1158,17 @@ Pause_SlowMotion:                                              ; loc_1596
 ; Routine for loading screen maps into the VDP
 ; ->>>
 ;===============================================================================
-ShowVDPGraphics:                                               ; loc_15A4
-		lea     (VDP_Data_Port), A6                          ; $00C00000
+ShowVDPGraphics:
+		lea     (VDP_Data_Port), A6
 		move.l  #$00800000, D4
-ShowVDPGraphics_LineLoop:                                      ; loc_15B0
+ShowVDPGraphics_LineLoop:
 		move.l  D0, $0004(A6)
 		move.w  D1, D3
-ShowVDPGraphics_TileLoop:                                      ; loc_15B6
+ShowVDPGraphics_TileLoop:
 		move.w  (A1)+, (A6)
-		dbra    D3, ShowVDPGraphics_TileLoop           ; loc_15B6
+		dbra    D3, ShowVDPGraphics_TileLoop
 		add.l   D4, D0
-		dbra    D2, ShowVDPGraphics_LineLoop           ; loc_15B0
+		dbra    D2, ShowVDPGraphics_LineLoop
 		rts
 ;===============================================================================
 ; Routine for loading screen maps into the VDP
@@ -1176,42 +1176,42 @@ ShowVDPGraphics_TileLoop:                                      ; loc_15B6
 ;===============================================================================
 
 ;===============================================================================
-DMA_68KtoVRAM:                                                 ; loc_15C4
+DMA_68KtoVRAM:
 		include "_inc/DMA68KtoVRAM.asm"
 ;===============================================================================
 NemDec:                                                    
 		movem.l D0-D7/A0/A1/A3-A5, -(A7)
-		lea     (NemDec_Output), A3                ; loc_1716
-		lea     (VDP_Data_Port), A4                          ; $00C00000
-		bra.s   NemDec_Main                        ; loc_1670
+		lea     (NemDec_Output), A3
+		lea     (VDP_Data_Port), A4
+		bra.s   NemDec_Main
 ;-------------------------------------------------------------------------------
-NemDecToRAM:                                               ; loc_1666
+NemDecToRAM:
 		movem.l D0-D7/A0/A1/A3-A5, -(A7)
-		lea     (NemDec_OutputToRAM), A3           ; loc_172C
-NemDec_Main:                                               ; loc_1670
+		lea     (NemDec_OutputToRAM), A3
+NemDec_Main:
 		lea     ($FFFFAA00).w, A1
 		move.w  (A0)+, D2
 		lsl.w   #$01, D2
 		bcc.s   loc_167E
 	      ; Point A3 to NemDec_Output_XOR if A3 = NemDec_Output or
 	      ; Point A3 to NemDec_OutputRAM_XOR if A3 = NemDec_OutputRAM
-		adda.w  #(NemDec_Output_XOR-NemDec_Output), A3   ; $000A
+		adda.w  #(NemDec_Output_XOR-NemDec_Output), A3
 loc_167E:
 		lsl.w   #$02, D2
 		move.w  D2, A5
 		moveq   #$08, D3
 		moveq   #$00, D2
 		moveq   #$00, D4
-		bsr     NemDec_4                           ; loc_1742
+		bsr     NemDec_4
 		move.b  (A0)+, D5
 		asl.w   #$08, D5
 		move.b  (A0)+, D5
 		move.w  #$0010, D6
-		bsr.s   NemDec_2                           ; loc_169E
+		bsr.s   NemDec_2
 		movem.l (A7)+, D0-D7/A0/A1/A3-A5
 		rts
 ;-------------------------------------------------------------------------------
-NemDec_2:                                                  ; loc_169E
+NemDec_2:
 		move.w  D6, D7
 		subq.w  #$08, D7
 		move.w  D5, D1
@@ -1233,9 +1233,9 @@ loc_16C6:
 		move.w  D1, D0
 		andi.w  #$000F, D1
 		andi.w  #$00F0, D0
-NemDec_SubType:                                            ; loc_16D4
+NemDec_SubType:
 		lsr.w   #$04, D0
-NemDec_Loop_SubType:                                       ; loc_16D6
+NemDec_Loop_SubType:
 		lsl.l   #$04, D4
 		or.b    D1, D4
 		subq.w  #$01, D3
@@ -1244,12 +1244,12 @@ NemDec_Loop_SubType:                                       ; loc_16D6
 	      ; ( NemDec_Output_XOR or NemDec_OutputRAM_XOR )
 		jmp     (A3)
 ;-------------------------------------------------------------------------------
-NemDec_3                                                   ; loc_16E0
+NemDec_3
 		moveq   #$00, D4
 		moveq   #$08, D3
 loc_16E4:
-		dbra    D0, NemDec_Loop_SubType            ; loc_16D6
-		bra.s   NemDec_2                           ; loc_169E
+		dbra    D0, NemDec_Loop_SubType
+		bra.s   NemDec_2
 ;-------------------------------------------------------------------------------
 loc_16EA:
 		subq.w  #$06, D6
@@ -1266,43 +1266,43 @@ loc_16F8:
 		andi.w  #$000F, D1
 		andi.w  #$0070, D0
 		cmpi.w  #$0009, D6
-		bcc.s   NemDec_SubType                     ; loc_16D4
+		bcc.s   NemDec_SubType
 		addq.w  #$08, D6
 		asl.w   #$08, D5
 		move.b  (A0)+, D5
-		bra.s   NemDec_SubType                     ; loc_16D4
+		bra.s   NemDec_SubType
 ;-------------------------------------------------------------------------------
-NemDec_Output:                                             ; loc_1716
+NemDec_Output:
 		move.l  D4, (A4)
 		subq.w  #$01, A5
 		move.w  A5, D4
-		bne.s   NemDec_3                           ; loc_16E0
+		bne.s   NemDec_3
 		rts
 ;-------------------------------------------------------------------------------
-NemDec_Output_XOR:                                         ; loc_1720
+NemDec_Output_XOR:
 		eor.l   D4, D2
 		move.l  D2, (A4)
 		subq.w  #$01, A5
 		move.w  A5, D4
-		bne.s   NemDec_3                           ; loc_16E0
+		bne.s   NemDec_3
 		rts
 ;-------------------------------------------------------------------------------
-NemDec_OutputToRAM:                                        ; loc_172C
+NemDec_OutputToRAM:
 		move.l  D4, (A4)+
 		subq.w  #$01, A5
 		move.w  A5, D4
-		bne.s   NemDec_3                           ; loc_16E0
+		bne.s   NemDec_3
 		rts
 ;-------------------------------------------------------------------------------
-NemDec_Output_XORToRAM:                                    ; loc_1736
+NemDec_Output_XORToRAM:
 		eor.l   D4, D2
 		move.l  D2, (A4)+
 		subq.w  #$01, A5
 		move.w  A5, D4
-		bne.s   NemDec_3                           ; loc_16E0
+		bne.s   NemDec_3
 		rts
 ;-------------------------------------------------------------------------------
-NemDec_4:                                                  ; loc_1742:
+NemDec_4:                                                  
 		move.b  (A0)+, D0
 loc_1744:
 		cmpi.b  #$FF, D0
@@ -1350,13 +1350,13 @@ loc_1788:
 ; Routines for loading graphics from the ArtLoadCues array according to D0
 ; ->>>
 ;===============================================================================
-LoadPLC:                                                       ; loc_1794
+LoadPLC:
 		movem.l A1/A2, -(A7)
-		lea     (ArtLoadCues), A1                      ; loc_2E7D4
+		lea     (ArtLoadCues), A1
 		add.w   D0, D0
 		move.w  $00(A1, D0), D0
 		lea     $00(A1, D0), A1
-		lea     (PLC_Buffer).w, A2                           ; $FFFFF680
+		lea     (PLC_Buffer).w, A2
 loc_17AC:
 		tst.l   (A2)
 		beq.s   loc_17B4
@@ -1373,14 +1373,14 @@ loc_17C0:
 		movem.l (A7)+, A1/A2
 		rts
 ;-------------------------------------------------------------------------------
-LoadPLC2:                                                      ; loc_17C6
+LoadPLC2:
 		movem.l A1/A2, -(A7)
-		lea     (ArtLoadCues), A1                      ; loc_2E7D4
+		lea     (ArtLoadCues), A1
 		add.w   D0, D0
 		move.w  $00(A1, D0), D0
 		lea     $00(A1, D0), A1
-		bsr.s   ClearPLC                               ; loc_17F2
-		lea     (PLC_Buffer).w, A2                           ; $FFFFF680
+		bsr.s   ClearPLC
+		lea     (PLC_Buffer).w, A2
 		move.w  (A1)+, D0
 		bmi.s   loc_17EC
 loc_17E4:
@@ -1399,12 +1399,12 @@ loc_17EC:
 ; Routine for clearing the Pattern Load Cue
 ; ->>>
 ;===============================================================================
-ClearPLC:                                                      ; loc_17F2
-		lea     (PLC_Buffer).w, A2                           ; $FFFFF680
+ClearPLC:
+		lea     (PLC_Buffer).w, A2
 		moveq   #$1F, D0
-ClearPLC_Loop:                                                 ; loc_17F8
+ClearPLC_Loop:
 		clr.l   (A2)+
-		dbra    D0, ClearPLC_Loop                      ; loc_17F8
+		dbra    D0, ClearPLC_Loop
 		rts
 ;===============================================================================
 ; Routine for clearing the Pattern Load Cue
@@ -1415,13 +1415,13 @@ ClearPLC_Loop:                                                 ; loc_17F8
 ; Routine for unpacking items in the Pattern Load Cue
 ; ->>>
 ;===============================================================================
-RunPLC:                                                        ; loc_1800
-		tst.l   (PLC_Buffer).w                               ; $FFFFF680
-		beq.s   Exit_RunPLC                            ; loc_1854
+RunPLC:
+		tst.l   (PLC_Buffer).w
+		beq.s   Exit_RunPLC
 		tst.w   ($FFFFF6F8).w
-		bne.s   Exit_RunPLC                            ; loc_1854
-		move.l  (PLC_Buffer).w, A0                           ; $FFFFF680
-		lea     NemDec_Output(PC), A3              ; loc_1716
+		bne.s   Exit_RunPLC
+		move.l  (PLC_Buffer).w, A0
+		lea     NemDec_Output(PC), A3
 		nop
 		lea     ($FFFFAA00).w, A1
 		move.w  (A0)+, D2
@@ -1432,20 +1432,20 @@ RunPLC:                                                        ; loc_1800
 loc_1822:
 		andi.w  #$7FFF, D2
 		move.w  D2, ($FFFFF6F8).w
-		bsr     NemDec_4                           ; loc_1742
+		bsr     NemDec_4
 		move.b  (A0)+, D5
 		asl.w   #$08, D5
 		move.b  (A0)+, D5
 		moveq   #$10, D6
 		moveq   #$00, D0
-		move.l  A0, (PLC_Buffer).w                           ; $FFFFF680
+		move.l  A0, (PLC_Buffer).w
 		move.l  A3, ($FFFFF6E0).w
 		move.l  D0, ($FFFFF6E4).w
 		move.l  D0, ($FFFFF6E8).w
 		move.l  D0, ($FFFFF6EC).w
 		move.l  D5, ($FFFFF6F0).w
 		move.l  D6, ($FFFFF6F4).w
-Exit_RunPLC:                                                   ; loc_1854
+Exit_RunPLC:
 		rts
 ;===============================================================================
 ; Routine for unpacking items in the Pattern Load Cue
@@ -1468,14 +1468,14 @@ loc_1872:
 		move.w  ($FFFFF684).w, D0
 		addi.w  #$0060, ($FFFFF684).w
 loc_188A:
-		lea     (VDP_Control_Port), A4                       ; $00C00004
+		lea     (VDP_Control_Port), A4
 		lsl.l   #$02, D0
 		lsr.w   #$02, D0
 		ori.w   #$4000, D0
 		swap.w  D0
 		move.l  D0, (A4)
 		subq.w  #$04, A4
-		move.l  (PLC_Buffer).w, A0                           ; $FFFFF680
+		move.l  (PLC_Buffer).w, A0
 		move.l  ($FFFFF6E0).w, A3
 		move.l  ($FFFFF6E4).w, D0
 		move.l  ($FFFFF6E8).w, D1
@@ -1485,12 +1485,12 @@ loc_188A:
 		lea     ($FFFFAA00).w, A1
 loc_18BE:
 		move.w  #$0008, A5
-		bsr     NemDec_3                           ; loc_16E0
+		bsr     NemDec_3
 		subq.w  #$01, ($FFFFF6F8).w
 		beq.s   loc_18F0
 		subq.w  #$01, ($FFFFF6FA).w
 		bne.s   loc_18BE
-		move.l  A0, (PLC_Buffer).w                           ; $FFFFF680
+		move.l  A0, (PLC_Buffer).w
 		move.l  A3, ($FFFFF6E0).w
 		move.l  D0, ($FFFFF6E4).w
 		move.l  D1, ($FFFFF6E8).w
@@ -1500,7 +1500,7 @@ loc_18BE:
 loc_18EE:
 		rts
 loc_18F0:
-		lea     (PLC_Buffer).w, A0                           ; $FFFFF680
+		lea     (PLC_Buffer).w, A0
 		moveq   #$15, D0
 loc_18F6:
 		move.l  $0006(A0), (A0)+
@@ -1510,13 +1510,13 @@ loc_18F6:
 ; Load PLCs directly from ROM without queuing
 ; ->>>
 ;===============================================================================
-RunPLC_ROM:                                                    ; loc_1900
-		lea     (ArtLoadCues), A1                      ; loc_2E7D4
+RunPLC_ROM:
+		lea     (ArtLoadCues), A1
 		add.w   D0, D0
 		move.w  $00(A1, D0), D0
 		lea     $00(A1, D0), A1
 		move.w  (A1)+, D1
-RunPLC_ROM_Loop:                                               ; loc_1912
+RunPLC_ROM_Loop:
 		move.l  (A1)+, A0
 		moveq   #$00, D0
 		move.w  (A1)+, D0
@@ -1524,9 +1524,9 @@ RunPLC_ROM_Loop:                                               ; loc_1912
 		lsr.w   #$02, D0
 		ori.w   #$4000, D0
 		swap.w  D0
-		move.l  D0, (VDP_Control_Port)                       ; $00C00004
-		bsr     NemDec                             ; loc_1654
-		dbra    D1, RunPLC_ROM_Loop                    ; loc_1912
+		move.l  D0, (VDP_Control_Port)
+		bsr     NemDec
+		dbra    D1, RunPLC_ROM_Loop
 		rts
 ;===============================================================================
 ; Load PLCs directly from ROM without queuing
@@ -2386,39 +2386,39 @@ loc_1F6A:
 ; Color palette cycling routine
 ; ->>>
 ;===============================================================================
-PalCycle_Load:                                                 ; loc_1F70
-		bsr     PalCycle_SuperSonic                    ; loc_24CE
+PalCycle_Load:
+		bsr     PalCycle_SuperSonic
 		moveq   #$00, D2
 		moveq   #$00, D0
-		move.b  (Level_Id).w, D0                             ; $FFFFFE10
+		move.b  (Level_Id).w, D0
 		add.w   D0, D0
-		move.w  PalCycle_Load_List(PC, D0), D0         ; loc_1F88
-		jmp     PalCycle_Load_List(PC, D0)             ; loc_1F88
+		move.w  PalCycle_Load_List(PC, D0), D0
+		jmp     PalCycle_Load_List(PC, D0)
 		rts
 ;-------------------------------------------------------------------------------
-PalCycle_Load_List:                                            ; loc_1F88
-		dc.w    PalCycle_GHz-PalCycle_Load_List        ; loc_1FAC
-		dc.w    PalCycle_Lvl1-PalCycle_Load_List       ; loc_1FAA
-		dc.w    PalCycle_Wz-PalCycle_Load_List         ; loc_1FDA
-		dc.w    PalCycle_Lvl3-PalCycle_Load_List       ; loc_1FAA
-		dc.w    PalCycle_Mz-PalCycle_Load_List         ; loc_200A
-		dc.w    PalCycle_Mz-PalCycle_Load_List         ; loc_200A
-		dc.w    PalCycle_Lvl6-PalCycle_Load_List       ; loc_1FAA
-		dc.w    PalCycle_HTz-PalCycle_Load_List        ; loc_20A0
-		dc.w    PalCycle_HPz-PalCycle_Load_List        ; loc_20E4
-		dc.w    PalCycle_Lvl9-PalCycle_Load_List       ; loc_1FAA
-		dc.w    PalCycle_OOz-PalCycle_Load_List        ; loc_2126
-		dc.w    PalCycle_DHz-PalCycle_Load_List        ; loc_2154
-		dc.w    PalCycle_CNz-PalCycle_Load_List        ; loc_217C
-		dc.w    PalCycle_CPz-PalCycle_Load_List        ; loc_221C
-		dc.w    PalCycle_GCz-PalCycle_Load_List        ; loc_1FAA
-		dc.w    PalCycle_NGHz-PalCycle_Load_List       ; loc_228E
-		dc.w    PalCycle_DEz-PalCycle_Load_List        ; loc_1FAA
+PalCycle_Load_List:
+		dc.w    PalCycle_GHz-PalCycle_Load_List
+		dc.w    PalCycle_Lvl1-PalCycle_Load_List
+		dc.w    PalCycle_Wz-PalCycle_Load_List
+		dc.w    PalCycle_Lvl3-PalCycle_Load_List
+		dc.w    PalCycle_Mz-PalCycle_Load_List
+		dc.w    PalCycle_Mz-PalCycle_Load_List
+		dc.w    PalCycle_Lvl6-PalCycle_Load_List
+		dc.w    PalCycle_HTz-PalCycle_Load_List
+		dc.w    PalCycle_HPz-PalCycle_Load_List
+		dc.w    PalCycle_Lvl9-PalCycle_Load_List
+		dc.w    PalCycle_OOz-PalCycle_Load_List
+		dc.w    PalCycle_DHz-PalCycle_Load_List
+		dc.w    PalCycle_CNz-PalCycle_Load_List
+		dc.w    PalCycle_CPz-PalCycle_Load_List
+		dc.w    PalCycle_GCz-PalCycle_Load_List
+		dc.w    PalCycle_NGHz-PalCycle_Load_List
+		dc.w    PalCycle_DEz-PalCycle_Load_List
 ;-------------------------------------------------------------------------------
 ; Routine for zones without a cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_Lvl1:                                                 ; loc_1FAA
+PalCycle_Lvl1:
 PalCycle_Lvl3:
 PalCycle_Lvl6:
 PalCycle_Lvl9:
@@ -2434,8 +2434,8 @@ PalCycle_DEz:
 ; Routine for Green Hills cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_GHz:                                                  ; loc_1FAC
-		lea     (Pal_GHzCyc), A0                       ; loc_22DC
+PalCycle_GHz:
+		lea     (Pal_GHzCyc), A0
 		subq.w  #$01, ($FFFFF634).w
 		bpl.s   loc_1FD8
 		move.w  #$0007, ($FFFFF634).w
@@ -2456,11 +2456,11 @@ loc_1FD8:
 ; Routine for Woods cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_Wz:                                                   ; loc_1FDA
+PalCycle_Wz:
 		subq.w  #$01, ($FFFFF634).w
 		bpl.s   loc_2008
 		move.w  #$0002, ($FFFFF634).w
-		lea     (Pal_WzCyc), A0                        ; loc_237C
+		lea     (Pal_WzCyc), A0
 		move.w  ($FFFFF632).w, D0
 		subq.w  #$02, ($FFFFF632).w
 		bcc.s   loc_1FFC
@@ -2480,11 +2480,11 @@ loc_2008:
 ; Routine for Metropolis cycling palettes
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_Mz:                                                   ; loc_200A
+PalCycle_Mz:
 		subq.w  #$01, ($FFFFF634).w
 		bpl.s   loc_203A
 		move.w  #$0011, ($FFFFF634).w
-		lea     (Pal_MzCyc1), A0                       ; loc_238C
+		lea     (Pal_MzCyc1), A0
 		move.w  ($FFFFF632).w, D0
 		addq.w  #$02, ($FFFFF632).w
 		cmpi.w  #$000C, ($FFFFF632).w
@@ -2497,7 +2497,7 @@ loc_203A:
 		subq.w  #$01, ($FFFFF666).w
 		bpl.s   loc_206E
 		move.w  #$0002, ($FFFFF666).w
-		lea     (Pal_MzCyc2), A0                       ; loc_2398
+		lea     (Pal_MzCyc2), A0
 		move.w  ($FFFFF652).w, D0
 		addq.w  #$02, ($FFFFF652).w
 		cmpi.w  #$0006, ($FFFFF652).w
@@ -2511,7 +2511,7 @@ loc_206E:
 		subq.w  #$01, ($FFFFF668).w
 		bpl.s   loc_209E
 		move.w  #$0009, ($FFFFF668).w
-		lea     (Pal_MzCyc3), A0                       ; loc_23A4
+		lea     (Pal_MzCyc3), A0
 		move.w  ($FFFFF654).w, D0
 		addq.w  #$02, ($FFFFF654).w
 		cmpi.w  #$0014, ($FFFFF654).w
@@ -2531,22 +2531,22 @@ loc_209E:
 ; Routine for Hill Tops cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_HTz:                                                  ; loc_20A0
-		lea     (Pal_HTzCyc), A0                       ; loc_22FC
+PalCycle_HTz:
+		lea     (Pal_HTzCyc), A0
 		subq.w  #$01, ($FFFFF634).w
 		bpl.s   loc_20D2
 		move.w  #$0000, ($FFFFF634).w
 		move.w  ($FFFFF632).w, D0
 		addq.w  #$01, ($FFFFF632).w
 		andi.w  #$000F, D0
-		move.b  Pal_HTzCyc_Data(PC, D0), ($FFFFF635).w ; loc_20D4
+		move.b  Pal_HTzCyc_Data(PC, D0), ($FFFFF635).w
 		lsl.w   #$03, D0
 		move.l  $00(A0, D0), ($FFFFFB26).w
 		move.l  $04(A0, D0), ($FFFFFB3C).w
 loc_20D2:
 		rts
 ;-------------------------------------------------------------------------------
-Pal_HTzCyc_Data:                                               ; loc_20D4
+Pal_HTzCyc_Data:
 		dc.b    $0B, $0B, $0B, $0A, $08, $0A, $0B, $0B
 		dc.b    $0B, $0B, $0D, $0F, $0D, $0B, $0B, $0B
 ;-------------------------------------------------------------------------------
@@ -2558,11 +2558,11 @@ Pal_HTzCyc_Data:                                               ; loc_20D4
 ; Routine for Hidden Palaces cycling palettes
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_HPz:                                                  ; loc_20E4
+PalCycle_HPz:
 		subq.w  #$01, ($FFFFF634).w
 		bpl.s   loc_2124
 		move.w  #$0004, ($FFFFF634).w
-		lea     (Pal_HPzCyc1), A0                      ; loc_23B8
+		lea     (Pal_HPzCyc1), A0
 		move.w  ($FFFFF632).w, D0
 		subq.w  #$02, ($FFFFF632).w
 		bcc.s   loc_2106
@@ -2571,7 +2571,7 @@ loc_2106:
 		lea     ($FFFFFB72).w, A1
 		move.l  $00(A0, D0), (A1)+
 		move.l  $04(A0, D0), (A1)
-		lea     (Pal_HPzCyc2), A0                      ; loc_23C8
+		lea     (Pal_HPzCyc2), A0
 		lea     ($FFFFFAF2).w, A1
 		move.l  $00(A0, D0), (A1)+
 		move.l  $04(A0, D0), (A1)
@@ -2586,11 +2586,11 @@ loc_2124:
 ; Routine for Oil Oceans Palaces cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_OOz:                                                  ; loc_2126
+PalCycle_OOz:
 		subq.w  #$01, ($FFFFF634).w
 		bpl.s   loc_2152
 		move.w  #$0007, ($FFFFF634).w
-		lea     (Pal_OOzCyc), A0                       ; loc_23D8
+		lea     (Pal_OOzCyc), A0
 		move.w  ($FFFFF632).w, D0
 		addq.w  #$02, ($FFFFF632).w
 		andi.w  #$0006, ($FFFFF632).w
@@ -2608,11 +2608,11 @@ loc_2152:
 ; Routine for Dust Hills cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_DHz:                                                  ; loc_2154
+PalCycle_DHz:
 		subq.w  #$01, ($FFFFF634).w
 		bpl.s   loc_217A
 		move.w  #$0001, ($FFFFF634).w
-		lea     (Pal_DHzCyc), A0                       ; loc_23E8
+		lea     (Pal_DHzCyc), A0
 		move.w  ($FFFFF632).w, D0
 		addq.w  #$02, ($FFFFF632).w
 		andi.w  #$0006, ($FFFFF632).w
@@ -2628,11 +2628,11 @@ loc_217A:
 ; Routine for Casino Nights cycling palettes
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_CNz:                                                  ; loc_217C
+PalCycle_CNz:
 		subq.w  #$01, ($FFFFF634).w
 		bpl     loc_221A
 		move.w  #$0007, ($FFFFF634).w
-		lea     (Pal_CNzCyc1), A0                      ; loc_23F0
+		lea     (Pal_CNzCyc1), A0
 		move.w  ($FFFFF632).w, D0
 		addq.w  #$02, ($FFFFF632).w
 		cmpi.w  #$0006, ($FFFFF632).w
@@ -2640,19 +2640,19 @@ PalCycle_CNz:                                                  ; loc_217C
 		move.w  #$0000, ($FFFFF632).w
 loc_21A6:
 		lea     $00(A0, D0), A0
-		lea     (Palette_Buffer).w, A1                       ; $FFFFFB00
+		lea     (Palette_Buffer).w, A1
 		move.w  $0000(A0), $004A(A1)
 		move.w  $0006(A0), $004C(A1)
 		move.w  $000C(A0), $004E(A1)
 		move.w  $0012(A0), $0056(A1)
 		move.w  $0018(A0), $0058(A1)
 		move.w  $001E(A0), $005A(A1)
-		lea     (Pal_CNzCyc2), A0                      ; loc_2414
+		lea     (Pal_CNzCyc2), A0
 		lea     $00(A0, D0), A0
 		move.w  $0000(A0), $0064(A1)
 		move.w  $0006(A0), $0066(A1)
 		move.w  $000C(A0), $0068(A1)
-		lea     (Pal_CNzCyc3), A0                      ; loc_2426
+		lea     (Pal_CNzCyc3), A0
 		move.w  ($FFFFF652).w, D0
 		addq.w  #$02, ($FFFFF652).w
 		cmpi.w  #$0024, ($FFFFF652).w
@@ -2674,11 +2674,11 @@ loc_221A:
 ; Routine for Chemical Plants cycling palettes
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_CPz:                                                  ; loc_221C
+PalCycle_CPz:
 		subq.w  #$01, ($FFFFF634).w
 		bpl.s   loc_228C
 		move.w  #$0007, ($FFFFF634).w
-		lea     (Pal_CPzCyc1), A0                      ; loc_244E
+		lea     (Pal_CPzCyc1), A0
 		move.w  ($FFFFF632).w, D0
 		addq.w  #$06, ($FFFFF632).w
 		cmpi.w  #$0036, ($FFFFF632).w
@@ -2688,7 +2688,7 @@ loc_2244:
 		lea     ($FFFFFB78).w, A1
 		move.l  $00(A0, D0), (A1)+
 		move.w  $04(A0, D0), (A1)
-		lea     (Pal_CPzCyc2), A0                      ; loc_2484
+		lea     (Pal_CPzCyc2), A0
 		move.w  ($FFFFF652).w, D0
 		addq.w  #$02, ($FFFFF652).w
 		cmpi.w  #$002A, ($FFFFF652).w
@@ -2696,7 +2696,7 @@ loc_2244:
 		move.w  #$0000, ($FFFFF652).w
 loc_226C:
 		move.w  $00(A0, D0), ($FFFFFB7E).w
-		lea     (Pal_CPzCyc3), A0                      ; loc_24AE
+		lea     (Pal_CPzCyc3), A0
 		move.w  ($FFFFF654).w, D0
 		addq.w  #$02, ($FFFFF654).w
 		andi.w  #$001E, ($FFFFF654).w
@@ -2712,8 +2712,8 @@ loc_228C:
 ; Routine for Neo Green Hill cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_NGHz:                                                 ; loc_228E
-		lea     (Pal_NGHzCyc), A0                      ; loc_22DC
+PalCycle_NGHz:
+		lea     (Pal_NGHzCyc), A0
 		subq.w  #$01, ($FFFFF634).w
 		bpl.s   loc_22BA
 		move.w  #$0005, ($FFFFF634).w
@@ -2730,16 +2730,16 @@ loc_22BA:
 ; Routine for Neo Green Hill cycling palette
 ; <<<-
 ;-------------------------------------------------------------------------------
-; Pal_S1_Title_Screen: ; Leftover                             ; loc_22BC
+; Pal_S1_Title_Screen: ; Leftover
 		dc.w    $0C42, $0E86, $0ECA, $0EEC, $0EEC, $0C42, $0E86, $0ECA
 		dc.w    $0ECA, $0EEC, $0C42, $0E86, $0E86, $0ECA, $0EEC, $0C42
 ;-------------------------------------------------------------------------------
-Pal_GHzCyc:                                                    ; loc_22DC
-Pal_NGHzCyc:                                                   ; loc_22DC
+Pal_GHzCyc:
+Pal_NGHzCyc:
 		dc.w    $0A86, $0E86, $0EA8, $0ECA, $0ECA, $0A86, $0E86, $0EA8
 		dc.w    $0EA8, $0ECA, $0A86, $0E86, $0E86, $0EA8, $0ECA, $0A86
 ;-------------------------------------------------------------------------------
-Pal_HTzCyc:                                                    ; loc_22FC
+Pal_HTzCyc:
 		dc.w    $000E, $006E, $00AE, $00EE, $00EE, $000E, $006E, $00AE
 		dc.w    $02CE, $00EE, $000E, $006E, $006E, $04EE, $08EE, $002E
 		dc.w    $004E, $008E, $06EE, $0AEE, $08EE, $002E, $006E, $04EE
@@ -2749,71 +2749,71 @@ Pal_HTzCyc:                                                    ; loc_22FC
 		dc.w    $000A, $002E, $006E, $00AC, $00CE, $000C, $004E, $008E
 		dc.w    $00AE, $00EE, $000E, $006E, $006E, $00AE, $00EE, $000E
 ;-------------------------------------------------------------------------------
-Pal_WzCyc:                                                     ; loc_237C
+Pal_WzCyc:
 		dc.w    $0248, $046A, $048C, $06CE, $0248, $046A, $048C, $06CE
 ;-------------------------------------------------------------------------------
-Pal_MzCyc1:                                                    ; loc_238C
+Pal_MzCyc1:
 		dc.w    $0006, $0008, $000A, $000C, $000A, $0008
 ;-------------------------------------------------------------------------------
-Pal_MzCyc2:                                                    ; loc_2398
+Pal_MzCyc2:
 		dc.w    $0422, $0866, $0ECC, $0422, $0866, $0ECC
 ;-------------------------------------------------------------------------------
-Pal_MzCyc3:                                                    ; loc_23A4
+Pal_MzCyc3:
 		dc.w    $00A0, $0000, $00EE, $0000, $002E, $0000, $0E2E, $0000
 		dc.w    $0E80, $0000
 ;-------------------------------------------------------------------------------
-Pal_HPzCyc1:                                                   ; loc_23B8
+Pal_HPzCyc1:
 		dc.w    $0E44, $0E82, $0EA8, $0EEE, $0E44, $0E82, $0EA8, $0EEE
 ;-------------------------------------------------------------------------------
-Pal_HPzCyc2:                                                   ; loc_23C8
+Pal_HPzCyc2:
 		dc.w    $0E84, $0EA6, $0EC6, $0EE6, $0E84, $0EA6, $0EC6, $0EE6
 ;-------------------------------------------------------------------------------
-Pal_OOzCyc:                                                    ; loc_23D8
+Pal_OOzCyc:
 		dc.w    $0400, $0602, $0804, $0806, $0400, $0602, $0804, $0806
 ;-------------------------------------------------------------------------------
-Pal_DHzCyc:                                                    ; loc_23E8
+Pal_DHzCyc:
 		dc.w    $000C, $006E, $00CE, $08EE
 ;-------------------------------------------------------------------------------
-Pal_CNzCyc1:                                                   ; loc_23F0
+Pal_CNzCyc1:
 		dc.w    $000E, $00EE, $006E, $006E, $000E, $00EE, $00EE, $006E
 		dc.w    $000E, $00EC, $0080, $00C4, $00C4, $00EC, $0080, $0080
 		dc.w    $00C4, $00EC
 ;-------------------------------------------------------------------------------
-Pal_CNzCyc2:                                                   ; loc_2414
+Pal_CNzCyc2:
 		dc.w    $0044, $0088, $00EE, $0088, $00EE, $0044, $00EE, $0044
 		dc.w    $0088
 ;-------------------------------------------------------------------------------
-Pal_CNzCyc3:                                                   ; loc_2426
+Pal_CNzCyc3:
 		dc.w    $008E, $00AE, $00EC, $0EEE, $00EA, $00E4, $06C0, $0CC4
 		dc.w    $0E80, $0E40, $0E04, $0C08, $0C2E, $080E, $040E, $000E
 		dc.w    $004E, $006E, $008E, $00AE
 ;-------------------------------------------------------------------------------
-Pal_CPzCyc1:                                                   ; loc_244E
+Pal_CPzCyc1:
 		dc.w    $0E40, $0C00, $0C00, $0E60, $0C20, $0C00, $0E40, $0E40
 		dc.w    $0C00, $0C20, $0E60, $0C20, $0C00, $0E40, $0C40, $0C00
 		dc.w    $0C20, $0E40, $0C00, $0C00, $0E60, $0C20, $0C00, $0E40
 		dc.w    $0E20, $0C00, $0C20
 ;-------------------------------------------------------------------------------
-Pal_CPzCyc2:                                                   ; loc_2484
+Pal_CPzCyc2:
 		dc.w    $00E0, $00C2, $00A4, $0086, $0068, $004A, $002C, $000E
 		dc.w    $020C, $040A, $0608, $0806, $0A04, $0C02, $0E00, $0C20
 		dc.w    $0A40, $0860, $0680, $04A0, $02C0
 ;-------------------------------------------------------------------------------
-Pal_CPzCyc3:                                                   ; loc_24AE
+Pal_CPzCyc3:
 		dc.w    $000E, $000C, $000A, $0008, $0006, $0004, $0002, $0004
 		dc.w    $0006, $0008, $000A, $000C, $000E, $002E, $004E, $002E
 ;-------------------------------------------------------------------------------
 ; Routine for Super Sonics cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_SuperSonic:                                           ; loc_24CE
+PalCycle_SuperSonic:
 		tst.b   ($FFFFF65F).w
 		beq.s   loc_2510
 		bmi.s   loc_2512
 		subq.b  #$01, ($FFFFF65E).w
 		bpl.s   loc_2510
 		move.b  #$03, ($FFFFF65E).w
-		lea     (Pal_SuperSonic_Cyc), A0               ; loc_2548
+		lea     (Pal_SuperSonic_Cyc), A0
 		move.w  ($FFFFF65C).w, D0
 		addq.w  #$08, ($FFFFF65C).w
 		cmpi.w  #$0030, ($FFFFF65C).w
@@ -2830,7 +2830,7 @@ loc_2512:
 		subq.b  #$01, ($FFFFF65E).w
 		bpl.s   loc_2510
 		move.b  #$07, ($FFFFF65E).w
-		lea     (Pal_SuperSonic_Cyc), A0               ; loc_2548
+		lea     (Pal_SuperSonic_Cyc), A0
 		move.w  ($FFFFF65C).w, D0
 		addq.w  #$08, ($FFFFF65C).w
 		cmpi.w  #$0078, ($FFFFF65C).w
@@ -2842,7 +2842,7 @@ loc_253A:
 		move.l  $04(A0, D0), (A1)
 		rts
 ;-------------------------------------------------------------------------------
-Pal_SuperSonic_Cyc:                                            ; loc_2548
+Pal_SuperSonic_Cyc:
 		incbin "Palettes/SuperSonic_C.bin"
 		even
 ;-------------------------------------------------------------------------------
@@ -55393,22 +55393,22 @@ NGHz_Obj_Act1:                                                 ; loc_4E9BA
 		incbin  'level/neo green hill zone/obj_act1.dat'
 NGHz_Obj_Act2:                                                 ; loc_4EB8E
 		incbin  'level/neo green hill zone/obj_act2.dat'
-GCz_Obj_Act1:                                                  ; loc_4ED20
-GCz_Obj_Act2:                                                  ; loc_4ED20
-CNz_Obj_Act1:                                                  ; loc_4ED20
-CNz_Obj_Act2:                                                  ; loc_4ED20
-Lvl1_Obj_Act1:                                                 ; loc_4ED20
-Lvl1_Obj_Act2:                                                 ; loc_4ED20
-Wz_Obj_Act1:                                                   ; loc_4ED20
-Wz_Obj_Act2:                                                   ; loc_4ED20
-Lvl3_Obj_Act1:                                                 ; loc_4ED20
-Lvl3_Obj_Act2:                                                 ; loc_4ED20
-Lvl6_Obj_Act1:                                                 ; loc_4ED20
-Lvl6_Obj_Act2:                                                 ; loc_4ED20
-Lvl9_Obj_Act1:                                                 ; loc_4ED20
-Lvl9_Obj_Act2:                                                 ; loc_4ED20
-DEz_Obj_Act1:                                                  ; loc_4ED20
-DEz_Obj_Act2:                                                  ; loc_4ED20
+GCz_Obj_Act1:
+GCz_Obj_Act2:
+CNz_Obj_Act1:
+CNz_Obj_Act2:
+Lvl1_Obj_Act1:
+Lvl1_Obj_Act2:
+Wz_Obj_Act1:
+Wz_Obj_Act2:
+Lvl3_Obj_Act1:
+Lvl3_Obj_Act2:
+Lvl6_Obj_Act1:
+Lvl6_Obj_Act2:
+Lvl9_Obj_Act1:
+Lvl9_Obj_Act2:
+DEz_Obj_Act1:
+DEz_Obj_Act2:
 		dc.w    $FFFF, $0000, $0000
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
@@ -55788,196 +55788,196 @@ Wood_Tiles:                                                    ; loc_9572C
 Wood_Chunks:                                                   ; loc_99424
 		incbin  'level/wood zone/chunks.kos'
 		dc.w    $0000, $0000, $0000, $0000, $0000, $0000
-Metropolis_Blocks:                                             ; loc_9B054
+Metropolis_Blocks:
 		incbin  'level/metropolis zone/blocks.dat'
-Metropolis_Tiles:                                              ; loc_9C314
+Metropolis_Tiles:
 		incbin  'level/metropolis zone/tiles.nem'
-Art_Metropolis_Dynamic_Init:                                   ; loc_91224
+Art_Metropolis_Dynamic_Init:
 		incbin  'art/nemesis/mzdyn_init.nem'
-Metropolis_Chunks:                                             ; loc_9F854
+Metropolis_Chunks:
 		incbin  'level/metropolis zone/chunks.kos'
-Hidden_Palace_Blocks:                                          ; loc_A24D4
+Hidden_Palace_Blocks:
 		incbin  'level/hidden palace zone/blocks.dat'
-Hidden_Palace_Tiles:                                           ; loc_A3AB4
+Hidden_Palace_Tiles:
 		incbin  'level/hidden palace zone/tiles.nem'
-Art_Hidden_Palace_Dynamic_Init:                                ; loc_A67C2
+Art_Hidden_Palace_Dynamic_Init:
 		incbin  'art/nemesis/dyn_init.nem'
-Hidden_Palace_Chunks:                                          ; loc_A6936
+Hidden_Palace_Chunks:
 		incbin  'level/hidden palace zone/chunks.kos'
 		dc.w    $0000, $0000, $0000
-Oil_Ocean_Blocks:                                              ; loc_A86B6
+Oil_Ocean_Blocks:
 		incbin  'level/oil ocean zone/blocks.dat'
-Oil_Ocean_Tiles:                                               ; loc_A9C96
+Oil_Ocean_Tiles:
 		incbin  'level/oil ocean zone/tiles.nem'
-Art_Oil_Ocean_Dynamic_Init:                                    ; loc_AC7A8
+Art_Oil_Ocean_Dynamic_Init:
 		incbin  'art/nemesis/oozdyn_init.nem'
-Oil_Ocean_Chunks:                                              ; loc_AC996
+Oil_Ocean_Chunks:
 		incbin  'level/oil ocean zone/chunks.kos'
-Dust_Hill_Blocks:                                              ; loc_AEE86
+Dust_Hill_Blocks:
 		incbin  'level/dust hill zone/blocks.dat'
-Dust_Hill_Tiles:                                               ; loc_B0146
+Dust_Hill_Tiles:
 		incbin  'level/dust hill zone/tiles.nem'
-Dust_Hill_Chunks:                                              ; loc_B3A68
+Dust_Hill_Chunks:
 		incbin  'level/dust hill zone/chunks.kos'
 		dc.w    $0000, $0000, $0000
-Casino_Night_Blocks:                                           ; loc_B65B8
+Casino_Night_Blocks:
 		incbin  'level/casino night zone/blocks.dat'
-Casino_Night_Tiles:                                            ; loc_B6F18
+Casino_Night_Tiles:
 		incbin  'level/casino night zone/tiles.nem'
-Art_Casino_Night_Dynamic_Init:                                 ; loc_B9E78
+Art_Casino_Night_Dynamic_Init:
 		incbin  'art/nemesis/cnzdyn_init.nem'
-Casino_Night_Chunks:                                           ; loc_B9F62
+Casino_Night_Chunks:
 		incbin  'level/casino night zone/chunks.kos'
 		dc.w    $0000, $0000, $0000
-Chemical_Plant_Blocks:                                         ; loc_BBE72
+Chemical_Plant_Blocks:
 		incbin  'level/chemical plant zone/blocks.dat'
-Chemical_Plant_Tiles:                                          ; loc_BD452
+Chemical_Plant_Tiles:
 		incbin  'level/chemical plant zone/tiles.nem'
-Art_Chemical_Plant_Dynamic_Init:                               ; loc_C0F7A
+Art_Chemical_Plant_Dynamic_Init:
 		incbin  'art/nemesis/cpzdyn_init.nem'
-Chemical_Plant_Chunks:                                         ; loc_C0FA4
+Chemical_Plant_Chunks:
 		incbin  'level/chemical plant zone/chunks.kos'
 		dc.w    $0000, $0000, $0000
-Neo_Green_Hill_Blocks:                                         ; loc_C34A4
+Neo_Green_Hill_Blocks:
 		incbin  'level/neo green hill zone/blocks.dat'
-Neo_Green_Hill_Tiles:                                          ; loc_C4DA4
+Neo_Green_Hill_Tiles:
 		incbin  'level/neo green hill zone/tiles.nem'
-Art_Neo_Green_Hill_Dynamic_Init:                               ; loc_CA426
+Art_Neo_Green_Hill_Dynamic_Init:
 		incbin  'art/nemesis/nghzdyn_init.nem'
-Neo_Green_Hill_Chunks:                                         ; loc_CA586
+Neo_Green_Hill_Chunks:
 		incbin  'level/neo green hill zone/chunks.kos'
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Previous_Build_Chemical_Plant_Tiles_Overwrite:                 ; loc_CD158
+Previous_Build_Chemical_Plant_Tiles_Overwrite:
 		incbin  'leftovers/cpzpb_tiles.dat'
-Previous_Build_Art_Chemical_Plant_Dynamic_Init:                ; loc_CDFC6
+Previous_Build_Art_Chemical_Plant_Dynamic_Init:
 		incbin  'art/nemesis/dyninit2.nem'
-Previous_Build_Chemical_Plant_Chunks:                          ; loc_CE03A
+Previous_Build_Chemical_Plant_Chunks:
 		incbin  'leftovers/cpzchunks.dat'
-Previous_Build_Neo_Green_Hill_Blocks:                          ; loc_D603A
+Previous_Build_Neo_Green_Hill_Blocks:
 		incbin  'leftovers/nghzpb_blcks.dat'
-Previous_Build_Neo_Green_Hill_Tiles:                           ; loc_D793A
+Previous_Build_Neo_Green_Hill_Tiles:
 		incbin  'leftovers/nghzpb_tiles.nem'
-Previous_Build_Art_Neo_Green_Hill_Dynamic_Init:                ; loc_DCEEA
+Previous_Build_Art_Neo_Green_Hill_Dynamic_Init:
 		incbin  'art/nemesis/nghzdyn_init.nem'
-Previous_Build_Neo_Green_Hill_Chunks:                          ; loc_DD04A
+Previous_Build_Neo_Green_Hill_Chunks:
 		incbin  'leftovers/nghzpb_chnks.dat'
 		dc.w     $0000
-Previous_Build_Neo_Green_Hill_Tiles_Overwrite:                 ; loc_E504C
+Previous_Build_Neo_Green_Hill_Tiles_Overwrite:
 		incbin  'leftovers/nghzpb_tiles.dat'
-Previous_Build_Art_Neo_Green_Hill_Dynamic_Init_2:              ; loc_E57E6
+Previous_Build_Art_Neo_Green_Hill_Dynamic_Init_2:
 		incbin  'art/nemesis/nghzdyn_init.nem'
-Uncompiled_Asm:                                                ; loc_E5946
+Uncompiled_Asm:
 		include "Leftovers/Uncompiled ASM.asm"
 ;===============================================================================
 ; Ring layouts in the zones
 ; ->>>
 ;===============================================================================
-Rings_Layout:                                                  ; loc_E8000
-		dc.w    GHz_Rng_Act1-Rings_Layout              ; loc_E8044
-		dc.w    GHz_Rng_Act2-Rings_Layout              ; loc_E81DE
-		dc.w    Lvl1_Rng_Act1-Rings_Layout             ; loc_E83FC
-		dc.w    Lvl1_Rng_Act2-Rings_Layout             ; loc_E83FE
-		dc.w    Wz_Rng_Act1-Rings_Layout               ; loc_E8400
-		dc.w    Wz_Rng_Act2-Rings_Layout               ; loc_E8402
-		dc.w    Lvl3_Rng_Act1-Rings_Layout             ; loc_E8404
-		dc.w    Lvl3_Rng_Act2-Rings_Layout             ; loc_E8406
-		dc.w    Mz_Rng_Act1-Rings_Layout               ; loc_E8408
-		dc.w    Mz_Rng_Act2-Rings_Layout               ; loc_E8696
-		dc.w    Mz_Rng_Act3-Rings_Layout               ; loc_E88E4
-		dc.w    Mz_Rng_Act4-Rings_Layout               ; loc_E89CE
-		dc.w    Lvl6_Rng_Act1-Rings_Layout             ; loc_E89D0
-		dc.w    Lvl6_Rng_Act2-Rings_Layout             ; loc_E89D2
-		dc.w    HTz_Rng_Act1-Rings_Layout              ; loc_E89D4
-		dc.w    HTz_Rng_Act2-Rings_Layout              ; loc_E8ACA
-		dc.w    HPz_Rng_Act1-Rings_Layout              ; loc_E8C2C
-		dc.w    HPz_Rng_Act2-Rings_Layout              ; loc_E8D9E
-		dc.w    Lvl9_Rng_Act1-Rings_Layout             ; loc_E8DA0
-		dc.w    Lvl9_Rng_Act2-Rings_Layout             ; loc_E8DA2
-		dc.w    OOz_Rng_Act1-Rings_Layout              ; loc_E8DA4
-		dc.w    OOz_Rng_Act2-Rings_Layout              ; loc_E8E76
-		dc.w    DHz_Rng_Act1-Rings_Layout              ; loc_E8F40
-		dc.w    DHz_Rng_Act2-Rings_Layout              ; loc_E912E
-		dc.w    CNz_Rng_Act1-Rings_Layout              ; loc_E92F8
-		dc.w    CNz_Rng_Act2-Rings_Layout              ; loc_E92FA
-		dc.w    CPz_Rng_Act1-Rings_Layout              ; loc_E92FC
-		dc.w    CPz_Rng_Act2-Rings_Layout              ; loc_E93CA
-		dc.w    GCz_Rng_Act1-Rings_Layout              ; loc_E9520
-		dc.w    GCz_Rng_Act2-Rings_Layout              ; loc_E9522
-		dc.w    NGHz_Rng_Act1-Rings_Layout             ; loc_E9524
-		dc.w    NGHz_Rng_Act2-Rings_Layout             ; loc_E9602
-		dc.w    DEz_Rng_Act1-Rings_Layout              ; loc_E973C
-		dc.w    DEz_Rng_Act2-Rings_Layout              ; loc_E973E
+Rings_Layout:
+		dc.w    GHz_Rng_Act1-Rings_Layout
+		dc.w    GHz_Rng_Act2-Rings_Layout
+		dc.w    Lvl1_Rng_Act1-Rings_Layout
+		dc.w    Lvl1_Rng_Act2-Rings_Layout
+		dc.w    Wz_Rng_Act1-Rings_Layout
+		dc.w    Wz_Rng_Act2-Rings_Layout
+		dc.w    Lvl3_Rng_Act1-Rings_Layout
+		dc.w    Lvl3_Rng_Act2-Rings_Layout
+		dc.w    Mz_Rng_Act1-Rings_Layout
+		dc.w    Mz_Rng_Act2-Rings_Layout
+		dc.w    Mz_Rng_Act3-Rings_Layout
+		dc.w    Mz_Rng_Act4-Rings_Layout
+		dc.w    Lvl6_Rng_Act1-Rings_Layout
+		dc.w    Lvl6_Rng_Act2-Rings_Layout
+		dc.w    HTz_Rng_Act1-Rings_Layout
+		dc.w    HTz_Rng_Act2-Rings_Layout
+		dc.w    HPz_Rng_Act1-Rings_Layout
+		dc.w    HPz_Rng_Act2-Rings_Layout
+		dc.w    Lvl9_Rng_Act1-Rings_Layout
+		dc.w    Lvl9_Rng_Act2-Rings_Layout
+		dc.w    OOz_Rng_Act1-Rings_Layout
+		dc.w    OOz_Rng_Act2-Rings_Layout
+		dc.w    DHz_Rng_Act1-Rings_Layout
+		dc.w    DHz_Rng_Act2-Rings_Layout
+		dc.w    CNz_Rng_Act1-Rings_Layout
+		dc.w    CNz_Rng_Act2-Rings_Layout
+		dc.w    CPz_Rng_Act1-Rings_Layout
+		dc.w    CPz_Rng_Act2-Rings_Layout
+		dc.w    GCz_Rng_Act1-Rings_Layout
+		dc.w    GCz_Rng_Act2-Rings_Layout
+		dc.w    NGHz_Rng_Act1-Rings_Layout
+		dc.w    NGHz_Rng_Act2-Rings_Layout
+		dc.w    DEz_Rng_Act1-Rings_Layout
+		dc.w    DEz_Rng_Act2-Rings_Layout
 ;-------------------------------------------------------------------------------
-GHz_Rng_Act1:                                                  ; loc_E8044
+GHz_Rng_Act1:
 		incbin  'level/emerald hill zone/rng_act1.dat'
-GHz_Rng_Act2:                                                  ; loc_E81DE
+GHz_Rng_Act2:
 		incbin  'level/emerald hill zone/rng_act2.dat'
-Lvl1_Rng_Act1:                                                 ; loc_E83FC
+Lvl1_Rng_Act1:
 		dc.w    $FFFF
-Lvl1_Rng_Act2:                                                 ; loc_E83FE
+Lvl1_Rng_Act2:
 		dc.w    $FFFF
-Wz_Rng_Act1:                                                   ; loc_E8400
+Wz_Rng_Act1:
 		dc.w    $FFFF
-Wz_Rng_Act2:                                                   ; loc_E8402
+Wz_Rng_Act2:
 		dc.w    $FFFF
-Lvl3_Rng_Act1:                                                 ; loc_E8404
+Lvl3_Rng_Act1:
 		dc.w    $FFFF
-Lvl3_Rng_Act2:                                                 ; loc_E8406
+Lvl3_Rng_Act2:
 		dc.w    $FFFF
-Mz_Rng_Act1:                                                   ; loc_E8408
+Mz_Rng_Act1:
 		incbin  'level/metropolis zone/rng_act1.dat'
-Mz_Rng_Act2:                                                   ; loc_E8696
+Mz_Rng_Act2:
 		incbin  'level/metropolis zone/rng_act2.dat'
-Mz_Rng_Act3:                                                   ; loc_E88E4
+Mz_Rng_Act3:
 		incbin  'level/metropolis zone/rng_act3.dat'
-Mz_Rng_Act4:                                                   ; loc_E89CE
+Mz_Rng_Act4:
 		dc.w    $FFFF
-Lvl6_Rng_Act1:                                                 ; loc_E89D0
+Lvl6_Rng_Act1:
 		dc.w    $FFFF
-Lvl6_Rng_Act2:                                                 ; loc_E89D2
+Lvl6_Rng_Act2:
 		dc.w    $FFFF
-HTz_Rng_Act1:                                                  ; loc_E89D4
+HTz_Rng_Act1:
 		incbin  'level/hill top zone/rng_act1.dat'
-HTz_Rng_Act2:                                                  ; loc_E8ACA
+HTz_Rng_Act2:
 		incbin  'level/hill top zone/rng_act2.dat'
-HPz_Rng_Act1:                                                  ; loc_E8C2C
+HPz_Rng_Act1:
 		incbin  'level/hidden palace zone/rng_act.dat'
-HPz_Rng_Act2:                                                  ; loc_E8D9E
+HPz_Rng_Act2:
 		dc.w    $FFFF
-Lvl9_Rng_Act1:                                                 ; loc_E8DA0
+Lvl9_Rng_Act1:
 		dc.w    $FFFF
-Lvl9_Rng_Act2:                                                 ; loc_E8DA2
+Lvl9_Rng_Act2:
 		dc.w    $FFFF
-OOz_Rng_Act1:                                                  ; loc_E8DA4
+OOz_Rng_Act1:
 		incbin  'level/oil ocean zone/rng_act1.dat'
-OOz_Rng_Act2:                                                  ; loc_E8E76
+OOz_Rng_Act2:
 		incbin  'level/oil ocean zone/rng_act2.dat'
-DHz_Rng_Act1:                                                  ; loc_E8F40
+DHz_Rng_Act1:
 		incbin  'level/dust hill zone/rng_act1.dat'
-DHz_Rng_Act2:                                                  ; loc_E912E
+DHz_Rng_Act2:
 		incbin  'level/dust hill zone/rng_act2.dat'
-CNz_Rng_Act1:                                                  ; loc_E92F8
+CNz_Rng_Act1:
 		dc.w    $FFFF
-CNz_Rng_Act2:                                                  ; loc_E92FA
+CNz_Rng_Act2:
 		dc.w    $FFFF
-CPz_Rng_Act1:                                                  ; loc_E92FC
+CPz_Rng_Act1:
 		incbin  'level/chemical plant zone/rng_act1.dat'
-CPz_Rng_Act2:                                                  ; loc_E93CA
+CPz_Rng_Act2:
 		incbin  'level/chemical plant zone/rng_act2.dat'
-GCz_Rng_Act1:                                                  ; loc_E9520
+GCz_Rng_Act1:
 		dc.w    $FFFF
-GCz_Rng_Act2:                                                  ; loc_E9522
+GCz_Rng_Act2:
 		dc.w    $FFFF
-NGHz_Rng_Act1:                                                 ; loc_E9524
+NGHz_Rng_Act1:
 		incbin  'level/neo green hill zone/rng_act1.dat'
-NGHz_Rng_Act2:                                                 ; loc_E9602
+NGHz_Rng_Act2:
 		incbin  'level/neo green hill zone/rng_act2.dat'
-DEz_Rng_Act1:                                                  ; loc_E973C
+DEz_Rng_Act1:
 		dc.w    $FFFF
-DEz_Rng_Act2:                                                  ; loc_E973E
+DEz_Rng_Act2:
 		dc.w    $FFFF
-Previous_Build_NGHz_Rng_Act2:                                  ; loc_E9740
+Previous_Build_NGHz_Rng_Act2:
 		incbin  'leftovers/nghzpb_rng_2.dat'
 		dc.w    $FFFF
 		dc.w    $FFFF
@@ -55985,15 +55985,15 @@ Previous_Build_NGHz_Rng_Act2:                                  ; loc_E9740
 ; Ring layouts in the zones
 ; <<<-
 ;===============================================================================
-Previous_Build_DAC_Sample_01_Overwrite:                        ; loc_E978C
+Previous_Build_DAC_Sample_01_Overwrite:
 		incbin  'leftovers/PB_DAC01.bin'
-Previous_Build_DAC_Sample_02:                                  ; loc_E99B7
+Previous_Build_DAC_Sample_02:
 		incbin  'sound/driver/DAC_02.bin'
-Previous_Build_DAC_Sample_06: ; Sonic 2 Beta                   ; loc_EA56C
+Previous_Build_DAC_Sample_06: ; Sonic 2 Beta
 		incbin  'leftovers/PB_DAC06.bin'
-Previous_Build_DAC_Sample_03: ; Sonic 2 Beta                   ; loc_EAA6B
+Previous_Build_DAC_Sample_03: ; Sonic 2 Beta
 		incbin  'leftovers/PB_DAC03.bin'
-Previous_Build_DAC_Sample_04: ; Sonic 2 Beta                   ; loc_EACD3
+Previous_Build_DAC_Sample_04: ; Sonic 2 Beta
 		incbin  'leftovers/PB_DAC04.bin'
 ;-------------------------------------------------------------------------------
 		cnop    $00000000, $000EC000
@@ -56001,12 +56001,12 @@ Previous_Build_DAC_Sample_04: ; Sonic 2 Beta                   ; loc_EACD3
 ; Sound driver stuff
 ; ->>>
 ;===============================================================================
-SoundDriverLoad:                                               ; loc_EC000
+SoundDriverLoad:
 		move    SR, -(A7)
 		movem.l D0-D7/A0-A6, -(A7)
 		move    #$2700, SR
-		lea     (Z80_Bus_Request), A3                        ; $00A11100
-		lea     (Z80_Reset), A2                              ; $00A11200
+		lea     (Z80_Bus_Request), A3
+		lea     (Z80_Reset), A2
 		moveq   #$00, D2
 		move.w  #$0100, D1
 		move.w  D1, (A3)
@@ -56026,12 +56026,12 @@ loc_EC02E:
 		rts
 ;-------------------------------------------------------------------------------
 loc_EC03C:
-		lea     Z80_Sound_Driver(PC), A6               ; loc_EC0DC
+		lea     Z80_Sound_Driver(PC), A6
 		move.w  #$0E7E, D7
 		moveq   #$00, D6
-		lea     (Z80_RAM_Start), A5                          ; $00A00000
+		lea     (Z80_RAM_Start), A5
 		moveq   #$00, D5
-		lea     (Z80_RAM_Start), A4                          ; $00A00000
+		lea     (Z80_RAM_Start), A4
 loc_EC054:
 		lsr.w   #$01, D6
 		btst    #$08, D6
@@ -56090,24 +56090,24 @@ loc_EC0D2:
 loc_EC0DA:
 		rts
 ;-------------------------------------------------------------------------------
-Z80_Sound_Driver:                                              ; loc_EC0DC
+Z80_Sound_Driver:
 		incbin  'sound/driver/snd_drv.sax'
                 even
 ;-------------------------------------------------------------------------------
 		cnop    $00000000, $000ED000
-DAC_Sample_00:                                                 ; loc_ED000
+DAC_Sample_00:
 		incbin  'sound/driver/DAC_00.bin'
-DAC_Sample_01:                                                 ; loc_ED294
+DAC_Sample_01:
 		incbin  'sound/driver/DAC_01.bin'
-DAC_Sample_02:                                                 ; loc_ED9B7
+DAC_Sample_02:
 		incbin  'sound/driver/DAC_02.bin'
-DAC_Sample_03:                                                 ; loc_EE56C
+DAC_Sample_03:
 		incbin  'sound/driver/DAC_03.bin'
-DAC_Sample_04:                                                 ; loc_EED7A
+DAC_Sample_04:
 		incbin  'sound/driver/DAC_04.bin'
-DAC_Sample_05:                                                 ; loc_EF2F0
+DAC_Sample_05:
 		incbin  'sound/driver/DAC_05.bin'
-DAC_Sample_06:                                                 ; loc_EFA3C
+DAC_Sample_06:
 		incbin  'sound/driver/DAC_06.bin'
                 even
 ;-------------------------------------------------------------------------------
@@ -56165,46 +56165,46 @@ Sega_Snd:
 		z80_ptr	Music_Versus_Result_Final
 		z80_ptr	Music_Super_Sonic
 		z80_ptr	Music_Hill_Top
-Music_Oil_Ocean_Beta:                                          ; loc_F802A
+Music_Oil_Ocean_Beta:
 		include 'sound/music/88 - OOZ.asm'
-Music_Green_Hill:                                              ; loc_F85AC
+Music_Green_Hill:
 		include 'sound/music/82 - GHZ.asm'
-Music_Metropolis:                                              ; loc_F8D1E
+Music_Metropolis:
 		include 'sound/music/85 - MTZ.asm'
-Music_Casino_Night:                                            ; loc_F9299
+Music_Casino_Night:
 		include 'sound/music/89 - CNZ.asm'
-Music_Dust_Hill:                                               ; loc_F99B6
+Music_Dust_Hill:
 		include 'sound/music/8B - DHZ.asm'
-Music_Hidden_Palace_Beta:                                      ; loc_FA056
+Music_Hidden_Palace_Beta:
                 ;include 'sound/music/83 - HPZ.asm'        
 		incbin  'sound/music/hpz_83.snd'
-Music_Neo_Green_Hill:                                          ; loc_FA54F
+Music_Neo_Green_Hill:
 		include 'sound/music/87 - NGHZ.asm'
-Music_Death_Egg:                                               ; loc_FACDC
+Music_Death_Egg:
 		include 'sound/music/8A - DEZ.asm'
-Music_Special_Stage:                                           ; loc_FB1C3
+Music_Special_Stage:
 		include 'sound/music/92 - Special Stage.asm'
-Music_Level_Select_Menu:                                       ; loc_FB7CA
+Music_Level_Select_Menu:
 		include 'sound/music/91 - Options.asm'
-Music_End_Sequence:                                            ; loc_FB945
+Music_End_Sequence:
 		include 'sound/music/95 - Ending.asm'
-Music_Final_Boss:                                              ; loc_FBF3E
+Music_Final_Boss:
 		include 'sound/music/94 - Final Boss.asm'
-Music_Chemical_Plant:                                          ; loc_FC276
+Music_Chemical_Plant:
 		include 'sound/music/8E - CPZ.asm'
-Music_Level_Boss:                                              ; loc_FC8C1
+Music_Level_Boss:
 		include 'sound/music/93 - Boss.asm'
-Music_Sky_Chase:                                               ; loc_FCB93
+Music_Sky_Chase:
 		include 'sound/music/8D - SCZ.asm'
-Music_Oil_Ocean_Final:                                         ; loc_FCF96
+Music_Oil_Ocean_Final:
 		include 'sound/music/84 - OOZ Final.asm'
-Music_Sky_Fortress:                                            ; loc_FD41A
+Music_Sky_Fortress:
 		include 'sound/music/8F - SFZ.asm'
-Music_Green_Hill_Versus_Final:                                 ; loc_FD847
+Music_Green_Hill_Versus_Final:
 		include 'sound/music/8C - GHZ 2P.asm'
-Music_Versus_Result_Final:                                     ; loc_FDD60
+Music_Versus_Result_Final:
 		include 'sound/music/81 - 2 Player Menu.asm'
-Music_Super_Sonic:                                             ; loc_FE1C3
+Music_Super_Sonic:
 		include 'sound/music/96 - Super Sonic.asm'
 Music_Hill_Top:
 		include 'sound/music/86 - HTZ.asm'
