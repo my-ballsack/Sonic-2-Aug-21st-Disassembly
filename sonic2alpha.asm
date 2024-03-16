@@ -54,79 +54,79 @@ SRAMSupport:    dc.b    '                '
 Notes:          dc.b    '                                                '
 Region:         dc.b    'JUE             ' ; Region
 ;-------------------------------------------------------------------------------
-ErrorTrap:                                                     ; loc_200
+ErrorTrap:
 		nop
 		nop
-		bra.s   ErrorTrap                              ; loc_200
-EntryPoint:                                                    ; loc_206
-		tst.l   (IO_Port_0_Control)                          ; $00A10008
-		bne.s   PortA_OK                               ; loc_214
-		tst.w   (IO_Expansion_Control)                       ; $00A1000C
-PortA_OK:                                                      ; loc_214
-		bne.s   PortC_OK                               ; loc_292
-		lea     InitValues(PC), A5                     ; loc_294
+		bra.s   ErrorTrap
+EntryPoint:
+		tst.l   (IO_Port_0_Control)
+		bne.s   PortA_OK
+		tst.w   (IO_Expansion_Control)
+PortA_OK:
+		bne.s   PortC_OK
+		lea     InitValues(PC), A5
 		movem.w (A5)+, D5-D7
 		movem.l (A5)+, A0-A4
 		move.b  -$10FF(A1), D0
 		andi.b  #$0F, D0
-		beq.s   SkipSecurity                           ; loc_234
+		beq.s   SkipSecurity
 		move.l  #'SEGA', $2F00(A1)
-SkipSecurity:                                                  ; loc_234
+SkipSecurity:
 		move.w  (A4), D0
 		moveq   #$00, D0
 		move.l  D0, A6
 		move.l  A6, USP
 		moveq   #$17, D1
-VDPInitLoop:                                                   ; loc_23E
+VDPInitLoop:
 		move.b  (A5)+, D5
 		move.w  D5, (A4)
 		add.w   D7, D5
-		dbra    D1, VDPInitLoop                        ; loc_23E
+		dbra    D1, VDPInitLoop
 		move.l  (A5)+, (A4)
 		move.w  D0, (A3)
 		move.w  D7, (A1)
 		move.w  D7, (A2)
-WaitForZ80:                                                    ; loc_250
+WaitForZ80:
 		btst    D0, (A1)
-		bne.s   WaitForZ80                             ; loc_250
+		bne.s   WaitForZ80
 		moveq   #$25, D2
-Z80InitLoop:                                                   ; loc_256
+Z80InitLoop:
 		move.b  (A5)+, (A0)+
-		dbra    D2, Z80InitLoop                        ; loc_256
+		dbra    D2, Z80InitLoop
 		move.w  D0, (A2)
 		move.w  D0, (A1)
 		move.w  D7, (A2)
-ClearRAMLoop:                                                  ; loc_262
+ClearRAMLoop:
 		move.l  D0, -(A6)
-		dbra    D6, ClearRAMLoop                       ; loc_262
+		dbra    D6, ClearRAMLoop
 		move.l  (A5)+, (A4)
 		move.l  (A5)+, (A4)
 		moveq   #$1F, D3
-ClearCRAMLoop:                                                 ; loc_26E
+ClearCRAMLoop:
 		move.l  D0, (A3)
-		dbra    D3, ClearCRAMLoop                      ; loc_26E
+		dbra    D3, ClearCRAMLoop
 		move.l  (A5)+, (A4)
 		moveq   #$13, D4
-ClearVSRAMLoop:                                                ; loc_278
+ClearVSRAMLoop:
 		move.l  D0, (A3)
-		dbra    D4, ClearVSRAMLoop                     ; loc_278
+		dbra    D4, ClearVSRAMLoop
 		moveq   #$03, D5
-PSGInitLoop:                                                   ; loc_280
+PSGInitLoop:
 		move.b  (A5)+, $0011(A3)
-		dbra    D5, PSGInitLoop                        ; loc_280
+		dbra    D5, PSGInitLoop
 		move.w  D0, (A2)
 		movem.l (A6), D0-D7/A0-A6
 		move    #$2700, SR
-PortC_OK:                                                      ; loc_292
-		bra.s   Game_Program                           ; loc_300
+PortC_OK:
+		bra.s   Game_Program
 ;-------------------------------------------------------------------------------
-InitValues:                                                    ; loc_294
+InitValues:
 		dc.w    $8000, $3FFF, $0100
-		dc.l    Z80_RAM_Start               ; $00A00000
-		dc.l    Z80_Bus_Request             ; $00A11100
-		dc.l    Z80_Reset                   ; $00A11200
-		dc.l    VDP_Data_Port               ; $00C00000
-		dc.l    VDP_Control_Port            ; $00C00004
+		dc.l    Z80_RAM_Start
+		dc.l    Z80_Bus_Request
+		dc.l    Z80_Reset
+		dc.l    VDP_Data_Port
+		dc.l    VDP_Control_Port
 		dc.b    $04, $14, $30, $3C, $07, $6C, $00, $00
 		dc.b    $00, $00, $FF, $00, $81, $37, $00, $01
 		dc.b    $01, $00, $00, $FF, $FF, $00, $00, $80
@@ -136,26 +136,26 @@ InitValues:                                                    ; loc_294
 		dc.b    $ED, $4F, $D1, $E1, $F1, $08, $D9, $C1
 		dc.b    $D1, $E1, $F1, $F9, $F3, $ED, $56, $36
 		dc.b    $E9, $E9, $81, $04, $8F, $02
-		dc.l    Color_RAM_Address           ; $C0000000
+		dc.l    Color_RAM_Address
 		dc.l    $40000010
 		dc.b    $9F, $BF, $DF, $FF          ; PSG Data
 ;-------------------------------------------------------------------------------
-Game_Program:                                                  ; loc_300
-		tst.w   (VDP_Control_Port)                           ; $00C00004
-		btst    #$06, (IO_Expansion_Control+$0001)           ; $00A1000D
-		beq.s   ChecksumCheck                          ; loc_31C
+Game_Program:
+		tst.w   (VDP_Control_Port)
+		btst    #$06, (IO_Expansion_Control+$0001)
+		beq.s   ChecksumCheck
 		cmpi.l  #'init', (Init_Flag).w
-		beq     AlreadyInit                            ; loc_36A
-ChecksumCheck:                                                 ; loc_31C
-		move.l  #ErrorTrap, A0                               ; $00000200
-		move.l  #ROMEnd, A1                                 ; $000001A4
+		beq     AlreadyInit
+ChecksumCheck:
+		move.l  #ErrorTrap, A0
+		move.l  #ROMEnd, A1
 		move.l  (A1), D0
 		move.l  #$0007FFFF, D0
 		moveq   #$00, D1
-ChksumChkLoop:                                                 ; loc_332
+ChksumChkLoop:
 		add.w   (A0)+, D1
 		cmp.l   A0, D0
-		bcc.s   ChksumChkLoop                          ; loc_332
+		bcc.s   ChksumChkLoop
 		move.l  #Checksum, A1
 		cmp.w   (A1), D1
 		nop
@@ -163,51 +163,51 @@ ChksumChkLoop:                                                 ; loc_332
 		lea     ($FFFFFE00).w, A6
 		moveq   #$00, D7
 		move.w  #$007F, D6
-ClearSomeRAMLoop:                                              ; loc_34E
+ClearSomeRAMLoop:
 		move.l  D7, (A6)+
-		dbra    D6, ClearSomeRAMLoop                   ; loc_34E
-		move.b  (IO_Hardware_Version), D0                    ; $00A10001
+		dbra    D6, ClearSomeRAMLoop
+		move.b  (IO_Hardware_Version), D0
 		andi.b  #$C0, D0
 		move.b  D0, (Hardware_Id).w
 		move.l  #'init', (Init_Flag).w
-AlreadyInit:                                                   ; loc_36A
-		lea     (M68K_RAM_Start&$00FFFFFF), A6               ; $00FF0000
+AlreadyInit:
+		lea     (M68K_RAM_Start&$00FFFFFF), A6
 		moveq   #$00, D7
 		move.w  #$3F7F, D6
-ClearRemainingRAMLoop:                                         ; loc_376
+ClearRemainingRAMLoop:
 		move.l  D7, (A6)+
-		dbra    D6, ClearRemainingRAMLoop              ; loc_376
-		bsr     VDPRegSetup                            ; loc_1368
-		bsr     Jmp_00_To_SoundDriverLoad              ; loc_14B8
-		bsr     Control_Ports_Init                     ; loc_12FC
+		dbra    D6, ClearRemainingRAMLoop
+		bsr     VDPRegSetup
+		bsr     Jmp_00_To_SoundDriverLoad
+		bsr     Control_Ports_Init
           if RestoreSegaScreen=1
-		move.b  #gm_SEGALogo, (Game_Mode).w            ; $00, $FFFFF600
+		move.b  #gm_SEGALogo, (Game_Mode).w
           else
-                move.b  #gm_TitleScreen, (Game_Mode).w         ; $00, $FFFFF600
+                move.b  #gm_TitleScreen, (Game_Mode).w
           endif
-MainGameLoop:                                                  ; loc_38E
-		move.b  (Game_Mode).w, D0                            ; $FFFFF600
+MainGameLoop:
+		move.b  (Game_Mode).w, D0
 		andi.w  #$001C, D0
-		jsr     GameModeArray(PC, D0)                  ; loc_39C
-		bra.s   MainGameLoop                           ; loc_38E
-GameModeArray:                                                 ; loc_39C
-		bra     Sega_Screen                            ; loc_3684
-		bra     Title_Screen                           ; loc_37B0
-		bra     Level                                  ; loc_41C8
-		bra     Level                                  ; loc_41C8
-		bra     Special_Stage                          ; loc_52BC
+		jsr     GameModeArray(PC, D0)
+		bra.s   MainGameLoop
+GameModeArray:
+		bra     Sega_Screen
+		bra     Title_Screen
+		bra     Level
+		bra     Level
+		bra     Special_Stage
 ;===============================================================================
 ; Routine used when the Checksum is incorrect, showing a red screen.
 ; Leftover from Sonic 1
 ; ->>>
 ;===============================================================================
-ChecksumError:                                                 ; loc_3B0
-		bsr     VDPRegSetup                            ; loc_1734
-		move.l  #Color_RAM_Address, (VDP_Control_Port) ; $C0000000, $00C00004
+ChecksumError:
+		bsr     VDPRegSetup
+		move.l  #Color_RAM_Address, (VDP_Control_Port)
 		moveq   #$3F, D7
-ChksumErr_RedFill:                                             ; loc_3C0
-		move.w  #$000E, (VDP_Data_Port)                      ; $00C00000
-		dbra    D7, ChksumErr_RedFill                  ; loc_3C0
+ChksumErr_RedFill:
+		move.w  #$000E, (VDP_Data_Port)
+		dbra    D7, ChksumErr_RedFill
 		bra.s   *
 ;===============================================================================
 ; Routine used when the Checksum is incorrect, showing a red screen.
@@ -218,119 +218,119 @@ ChksumErr_RedFill:                                             ; loc_3C0
 ;-------------------------------------------------------------------------------
 ; Bus error
 ;-------------------------------------------------------------------------------
-BusError:                                                      ; loc_3CE
-		move.b  #$02, (Exception_Index).w                    ; $FFFFFC44
-		bra.s   ErrorMsg_TwoAddresses                  ; loc_432
+BusError:
+		move.b  #$02, (Exception_Index).w
+		bra.s   ErrorMsg_TwoAddresses
 ;-------------------------------------------------------------------------------
 ; Address error
 ;-------------------------------------------------------------------------------
-AddressError:                                                  ; loc_3D6
-		move.b  #$04, (Exception_Index).w                    ; $FFFFFC44
-		bra.s   ErrorMsg_TwoAddresses                  ; loc_432
+AddressError:
+		move.b  #$04, (Exception_Index).w
+		bra.s   ErrorMsg_TwoAddresses
 ;-------------------------------------------------------------------------------
 ; Illegal instruction
 ;-------------------------------------------------------------------------------
-IllegalInstr:                                                  ; loc_3DE
-		move.b  #$06, (Exception_Index).w                    ; $FFFFFC44
+IllegalInstr:
+		move.b  #$06, (Exception_Index).w
 		addq.l  #$02, $0002(A7)
-		bra.s   ErrorMessage                           ; loc_45A
+		bra.s   ErrorMessage
 ;-------------------------------------------------------------------------------
 ; Zero division error
 ;-------------------------------------------------------------------------------
-ZeroDivide:                                                    ; loc_3EA
-		move.b  #$08, (Exception_Index).w                    ; $FFFFFC44
-		bra.s   ErrorMessage                           ; loc_45A
+ZeroDivide:
+		move.b  #$08, (Exception_Index).w
+		bra.s   ErrorMessage
 ;-------------------------------------------------------------------------------
 ; CHK instruction
 ;-------------------------------------------------------------------------------
-ChkInstr:                                                      ; loc_3F2
-		move.b  #$0A, (Exception_Index).w                    ; $FFFFFC44
-		bra.s   ErrorMessage                           ; loc_45A
+ChkInstr:
+		move.b  #$0A, (Exception_Index).w
+		bra.s   ErrorMessage
 ;-------------------------------------------------------------------------------
 ; TRAPV instruction
 ;-------------------------------------------------------------------------------
-TrapvInstr:                                                    ; loc_3FA
-		move.b  #$0C, (Exception_Index).w                    ; $FFFFFC44
-		bra.s   ErrorMessage                           ; loc_45A
+TrapvInstr:
+		move.b  #$0C, (Exception_Index).w
+		bra.s   ErrorMessage
 ;-------------------------------------------------------------------------------
 ; Privilege violation
 ;-------------------------------------------------------------------------------
-PrivilegeViolation:                                            ; loc_402
-		move.b  #$0E, (Exception_Index).w                    ; $FFFFFC44
-		bra.s   ErrorMessage                           ; loc_45A
+PrivilegeViolation:
+		move.b  #$0E, (Exception_Index).w
+		bra.s   ErrorMessage
 ;-------------------------------------------------------------------------------
 ; Trace error
 ;-------------------------------------------------------------------------------
-Trace:                                                         ; loc_40A
-		move.b  #$10, (Exception_Index).w                    ; $FFFFFC44
-		bra.s   ErrorMessage                           ; loc_45A
+Trace:
+		move.b  #$10, (Exception_Index).w
+		bra.s   ErrorMessage
 ;-------------------------------------------------------------------------------
 ; Line "A" Emulator
 ;-------------------------------------------------------------------------------
-Line1010Emu:                                                   ; loc_412
-		move.b  #$12, (Exception_Index).w                    ; $FFFFFC44
+Line1010Emu:
+		move.b  #$12, (Exception_Index).w
 		addq.l  #$02, $0002(A7)
-		bra.s   ErrorMessage                           ; loc_45A
+		bra.s   ErrorMessage
 ;-------------------------------------------------------------------------------
 ; Line "F" Emulator
 ;-------------------------------------------------------------------------------
-Line1111Emu:                                                   ; loc_41E
-		move.b  #$14, (Exception_Index).w                    ; $FFFFFC44
+Line1111Emu:
+		move.b  #$14, (Exception_Index).w
 		addq.l  #$02, $0002(A7)
-		bra.s   ErrorMessage                           ; loc_45A
+		bra.s   ErrorMessage
 ;-------------------------------------------------------------------------------
 ; Error Exception
 ;-------------------------------------------------------------------------------
-ErrorException:                                                ; loc_42A
-		move.b  #$00, (Exception_Index).w                    ; $FFFFFC44
-		bra.s   ErrorMessage                           ; loc_45A
+ErrorException:
+		move.b  #$00, (Exception_Index).w
+		bra.s   ErrorMessage
 ;===============================================================================
 ; Routine to show error messages
 ; ->>>
 ;===============================================================================
-ErrorMsg_TwoAddresses:                                         ; loc_432
+ErrorMsg_TwoAddresses:
 		move    #$2700, SR
 		addq.w  #$02, A7
 		move.l  (A7)+, ($FFFFFC40).w
 		addq.w  #$02, A7
-		movem.l D0-D7/A0-A7, (Obj_respawn_index).w           ; $FFFFFC00
-		bsr     ShowErrorMsg                           ; loc_480
+		movem.l D0-D7/A0-A7, (Obj_respawn_index).w
+		bsr     ShowErrorMsg
 		move.l  $0002(A7), D0
-		bsr     ShowErrAddress                         ; loc_5B2
+		bsr     ShowErrAddress
 		move.l  ($FFFFFC40).w, D0
-		bsr     ShowErrAddress                         ; loc_5B2
-		bra.s   ErrorMsg_Wait                          ; loc_470
-ErrorMessage:                                                  ; loc_45A
+		bsr     ShowErrAddress
+		bra.s   ErrorMsg_Wait
+ErrorMessage:
 		move    #$2700, SR
-		movem.l D0-D7/A0-A7, (Obj_respawn_index).w           ; $FFFFFC00
-		bsr     ShowErrorMsg                           ; loc_480
+		movem.l D0-D7/A0-A7, (Obj_respawn_index).w
+		bsr     ShowErrorMsg
 		move.l  $0002(A7), D0
-		bsr     ShowErrAddress                         ; loc_5B2
-ErrorMsg_Wait:                                                 ; loc_470
-		bsr     Error_WaitForC                         ; loc_5D8
-		movem.l (Obj_respawn_index).w, D0-D7/A0-A7           ; $FFFFFC00
+		bsr     ShowErrAddress
+ErrorMsg_Wait:
+		bsr     Error_WaitForC
+		movem.l (Obj_respawn_index).w, D0-D7/A0-A7
 		move    #$2300, SR
 		rte
-ShowErrorMsg:                                                  ; loc_480
-		lea     (VDP_Data_Port), A6                          ; $00C00000
-		move.l  #$78000003, (VDP_Control_Port)               ; $00C00004
-		lea     (Art_Menu_Text), A0                    ; loc_5E8
+ShowErrorMsg:
+		lea     (VDP_Data_Port), A6
+		move.l  #$78000003, (VDP_Control_Port)
+		lea     (Art_Menu_Text), A0
 		move.w  #$027F, D1
-Error_LoadGfx:                                                 ; loc_49A
+Error_LoadGfx:
 		move.w  (A0)+, (A6)
-		dbra    D1, Error_LoadGfx                      ; loc_49A
+		dbra    D1, Error_LoadGfx
 		moveq   #$00, D0
-		move.b  (Exception_Index).w, D0                      ; $FFFFFC44
-		move.w  Error_Text(PC, D0), D0                 ; loc_4CA
-		lea     Error_Text(PC, D0), A0                 ; loc_4CA
-		move.l  #$46040003, (VDP_Control_Port)               ; $00C00004
+		move.b  (Exception_Index).w, D0
+		move.w  Error_Text(PC, D0), D0
+		lea     Error_Text(PC, D0), A0
+		move.l  #$46040003, (VDP_Control_Port)
 		moveq   #$12, D1
-Loop_Show_Error_Text:                                          ; loc_4BA
+Loop_Show_Error_Text:
 		moveq   #$00, D0
 		move.b  (A0)+, D0
 		addi.w  #$0790, D0
 		move.w  D0, (A6)
-		dbra    D1, Loop_Show_Error_Text               ; loc_4BA
+		dbra    D1, Loop_Show_Error_Text
 		rts
 ;-------------------------------------------------------------------------------
 Error_Text:     dc.w	ErrTxt_Exception-Error_Text
@@ -356,30 +356,30 @@ ErrTxt_Trace: 		dc.b	'TRACE              '
 ErrTxt_Line1010Emul: 	dc.b	'LINE 1010 EMULATOR '
 ErrTxt_Line1111Emul: 	dc.b	'LINE 1111 EMULATOR '
 			dc.b    00
-ShowErrAddress:                                                ; loc_5B2
+ShowErrAddress:
 		move.w  #$07CA, (A6)
 		moveq   #$07, D2
-ShowErrAddress_DigitLoop:                                      ; loc_5B8
+ShowErrAddress_DigitLoop:
 		rol.l   #$04, D0
-		bsr.s   ShowErrDigit                           ; loc_5C2
-		dbra    D2, ShowErrAddress_DigitLoop           ; loc_5B8
+		bsr.s   ShowErrDigit
+		dbra    D2, ShowErrAddress_DigitLoop
 		rts
-ShowErrDigit:                                                  ; loc_5C2
+ShowErrDigit:
 		move.w  D0, D1
 		andi.w  #$000F, D1
 		cmpi.w  #$000A, D1
-		bcs.s   ShowErrDigit_NoOverflow                ; loc_5D0
+		bcs.s   ShowErrDigit_NoOverflow
 		addq.w  #$07, D1
-ShowErrDigit_NoOverflow:                                       ; loc_5D0
+ShowErrDigit_NoOverflow:
 		addi.w  #$07C0, D1
 		move.w  D1, (A6)
 		rts
-Error_WaitForC:                                                ; loc_5D8
-		bsr     Control_Ports_Read                     ; loc_132C
-		cmpi.b  #$20, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
-		bne     Error_WaitForC                         ; loc_5D8
+Error_WaitForC:
+		bsr     Control_Ports_Read
+		cmpi.b  #$20, (Control_Ports_Buffer_Data+$0001).w
+		bne     Error_WaitForC
 		rts
-Art_Menu_Text:                                                 ; loc_5E8
+Art_Menu_Text:
 		incbin  'art/uncompressed/fontmenu.dat'
 ;===============================================================================
 ; Routine to show error messages
@@ -390,59 +390,59 @@ Art_Menu_Text:                                                 ; loc_5E8
 ; Vertical blank
 ; ->>>
 ;===============================================================================
-VBlank:                                                        ; loc_B08
+VBlank:
 		movem.l D0-D7/A0-A6, -(A7)
-		tst.b   (VBlank_Index).w                             ; $FFFFF62A
-		beq     Default_VBlank                         ; loc_B82
+		tst.b   (VBlank_Index).w
+		beq     Default_VBlank
 loc_B14:
-		move.w  (VDP_Control_Port), D0                       ; $00C00004
+		move.w  (VDP_Control_Port), D0
 		andi.w  #$0008, D0
 		beq.s   loc_B14
-		move.l  #$40000010, (VDP_Control_Port)               ; $00C00004
-		move.l  ($FFFFF616).w, (VDP_Data_Port)               ; $00C00000
-		btst    #$06, (Hardware_Id).w                        ; $FFFFFFF8
+		move.l  #$40000010, (VDP_Control_Port)
+		move.l  ($FFFFF616).w, (VDP_Data_Port)
+		btst    #$06, (Hardware_Id).w
 		beq.s   loc_B42
 		move.w  #$0700, D0
 loc_B3E:
 		dbra    D0, loc_B3E
 loc_B42:
-		move.b  (VBlank_Index).w, D0                         ; $FFFFF62A
-		move.b  #$00, (VBlank_Index).w                       ; $FFFFF62A
+		move.b  (VBlank_Index).w, D0
+		move.b  #$00, (VBlank_Index).w
 		move.w  #$0001, ($FFFFF644).w
 		andi.w  #$003E, D0
-		move.w  VBlank_List(PC, D0), D0                ; loc_B68
-		jsr     VBlank_List(PC, D0)                    ; loc_B68
+		move.w  VBlank_List(PC, D0), D0
+		jsr     VBlank_List(PC, D0)
 loc_B5E:
 		addq.l  #$01, ($FFFFFE0C).w
 		movem.l (A7)+, D0-D7/A0-A6
 		rte
 ;-------------------------------------------------------------------------------
-VBlank_List:                                                   ; loc_B68
-		dc.w    VBlank_00-VBlank_List                  ; loc_B82
-		dc.w    VBlank_02-VBlank_List                  ; loc_CEC
-		dc.w    VBlank_04-VBlank_List                  ; loc_D2A
-		dc.w    VBlank_06-VBlank_List                  ; loc_D40
-		dc.w    VBlank_08-VBlank_List                  ; loc_D50
-		dc.w    VBlank_0A-VBlank_List                  ; loc_E72
-		dc.w    VBlank_0C-VBlank_List                  ; loc_F18
-		dc.w    VBlank_0E-VBlank_List                  ; loc_1004
-		dc.w    VBlank_10-VBlank_List                  ; loc_D46
-		dc.w    VBlank_12-VBlank_List                  ; loc_1014
-		dc.w    VBlank_14-VBlank_List                  ; loc_CFE
-		dc.w    VBlank_16-VBlank_List                  ; loc_1020
-		dc.w    VBlank_18-VBlank_List                  ; loc_F18
+VBlank_List:
+		dc.w    VBlank_00-VBlank_List
+		dc.w    VBlank_02-VBlank_List
+		dc.w    VBlank_04-VBlank_List
+		dc.w    VBlank_06-VBlank_List
+		dc.w    VBlank_08-VBlank_List
+		dc.w    VBlank_0A-VBlank_List
+		dc.w    VBlank_0C-VBlank_List
+		dc.w    VBlank_0E-VBlank_List
+		dc.w    VBlank_10-VBlank_List
+		dc.w    VBlank_12-VBlank_List
+		dc.w    VBlank_14-VBlank_List
+		dc.w    VBlank_16-VBlank_List
+		dc.w    VBlank_18-VBlank_List
 ;-------------------------------------------------------------------------------
 Default_VBlank:
-VBlank_00:                                                     ; loc_B82
-		cmpi.b  #$80|gm_PlayMode, (Game_Mode).w              ; $FFFFF600
+VBlank_00:
+		cmpi.b  #$80|gm_PlayMode, (Game_Mode).w
 		beq.s   loc_BBC
-		cmpi.b  #gm_DemoMode, (Game_Mode).w            ; $08 ; $FFFFF600
+		cmpi.b  #gm_DemoMode, (Game_Mode).w
 		beq.s   loc_BBC
-		cmpi.b  #gm_PlayMode, (Game_Mode).w            ; $0C ; $FFFFF600
+		cmpi.b  #gm_PlayMode, (Game_Mode).w
 		beq.s   loc_BBC
-		stopZ80				                     ; $00A11100
-		jsr     (Sound_Driver_Input)                   ; loc_12AC
-		startZ80                                             ; $00A11100
+		stopZ80
+		jsr     (Sound_Driver_Input)
+		startZ80
 		bra.s   loc_B5E
 loc_BBC:
 		tst.b   (Water_Level_Flag).w                         ; $FFFFF730
@@ -1179,39 +1179,39 @@ ShowVDPGraphics_TileLoop:                                      ; loc_15B6
 DMA_68KtoVRAM:                                                 ; loc_15C4
 		include "_inc/DMA68KtoVRAM.asm"
 ;===============================================================================
-NemesisDec:                                                    ; loc_1654
+NemDec:                                                    
 		movem.l D0-D7/A0/A1/A3-A5, -(A7)
-		lea     (NemesisDec_Output), A3                ; loc_1716
+		lea     (NemDec_Output), A3                ; loc_1716
 		lea     (VDP_Data_Port), A4                          ; $00C00000
-		bra.s   NemesisDec_Main                        ; loc_1670
+		bra.s   NemDec_Main                        ; loc_1670
 ;-------------------------------------------------------------------------------
-NemesisDecToRAM:                                               ; loc_1666
+NemDecToRAM:                                               ; loc_1666
 		movem.l D0-D7/A0/A1/A3-A5, -(A7)
-		lea     (NemesisDec_OutputToRAM), A3           ; loc_172C
-NemesisDec_Main:                                               ; loc_1670
+		lea     (NemDec_OutputToRAM), A3           ; loc_172C
+NemDec_Main:                                               ; loc_1670
 		lea     ($FFFFAA00).w, A1
 		move.w  (A0)+, D2
 		lsl.w   #$01, D2
 		bcc.s   loc_167E
-	      ; Point A3 to NemesisDec_Output_XOR if A3 = NemesisDec_Output or
-	      ; Point A3 to NemesisDec_OutputRAM_XOR if A3 = NemesisDec_OutputRAM
-		adda.w  #(NemesisDec_Output_XOR-NemesisDec_Output), A3   ; $000A
+	      ; Point A3 to NemDec_Output_XOR if A3 = NemDec_Output or
+	      ; Point A3 to NemDec_OutputRAM_XOR if A3 = NemDec_OutputRAM
+		adda.w  #(NemDec_Output_XOR-NemDec_Output), A3   ; $000A
 loc_167E:
 		lsl.w   #$02, D2
 		move.w  D2, A5
 		moveq   #$08, D3
 		moveq   #$00, D2
 		moveq   #$00, D4
-		bsr     NemesisDec_4                           ; loc_1742
+		bsr     NemDec_4                           ; loc_1742
 		move.b  (A0)+, D5
 		asl.w   #$08, D5
 		move.b  (A0)+, D5
 		move.w  #$0010, D6
-		bsr.s   NemesisDec_2                           ; loc_169E
+		bsr.s   NemDec_2                           ; loc_169E
 		movem.l (A7)+, D0-D7/A0/A1/A3-A5
 		rts
 ;-------------------------------------------------------------------------------
-NemesisDec_2:                                                  ; loc_169E
+NemDec_2:                                                  ; loc_169E
 		move.w  D6, D7
 		subq.w  #$08, D7
 		move.w  D5, D1
@@ -1233,23 +1233,23 @@ loc_16C6:
 		move.w  D1, D0
 		andi.w  #$000F, D1
 		andi.w  #$00F0, D0
-NemesisDec_SubType:                                            ; loc_16D4
+NemDec_SubType:                                            ; loc_16D4
 		lsr.w   #$04, D0
-NemesisDec_Loop_SubType:                                       ; loc_16D6
+NemDec_Loop_SubType:                                       ; loc_16D6
 		lsl.l   #$04, D4
 		or.b    D1, D4
 		subq.w  #$01, D3
 		bne.s   loc_16E4
 	      ; A3 contains one of the decompression routines
-	      ; ( NemesisDec_Output_XOR or NemesisDec_OutputRAM_XOR )
+	      ; ( NemDec_Output_XOR or NemDec_OutputRAM_XOR )
 		jmp     (A3)
 ;-------------------------------------------------------------------------------
-NemesisDec_3                                                   ; loc_16E0
+NemDec_3                                                   ; loc_16E0
 		moveq   #$00, D4
 		moveq   #$08, D3
 loc_16E4:
-		dbra    D0, NemesisDec_Loop_SubType            ; loc_16D6
-		bra.s   NemesisDec_2                           ; loc_169E
+		dbra    D0, NemDec_Loop_SubType            ; loc_16D6
+		bra.s   NemDec_2                           ; loc_169E
 ;-------------------------------------------------------------------------------
 loc_16EA:
 		subq.w  #$06, D6
@@ -1266,43 +1266,43 @@ loc_16F8:
 		andi.w  #$000F, D1
 		andi.w  #$0070, D0
 		cmpi.w  #$0009, D6
-		bcc.s   NemesisDec_SubType                     ; loc_16D4
+		bcc.s   NemDec_SubType                     ; loc_16D4
 		addq.w  #$08, D6
 		asl.w   #$08, D5
 		move.b  (A0)+, D5
-		bra.s   NemesisDec_SubType                     ; loc_16D4
+		bra.s   NemDec_SubType                     ; loc_16D4
 ;-------------------------------------------------------------------------------
-NemesisDec_Output:                                             ; loc_1716
+NemDec_Output:                                             ; loc_1716
 		move.l  D4, (A4)
 		subq.w  #$01, A5
 		move.w  A5, D4
-		bne.s   NemesisDec_3                           ; loc_16E0
+		bne.s   NemDec_3                           ; loc_16E0
 		rts
 ;-------------------------------------------------------------------------------
-NemesisDec_Output_XOR:                                         ; loc_1720
+NemDec_Output_XOR:                                         ; loc_1720
 		eor.l   D4, D2
 		move.l  D2, (A4)
 		subq.w  #$01, A5
 		move.w  A5, D4
-		bne.s   NemesisDec_3                           ; loc_16E0
+		bne.s   NemDec_3                           ; loc_16E0
 		rts
 ;-------------------------------------------------------------------------------
-NemesisDec_OutputToRAM:                                        ; loc_172C
+NemDec_OutputToRAM:                                        ; loc_172C
 		move.l  D4, (A4)+
 		subq.w  #$01, A5
 		move.w  A5, D4
-		bne.s   NemesisDec_3                           ; loc_16E0
+		bne.s   NemDec_3                           ; loc_16E0
 		rts
 ;-------------------------------------------------------------------------------
-NemesisDec_Output_XORToRAM:                                    ; loc_1736
+NemDec_Output_XORToRAM:                                    ; loc_1736
 		eor.l   D4, D2
 		move.l  D2, (A4)+
 		subq.w  #$01, A5
 		move.w  A5, D4
-		bne.s   NemesisDec_3                           ; loc_16E0
+		bne.s   NemDec_3                           ; loc_16E0
 		rts
 ;-------------------------------------------------------------------------------
-NemesisDec_4:                                                  ; loc_1742:
+NemDec_4:                                                  ; loc_1742:
 		move.b  (A0)+, D0
 loc_1744:
 		cmpi.b  #$FF, D0
@@ -1421,18 +1421,18 @@ RunPLC:                                                        ; loc_1800
 		tst.w   ($FFFFF6F8).w
 		bne.s   Exit_RunPLC                            ; loc_1854
 		move.l  (PLC_Buffer).w, A0                           ; $FFFFF680
-		lea     NemesisDec_Output(PC), A3              ; loc_1716
+		lea     NemDec_Output(PC), A3              ; loc_1716
 		nop
 		lea     ($FFFFAA00).w, A1
 		move.w  (A0)+, D2
 		bpl.s   loc_1822
-		; Point A3 to NemesisDec_Output_XOR if A3 = NemesisDec_Output or
-	      	; Point A3 to NemesisDec_OutputRAM_XOR if A3 = NemesisDec_OutputRAM
-		adda.w  #(NemesisDec_Output_XOR-NemesisDec_Output), A3   ; $000A
+		; Point A3 to NemDec_Output_XOR if A3 = NemDec_Output or
+	      	; Point A3 to NemDec_OutputRAM_XOR if A3 = NemDec_OutputRAM
+		adda.w  #(NemDec_Output_XOR-NemDec_Output), A3   ; $000A
 loc_1822:
 		andi.w  #$7FFF, D2
 		move.w  D2, ($FFFFF6F8).w
-		bsr     NemesisDec_4                           ; loc_1742
+		bsr     NemDec_4                           ; loc_1742
 		move.b  (A0)+, D5
 		asl.w   #$08, D5
 		move.b  (A0)+, D5
@@ -1485,7 +1485,7 @@ loc_188A:
 		lea     ($FFFFAA00).w, A1
 loc_18BE:
 		move.w  #$0008, A5
-		bsr     NemesisDec_3                           ; loc_16E0
+		bsr     NemDec_3                           ; loc_16E0
 		subq.w  #$01, ($FFFFF6F8).w
 		beq.s   loc_18F0
 		subq.w  #$01, ($FFFFF6FA).w
@@ -1525,7 +1525,7 @@ RunPLC_ROM_Loop:                                               ; loc_1912
 		ori.w   #$4000, D0
 		swap.w  D0
 		move.l  D0, (VDP_Control_Port)                       ; $00C00004
-		bsr     NemesisDec                             ; loc_1654
+		bsr     NemDec                             ; loc_1654
 		dbra    D1, RunPLC_ROM_Loop                    ; loc_1912
 		rts
 ;===============================================================================
@@ -1537,7 +1537,7 @@ RunPLC_ROM_Loop:                                               ; loc_1912
 ; Enigma format decompression routine
 ; ->>>
 ;===============================================================================
-EnigmaDec:                                                     ; loc_1932
+EniDec:                                                     
 		movem.l D0-D7/A1-A5, -(A7)
 		move.w  D0, A3
 		move.b  (A0)+, D0
@@ -1733,7 +1733,7 @@ loc_1AAE:
 ; Kosinski format decompression routine
 ; ->>>
 ;===============================================================================
-KosinskiDec:                                                   ; loc_1AB0
+KosDec:                                                   
 		subq.l  #$02, A7
 		move.b  (A0)+, $0001(A7)
 		move.b  (A0)+, (A7)
@@ -3519,11 +3519,11 @@ Sega_Screen:                                                   ; loc_3684
 		bsr     ClearScreen                            ; loc_1418
 		move.l  #$40000000, (VDP_Control_Port)               ; $00C00004
 		lea     (Art_SEGA), A0                         ; loc_74876
-		bsr     NemesisDec                             ; loc_1654
+		bsr     NemDec                             ; loc_1654
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		lea     (Sega_Mappings), A0                    ; loc_74CE6
 		move.w  #$0000, D0
-		bsr     EnigmaDec                              ; loc_1932
+		bsr     EniDec                              ; loc_1932
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		move.l  #$65100003, D0
 		moveq   #$17, D1
@@ -3639,10 +3639,10 @@ Title_ClrPalette:
 		move    #$2700, SR
 		move.l  #$40000000, (VDP_Control_Port)               ; $00C00004
 		lea     (Art_Title_Screen_Bg_Wings), A0        ; loc_75436
-		bsr     NemesisDec                             ; loc_1654
+		bsr     NemDec                             ; loc_1654
 		move.l  #$40000001, (VDP_Control_Port)               ; $00C00004
 		lea     (Art_Title_Screen_Sonic_Tails), A0     ; loc_76D98
-		bsr     NemesisDec                             ; loc_1654
+		bsr     NemDec                             ; loc_1654
 		lea     (VDP_Data_Port), A6                          ; $00C00000
 		move.l  #$50000003, $0004(A6)
 		lea     (Art_Menu_Text), A5                    ; loc_5E8
@@ -3662,7 +3662,7 @@ loc_3890:
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		lea     (TS_Wings_Sonic_Mappings), A0          ; loc_74DE2
 		move.w  #$0000, D0
-		bsr     EnigmaDec                              ; loc_1932
+		bsr     EniDec                              ; loc_1932
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		move.l  #$40000003, D0
 		moveq   #$27, D1
@@ -3671,7 +3671,7 @@ loc_3890:
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		lea     (Title_Screen_Bg_Mappings), A0         ; loc_74F3A
 		move.w  #$0000, D0
-		bsr     EnigmaDec                              ; loc_1932
+		bsr     EniDec                              ; loc_1932
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		move.l  #$60000003, D0
 		moveq   #$1F, D1
@@ -3680,7 +3680,7 @@ loc_3890:
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		lea     (Title_Screen_R_Bg_Mappings), A0       ; loc_751EE
 		move.w  #$0000, D0
-		bsr     EnigmaDec                              ; loc_1932
+		bsr     EniDec                              ; loc_1932
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		move.l  #$60400003, D0
 		moveq   #$1F, D1
@@ -5344,7 +5344,7 @@ Special_Stage_Exit_To_Level:                                   ; loc_5562
 Special_Stage_Background_Load:                                 ; loc_556C
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		move.w  #$4051, D0
-		bsr     EnigmaDec                              ; loc_1932
+		bsr     EniDec                              ; loc_1932
 		move.l  #$50000001, D3
 		lea     (M68K_RAM_Start+$0080), A2                   ; $FFFF0080
 		moveq   #$06, D7
@@ -5386,7 +5386,7 @@ loc_55E6:
 		dbra    D7, loc_5588
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		move.w  #$4000, D0
-		bsr     EnigmaDec                              ; loc_1932
+		bsr     EniDec                              ; loc_1932
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		move.l  #$40000003, D0
 		moveq   #$3F, D1
@@ -8678,7 +8678,7 @@ Main_Level_Load_16_128_Blocks:                                 ; loc_78AE
 ; loc_78D0: ; Leftover from Sonic 1
 		lea     (Blocks_Mem_Address).w, A1                   ; $FFFF9000
 		move.w  #$0000, D0
-		bsr     EnigmaDec                              ; loc_1932
+		bsr     EniDec                              ; loc_1932
 		bra.s   loc_7902
 ;-------------------------------------------------------------------------------
 Main_Level_Load_Blocks_Convert16:                              ; loc_78DE
@@ -8717,7 +8717,7 @@ loc_792E:
 loc_7934:
 		move.l  (A2)+, A0
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
-		bsr     KosinskiDec                            ; loc_1AB0
+		bsr     KosDec                            ; loc_1AB0
 		bra.s   Load_Level_Data                        ; loc_7972
 ;-------------------------------------------------------------------------------
 ; loc_7942:
@@ -52524,7 +52524,7 @@ loc_2BCA0:
 		move.l  Special_Stage_Layout_Index(PC, D0), A0 ; loc_2BC36
 		lea     (SS_Ram_Layout_Address), A1                  ; $FFFF4000
 		move.w  #$0000, D0
-		jsr     (EnigmaDec)                            ; loc_1932
+		jsr     (EniDec)                            ; loc_1932
 		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
 		move.w  #$0FFF, D0
 loc_2BCCC:
@@ -54056,22 +54056,22 @@ Map16Delta_NGHz:                                               ; loc_2D076
 		dc.w    $4428, $4429, $442A, $442B, $442C, $442D, $442E, $442F
 		dc.w    $4430, $4431, $4432, $4433, $443C, $443D, $443E, $443F
 ;-------------------------------------------------------------------------------
-Map16Delta_Lvl1:                                               ; loc_2D0BA
-Map16Delta_Wz:                                                 ; loc_2D0BA
-Map16Delta_Lvl3:                                               ; loc_2D0BA
-Map16Delta_Lvl6:                                               ; loc_2D0BA
-Map16Delta_Lvl9:                                               ; loc_2D0BA
-Map16Delta_DHz:                                                ; loc_2D0BA
-Map16Delta_GCz:                                                ; loc_2D0BA
-Map16Delta_DEz:                                                ; loc_2D0BA
+Map16Delta_Lvl1:                                               
+Map16Delta_Wz:                                                 
+Map16Delta_Lvl3:                                               
+Map16Delta_Lvl6:                                               
+Map16Delta_Lvl9:                                               
+Map16Delta_DHz:                                                
+Map16Delta_GCz:                                                
+Map16Delta_DEz:                                                
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Hill_Top_Init_Dyn_Sprites:                                     ; loc_2D0BC
-		lea     (Art_Hill_Top_Background), A0          ; loc_30300
+Hill_Top_Init_Dyn_Sprites:                                     
+		lea     (Art_Hill_Top_Background), A0          
 		lea     ($FFFFB800).w, A4
-		bsr     Jmp_00_To_NemesisDecToRAM              ; loc_2D0F8
+		bsr     Jmp_00_To_NemDecToRAM              
 		lea     ($FFFFB800).w, A1
-		lea     HTz_RAM_Dyn_Sprites(PC), A4            ; loc_2C6F4
+		lea     HTz_RAM_Dyn_Sprites(PC), A4
 		moveq   #$00, D2
 		moveq   #$07, D4
 loc_2D0D6:
@@ -54095,14 +54095,14 @@ loc_2D0E0:
 ;===============================================================================
 ; loc_2D0F6:
 		nop
-Jmp_00_To_NemesisDecToRAM:                                     ; loc_2D0F8
-		jmp     (NemesisDecToRAM)                      ; loc_1666
+Jmp_00_To_NemDecToRAM:
+		jmp     (NemDecToRAM)
 		dc.w    $0000
 ;===============================================================================
 ; Routine to load the layout of the Special Stages - Leftover from Sonic 1
 ; <<<-
 ;===============================================================================
-Obj21_Head_Up_Display:                                      ; loc_2D100
+Obj21_Head_Up_Display:
 ;===============================================================================
 ; Object 0x21 - Mostrador de Pontos, tempo, anéis e vidas
 ; ->>> 
@@ -56120,27 +56120,27 @@ DAC_Sample_06:                                                 ; loc_EFA3C
 		z80_ptr	Music_Get_Emerald
 		z80_ptr	Music_Hidden_Palace_Final
 		z80_ptr	Music_Hidden_Palace_Final                
-Music_Invencibility:                                           ; loc_F0012
+Music_Invencibility:
 		incbin  'sound/music/Invcb_97.snd'                
-Music_Extra_Life:                                              ; loc_F023D
+Music_Extra_Life:
 		include 'sound/music/98 - Extra Life.asm'
-Music_Title_Screen:                                            ; loc_F032A
+Music_Title_Screen:
 		include 'sound/music/99 - Title Screen.asm'
-Music_Level_Results:                                           ; loc_F04FF
+Music_Level_Results:
 		include 'sound/music/9A - End of Act.asm'
-Music_Time_Over_Game_Over:                                     ; loc_F0654
+Music_Time_Over_Game_Over:
 		include 'sound/music/9B - Game Over.asm'
-Music_Continue:                                                ; loc_F07A3
+Music_Continue:
 		include 'sound/music/9C - Continue.asm'
-Music_Get_Emerald:                                             ; loc_F0900
+Music_Get_Emerald:
 		include 'sound/music/9D - Got Emerald.asm'
-Music_Hidden_Palace_Final:                                     ; loc_F09CE
+Music_Hidden_Palace_Final:
 		include 'sound/music/90 - HPZ Final.asm'
                 even
 ;-------------------------------------------------------------------------------
 		cnop    $00000000, $000F1E8C
 ;-------------------------------------------------------------------------------
-Sega_Snd:                                                      ; loc_F1E8C
+Sega_Snd:
 		incbin  'sound/driver/sega.snd'
                 even
 ;-------------------------------------------------------------------------------
@@ -56206,13 +56206,13 @@ Music_Versus_Result_Final:                                     ; loc_FDD60
 		include 'sound/music/81 - 2 Player Menu.asm'
 Music_Super_Sonic:                                             ; loc_FE1C3
 		include 'sound/music/96 - Super Sonic.asm'
-Music_Hill_Top:                                                ; loc_FE4B6
+Music_Hill_Top:
 		include 'sound/music/86 - HTZ.asm'
                 even
 ;-------------------------------------------------------------------------------
 		cnop    $00000000, $000FEE00
 ;-------------------------------------------------------------------------------
-Sfx_A0_To_E9:                                                  ; loc_FEE00
+Sfx_A0_To_E9:
 		z80_ptr	Sfx_A0
 		z80_ptr	Sfx_A1
 		z80_ptr	Sfx_A2
@@ -56287,153 +56287,153 @@ Sfx_A0_To_E9:                                                  ; loc_FEE00
 		z80_ptr	Sfx_E7
 		z80_ptr	Sfx_E8
 		z80_ptr	Sfx_E9
-Sfx_A0:                                                        ; loc_FEE94
+Sfx_A0:
 		include	'sound/sfx/A0 - Jump.asm'
-Sfx_A1:                                                        ; loc_FEEAA
+Sfx_A1:
 		include	'sound/sfx/A1 - Checkpoint.asm'
-Sfx_A2:                                                        ; loc_FEED4
+Sfx_A2:
 		include 'sound/sfx/A2 - Spike Switch.asm'
-Sfx_A3:                                                        ; loc_FEEF3
+Sfx_A3:
 		include 'sound/sfx/A3 - Hurt.asm'
-Sfx_A4:                                                        ; loc_FEF25
+Sfx_A4:
 		include 'sound/sfx/A4 - Skidding.asm'
-Sfx_A5:                                                        ; loc_FEF5A
+Sfx_A5:
 		include 'sound/sfx/A5 - Block Push.asm'
-Sfx_A6:                                                        ; loc_FEF86
+Sfx_A6:
 		include 'sound/sfx/A6 - Hurt by Spikes.asm'
-Sfx_A7:                                                        ; loc_FEFB5
+Sfx_A7:
 		include 'sound/sfx/A7 - Push Block.asm'                
-Sfx_A8:                                                        ; loc_FEFE4
+Sfx_A8:
 		include 'sound/sfx/A8 - SS Goal.asm'
-Sfx_A9:                                                        ; loc_FEFFE
+Sfx_A9:
 		include 'sound/sfx/A9 - Special Stage Item (Unused).asm'
-Sfx_AA:                                                        ; loc_FF010
+Sfx_AA:
 		include 'sound/sfx/AA - Splash.asm'
-Sfx_AB:                                                        ; loc_FF051
+Sfx_AB:
 		include 'sound/sfx/AB - Swish.asm'
-Sfx_AC:                                                        ; loc_FF070
+Sfx_AC:
 		include 'sound/sfx/AC - Boss Hit.asm'
-Sfx_AD:                                                        ; loc_FF0A4
+Sfx_AD:
 		include 'sound/sfx/AD - Inhaling Bubble.asm'
-Sfx_AE:                                                        ; loc_FF0DA
+Sfx_AE:
 		include 'sound/sfx/AE - Lava Ball.asm'
-Sfx_AF:                                                        ; loc_FF124
+Sfx_AF:
 		include 'sound/sfx/AF - Shield.asm'
-Sfx_B0:                                                        ; loc_FF151
+Sfx_B0:
 		include 'sound/sfx/B0 - Laser Beam.asm'
-Sfx_B1:                                                        ; loc_FF182
+Sfx_B1:
 		include 'sound/sfx/B1 - Electricity (Unused).asm'
-Sfx_B2:                                                        ; loc_FF1AE
+Sfx_B2:
 		include 'sound/sfx/B2 - Drown.asm'
-Sfx_B3:                                                        ; loc_FF1FD
+Sfx_B3:
 		include 'sound/sfx/B3 - Fire Burn.asm'
-Sfx_B4:                                                        ; loc_FF22E
+Sfx_B4:
 		include 'sound/sfx/B4 - Bumper.asm'
-Sfx_B5:                                                        ; loc_FF289
+Sfx_B5:
 		include 'sound/sfx/B5 - Ring.asm'
-Sfx_B6:                                                        ; loc_FF29E
+Sfx_B6:
 		include 'sound/sfx/B6 - Spikes Move.asm'
-Sfx_B7:                                                        ; loc_FF2BB
+Sfx_B7:
 		include 'sound/sfx/B7 - Rumbling.asm'
-Sfx_B8:                                                        ; loc_FF2F6
+Sfx_B8:
 		include 'sound/sfx/B8 - Unknown (Unused).asm'
-Sfx_B9:                                                        ; loc_FF313
+Sfx_B9:
 		include 'sound/sfx/B9 - Smash.asm'
-Sfx_BA:                                                        ; loc_FF35D
+Sfx_BA:
 		include 'sound/sfx/BA - Special Stage Glass (Unused).asm'
-Sfx_BB:                                                        ; loc_FF385
+Sfx_BB:
 		include 'sound/sfx/BB - Door Slam.asm'
-Sfx_BC:                                                        ; loc_FF3B0
+Sfx_BC:
 		include 'sound/sfx/BC - Spin Dash Release.asm'
-Sfx_BD:                                                        ; loc_FF3F1
+Sfx_BD:
 		include 'sound/sfx/BD - Hammer.asm'
-Sfx_BE:                                                        ; loc_FF444
+Sfx_BE:
 		include 'sound/sfx/BE - Roll.asm'
-Sfx_BF:                                                        ; loc_FF47E
+Sfx_BF:
 		include 'sound/sfx/BF - Continue Jingle.asm'
-Sfx_C0:                                                        ; loc_FF4F0
+Sfx_C0:
 		include 'sound/sfx/C0 - Basaran Flap.asm'
-Sfx_C1:                                                        ; loc_FF51E
+Sfx_C1:
 		include 'sound/sfx/C1 - Explosion.asm'               
-Sfx_C2:                                                        ; loc_FF558
+Sfx_C2:
 		include 'sound/sfx/C2 - Water Warning.asm'
-Sfx_C3:                                                        ; loc_FF569
+Sfx_C3:
 		include 'sound/sfx/C3 - Enter Giant Ring (Unused).asm'
-Sfx_C4:                                                        ; loc_FF5E3
+Sfx_C4:
 		include 'sound/sfx/C4 - Boss Explosion.asm'
-Sfx_C5:                                                        ; loc_FF60B
+Sfx_C5:
 		include 'sound/sfx/C5 - Tally End.asm'
-Sfx_C6:                                                        ; loc_FF672
+Sfx_C6:
 		include 'sound/sfx/C6 - Ring Spill.asm'
-Sfx_C7:                                                        ; loc_FF69A
+Sfx_C7:
 		include 'sound/sfx/C7 - Chain Rise (Unused).asm'
-Sfx_C8:                                                        ; loc_FF6C8
+Sfx_C8:
 		include 'sound/sfx/C8 - Flamethrower.asm'
-Sfx_C9:                                                        ; loc_FF6D9
+Sfx_C9:
 		include 'sound/sfx/C9 - Hidden Bonus (Unused).asm'
-Sfx_CA:                                                        ; loc_FF706
+Sfx_CA:
 		include 'sound/sfx/CA - Special Stage Entry.asm'
-Sfx_CB:                                                        ; loc_FF733
+Sfx_CB:
 		include 'sound/sfx/CB - Slow Smash.asm'
-Sfx_CC:                                                        ; loc_FF766
+Sfx_CC:
 		include 'sound/sfx/CC - Spring.asm'
-Sfx_CD:                                                        ; loc_FF7A0
+Sfx_CD:
 		include 'sound/sfx/CD - Switch.asm'
-Sfx_CE:                                                        ; loc_FF7AD
+Sfx_CE:
 		include 'sound/sfx/CE - Ring Left Speaker.asm'
-Sfx_CF:                                                        ; loc_FF7C2
+Sfx_CF:
 		include 'sound/sfx/CF - Signpost.asm'
-Sfx_D0:                                                        ; loc_FF7F9
+Sfx_D0:
 		include 'sound/sfx/D0 - CNZ Boss Zap.asm'
-Sfx_D1:                                                        ; loc_FF82C
+Sfx_D1:
 		include 'sound/sfx/D1 - Unknown (Unused).asm'
-Sfx_D2:                                                        ; loc_FF865
+Sfx_D2:
 		include 'sound/sfx/D2 - Unknown (Unused).asm'
-Sfx_D3:                                                        ; loc_FF8A2
+Sfx_D3:
 		include 'sound/sfx/D3 - Signpost 2P.asm'
-Sfx_D4:                                                        ; loc_FF8E1
+Sfx_D4:
 		include 'sound/sfx/D4 - OOZ Lid Pop.asm'               
-Sfx_D5:                                                        ; loc_FF909
+Sfx_D5:
 		include 'sound/sfx/D5 - Sliding Spike.asm'                            
-Sfx_D6:                                                        ; loc_FF933
+Sfx_D6:
 		include 'sound/sfx/D6 - CNZ Elevator.asm'
-Sfx_D7:                                                        ; loc_FF978
+Sfx_D7:
 		include 'sound/sfx/D7 - Platform Knock.asm'
-Sfx_D8:                                                        ; loc_FF9A0
+Sfx_D8:
 		include 'sound/sfx/D8 - Bonus Bumper.asm'
-Sfx_D9:                                                        ; loc_FF9CA		
+Sfx_D9:		
                 include 'sound/sfx/D9 - Large Bumper.asm'
-Sfx_DA:                                                        ; loc_FF9F7
+Sfx_DA:
 		include 'sound/sfx/DA - Gloop.asm'
-Sfx_DB:                                                        ; loc_FFA24
+Sfx_DB:
 		include 'sound/sfx/DB - Pre-Arrow Firing.asm'
-Sfx_DC:                                                        ; loc_FFA58
+Sfx_DC:
 		include 'sound/sfx/DC - Fire.asm'
-Sfx_DD:                                                        ; loc_FFA9F
+Sfx_DD:
 		include 'sound/sfx/DD - Arrow Stick.asm'
-Sfx_DE:                                                        ; loc_FFAC7
+Sfx_DE:
 		include 'sound/sfx/DE - Helicopter.asm'
-Sfx_DF:                                                        ; loc_FFB01
+Sfx_DF:
 		include 'sound/sfx/DF - Super Transform.asm'
-Sfx_E0:                                                        ; loc_FFB9D
+Sfx_E0:
 		include 'sound/sfx/E0 - Spin Dash Rev.asm'
-Sfx_E1:                                                        ; loc_FFBD8		                
+Sfx_E1:		                
                 include 'sound/sfx/E1 - Rumbling 2.asm'
-Sfx_E2:                                                        ; loc_FFC3F
+Sfx_E2:
 		include 'sound/sfx/E2 - CNZ Launch.asm'                
-Sfx_E3:                                                        ; loc_FFC76
+Sfx_E3:
 		include 'sound/sfx/E3 - Flipper.asm'
-Sfx_E4:                                                        ; loc_FFCA5
+Sfx_E4:
 		include 'sound/sfx/E4 - HTZ Lift Click.asm'
-Sfx_E5:                                                        ; loc_FFCCD
+Sfx_E5:
 		include 'sound/sfx/E5 - Leaves.asm'
-Sfx_E6:                                                        ; loc_FFCEE
+Sfx_E6:
 		include 'sound/sfx/E6 - Mega Mack Drop.asm'
-Sfx_E7:                                                        ; loc_FFD28
+Sfx_E7:
 		include 'sound/sfx/E7 - Drawbridge Move.asm'
-Sfx_E8:                                                        ; loc_FFD84
+Sfx_E8:
 		include 'sound/sfx/E8 - Quick Door Slam.asm'
-Sfx_E9:                                                        ; loc_FFDAE
+Sfx_E9:
 		include 'sound/sfx/E9 - Drawbridge Down.asm'
 		even
 ;===============================================================================
