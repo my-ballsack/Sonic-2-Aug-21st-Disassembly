@@ -2987,10 +2987,10 @@ Pal_NoDec:                                                     ; loc_26E6
 		addq.w  #$02, A0
 		rts
 ;-------------------------------------------------------------------------------
-Pal_MakeWhite: ; Used by the Special Stage                      ; loc_26EA
+Pal_MakeWhite: ; Used by the Special Stage
 		move.w  #$003F, ($FFFFF626).w
 		moveq   #$00, D0
-		lea     (Palette_Buffer).w, A0                       ; $FFFFFB00
+		lea     (Palette_Buffer).w, A0
 		move.b  ($FFFFF626).w, D0
 		adda.w  D0, A0
 		move.w  #$0EEE, D1
@@ -3000,25 +3000,25 @@ loc_2704:
 		dbra    D0, loc_2704
 		move.w  #$0015, D4
 loc_270E:
-		move.b  #$12, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		bsr.s   Pal_WhiteToBlack                       ; loc_2724
-		bsr     RunPLC                                 ; loc_1800
+		move.b  #$12, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		bsr.s   Pal_WhiteToBlack
+		bsr     RunPLC
 		dbra    D4, loc_270E
 		rts
 ;-------------------------------------------------------------------------------
-Pal_WhiteToBlack:                                              ; loc_2724
+Pal_WhiteToBlack:
 		moveq   #$00, D0
-		lea     (Palette_Buffer).w, A0                       ; $FFFFFB00
-		lea     (Palette_Underwater_Buffer).w, A1            ; $FFFFFB80
+		lea     (Palette_Buffer).w, A0
+		lea     (Palette_Underwater_Buffer).w, A1
 		move.b  ($FFFFF626).w, D0
 		adda.w  D0, A0
 		adda.w  D0, A1
 		move.b  ($FFFFF627).w, D0
 loc_273A:
-		bsr.s   Pal_DecColor_2                         ; loc_2764
+		bsr.s   Pal_DecColor_2
 		dbra    D0, loc_273A
-		tst.b   (Water_Level_Flag).w                         ; $FFFFF730
+		tst.b   (Water_Level_Flag).w
 		beq.s   loc_2762
 		moveq   #$00, D0
 		lea     ($FFFFFA80).w, A0
@@ -3028,58 +3028,58 @@ loc_273A:
 		adda.w  D0, A1
 		move.b  ($FFFFF627).w, D0
 loc_275C:
-		bsr.s   Pal_DecColor_2                         ; loc_2764
+		bsr.s   Pal_DecColor_2
 		dbra    D0, loc_275C
 loc_2762:
 		rts
 ;-------------------------------------------------------------------------------
-Pal_DecColor_2:                                                ; loc_2764
+Pal_DecColor_2:
 		move.w  (A1)+, D2
 		move.w  (A0), D3
 		cmp.w   D2, D3
-		beq.s   Pal_NoDec_2                            ; loc_2790
+		beq.s   Pal_NoDec_2
 Pal_DecBlue_2:
 		move.w  D3, D1
 		subi.w  #$0200, D1
-		bcs.s   Pal_DecGreen_2                         ; loc_277C
+		bcs.s   Pal_DecGreen_2
 		cmp.w   D2, D1
-		bcs.s   Pal_DecGreen_2                         ; loc_277C
+		bcs.s   Pal_DecGreen_2
 		move.w  D1, (A0)+
 		rts
-Pal_DecGreen_2:                                                ; loc_277C
+Pal_DecGreen_2:
 		move.w  D3, D1
 		subi.w  #$0020, D1
-		bcs.s   Pal_DecRed_2                           ; loc_278C
+		bcs.s   Pal_DecRed_2
 		cmp.w   D2, D1
-		bcs.s   Pal_DecRed_2                           ; loc_278C
+		bcs.s   Pal_DecRed_2
 		move.w  D1, (A0)+
 		rts
-Pal_DecRed_2:                                                  ; loc_278C
+Pal_DecRed_2:
 		subq.w  #$02, (A0)+
 		rts
-Pal_NoDec_2:                                                   ; loc_2790
+Pal_NoDec_2:
 		addq.w  #$02, A0
 		rts
 ;-------------------------------------------------------------------------------
-Pal_MakeFlash:  ; Used by the Special Stage                     ; loc_2794
+Pal_MakeFlash:  ; Used by the Special Stage
 		move.w  #$003F, ($FFFFF626).w
 		move.w  #$0015, D4
 loc_279E:
-		move.b  #$12, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		bsr.s   Pal_ToWhite                            ; loc_27B4
-		bsr     RunPLC                                 ; loc_1800
+		move.b  #$12, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		bsr.s   Pal_ToWhite
+		bsr     RunPLC
 		dbra    D4, loc_279E
 		rts
 ;-------------------------------------------------------------------------------
-Pal_ToWhite:                                                   ; loc_27B4
+Pal_ToWhite:
 		moveq   #$00, D0
-		lea     (Palette_Buffer).w, A0                       ; $FFFFFB00
+		lea     (Palette_Buffer).w, A0
 		move.b  ($FFFFF626).w, D0
 		adda.w  D0, A0
 		move.b  ($FFFFF627).w, D0
 loc_27C4:
-		bsr.s   Pal_AddColor_2                         ; loc_27E2
+		bsr.s   Pal_AddColor_2
 		dbra    D0, loc_27C4
 		moveq   #$00, D0
 		lea     ($FFFFFA80).w, A0
@@ -3087,36 +3087,36 @@ loc_27C4:
 		adda.w  D0, A0
 		move.b  ($FFFFF627).w, D0
 loc_27DA:
-		bsr.s   Pal_AddColor_2                         ; loc_27E2
+		bsr.s   Pal_AddColor_2
 		dbra    D0, loc_27DA
 		rts
 ;-------------------------------------------------------------------------------
-Pal_AddColor_2:                                                ; loc_27E2
+Pal_AddColor_2:
 		move.w  (A0), D2
 		cmpi.w  #$0EEE, D2
-		beq.s   Pal_NoAdd_2                            ; loc_281E
+		beq.s   Pal_NoAdd_2
 Pal_AddRed_2:
 		move.w  D2, D1
 		andi.w  #$000E, D1
 		cmpi.w  #$000E, D1
-		beq.s   Pal_AddGreen_2                         ; loc_27FA
+		beq.s   Pal_AddGreen_2
 		addq.w  #$02, (A0)+
 		rts
-Pal_AddGreen_2:                                                ; loc_27FA
+Pal_AddGreen_2:
 		move.w  D2, D1
 		andi.w  #$00E0, D1
 		cmpi.w  #$00E0, D1
-		beq.s   Pal_AddBlue_2                          ; loc_280C
+		beq.s   Pal_AddBlue_2
 		addi.w  #$0020, (A0)+
 		rts
-Pal_AddBlue_2:                                                 ; loc_280C
+Pal_AddBlue_2:
 		move.w  D2, D1
 		andi.w  #$0E00, D1
 		cmpi.w  #$0E00, D1
-		beq.s   Pal_NoAdd_2                            ; loc_281E
+		beq.s   Pal_NoAdd_2
 		addi.w  #$0200, (A0)+
 		rts
-Pal_NoAdd_2:                                                   ; loc_281E
+Pal_NoAdd_2:
 		addq.w  #$02, A0
 		rts
 ;===============================================================================
@@ -3202,10 +3202,10 @@ loc_28D4:
 		moveq   #$01, D0
 		rts
 ;-------------------------------------------------------------------------------
-Pal_SegaCyc1:                                                  ; loc_28D8
+Pal_SegaCyc1:
 		dc.w    $0EEE, $0EEA, $0EE4, $0EC0, $0EE4, $0EEA
 ;-------------------------------------------------------------------------------
-Pal_SegaCyc2:                                                  ; loc_28E4
+Pal_SegaCyc2:
 		dc.w    $0EEC, $0EEA, $0EEA, $0EEA, $0EEA, $0EEA, $0EEC, $0EEA
 		dc.w    $0EE4, $0EC0, $0EC0, $0EC0, $0EEC, $0EEA, $0EE4, $0EC0
 		dc.w    $0EA0, $0E60, $0EEA, $0EE4, $0EC0, $0EA0, $0E80, $0E00
@@ -3215,162 +3215,162 @@ Pal_SegaCyc2:                                                  ; loc_28E4
 ;-------------------------------------------------------------------------------
 
 ;===============================================================================
-; Rotinas para carga da paleta selecionada em D0 no buffer de paletas
+; Routines for loading the selected palette on D0 into the palette buffer
 ; ->>>
 ;===============================================================================
-PalLoad1:                                                      ; loc_2914
-		lea     (PalPointers), A1                      ; loc_2980
+PalLoad1:
+		lea     (PalPointers), A1
 		lsl.w   #$03, D0
 		adda.w  D0, A1
-		move.l  (A1)+, A2               ; Localiza��o da paleta no ROM
-		move.w  (A1)+, A3               ; Destino da paleta na RAM
-		adda.w  #$0080, A3              ; Adiciona $80 no Destino da RAM
-		move.w  (A1)+, D7               ; Quantidade de cores a ser lido
-PalLoad1_Loop:                                                 ; loc_2928
+		move.l  (A1)+, A2	; Location of the palette in the ROM
+		move.w  (A1)+, A3	; Palette Destination in RAM
+		adda.w  #$0080, A3	; Adds $80 to RAM Destination
+		move.w  (A1)+, D7	; Number of colours to be read
+PalLoad1_Loop:
 		move.l  (A2)+, (A3)+
-		dbra    D7, PalLoad1_Loop                      ; loc_2928
+		dbra    D7, PalLoad1_Loop
 		rts
 ;-------------------------------------------------------------------------------
-PalLoad2:                                                      ; loc_2930
-		lea     (PalPointers), A1                      ; loc_2980
+PalLoad2:
+		lea     (PalPointers), A1
 		lsl.w   #$03, D0
 		adda.w  D0, A1
-		move.l  (A1)+, A2               ; Localiza��o da paleta no ROM
-		move.w  (A1)+, A3               ; Destino da paleta na RAM
-		move.w  (A1)+, D7               ; Quantidade de cores a ser lido
-PalLoad2_Loop:                                                 ; loc_2940
+		move.l  (A1)+, A2	; Location of the palette in the ROM
+		move.w  (A1)+, A3	; Palette Destination in RAM
+		move.w  (A1)+, D7	; Number of colours to be read
+PalLoad2_Loop:
 		move.l  (A2)+, (A3)+
-		dbra    D7, PalLoad2_Loop                      ; loc_2940
+		dbra    D7, PalLoad2_Loop
 		rts
 ;-------------------------------------------------------------------------------
-PalLoad3_Water:                                                ; loc_2948
-		lea     (PalPointers), A1                      ; loc_2980
+PalLoad3_Water:
+		lea     (PalPointers), A1
 		lsl.w   #$03, D0
 		adda.w  D0, A1
 		move.l  (A1)+, A2
 		move.w  (A1)+, A3
-		suba.w  #$0080, A3             ; Subtrai $0080 no Destino da RAM
+		suba.w  #$0080, A3	; Subtract $80 from RAM Destination
 		move.w  (A1)+, D7
 loc_295C:
 		move.l  (A2)+, (A3)+
 		dbra    D7, loc_295C
 		rts
 ;-------------------------------------------------------------------------------
-PalLoad4_Water:                                                ; loc_2964
-		lea     (PalPointers), A1                      ; loc_2980
+PalLoad4_Water:
+		lea     (PalPointers), A1
 		lsl.w   #$03, D0
 		adda.w  D0, A1
 		move.l  (A1)+, A2
 		move.w  (A1)+, A3
-		suba.w  #$0100, A3             ; Subtrai $0100 no Destino da RAM
+		suba.w  #$0100, A3	; Subtract $100 from RAM Destination
 		move.w  (A1)+, D7
 loc_2978:
 		move.l  (A2)+, (A3)+
 		dbra    D7, loc_2978
 		rts
 ;-------------------------------------------------------------------------------
-PalPointers:                                                   ; loc_2980
-		dc.l    Pal_Sega_Bg                            ; loc_2A50
+PalPointers:
+		dc.l    Pal_Sega_Bg
 		dc.w    $FB00, $001F
-		dc.l    Pal_Title_Screen                       ; loc_2AD0
+		dc.l    Pal_Title_Screen
 		dc.w    $FB00, $001F
-		dc.l    Pal_Level_Select_Menu                  ; loc_2B50
+		dc.l    Pal_Level_Select_Menu
 		dc.w    $FB00, $001F
-		dc.l    Pal_Sonic_And_Tails                    ; loc_2BD0
+		dc.l    Pal_Sonic_And_Tails
 		dc.w    $FB00, $0007
-		dc.l    Pal_GHz                                ; loc_2BF0
+		dc.l    Pal_GHz
 		dc.w    $FB20, $0017
-		dc.l    Pal_Lvl1                               ; loc_2BF0
+		dc.l    Pal_Lvl1
 		dc.w    $FB20, $0017
-		dc.l    Pal_Wz                                 ; loc_2C50
+		dc.l    Pal_Wz
 		dc.w    $FB20, $0017
-		dc.l    Pal_Lvl3                               ; loc_2BF0
+		dc.l    Pal_Lvl3
 		dc.w    $FB20, $0017
-		dc.l    Pal_Mz                                 ; loc_2CB0
+		dc.l    Pal_Mz
 		dc.w    $FB20, $0017
-		dc.l    Pal_Mz                                 ; loc_2CB0
+		dc.l    Pal_Mz
 		dc.w    $FB20, $0017
-		dc.l    Pal_Lvl6     ; Casino Night Act 2      ; loc_2F70
+		dc.l    Pal_Lvl6     ; Casino Night Act 2
 		dc.w    $FB20, $0017
-		dc.l    Pal_HTz                                ; loc_2D10
+		dc.l    Pal_HTz
 		dc.w    $FB20, $0017
-		dc.l    Pal_HPz                                ; loc_2D70
+		dc.l    Pal_HPz
 		dc.w    $FB20, $0017
-		dc.l    Pal_Lvl9                               ; loc_2BF0
+		dc.l    Pal_Lvl9
 		dc.w    $FB20, $0017
-		dc.l    Pal_OOz                                ; loc_2E50
+		dc.l    Pal_OOz
 		dc.w    $FB20, $0017
-		dc.l    Pal_DHz                                ; loc_2EB0
+		dc.l    Pal_DHz
 		dc.w    $FB20, $0017
-		dc.l    Pal_CNz                                ; loc_2F10
+		dc.l    Pal_CNz
 		dc.w    $FB20, $0017
-		dc.l    Pal_CPz                                ; loc_2FD0
+		dc.l    Pal_CPz
 		dc.w    $FB20, $0017
-		dc.l    Pal_GCz                                ; loc_2BF0
+		dc.l    Pal_GCz
 		dc.w    $FB20, $0017
-		dc.l    Pal_NGHz                               ; loc_30B0
+		dc.l    Pal_NGHz
 		dc.w    $FB20, $0017
-		dc.l    Pal_DEz                                ; loc_3190
+		dc.l    Pal_DEz
 		dc.w    $FB20, $0017
-		dc.l    Pal_HPz_Water                          ; loc_2DD0
+		dc.l    Pal_HPz_Water
 		dc.w    $FB00, $001F
-		dc.l    Pal_CPz_Water                          ; loc_3030
+		dc.l    Pal_CPz_Water
 		dc.w    $FB00, $001F
-		dc.l    Pal_NGHz_Water                         ; loc_3110
+		dc.l    Pal_NGHz_Water
 		dc.w    $FB00, $001F
-		dc.l    Pal_Special_Stage_Main                 ; loc_31B0
+		dc.l    Pal_Special_Stage_Main
 		dc.w    $FB00, $001F
 		dc.l    loc_3230
 		dc.w    $FB20, $0007
 
-Pal_Sega_Bg:                                                   ; loc_2A50
+Pal_Sega_Bg:
 		incbin  'palettes/sega_bg.pal'
-Pal_Title_Screen:                                              ; loc_2AD0
+Pal_Title_Screen:
 		incbin  'palettes/titlscrn.pal'
-Pal_Level_Select_Menu:                                         ; loc_2B50
+Pal_Level_Select_Menu:
 		incbin  'palettes/lvl_menu.pal'
-Pal_Sonic_And_Tails:                                           ; loc_2BD0
+Pal_Sonic_And_Tails:
 		incbin  'palettes/sonic.pal'
-Pal_GHz:                                                       ; loc_2BF0
-Pal_Lvl1:                                                      ; loc_2BF0
-Pal_Lvl3:                                                      ; loc_2BF0
-Pal_Lvl9:                                                      ; loc_2BF0
-Pal_GCz:                                                       ; loc_2BF0
+Pal_GHz:
+Pal_Lvl1:
+Pal_Lvl3:
+Pal_Lvl9:
+Pal_GCz:
 		incbin  'palettes/ghz.pal'
-Pal_Wz:                                                        ; loc_2C50
+Pal_Wz:
 		incbin  'palettes/wz.pal'
-Pal_Mz:                                                        ; loc_2CB0
+Pal_Mz:
 		incbin  'palettes/mz.pal'
-Pal_HTz:                                                       ; loc_2D10
+Pal_HTz:
 		incbin  'palettes/htz.pal'
-Pal_HPz:                                                       ; loc_2D70
+Pal_HPz:
 		incbin  'palettes/hpz.pal'
-Pal_HPz_Water:                                                 ; loc_2DD0
+Pal_HPz_Water:
 		incbin  'palettes/hpz_uw.pal'
-Pal_OOz:                                                       ; loc_2E50
+Pal_OOz:
 		incbin  'palettes/ooz.pal'
-Pal_DHz:                                                       ; loc_2EB0
+Pal_DHz:
 		incbin  'palettes/dhz.pal'
-Pal_CNz:                                                       ; loc_2F10
+Pal_CNz:
 		incbin  'palettes/cnz_1.pal'
-Pal_Lvl6:     ; Casino Night Act 2                             ; loc_2F70
+Pal_Lvl6:     ; Casino Night Act 2
 		incbin  'palettes/cnz_2.pal'
-Pal_CPz:                                                       ; loc_2FD0
+Pal_CPz:
 		incbin  'palettes/cpz.pal'
-Pal_CPz_Water:                                                 ; loc_3030
+Pal_CPz_Water:
 		incbin  'palettes/cpz_uw.pal'
-Pal_NGHz:                                                      ; loc_30B0
+Pal_NGHz:
 		incbin  'palettes/nghz.pal'
-Pal_NGHz_Water:                                                ; loc_3110
+Pal_NGHz_Water:
 		incbin  'palettes/nghz_uw.pal'
-Pal_DEz:                                                       ; loc_3190
+Pal_DEz:
 		incbin  'palettes/dez.pal'
-Pal_Special_Stage_Main:                                        ; loc_31B0
+Pal_Special_Stage_Main:
 		incbin  'palettes/ss_main.pal'
 loc_3230:
 		incbin  'palettes/unused.bin'
 ;===============================================================================
-; Rotinas para carga da paleta selecionada em D0 no buffer de paletas
+; Routines for loading the selected palette on D0 into the palette buffer
 ; <<<-
 ;===============================================================================
 
@@ -3378,11 +3378,11 @@ loc_3230:
 ; Wait for completion of the vertical blank
 ; ->>>
 ;===============================================================================
-Wait_For_VSync:                                                ; loc_3250
+Wait_For_VSync:
 		move    #$2300, SR
-Wait_For_VSync_Inf_Loop:                                       ; loc_3254
-		tst.b   (VBlank_Index).w                             ; $FFFFF62A
-		bne.s   Wait_For_VSync_Inf_Loop                ; loc_3254
+Wait_For_VSync_Inf_Loop:
+		tst.b   (VBlank_Index).w
+		bne.s   Wait_For_VSync_Inf_Loop
 		rts
 ;===============================================================================
 ; Wait for completion of the vertical blank
@@ -3440,7 +3440,7 @@ Sine_Table:                                                    ; loc_329A
 ; Routine to calculate an angle using a pre-calculated table
 ; ->>>
 ;===============================================================================
-CalcAngle:                                                     ; loc_351A
+CalcAngle:
 		movem.l D3/D4, -(A7)
 		moveq   #$00, D3
 		moveq   #$00, D4
@@ -3462,13 +3462,13 @@ loc_353C:
 		lsl.l   #$08, D4
 		divu.w  D3, D4
 		moveq   #$00, D0
-		move.b  Angle_Table(PC, D4), D0                ; loc_3580
+		move.b  Angle_Table(PC, D4), D0
 		bra.s   loc_3558
 loc_354E:
 		lsl.l   #$08, D3
 		divu.w  D4, D3
 		moveq   #$40, D0
-		sub.b   Angle_Table(PC, D3), D0                ; loc_3580
+		sub.b   Angle_Table(PC, D3), D0
 loc_3558:
 		tst.w   D1
 		bpl     loc_3564
@@ -3487,7 +3487,7 @@ loc_3576:
 		movem.l (A7)+, D3/D4
 		rts
 ;-------------------------------------------------------------------------------
-Angle_Table:                                                   ; loc_3580
+Angle_Table:
 		incbin "Misc/AngleData.bin"
 		even
 ;===============================================================================
@@ -3499,12 +3499,12 @@ Angle_Table:                                                   ; loc_3580
 ; SEGA logo
 ; ->>>
 ;===============================================================================
-Sega_Screen:                                                   ; loc_3684
+Sega_Screen:
 		move.b  #$FD, D0
-		bsr     Play_Music                             ; loc_150C
-		bsr     ClearPLC                               ; loc_17F2
-		bsr     Pal_FadeFrom                           ; loc_266C
-		lea     (VDP_Control_Port), A6                       ; $00C00004
+		bsr     Play_Music	; stop music
+		bsr     ClearPLC
+		bsr     Pal_FadeFrom
+		lea     (VDP_Control_Port), A6
 		move.w  #$8004, (A6)
 		move.w  #$8230, (A6)
 		move.w  #$8407, (A6)
@@ -3515,65 +3515,65 @@ Sega_Screen:                                                   ; loc_3684
 		move    #$2700, SR
 		move.w  ($FFFFF60C).w, D0
 		andi.b  #$BF, D0
-		move.w  D0, (VDP_Control_Port)                       ; $00C00004
-		bsr     ClearScreen                            ; loc_1418
-		move.l  #$40000000, (VDP_Control_Port)               ; $00C00004
-		lea     (Art_SEGA), A0                         ; loc_74876
-		bsr     NemDec                             ; loc_1654
-		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
-		lea     (Sega_Mappings), A0                    ; loc_74CE6
+		move.w  D0, (VDP_Control_Port)
+		bsr     ClearScreen
+		move.l  #$40000000, (VDP_Control_Port)
+		lea     (Art_SEGA), A0
+		bsr     NemDec
+		lea     (M68K_RAM_Start), A1
+		lea     (Sega_Mappings), A0
 		move.w  #$0000, D0
-		bsr     EniDec                              ; loc_1932
-		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
+		bsr     EniDec
+		lea     (M68K_RAM_Start), A1
 		move.l  #$65100003, D0
 		moveq   #$17, D1
 		moveq   #$07, D2
-		bsr     ShowVDPGraphics                        ; loc_15A4
+		bsr     ShowVDPGraphics
 		lea     ($FFFF0180), A1
 		move.l  #$40000003, D0
 		moveq   #$27, D1
 		moveq   #$1B, D2
-		bsr     ShowVDPGraphics                        ; loc_15A4
-		tst.b   (Hardware_Id).w                              ; $FFFFFFF8
+		bsr     ShowVDPGraphics
+		tst.b   (Hardware_Id).w
 		bmi.s   loc_3736
 		lea     ($FFFF0A40), A1
 		move.l  #$453A0003, D0
 		moveq   #$02, D1
 		moveq   #$01, D2
-		bsr     ShowVDPGraphics                        ; loc_15A4
+		bsr     ShowVDPGraphics
 loc_3736:
 		moveq   #$00, D0
-		bsr     PalLoad2                               ; loc_2930
+		bsr     PalLoad2
 		move.w  #$FFF6, ($FFFFF632).w
 		move.w  #$0000, ($FFFFF634).w
 		move.w  #$0000, ($FFFFF662).w
 		move.w  #$0000, ($FFFFF660).w
-		move.w  #$00B4, (Timer_Count_Down).w                 ; $FFFFF614
+		move.w  #$00B4, (Timer_Count_Down).w
 		move.w  ($FFFFF60C).w, D0
 		ori.b   #$40, D0
-		move.w  D0, (VDP_Control_Port)                       ; $00C00004
+		move.w  D0, (VDP_Control_Port)
 ;loc_3768:
 Sega_WaitPalette:
-		move.b  #$02, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		bsr     PalCycle_Sega                          ; loc_2822
+		move.b  #$02, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		bsr     PalCycle_Sega
 		bne.s   Sega_WaitPalette
 		move.b  #$FA, D0
-		bsr     Play_Sfx                               ; loc_1512
-		move.b  #$02, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		move.w  #$00B4, (Timer_Count_Down).w                 ; $FFFFF614
+		bsr     Play_Sfx
+		move.b  #$02, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		move.w  #$00B4, (Timer_Count_Down).w
 ;loc_3790:
 Sega_WaitEnd:
-		move.b  #$14, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+		move.b  #$14, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		tst.w   (Timer_Count_Down).w
 		beq.s   Sega_GotoTitle
-		andi.b  #$80, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
+		andi.b  #$80, (Control_Ports_Buffer_Data+$0001).w
 		beq.s   Sega_WaitEnd
 ;loc_37A8:
 Sega_GotoTitle:
-		move.b  #gm_TitleScreen, (Game_Mode).w         ; $04 ; $FFFFF600
+		move.b  #gm_TitleScreen, (Game_Mode).w
 		rts
 ;===============================================================================
 ; SEGA logo
@@ -3584,13 +3584,13 @@ Sega_GotoTitle:
 ; Title screen
 ; ->>>
 ;===============================================================================
-Title_Screen:                                                  ; loc_37B0
-		move.b  #$FD, D0                                    ; stop music
-		bsr     Play_Music                             ; loc_150C
-		bsr     ClearPLC                               ; loc_17F2
-		bsr     Pal_FadeFrom                           ; loc_266C
+Title_Screen:
+		move.b  #$FD, D0	
+		bsr     Play_Music	; stop music
+		bsr     ClearPLC
+		bsr     Pal_FadeFrom
 		move    #$2700, SR
-		lea     (VDP_Control_Port), A6                       ; $00C00004
+		lea     (VDP_Control_Port), A6
 		move.w  #$8004, (A6)
 		move.w  #$8230, (A6)
 		move.w  #$8407, (A6)
@@ -3600,14 +3600,14 @@ Title_Screen:                                                  ; loc_37B0
 		move.w  #$8720, (A6)
 		clr.b   ($FFFFF64E).w
 		move.w  #$8C81, (A6)
-		bsr     ClearScreen                            ; loc_1418
+		bsr     ClearScreen
 		lea     ($FFFFAC00).w, A1
 		moveq   #$00, D0
 		move.w  #$00FF, D1
 loc_37FC:
 		move.l  D0, (A1)+
 		dbra    D1, loc_37FC
-		lea     (Obj_Memory_Address).w, A1                   ; $FFFFB000
+		lea     (Obj_Memory_Address).w, A1
 		moveq   #$00, D0
 		move.w  #$07FF, D1
 loc_380C:
@@ -3619,215 +3619,218 @@ loc_380C:
 loc_381C:
 		move.l  D0, (A1)+
 		dbra    D1, loc_381C
-		lea     (Camera_X).w, A1                             ; $FFFFEE00
+		lea     (Camera_X).w, A1
 		moveq   #$00, D0
 		move.w  #$003F, D1
 loc_382C:
 		move.l  D0, (A1)+
 		dbra    D1, loc_382C
-		lea     (Palette_Underwater_Buffer).w, A1            ; $FFFFFB80
+		lea     (Palette_Underwater_Buffer).w, A1
 		moveq   #$00, D0
 		move.w  #$001F, D1
 ;loc_383C:
 Title_ClrPalette:
 		move.l  D0, (A1)+
 		dbra    D1, Title_ClrPalette
-		moveq   #$03, D0                               ; load Sonic's palette
-							       ; leftover from Sonic 1 when it had text before showing the title screen
-		bsr     PalLoad1                               ; loc_2914
-		bsr     Pal_FadeTo                             ; loc_25C8
+
+		; load Sonic's palette
+		; leftover from Sonic 1's "SONIC TEAM PRESENTS" screen
+		moveq   #$03, D0                               
+		bsr     PalLoad1
+
+		bsr     Pal_FadeTo
 		move    #$2700, SR
-		move.l  #$40000000, (VDP_Control_Port)               ; $00C00004
-		lea     (Art_Title_Screen_Bg_Wings), A0        ; loc_75436
-		bsr     NemDec                             ; loc_1654
-		move.l  #$40000001, (VDP_Control_Port)               ; $00C00004
-		lea     (Art_Title_Screen_Sonic_Tails), A0     ; loc_76D98
-		bsr     NemDec                             ; loc_1654
-		lea     (VDP_Data_Port), A6                          ; $00C00000
+		move.l  #$40000000, (VDP_Control_Port)
+		lea     (Art_Title_Screen_Bg_Wings), A0
+		bsr     NemDec
+		move.l  #$40000001, (VDP_Control_Port)
+		lea     (Art_Title_Screen_Sonic_Tails), A0
+		bsr     NemDec
+		lea     (VDP_Data_Port), A6
 		move.l  #$50000003, $0004(A6)
-		lea     (Art_Menu_Text), A5                    ; loc_5E8
+		lea     (Art_Menu_Text), A5
 		move.w  #$028F, D1
 loc_3890:
 		move.w  (A5)+, (A6)
 		dbra    D1, loc_3890
 		nop
-		move.b  #$00, (Saved_Level_Flag).w                   ; $FFFFFE30
-		move.w  #$0000, (Debug_Mode_Flag_Index).w            ; $FFFFFE08
-		move.w  #$0000, (Auto_Control_Player_Flag).w         ; $FFFFFFF0
+		move.b  #$00, (Saved_Level_Flag).w
+		move.w  #$0000, (Debug_Mode_Flag_Index).w
+		move.w  #$0000, (Auto_Control_Player_Flag).w
 		move.w  #$0000, ($FFFFFFDA).w
-		move.w  #$0000, (Level_Id).w                         ; $FFFFFE10
+		move.w  #$0000, (Level_Id).w
 		move.w  #$0000, ($FFFFF634).w
-		bsr     Pal_FadeFrom                           ; loc_266C
+		bsr     Pal_FadeFrom
 		move    #$2700, SR
-		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
-		lea     (TS_Wings_Sonic_Mappings), A0          ; loc_74DE2
+		lea     (M68K_RAM_Start), A1
+		lea     (TS_Wings_Sonic_Mappings), A0
 		move.w  #$0000, D0
-		bsr     EniDec                              ; loc_1932
-		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
+		bsr     EniDec
+		lea     (M68K_RAM_Start), A1
 		move.l  #$40000003, D0
 		moveq   #$27, D1
 		moveq   #$1B, D2
-		bsr     ShowVDPGraphics                        ; loc_15A4
-		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
-		lea     (Title_Screen_Bg_Mappings), A0         ; loc_74F3A
+		bsr     ShowVDPGraphics
+		lea     (M68K_RAM_Start), A1
+		lea     (Title_Screen_Bg_Mappings), A0
 		move.w  #$0000, D0
-		bsr     EniDec                              ; loc_1932
-		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
+		bsr     EniDec
+		lea     (M68K_RAM_Start), A1
 		move.l  #$60000003, D0
 		moveq   #$1F, D1
 		moveq   #$1B, D2
-		bsr     ShowVDPGraphics                        ; loc_15A4
-		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
-		lea     (Title_Screen_R_Bg_Mappings), A0       ; loc_751EE
+		bsr     ShowVDPGraphics
+		lea     (M68K_RAM_Start), A1
+		lea     (Title_Screen_R_Bg_Mappings), A0
 		move.w  #$0000, D0
-		bsr     EniDec                              ; loc_1932
-		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
+		bsr     EniDec
+		lea     (M68K_RAM_Start), A1
 		move.l  #$60400003, D0
 		moveq   #$1F, D1
 		moveq   #$1B, D2
-		bsr     ShowVDPGraphics                        ; loc_15A4
+		bsr     ShowVDPGraphics
 		moveq   #$01, D0
-		bsr     PalLoad1                               ; loc_2914
-		move.b  #$99, D0                       ; play title screen music
-		bsr     Play_Music                             ; loc_150C
-		move.b  #$00, (Debug_Mode_Active_Flag).w             ; $FFFFFFFA
-		move.w  #$0000, (Two_Player_Flag).w                  ; $FFFFFFD8
-		move.w  #$0178, (Timer_Count_Down).w                 ; $FFFFF614
-		lea     (Obj_Memory_Address+$0080).w, A1             ; $FFFFB080
+		bsr     PalLoad1
+		move.b  #$99, D0	; play title screen music
+		bsr     Play_Music
+		move.b  #$00, (Debug_Mode_Active_Flag).w
+		move.w  #$0000, (Two_Player_Flag).w
+		move.w  #$0178, (Timer_Count_Down).w
+		lea     (Obj_Memory_Address+$0080).w, A1
 		moveq   #$00, D0
 		move.w  #$000F, D1
 loc_3966:
 		move.l  D0, (A1)+
 		dbra    D1, loc_3966
-		move.b  #$0E, (Obj_Memory_Address+$0040).w           ; $FFFFB040
-		move.b  #$0E, (Obj_Memory_Address+$0080).w           ; $FFFFB080
-		move.b  #$01, (Obj_Memory_Address+$009A).w           ; $FFFFB09A
-		jsr     (Load_Objects)                         ; loc_CEA8
-		jsr     (Build_Sprites)                        ; loc_D442
+		move.b  #$0E, (Obj_Memory_Address+$0040).w
+		move.b  #$0E, (Obj_Memory_Address+$0080).w
+		move.b  #$01, (Obj_Memory_Address+$009A).w
+		jsr     (Load_Objects)
+		jsr     (Build_Sprites)
 		moveq   #$00, D0
-		bsr     LoadPLC2                               ; loc_17C6
+		bsr     LoadPLC2
 		move.w  #$0000, ($FFFFFFD4).w
 		move.w  #$0000, ($FFFFFFD6).w
-		move.b  #$01, (Level_select_flag).w                  ; $FFFFFFD0
+		move.b  #$01, (Level_select_flag).w
 		move.w  #$0004, ($FFFFEED2).w
 		move.w  #$0000, ($FFFFE500).w
 		move.w  ($FFFFF60C).w, D0
 		ori.b   #$40, D0
-		move.w  D0, (VDP_Control_Port)                       ; $00C00004
-		bsr     Pal_FadeTo                             ; loc_25C8
-TitleScreen_Loop:                                              ; loc_39C0
-		move.b  #$04, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		jsr     (Load_Objects)                         ; loc_CEA8
-		bsr     Bg_Scroll_Title_Screen                 ; loc_5F00
-		jsr     (Build_Sprites)                        ; loc_D442
-		bsr     RunPLC                                 ; loc_1800
-		tst.b   (Hardware_Id).w                              ; $FFFFFFF8
-		bpl.s   Code_Sequence_J                        ; loc_39EC
-		lea     (Level_Select_Code_J), A0              ; loc_3BD2
-		bra.s   Level_Select_Cheat_Test                ; loc_39F2
-Code_Sequence_J:                                               ; loc_39EC
-		lea     (Level_Select_Code_US), A0             ; loc_3BCA
-Level_Select_Cheat_Test:                                       ; loc_39F2
+		move.w  D0, (VDP_Control_Port)
+		bsr     Pal_FadeTo
+TitleScreen_Loop:
+		move.b  #$04, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		jsr     (Load_Objects)
+		bsr     Bg_Scroll_Title_Screen
+		jsr     (Build_Sprites)
+		bsr     RunPLC
+		tst.b   (Hardware_Id).w
+		bpl.s   Code_Sequence_J
+		lea     (Level_Select_Code_J), A0
+		bra.s   Level_Select_Cheat_Test
+Code_Sequence_J:
+		lea     (Level_Select_Code_US), A0
+Level_Select_Cheat_Test:
 		move.w  ($FFFFFFD4).w, D0
 		adda.w  D0, A0
-		move.b  (Control_Ports_Buffer_Data+$0001).w, D0      ; $FFFFF605
+		move.b  (Control_Ports_Buffer_Data+$0001).w, D0
 		andi.b  #$0F, D0
 		cmp.b   (A0), D0
-		bne.s   Title_Cheat_NoMatch                    ; loc_3A38
+		bne.s   Title_Cheat_NoMatch
 		addq.w  #$01, ($FFFFFFD4).w
 		tst.b   D0
-		bne.s   Title_Cheat_CountC                     ; loc_3A4A
-		lea     (Level_select_flag).w, A0                    ; $FFFFFFD0
+		bne.s   Title_Cheat_CountC
+		lea     (Level_select_flag).w, A0
 		move.w  ($FFFFFFD6).w, D1
 		lsr.w   #$01, D1
 		andi.w  #$0003, D1
-		beq.s   Title_Cheat_PlayRing                   ; loc_3A28
-		tst.b   (Hardware_Id).w                              ; $FFFFFFF8
-		bpl.s   Title_Cheat_PlayRing                   ; loc_3A28
+		beq.s   Title_Cheat_PlayRing
+		tst.b   (Hardware_Id).w
+		bpl.s   Title_Cheat_PlayRing
 		moveq   #$01, D1
 		move.b  D1, $01(A0, D1)
-Title_Cheat_PlayRing:                                          ; loc_3A28
+Title_Cheat_PlayRing:
 		move.b  #$01, $00(A0, D1)
 		move.b  #$B5, D0
-		bsr     Play_Sfx                               ; loc_1512
-		bra.s   Title_Cheat_CountC                     ; loc_3A4A
-Title_Cheat_NoMatch:                                           ; loc_3A38
+		bsr     Play_Sfx
+		bra.s   Title_Cheat_CountC
+Title_Cheat_NoMatch:
 		tst.b   D0
-		beq.s   Title_Cheat_CountC                     ; loc_3A4A
+		beq.s   Title_Cheat_CountC
 		cmpi.w  #$0009, ($FFFFFFD4).w
-		beq.s   Title_Cheat_CountC                     ; loc_3A4A
+		beq.s   Title_Cheat_CountC
 		move.w  #$0000, ($FFFFFFD4).w
-Title_Cheat_CountC:                                            ; loc_3A4A:
-		move.b  (Control_Ports_Buffer_Data+$0001).w, D0      ; $FFFFF605
+Title_Cheat_CountC:
+		move.b  (Control_Ports_Buffer_Data+$0001).w, D0
 		andi.b  #$20, D0
 		beq.s   loc_3A58
 		addq.w  #$01, ($FFFFFFD6).w
 loc_3A58:
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+		tst.w   (Timer_Count_Down).w
 		beq     loc_3BDA
-		andi.b  #$80, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
-		beq     TitleScreen_Loop                       ; loc_39C0
+		andi.b  #$80, (Control_Ports_Buffer_Data+$0001).w
+		beq     TitleScreen_Loop
 loc_3A6A:
-		tst.b   (Level_select_flag).w                        ; $FFFFFFD0
+		tst.b   (Level_select_flag).w
 		beq     PlayLevel
-		cmpi.b  #$C0, (Control_Ports_Buffer_Data).w          ; $FFFFF604
+		cmpi.b  #$C0, (Control_Ports_Buffer_Data).w
 		bne     PlayLevel
-		move.b  #$91, D0                       ; play level select music
-		bsr     Play_Music                             ; loc_150C
-		moveq   #$02, D0                      ; load level select palette
-		bsr     PalLoad2                               ; loc_2930
-		lea     (Scroll_Buffer_Data).w, A1                   ; $FFFFE000
+		move.b  #$91, D0	; play level select music
+		bsr     Play_Music
+		moveq   #$02, D0	; load level select palette
+		bsr     PalLoad2
+		lea     (Scroll_Buffer_Data).w, A1
 		moveq   #$00, D0
 		move.w  #$00DF, D1
-LevelSelect_ClearScroll:                                       ; loc_3A94
+LevelSelect_ClearScroll:
 		move.l  D0, (A1)+
-		dbra    D1, LevelSelect_ClearScroll            ; loc_3A94
+		dbra    D1, LevelSelect_ClearScroll
 		move.l  D0, ($FFFFF616).w
 		move    #$2700, SR
-		lea     (VDP_Data_Port), A6                          ; $00C00000
-		move.l  #$60000003, (VDP_Control_Port)               ; $00C00004
+		lea     (VDP_Data_Port), A6
+		move.l  #$60000003, (VDP_Control_Port)
 		move.w  #$03FF, D1
-LevelSelect_ClearVRAM:                                         ; loc_3AB6
+LevelSelect_ClearVRAM:
 		move.l  D0, (A6)
-		dbra    D1, LevelSelect_ClearVRAM              ; loc_3AB6
+		dbra    D1, LevelSelect_ClearVRAM
 		bsr     loc_3D3C
-LevelSelect_Loop:                                              ; loc_3AC0
-		move.b  #$04, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		bsr     LevelSelect_Controls                   ; loc_3CA6
-		bsr     RunPLC                                 ; loc_1800
-		tst.l   (PLC_Buffer).w                               ; $FFFFF680
-		bne.s   LevelSelect_Loop                       ; loc_3AC0
-		andi.b  #$F0, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
-		beq.s   LevelSelect_Loop                       ; loc_3AC0
-		move.w  #$0000, (Two_Player_Flag).w                  ; $FFFFFFD8
-		btst    #$04, (Control_Ports_Buffer_Data).w          ; $FFFFF604
+LevelSelect_Loop:
+		move.b  #$04, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		bsr     LevelSelect_Controls
+		bsr     RunPLC
+		tst.l   (PLC_Buffer).w
+		bne.s   LevelSelect_Loop
+		andi.b  #$F0, (Control_Ports_Buffer_Data+$0001).w
+		beq.s   LevelSelect_Loop
+		move.w  #$0000, (Two_Player_Flag).w
+		btst    #$04, (Control_Ports_Buffer_Data).w
 		beq.s   loc_3AF4
-		move.w  #$0001, (Two_Player_Flag).w                  ; $FFFFFFD8
+		move.w  #$0001, (Two_Player_Flag).w
 loc_3AF4:
 		move.w  ($FFFFFF82).w, D0
 		cmpi.w  #$001A, D0
 		bne.s   loc_3B14
-		btst    #$06, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
-		bne.s   LevelSelect_Loop                       ; loc_3AC0
+		btst    #$06, (Control_Ports_Buffer_Data+$0001).w
+		bne.s   LevelSelect_Loop
 		move.w  ($FFFFFF84).w, D0
 		addi.w  #$0080, D0
-		bsr     Play_Sfx                               ; loc_1512
-		bra.s   LevelSelect_Loop                       ; loc_3AC0
+		bsr     Play_Sfx
+		bra.s   LevelSelect_Loop
 loc_3B14:
 		add.w   D0, D0
-		move.w  Level_Select_Array(PC, D0), D0         ; loc_3B4C
-		bmi     LevelSelect_Loop                       ; loc_3AC0
+		move.w  Level_Select_Array(PC, D0), D0
+		bmi     LevelSelect_Loop
 		cmpi.w  #$4000, D0
-		bne.s   Level_Select_Load_Level                ; loc_3B82
-		move.b  #gm_SpecialStage, (Game_Mode).w        ; $10,  $FFFFF600
-		clr.w   (Level_Id).w                                 ; $FFFFFE10
-		move.b  #$03, (Life_Count).w                         ; $FFFFFE12
+		bne.s   Level_Select_Load_Level
+		move.b  #gm_SpecialStage, (Game_Mode).w
+		clr.w   (Level_Id).w
+		move.b  #$03, (Life_Count).w
 		moveq   #$00, D0
-		move.w  D0, (Ring_Count).w                           ; $FFFFFE20
-		move.l  D0, (Time_Count).w                           ; $FFFFFE22
-		move.l  D0, (Score_Count).w                          ; $FFFFFE26
+		move.w  D0, (Ring_Count).w
+		move.l  D0, (Time_Count).w
+		move.l  D0, (Score_Count).w
 		move.l  #$00001388, ($FFFFFFC0).w
 		rts
 ;-------------------------------------------------------------------------------
@@ -55296,9 +55299,9 @@ DEz_Background_Map_Act_2:                                      ; loc_49C36
 ;===============================================================================
 ; Giant ring used to access the Special Stage.
 ; Not used, Leftover from Sonic 1.
-Art_Big_Ring:                                                  ; loc_49C3A
+Art_Big_Ring:
 		incbin  'art/uncompressed/big_ring.dat'
-Previous_Build_Art_Big_Ring_Overwrite:                         ; loc_4A87A
+Previous_Build_Art_Big_Ring_Overwrite:
 		incbin  'art/uncompressed/pbigring.dat'
 ;-------------------------------------------------------------------------------
 ; Nemesis format data overwritten.
@@ -55307,7 +55310,7 @@ Previous_Build_Art_Big_Ring_Overwrite:                         ; loc_4A87A
 ; "Sonic_1_Jap/Data/SLz/Tiles.nem" (0x0BF4 � 0x1377)
 ; ->>>
 ;-------------------------------------------------------------------------------
-Star_Light_Tiles_Overwrite:                                    ; loc_4A87C
+Star_Light_Tiles_Overwrite:
 		incbin  'level/star light zone/tiles.dat'
 ;-------------------------------------------------------------------------------
 ; Nemesis format data overwritten.
@@ -55320,41 +55323,41 @@ Star_Light_Tiles_Overwrite:                                    ; loc_4A87C
 ; Level Object Layouts
 ; ->>>
 ;===============================================================================
-Objects_Layout:                                                ; loc_4C000
-		dc.w    GHz_Obj_Act1-Objects_Layout            ; loc_4C04A
-		dc.w    GHz_Obj_Act2-Objects_Layout            ; loc_4C302
-		dc.w    Lvl1_Obj_Act1-Objects_Layout           ; loc_4ED20
-		dc.w    Lvl1_Obj_Act2-Objects_Layout           ; loc_4ED20
-		dc.w    Wz_Obj_Act1-Objects_Layout             ; loc_4ED20
-		dc.w    Wz_Obj_Act2-Objects_Layout             ; loc_4ED20
-		dc.w    Lvl3_Obj_Act1-Objects_Layout           ; loc_4ED20
-		dc.w    Lvl3_Obj_Act2-Objects_Layout           ; loc_4ED20
-		dc.w    Mz_Obj_Act1-Objects_Layout             ; loc_4C638
-		dc.w    Mz_Obj_Act2-Objects_Layout             ; loc_4CA04
-		dc.w    Mz_Obj_Act3-Objects_Layout             ; loc_4CDD0
-		dc.w    Mz_Obj_Act4-Objects_Layout             ; loc_4CDD0
-		dc.w    Lvl6_Obj_Act1-Objects_Layout           ; loc_4ED20
-		dc.w    Lvl6_Obj_Act2-Objects_Layout           ; loc_4ED20
-		dc.w    HTz_Obj_Act1-Objects_Layout            ; loc_4D214
-		dc.w    HTz_Obj_Act2-Objects_Layout            ; loc_4D4A2
-		dc.w    HPz_Obj_Act1-Objects_Layout            ; loc_4D958
-		dc.w    HPz_Obj_Act2-Objects_Layout            ; loc_4DA60
-		dc.w    Lvl9_Obj_Act1-Objects_Layout           ; loc_4ED20
-		dc.w    Lvl9_Obj_Act2-Objects_Layout           ; loc_4ED20
-		dc.w    OOz_Obj_Act1-Objects_Layout            ; loc_4DA6C
-		dc.w    OOz_Obj_Act2-Objects_Layout            ; loc_4DBCE
-		dc.w    DHz_Obj_Act1-Objects_Layout            ; loc_4DDBA
-		dc.w    DHz_Obj_Act2-Objects_Layout            ; loc_4E06C
-		dc.w    CNz_Obj_Act1-Objects_Layout            ; loc_4ED20
-		dc.w    CNz_Obj_Act2-Objects_Layout            ; loc_4ED20
-		dc.w    CPz_Obj_Act1-Objects_Layout            ; loc_4E384
-		dc.w    CPz_Obj_Act2-Objects_Layout            ; loc_4E61E
-		dc.w    GCz_Obj_Act1-Objects_Layout            ; loc_4ED20
-		dc.w    GCz_Obj_Act2-Objects_Layout            ; loc_4ED20
-		dc.w    NGHz_Obj_Act1-Objects_Layout           ; loc_4E9BA
-		dc.w    NGHz_Obj_Act2-Objects_Layout           ; loc_4EB8E
-		dc.w    DEz_Obj_Act1-Objects_Layout            ; loc_4ED20
-		dc.w    DEz_Obj_Act2-Objects_Layout            ; loc_4ED20
+Objects_Layout:
+		dc.w    GHz_Obj_Act1-Objects_Layout
+		dc.w    GHz_Obj_Act2-Objects_Layout
+		dc.w    Lvl1_Obj_Act1-Objects_Layout
+		dc.w    Lvl1_Obj_Act2-Objects_Layout
+		dc.w    Wz_Obj_Act1-Objects_Layout
+		dc.w    Wz_Obj_Act2-Objects_Layout
+		dc.w    Lvl3_Obj_Act1-Objects_Layout
+		dc.w    Lvl3_Obj_Act2-Objects_Layout
+		dc.w    Mz_Obj_Act1-Objects_Layout
+		dc.w    Mz_Obj_Act2-Objects_Layout
+		dc.w    Mz_Obj_Act3-Objects_Layout
+		dc.w    Mz_Obj_Act4-Objects_Layout
+		dc.w    Lvl6_Obj_Act1-Objects_Layout
+		dc.w    Lvl6_Obj_Act2-Objects_Layout
+		dc.w    HTz_Obj_Act1-Objects_Layout
+		dc.w    HTz_Obj_Act2-Objects_Layout
+		dc.w    HPz_Obj_Act1-Objects_Layout
+		dc.w    HPz_Obj_Act2-Objects_Layout
+		dc.w    Lvl9_Obj_Act1-Objects_Layout
+		dc.w    Lvl9_Obj_Act2-Objects_Layout
+		dc.w    OOz_Obj_Act1-Objects_Layout
+		dc.w    OOz_Obj_Act2-Objects_Layout
+		dc.w    DHz_Obj_Act1-Objects_Layout
+		dc.w    DHz_Obj_Act2-Objects_Layout
+		dc.w    CNz_Obj_Act1-Objects_Layout
+		dc.w    CNz_Obj_Act2-Objects_Layout
+		dc.w    CPz_Obj_Act1-Objects_Layout
+		dc.w    CPz_Obj_Act2-Objects_Layout
+		dc.w    GCz_Obj_Act1-Objects_Layout
+		dc.w    GCz_Obj_Act2-Objects_Layout
+		dc.w    NGHz_Obj_Act1-Objects_Layout
+		dc.w    NGHz_Obj_Act2-Objects_Layout
+		dc.w    DEz_Obj_Act1-Objects_Layout
+		dc.w    DEz_Obj_Act2-Objects_Layout
 ;-------------------------------------------------------------------------------
 		dc.w    $FFFF, $0000, $0000
 GHz_Obj_Act1:                                                  ; loc_4C04A
