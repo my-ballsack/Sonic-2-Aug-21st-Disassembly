@@ -62,7 +62,7 @@ PatternLoadCues:                                                   ; loc_2E7D4
 ;-------------------------------------------------------------------------------
 Default_Art_List:                                              ; loc_2E84C
 PLC_00:
-                dc.w    (((PLC_00_End-PLC_00-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_00_End-PLC_00-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_LampPost                           ; loc_7E252
                 dc.w    $8F80
                 dc.l    Art_Head_Up_Display                    ; loc_7D9EC
@@ -77,7 +77,7 @@ PLC_00_End:
 ;-------------------------------------------------------------------------------
 Default_Level_Art_List:                                        ; loc_2E86C
 PLC_01:
-                dc.w    (((PLC_01_End-PLC_01-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_01_End-PLC_01-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Monitors                           ; loc_7DCFE
                 dc.w    $D000
                 dc.l    Art_Shield                             ; loc_71D8E
@@ -88,7 +88,7 @@ PLC_01_End:
 ;-------------------------------------------------------------------------------
 After_Title_Cards_Art_List:                                    ; loc_2E880
 PLC_02:
-                dc.w    (((PLC_02_End-PLC_02-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_02_End-PLC_02-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Explosion                          ; loc_7F316
                 dc.w    $B480
                 dc.l    Art_Water_Splash                       ; loc_7393C
@@ -97,14 +97,14 @@ PLC_02_End:
 ;-------------------------------------------------------------------------------
 Game_Over_Time_Over_Art_List:                                  ; loc_2E88E
 PLC_03:
-                dc.w    (((PLC_03_End-PLC_03-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_03_End-PLC_03-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Game_Over_Time_Over                ; loc_7F184
                 dc.w    $ABC0
 PLC_03_End:
 ;-------------------------------------------------------------------------------
 Green_Hill_Art_List_0:                                         ; loc_2E896
 PLC_04:
-                dc.w    (((PLC_04_End-PLC_04-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_04_End-PLC_04-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Green_Hill_Tiles                       ; loc_8C7FE
                 dc.w    $0000
                 dc.l    Art_GHz_Waterfall                      ; loc_77A52
@@ -123,7 +123,7 @@ PLC_04_End:
 ;-------------------------------------------------------------------------------
 Green_Hill_Art_List_1:                                         ; loc_2E8C2
 PLC_05:
-                dc.w    (((PLC_05_End-PLC_05-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_05_End-PLC_05-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Spikes                             ; loc_7E128
                 dc.w    $8680
                 dc.l    Art_Diagonal_Spring                    ; loc_7D818
@@ -138,14 +138,14 @@ Unk_Lvl_1_Art_Data_0:                                          ; loc_2E8DC
 Unk_Lvl_1_Art_Data_1:                                          ; loc_2E8DC
 Wood_Art_Data_0:                                               ; loc_2E8DC
 PLC_08:
-                dc.w    (((PLC_08_End-PLC_08-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_08_End-PLC_08-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Wood_Tiles                             ; loc_9572C
                 dc.w    $0000
 PLC_08_End:
 ;-------------------------------------------------------------------------------
 Wood_Art_Data_1:                                               ; loc_2E8E4
 PLC_09:
-                dc.w    (((PLC_09_End-PLC_09-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_09_End-PLC_09-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Spikes                             ; loc_7E128
                 dc.w    $8680
                 dc.l    Art_Diagonal_Spring                    ; loc_7D818
@@ -160,7 +160,7 @@ Unk_Lvl_3_Art_Data_0:                                          ; loc_2E8FE
 Unk_Lvl_3_Art_Data_1:                                          ; loc_2E8FE
 Metropolis_Art_Data_0:                                         ; loc_2E8FE
 PLC_0C:
-                dc.w    (((PLC_0C_End-PLC_0C-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_0C_End-PLC_0C-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Metropolis_Tiles                       ; loc_9C314
                 dc.w    $0000
                 dc.l    Art_Mz_Rotating_Gear                   ; loc_78532
@@ -185,7 +185,7 @@ PLC_0C_End:
 ;-------------------------------------------------------------------------------
 Metropolis_Art_Data_1:                                         ; loc_2E93C
 PLC_0D:
-                dc.w    (((PLC_0D_End-PLC_0D-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_0D_End-PLC_0D-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Switch                             ; loc_7D55A
                 dc.w    $8480
                 dc.l    Art_Spikes                             ; loc_7E128
@@ -214,7 +214,7 @@ Unk_Lvl_6_Art_Data_0:                                          ; loc_2E97A
 Unk_Lvl_6_Art_Data_1:                                          ; loc_2E97A
 Hill_Top_Art_Data_0:                                           ; loc_2E97A
 PLC_12:
-                dc.w    (((PLC_12_End-PLC_12-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_12_End-PLC_12-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Green_Hill_Tiles                       ; loc_8C7FE
                 dc.w    $0000
                 dc.l    Hill_Top_Tiles                         ; loc_8FDFE
@@ -225,7 +225,7 @@ PLC_12:
                 dc.w    $7640
                 dc.l    Art_HTz_See_saw                        ; loc_780EA
                 dc.w    $78C0
-                dc.l    Art_HTz_See_saw_badnick                ; loc_784C6
+                dc.l    Art_HTz_See_saw_badnik
                 dc.w    $7BC0
                 dc.l    Art_Rexon                              ; loc_89814
                 dc.w    $6FC0
@@ -243,7 +243,7 @@ PLC_12_End:
 ;-------------------------------------------------------------------------------
 Hill_Top_Art_Data_1:                                           ; loc_2E9C4
 PLC_13:
-                dc.w    (((PLC_13_End-PLC_13-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_13_End-PLC_13-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_HTz_Teleferic                      ; loc_77D7E
                 dc.w    $7CC0
                 dc.l    Art_HTz_Lava_Bubble                    ; loc_77B58
@@ -254,7 +254,7 @@ PLC_13_End:
 ;-------------------------------------------------------------------------------
 Hidden_Palace_Art_Data_0:                                      ; loc_2E9D8
 PLC_14:
-                dc.w    (((PLC_14_End-PLC_14-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_14_End-PLC_14-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Hidden_Palace_Tiles                    ; loc_A3AB4
                 dc.w    $0000
                 dc.l    Art_HPz_Bridge                         ; loc_792A4
@@ -275,7 +275,7 @@ PLC_14_End:
 ;-------------------------------------------------------------------------------
 Hidden_Palace_Art_Data_1:                                      ; loc_2EA0A
 PLC_15:
-                dc.w    (((PLC_15_End-PLC_15-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_15_End-PLC_15-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Rhinobot                           ; loc_812AC
                 dc.w    $7640
                 dc.l    Art_Dinobot                            ; loc_81674
@@ -332,7 +332,7 @@ Unk_Lvl_9_Art_Data_0:                                          ; loc_2EA9C
 Unk_Lvl_9_Art_Data_1:                                          ; loc_2EA9C
 Oil_Ocean_Art_Data_0:                                          ; loc_2EA9C
 PLC_18:
-                dc.w    (((PLC_18_End-PLC_18-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_18_End-PLC_18-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Oil_Ocean_Tiles                        ; loc_A9C96
                 dc.w    $0000
                 dc.l    Art_OOz_Fire_Booster                   ; loc_7B37C
@@ -357,7 +357,7 @@ PLC_18_End:
 ;-------------------------------------------------------------------------------
 Oil_Ocean_Art_Data_1:                                          ; loc_2EADA
 PLC_19:
-                dc.w    (((PLC_19_End-PLC_19-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_19_End-PLC_19-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_OOz_Collapsing_Platform            ; loc_7A838
                 dc.w    $73A0
                 dc.l    Art_OOz_Spring_Push_Boost              ; loc_7AACC
@@ -386,7 +386,7 @@ PLC_19_End:
 ;-------------------------------------------------------------------------------
 Dust_Hill_Art_Data_0:                                          ; loc_2EB24
 PLC_1A:
-                dc.w    (((PLC_1A_End-PLC_1A-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_1A_End-PLC_1A-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Dust_Hill_Tiles                        ; loc_B0146
                 dc.w    $0000
                 dc.l    Art_DHz_Box                            ; loc_7B468
@@ -405,7 +405,7 @@ PLC_1A_End:
 ;-------------------------------------------------------------------------------
 Dust_Hill_Art_Data_1:                                          ; loc_2EB50
 PLC_1B:
-                dc.w    (((PLC_1B_End-PLC_1B-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_1B_End-PLC_1B-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_DHz_Horizontal_Spikes              ; loc_7EA1E
                 dc.w    $8580
                 dc.l    Art_Spikes                             ; loc_7E128
@@ -422,7 +422,7 @@ PLC_1B_End:
 ;-------------------------------------------------------------------------------
 Casino_Night_Art_Data_0:                                       ; loc_2EB76
 PLC_1C:
-                dc.w    (((PLC_1C_End-PLC_1C-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_1C_End-PLC_1C-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Casino_Night_Tiles                     ; loc_B6F18
                 dc.w    $0000
                 dc.l    Art_CNz_Green_Platforms                ; loc_7BA62
@@ -447,7 +447,7 @@ PLC_1C_End:
 ;-------------------------------------------------------------------------------
 Casino_Night_Art_Data_1:                                       ; loc_2EBB4
 PLC_1D:
-                dc.w    (((PLC_1D_End-PLC_1D-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_1D_End-PLC_1D-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_CNz_Green_Bumpers                  ; loc_7C1BC
                 dc.w    $7C80
                 dc.l    Art_CNz_Flippers                       ; loc_7C2E2
@@ -464,7 +464,7 @@ PLC_1D_End:
 ;-------------------------------------------------------------------------------
 Chemical_Plant_Art_Data_0:                                     ; loc_2EBDA
 PLC_1E:
-                dc.w    (((PLC_1E_End-PLC_1E-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_1E_End-PLC_1E-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Chemical_Plant_Tiles                   ; loc_BD452
                 dc.w    $0000
                 dc.l    Art_CPz_Metal_Structure                ; loc_7C99E
@@ -493,7 +493,7 @@ PLC_1E_End:
 ;-------------------------------------------------------------------------------
 Chemical_Plant_Art_Data_1:                                     ; loc_2EC24
 PLC_1F:
-                dc.w    (((PLC_1F_End-PLC_1F-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_1F_End-PLC_1F-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Bubbles                            ; loc_7EC66
                 dc.w    $BD00
                 dc.l    Art_Spikes                             ; loc_7E128
@@ -512,7 +512,7 @@ Genocide_City_Art_Data_0:                                      ; loc_2EC4A
 Genocide_City_Art_Data_1:                                      ; loc_2EC4A
 Neo_Green_Hill_Art_Data_0:                                     ; loc_2EC4A
 PLC_20:
-                dc.w    (((PLC_20_End-PLC_20-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_20_End-PLC_20-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Neo_Green_Hill_Tiles                   ; loc_C4DA4
                 dc.w    $0000
                 dc.l    Art_NGHz_Automatic_Door                ; loc_7D4C2
@@ -527,7 +527,7 @@ PLC_20_End:
 ;-------------------------------------------------------------------------------
 Neo_Green_Hill_Art_Data_1:                                     ; loc_2EC6A
 PLC_23:
-                dc.w    (((PLC_23_End-PLC_23-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_23_End-PLC_23-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Chop_Chop                          ; loc_895C2
                 dc.w    $A760
                 dc.l    Art_Whisp                              ; loc_8900C
@@ -552,21 +552,21 @@ Death_Egg_Art_Data_0:                                          ; loc_2ECA2
 Death_Egg_Art_Data_1:                                          ; loc_2ECA2
 End_Level_Art_Data_0:                                          ; loc_2ECA2
 PLC_26:
-                dc.w    (((PLC_26_End-PLC_26-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_26_End-PLC_26-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_End_Panel                          ; loc_7E2F8
                 dc.w    $8680
 PLC_26_End:
 ;-------------------------------------------------------------------------------
 End_Level_Art_Data_1:                                          ; loc_2ECAA
 PLC_27:
-                dc.w    (((PLC_27_End-PLC_27-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_27_End-PLC_27-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_End_Panel                          ; loc_7E2F8
                 dc.w    $8680
 PLC_27_End:
 ;-------------------------------------------------------------------------------
 Chemical_Plant_Boss_Art_Data:                                  ; loc_2ECB2
 PLC_28:
-                dc.w    (((PLC_28_End-PLC_28-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_28_End-PLC_28-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Robotnik_Ship                      ; loc_830EC
                 dc.w    $8000
                 dc.l    Art_CPz_Boss                           ; loc_83828
@@ -581,7 +581,7 @@ PLC_28_End:
 ;-------------------------------------------------------------------------------
 Green_Hill_Boss_Art_Data:                                      ; loc_2ECD2
 PLC_29:
-                dc.w    (((PLC_29_End-PLC_29-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_29_End-PLC_29-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Robotnik_Ship                      ; loc_830EC
                 dc.w    $7400
                 dc.l    Art_GHz_Boss_Car                       ; loc_84572
@@ -594,7 +594,7 @@ PLC_29_End:
 ;-------------------------------------------------------------------------------
 Hill_Top_Boss_Art_Data:                                        ; loc_2ECEC
 PLC_2A:
-                dc.w    (((PLC_2A_End-PLC_2A-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_2A_End-PLC_2A-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Robotnik_Ship                      ; loc_830EC
                 dc.w    $7820
                 dc.l    Art_HTz_Boss_Fire_Cannon               ; loc_84E52
@@ -607,7 +607,7 @@ PLC_2A_End:
 ;-------------------------------------------------------------------------------
 Neo_Green_Hill_Boss_Art_Data:                                  ; loc_2ED06
 PLC_2B:
-                dc.w    (((PLC_2B_End-PLC_2B-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_2B_End-PLC_2B-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Robotnik_Ship                      ; loc_830EC
                 dc.w    $A000
                 dc.l    Art_NGHz_Boss                          ; loc_8561E
@@ -618,7 +618,7 @@ PLC_2B_End:
 ;-------------------------------------------------------------------------------
 Dust_Hill_Boss_Art_Data:                                       ; loc_2ED1A
 PLC_2C:
-                dc.w    (((PLC_2C_End-PLC_2C-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_2C_End-PLC_2C-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Robotnik_Ship                      ; loc_830EC
                 dc.w    $A000
                 dc.l    Art_DHz_Boss                           ; loc_86678
@@ -629,7 +629,7 @@ PLC_2C_End:
 ;-------------------------------------------------------------------------------
 Casino_Night_Boss_Art_Data:                                    ; loc_2ED2E
 PLC_2D:
-                dc.w    (((PLC_2D_End-PLC_2D-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_2D_End-PLC_2D-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Robotnik_Ship                      ; loc_830EC
                 dc.w    $74E0
                 dc.l    Art_CNz_Boss                           ; loc_875B6
@@ -640,7 +640,7 @@ PLC_2D_End:
 ;-------------------------------------------------------------------------------
 Metropolis_Boss_Art_Data:                                      ; loc_2ED42
 PLC_2E:
-                dc.w    (((PLC_2E_End-PLC_2E-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_2E_End-PLC_2E-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Robotnik_Ship                      ; loc_830EC
                 dc.w    $7180
                 dc.l    Art_Mz_Boss_Balls_And_Robotniks        ; loc_8884E
@@ -653,7 +653,7 @@ PLC_2E_End:
 ;-------------------------------------------------------------------------------
 Oil_Ocean_Boss_Art_Data:                                       ; loc_2ED5C
 PLC_2F:
-                dc.w    (((PLC_2F_End-PLC_2F-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_2F_End-PLC_2F-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_OOz_Boss                           ; loc_87DE0
                 dc.w    $7180
                 dc.l    Art_Boss_Explosions                    ; loc_83D86
@@ -663,7 +663,7 @@ PLC_2F_End:
 Unreferenced_Flickies_Art_Data:                                ; loc_2ED6A  
 Green_Hill_Flickies_Art_Data:                                  ; loc_2ED6A   
 PLC_30:
-                dc.w    (((PLC_30_End-PLC_30-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_30_End-PLC_30-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Squirrel                           ; loc_7F80C
                 dc.w    $B000
                 dc.l    Art_Blue_Bird                          ; loc_7F6CA
@@ -672,7 +672,7 @@ PLC_30_End:
 ;-------------------------------------------------------------------------------
 Dust_Hill_Flickies_Art_Data:                                   ; loc_2ED78
 PLC_33:
-                dc.w    (((PLC_33_End-PLC_33-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_33_End-PLC_33-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Mouse                              ; loc_7F970
                 dc.w    $B000
                 dc.l    Art_Chicken                            ; loc_7FAAA
@@ -681,7 +681,7 @@ PLC_33_End:
 ;-------------------------------------------------------------------------------
 Mz_HTz_Flickies_Art_Data:                                      ; loc_2ED86
 PLC_34:
-                dc.w    (((PLC_34_End-PLC_34-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_34_End-PLC_34-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Monkey                             ; loc_7FC0C
                 dc.w    $B000
                 dc.l    Art_Pigeon                             ; loc_7FD4C
@@ -690,7 +690,7 @@ PLC_34_End:
 ;-------------------------------------------------------------------------------
 Genocide_City_Flickies_Art_Data:                               ; loc_2ED94
 PLC_35:
-                dc.w    (((PLC_35_End-PLC_35-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_35_End-PLC_35-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Pig                                ; loc_7FE7A
                 dc.w    $B000
                 dc.l    Art_Chicken                            ; loc_7FAAA
@@ -699,7 +699,7 @@ PLC_35_End:
 ;-------------------------------------------------------------------------------
 Hidden_Palace_Flickies_Art_Data:                               ; loc_2EDA2
 PLC_36:
-                dc.w    (((PLC_36_End-PLC_36-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_36_End-PLC_36-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Mouse                              ; loc_7F970
                 dc.w    $B000
                 dc.l    Art_Seal                               ; loc_7FFB0
@@ -708,7 +708,7 @@ PLC_36_End:
 ;-------------------------------------------------------------------------------
 Oil_Ocean_Flickies_Art_Data:                                   ; loc_2EDB0
 PLC_37:
-                dc.w    (((PLC_37_End-PLC_37-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_37_End-PLC_37-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Penguin                            ; loc_800CC
                 dc.w    $B000
                 dc.l    Art_Seal                               ; loc_7FFB0
@@ -717,7 +717,7 @@ PLC_37_End:
 ;-------------------------------------------------------------------------------
 Death_Egg_Flickies_Art_Data:                                   ; loc_2EDBE
 PLC_38:
-                dc.w    (((PLC_38_End-PLC_38-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_38_End-PLC_38-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Turtle                             ; loc_80248
                 dc.w    $B000
                 dc.l    Art_Chicken                            ; loc_7FAAA
@@ -726,7 +726,7 @@ PLC_38_End:
 ;-------------------------------------------------------------------------------
 Casino_Night_Flickies_Art_Data:                                ; loc_2EDCC
 PLC_39:
-                dc.w    (((PLC_39_End-PLC_39-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_39_End-PLC_39-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Bear                               ; loc_803FA
                 dc.w    $B000
                 dc.l    Art_Blue_Bird                          ; loc_7F6CA
@@ -735,7 +735,7 @@ PLC_39_End:
 ;-------------------------------------------------------------------------------
 Chemical_Plant_Flickies_Art_Data:                              ; loc_2EDDA
 PLC_3A:
-                dc.w    (((PLC_3A_End-PLC_3A-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_3A_End-PLC_3A-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Rabbit                             ; loc_8053C
                 dc.w    $B000
                 dc.l    Art_Pigeon                             ; loc_7FD4C
@@ -744,24 +744,24 @@ PLC_3A_End:
 ;-------------------------------------------------------------------------------
 Neo_Green_Hill_Flickies_Art_Data:                              ; loc_2EDE8
 PLC_3B:
-                dc.w    (((PLC_3B_End-PLC_3B-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_3B_End-PLC_3B-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Penguin                            ; loc_800CC
                 dc.w    $B000
                 dc.l    Art_Blue_Bird                          ; loc_7F6CA
                 dc.w    $B280
 PLC_3B_End:        
 ;-------------------------------------------------------------------------------
-; loc_2EDF6: ; Não usado
+; loc_2EDF6: ; Not used
 PLC_3C:
-                dc.w    (((PLC_3C_End-PLC_3C-$02)/$06)-$01) ; Auto Detecção do número de itens na lista por Esrael Neto
+                dc.w    (((PLC_3C_End-PLC_3C-$02)/$06)-$01) ; Auto Detection of number of list items by Esrael Neto
                 dc.l    Art_Blue_Bird                          ; loc_7F6CA
                 dc.w    $B280
 PLC_3C_End:
 ;===============================================================================
-; Carga dos gráficos das fases
-; Cada fase usa três grupos de LongWord sendo que o primeiro byte dos dois
-; primeiros grupos representam um ponteiro para a lista de carga dos gráficos 
-; das fases e o primeiro byte do último grupo representa um ponteiro para a 
-; lista de carga das paletas das fases.        
-; <<<-          
+; Load of Zone Graphs
+; Each zone uses three LongWord groups, with the first byte of the two
+; First groups represent a pointer to the load list of the charts 
+; of the zones and the first byte of the last group represents a pointer to the 
+; load list of the zone palettes.       
+; <<<-
 ;===============================================================================

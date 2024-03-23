@@ -2859,11 +2859,11 @@ Pal_SuperSonic_Cyc:
 ; Routines for progressively fading out / in the screen
 ; ->>>
 ;===============================================================================
-Pal_FadeTo:                                                    ; loc_25C8
+Pal_FadeTo:
 		move.w  #$003F, ($FFFFF626).w
-Pal_FadeTo_2:                                                  ; loc_25CE
+Pal_FadeTo_2:
 		moveq   #$00, D0
-		lea     (Palette_Buffer).w, A0                       ; $FFFFFB00
+		lea     (Palette_Buffer).w, A0
 		move.b  ($FFFFF626).w, D0
 		adda.w  D0, A0
 		moveq   #$00, D1
@@ -2872,26 +2872,26 @@ loc_25E0:
 		move.w  D1, (A0)+
 		dbra    D0, loc_25E0
 		move.w  #$0015, D4
-Pal_FadeTo_Loop:                                               ; loc_25EA
-		move.b  #$12, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		bsr.s   Pal_FadeIn                             ; loc_2600
-		bsr     RunPLC                                 ; loc_1800
-		dbra    D4, Pal_FadeTo_Loop                    ; loc_25EA
+Pal_FadeTo_Loop:
+		move.b  #$12, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		bsr.s   Pal_FadeIn
+		bsr     RunPLC
+		dbra    D4, Pal_FadeTo_Loop
 		rts
 ;-------------------------------------------------------------------------------
-Pal_FadeIn:                                                    ; loc_2600
+Pal_FadeIn:
 		moveq   #$00, D0
-		lea     (Palette_Buffer).w, A0                       ; $FFFFFB00
-		lea     (Palette_Underwater_Buffer).w, A1            ; $FFFFFB80
+		lea     (Palette_Buffer).w, A0
+		lea     (Palette_Underwater_Buffer).w, A1
 		move.b  ($FFFFF626).w, D0
 		adda.w  D0, A0
 		adda.w  D0, A1
 		move.b  ($FFFFF627).w, D0
 loc_2616:
-		bsr.s   Pal_AddColor                           ; loc_2640
+		bsr.s   Pal_AddColor
 		dbra    D0, loc_2616
-		tst.b   (Water_Level_Flag).w                         ; $FFFFF730
+		tst.b   (Water_Level_Flag).w
 		beq.s   loc_263E
 		moveq   #$00, D0
 		lea     ($FFFFFA80).w, A0
@@ -2901,56 +2901,56 @@ loc_2616:
 		adda.w  D0, A1
 		move.b  ($FFFFF627).w, D0
 loc_2638:
-		bsr.s   Pal_AddColor                           ; loc_2640
+		bsr.s   Pal_AddColor
 		dbra    D0, loc_2638
 loc_263E:
 		rts
 ;-------------------------------------------------------------------------------
-Pal_AddColor:                                                  ; loc_2640
+Pal_AddColor:
 		move.w  (A1)+, D2
 		move.w  (A0), D3
 		cmp.w   D2, D3
-		beq.s   Pal_NoAdd                              ; loc_2668
+		beq.s   Pal_NoAdd
 Pal_AddBlue:
 		move.w  D3, D1
 		addi.w  #$0200, D1
 		cmp.w   D2, D1
-		bhi.s   Pal_AddGreen                           ; loc_2656
+		bhi.s   Pal_AddGreen
 		move.w  D1, (A0)+
 		rts
-Pal_AddGreen:                                                  ; loc_2656
+Pal_AddGreen:
 		move.w  D3, D1
 		addi.w  #$0020, D1
 		cmp.w   D2, D1
-		bhi.s   Pal_AddRed                             ; loc_2664
+		bhi.s   Pal_AddRed
 		move.w  D1, (A0)+
 		rts
-Pal_AddRed:                                                    ; loc_2664
+Pal_AddRed:
 		addq.w  #$02, (A0)+
 		rts
-Pal_NoAdd:                                                     ; loc_2668
+Pal_NoAdd:
 		addq.w  #$02, A0
 		rts
 ;-------------------------------------------------------------------------------
-Pal_FadeFrom:                                                  ; loc_266C
+Pal_FadeFrom:
 		move.w  #$003F, ($FFFFF626).w
 		move.w  #$0015, D4
-Pal_FadeFrom_Loop:                                             ; loc_2676
-		move.b  #$12, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		bsr.s   Pal_FadeOut                            ; loc_268C
-		bsr     RunPLC                                 ; loc_1800
-		dbra    D4, Pal_FadeFrom_Loop                  ; loc_2676
+Pal_FadeFrom_Loop:
+		move.b  #$12, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		bsr.s   Pal_FadeOut
+		bsr     RunPLC
+		dbra    D4, Pal_FadeFrom_Loop
 		rts
 ;-------------------------------------------------------------------------------
-Pal_FadeOut:                                                   ; loc_268C
+Pal_FadeOut:
 		moveq   #$00, D0
-		lea     (Palette_Buffer).w, A0                       ; $FFFFFB00
+		lea     (Palette_Buffer).w, A0
 		move.b  ($FFFFF626).w, D0
 		adda.w  D0, A0
 		move.b  ($FFFFF627).w, D0
 loc_269C:
-		bsr.s   Pal_DecColor                           ; loc_26BA
+		bsr.s   Pal_DecColor
 		dbra    D0, loc_269C
 		moveq   #$00, D0
 		lea     ($FFFFFA80).w, A0
@@ -2958,32 +2958,32 @@ loc_269C:
 		adda.w  D0, A0
 		move.b  ($FFFFF627).w, D0
 loc_26B2:
-		bsr.s   Pal_DecColor                           ; loc_26BA
+		bsr.s   Pal_DecColor
 		dbra    D0, loc_26B2
 		rts
 ;-------------------------------------------------------------------------------
-Pal_DecColor:                                                  ; loc_26BA
+Pal_DecColor:
 		move.w  (A0), D2
-		beq.s   Pal_NoDec                              ; loc_26E6
+		beq.s   Pal_NoDec
 Pal_DecRed:
 		move.w  D2, D1
 		andi.w  #$000E, D1
-		beq.s   Pal_DecGreen                           ; loc_26CA
+		beq.s   Pal_DecGreen
 		subq.w  #$02, (A0)+
 		rts
-Pal_DecGreen:                                                  ; loc_26CA
+Pal_DecGreen:
 		move.w  D2, D1
 		andi.w  #$00E0, D1
-		beq.s   Pal_DecBlue                            ; loc_26D8
+		beq.s   Pal_DecBlue
 		subi.w  #$0020, (A0)+
 		rts
-Pal_DecBlue:                                                   ; loc_26D8
+Pal_DecBlue:
 		move.w  D2, D1
 		andi.w  #$0E00, D1
-		beq.s   Pal_NoDec                              ; loc_26E6
+		beq.s   Pal_NoDec
 		subi.w  #$0200, (A0)+
 		rts
-Pal_NoDec:                                                     ; loc_26E6
+Pal_NoDec:
 		addq.w  #$02, A0
 		rts
 ;-------------------------------------------------------------------------------
@@ -3128,11 +3128,11 @@ Pal_NoAdd_2:
 ; The SEGA logos cycling palette
 ; ->>>
 ;-------------------------------------------------------------------------------
-PalCycle_Sega:                                                 ; loc_2822
+PalCycle_Sega:
 		tst.b   ($FFFFF635).w
 		bne.s   loc_2882
 		lea     ($FFFFFB20).w, A1
-		lea     (Pal_SegaCyc1), A0                     ; loc_28D8
+		lea     (Pal_SegaCyc1), A0
 		moveq   #$05, D1
 		move.w  ($FFFFF632).w, D0
 loc_2838:
@@ -3180,7 +3180,7 @@ loc_2882:
 		rts
 loc_28A0:
 		move.w  D0, ($FFFFF632).w
-		lea     (Pal_SegaCyc2), A0                     ; loc_28E4
+		lea     (Pal_SegaCyc2), A0
 		lea     $00(A0, D0), A0
 		lea     ($FFFFFB04).w, A1
 		move.l  (A0)+, (A1)+
@@ -3393,7 +3393,7 @@ Wait_For_VSync_Inf_Loop:
 ; Generation of pseudo random numbers
 ; ->>>
 ;===============================================================================
-PseudoRandomNumber:                                            ; loc_325C
+PseudoRandomNumber:
 		move.l  ($FFFFF636).w, D1
 		bne.s   loc_3268
 		move.l  #$2A6D365A, D1
@@ -3419,16 +3419,16 @@ loc_3268:
 ; Routine to calculate a sine wave using a pre-calculated table
 ; ->>>
 ;===============================================================================
-CalcSine:                                                      ; loc_3282
+CalcSine:
 		andi.w  #$00FF, D0
 		add.w   D0, D0
 		addi.w  #$0080, D0
-		move.w  Sine_Table(PC, D0), D1                 ; loc_329A
+		move.w  Sine_Table(PC, D0), D1
 		subi.w  #$0080, D0
-		move.w  Sine_Table(PC, D0), D0                 ; loc_329A
+		move.w  Sine_Table(PC, D0), D0
 		rts
 ;-------------------------------------------------------------------------------
-Sine_Table:                                                    ; loc_329A
+Sine_Table:
 		incbin "misc/sinedata.bin"
 		even
 ;===============================================================================
@@ -3850,95 +3850,95 @@ Level_Select_Array:                                            ; loc_3B4C
 		dc.w    $4000                ; SS
 		dc.w    $0000                ; Sound Test
 ;-------------------------------------------------------------------------------
-Level_Select_Load_Level:                                       ; loc_3B82
+Level_Select_Load_Level:
 		andi.w  #$3FFF, D0
-		move.w  D0, (Level_Id).w                             ; $FFFFFE10
+		move.w  D0, (Level_Id).w
 ;loc_3B8A:
 PlayLevel:
-		move.b  #gm_PlayMode, (Game_Mode).w             ; $0C, $FFFFF600
-		move.b  #$03, (Life_Count).w                         ; $FFFFFE12
+		move.b  #gm_PlayMode, (Game_Mode).w
+		move.b  #$03, (Life_Count).w
 		moveq   #$00, D0
-		move.w  D0, (Ring_Count).w                           ; $FFFFFE20
-		move.l  D0, (Time_Count).w                           ; $FFFFFE22
-		move.l  D0, (Score_Count).w                          ; $FFFFFE26
+		move.w  D0, (Ring_Count).w
+		move.l  D0, (Time_Count).w
+		move.l  D0, (Score_Count).w
 		move.b  D0, ($FFFFFE16).w
-		move.b  D0, (Emerald_Count).w                        ; $FFFFFE57
-		move.l  D0, (Emerald_Collected_Flag_List).w          ; $FFFFFE58
-		move.l  D0, (Emerald_Collected_Flag_List+$0004).w    ; $FFFFFE5C
+		move.b  D0, (Emerald_Count).w
+		move.l  D0, (Emerald_Collected_Flag_List).w
+		move.l  D0, (Emerald_Collected_Flag_List+$0004).w
 		move.b  D0, ($FFFFFE18).w
 		move.l  #$00001388, ($FFFFFFC0).w
 		move.b  #$E0, D0
-		bsr     Play_Sfx                               ; loc_1512
+		bsr     Play_Sfx
 		rts
 ;-------------------------------------------------------------------------------
-Level_Select_Code_US:                                          ; loc_3BCA
+Level_Select_Code_US:
 		dc.b    $01, $02, $02, $02, $02, $01, $00, $FF
-Level_Select_Code_J:                                           ; loc_3BD2
+Level_Select_Code_J:
 		dc.b    $01, $02, $02, $02, $02, $01, $00, $FF
 ;-------------------------------------------------------------------------------
 loc_3BDA:
-		move.w  #$001E, (Timer_Count_Down).w                 ; $FFFFF614
+		move.w  #$001E, (Timer_Count_Down).w
 loc_3BE0:
-		move.b  #$04, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		bsr     RunPLC                                 ; loc_1800
-		move.w  (Player_One_Position_X).w, D0                ; $FFFFB008
+		move.b  #$04, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		bsr     RunPLC
+		move.w  (Player_One_Position_X).w, D0
 		addq.w  #$02, D0
-		move.w  D0, (Player_One_Position_X).w                ; $FFFFB008
+		move.w  D0, (Player_One_Position_X).w
 		cmpi.w  #$1C00, D0
 		bcs.s   loc_3C06
-		move.b  #$00, (Game_Mode).w                          ; $FFFFF600
+		move.b  #$00, (Game_Mode).w
 		rts
 loc_3C06:
-		andi.b  #$80, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
+		andi.b  #$80, (Control_Ports_Buffer_Data+$0001).w
 		bne     loc_3A6A
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+		tst.w   (Timer_Count_Down).w
 		bne     loc_3BE0
 		move.b  #$E0, D0
-		bsr     Play_Sfx                               ; loc_1512
+		bsr     Play_Sfx
 		move.w  ($FFFFFFF2).w, D0
 		andi.w  #$0007, D0
 		add.w   D0, D0
-		move.w  Demo_Mode_Level_Array(PC, D0), D0      ; loc_3C8E
-		move.w  D0, (Level_Id).w                             ; $FFFFFE10
+		move.w  Demo_Mode_Level_Array(PC, D0), D0
+		move.w  D0, (Level_Id).w
 		addq.w  #$01, ($FFFFFFF2).w
 		cmpi.w  #$0004, ($FFFFFFF2).w
 		bcs.s   loc_3C44
 		move.w  #$0000, ($FFFFFFF2).w
 loc_3C44:
-		move.w  #$0001, (Auto_Control_Player_Flag).w         ; $FFFFFFF0
-		move.b  #$08, (Game_Mode).w                          ; $FFFFF600
+		move.w  #$0001, (Auto_Control_Player_Flag).w
+		move.b  #$08, (Game_Mode).w
 		cmpi.w  #$0000, D0
 		bne.s   loc_3C5C
-		move.w  #$0001, (Two_Player_Flag).w                  ; $FFFFFFD8
+		move.w  #$0001, (Two_Player_Flag).w
 loc_3C5C:
 		cmpi.w  #$0600, D0
 		bne.s   loc_3C70
-		move.b  #$10, (Game_Mode).w                          ; $FFFFF600
-		clr.w   (Level_Id).w                                 ; $FFFFFE10
+		move.b  #$10, (Game_Mode).w
+		clr.w   (Level_Id).w
 		clr.b   ($FFFFFE16).w
 loc_3C70:
-		move.b  #$03, (Life_Count).w                         ; $FFFFFE12
+		move.b  #$03, (Life_Count).w
 		moveq   #$00, D0
-		move.w  D0, (Ring_Count).w                           ; $FFFFFE20
-		move.l  D0, (Time_Count).w                           ; $FFFFFE22
-		move.l  D0, (Score_Count).w                          ; $FFFFFE26
+		move.w  D0, (Ring_Count).w
+		move.l  D0, (Time_Count).w
+		move.l  D0, (Score_Count).w
 		move.l  #$00001388, ($FFFFFFC0).w
 		rts
 ;-------------------------------------------------------------------------------
-Demo_Mode_Level_Array:                                         ; loc_3C8E
+Demo_Mode_Level_Array:
 		dc.w    $0D00, $0000, $0800, $0700, $0500, $0500, $0500, $0500
 		dc.w    $0400, $0400, $0400, $0400
 ;-------------------------------------------------------------------------------
-LevelSelect_Controls:                                          ; loc_3CA6
-		move.b  (Control_Ports_Buffer_Data+$0001).w, D1      ; $FFFFF605
+LevelSelect_Controls:
+		move.b  (Control_Ports_Buffer_Data+$0001).w, D1
 		andi.b  #$03, D1
 		bne.s   loc_3CB6
 		subq.w  #$01, ($FFFFFF80).w
 		bpl.s   loc_3CF0
 loc_3CB6:
 		move.w  #$000B, ($FFFFFF80).w
-		move.b  (Control_Ports_Buffer_Data).w, D1            ; $FFFFF604
+		move.b  (Control_Ports_Buffer_Data).w, D1
 		andi.b  #$03, D1
 		beq.s   loc_3CF0
 		move.w  ($FFFFFF82).w, D0
@@ -3962,7 +3962,7 @@ loc_3CF0:
 		cmpi.w  #$001A, ($FFFFFF82).w
 		bne.s   loc_3D3A
 		move.w  ($FFFFFF84).w, D0
-		move.b  (Control_Ports_Buffer_Data+$0001).w, D1      ; $FFFFF605
+		move.b  (Control_Ports_Buffer_Data+$0001).w, D1
 		andi.b  #$0C, D1
 		beq.s   loc_3D22
 		btst    #$02, D1
@@ -3978,7 +3978,7 @@ loc_3D12:
 		bcs.s   loc_3D22
 		moveq   #$00, D0
 loc_3D22:
-		btst    #$06, (Control_Ports_Buffer_Data+$0001).w    ; $FFFFF605
+		btst    #$06, (Control_Ports_Buffer_Data+$0001).w
 		beq.s   loc_3D32
 		addi.b  #$10, D0
 		andi.b  #$7F, D0
@@ -3988,8 +3988,8 @@ loc_3D32:
 loc_3D3A:
 		rts
 loc_3D3C:
-		lea     (Level_Select_Text), A1                ; loc_3DF4
-		lea     (VDP_Data_Port), A6                          ; $00C00000
+		lea     (Level_Select_Text), A1
+		lea     (VDP_Data_Port), A6
 		move.l  #$608C0003, D4
 		move.w  #$8680, D3
 		moveq   #$1A, D1
@@ -4005,7 +4005,7 @@ loc_3D54:
 		lsl.w   #$07, D0
 		swap.w  D0
 		add.l   D0, D4
-		lea     (Level_Select_Text), A1                ; loc_3DF4
+		lea     (Level_Select_Text), A1
 		mulu.w  #$001B, D1
 		adda.w  D1, A1
 		move.w  #$C680, D3
@@ -4016,7 +4016,7 @@ loc_3D54:
 		bne.s   loc_3DA2
 		move.w  #$C680, D3
 loc_3DA2:
-		move.l  #$6DB00003, (VDP_Control_Port)               ; $00C00004
+		move.l  #$6DB00003, (VDP_Control_Port)
 		move.w  ($FFFFFF84).w, D0
 		addi.w  #$0080, D0
 		move.b  D0, D2
@@ -4049,7 +4049,7 @@ loc_3DEA:
 		dbra    D2, loc_3DDA
 		rts
 ;-------------------------------------------------------------------------------
-Level_Select_Text:                                             ; loc_3DF4
+Level_Select_Text:
 		dc.b    _G,_R,_E,_E,_N,__,_H,_I,_L,_L,__,_Z,_O,_N,_E,__,__,__,__,__,_S,_T,_A,_G,_E,__,_0
 		dc.b    __,__,__,__,__,__,__,__,__,__,__,__,__,__,__,__,__,__,__,__,_S,_T,_A,_G,_E,__,_1
 		dc.b    _W,_O,_O,_D,__,_Z,_O,_N,_E,__,__,__,__,__,__,__,__,__,__,__,_S,_T,_A,_G,_E,__,_0
@@ -4175,7 +4175,7 @@ loc_419A:
 ; Game mode or demonstration of the levels
 ; ->>>
 ;===============================================================================
-MusicList:                                                     ; loc_41B8
+MusicList:
                 dc.b    $82	; GHZ
                 dc.b    $82	; Zone 01
                 dc.b    $85	; WZ
@@ -4194,37 +4194,37 @@ MusicList:                                                     ; loc_41B8
                 dc.b    $87	; NGHZ
 		even
 ;-------------------------------------------------------------------------------
-Level:                                                         ; loc_41C8
-		bset    #$07, (Game_Mode).w                          ; $FFFFF600
-		tst.w   (Auto_Control_Player_Flag).w                 ; $FFFFFFF0
-		bmi.s   Level_Init                             ; loc_41DC
+Level:
+		bset    #$07, (Game_Mode).w
+		tst.w   (Auto_Control_Player_Flag).w
+		bmi.s   Level_Init
 		move.b  #$F9, D0
-		bsr     Play_Sfx                               ; loc_1512
-Level_Init:                                                    ; loc_41DC
-		bsr     ClearPLC                               ; loc_17F2
-		bsr     Pal_FadeFrom                           ; loc_266C
-		tst.w   (Auto_Control_Player_Flag).w                 ; $FFFFFFF0
+		bsr     Play_Sfx
+Level_Init:
+		bsr     ClearPLC
+		bsr     Pal_FadeFrom
+		tst.w   (Auto_Control_Player_Flag).w
 		bmi.s   loc_4224
 		move    #$2700, SR
-		bsr     ClearScreen                            ; loc_1418
+		bsr     ClearScreen
 		move    #$2300, SR
 		moveq   #$00, D0
 		move.w  D0, ($FFFFFE04).w
-		move.b  (Level_Id).w, D0                             ; $FFFFFE10
+		move.b  (Level_Id).w, D0
 		add.w   D0, D0
 		add.w   D0, D0
 		move.w  D0, D1
 		add.w   D0, D0
 		add.w   D1, D0
-		lea     (TilesMainTable), A2                   ; loc_2E708
+		lea     (TilesMainTable), A2
 		lea     $00(A2, D0), A2
 		moveq   #$00, D0
 		move.b  (A2), D0
 		beq.s   loc_421E
-		bsr     LoadPLC                                ; loc_1794
+		bsr     LoadPLC
 loc_421E:
 		moveq   #$01, D0
-		bsr     LoadPLC                                ; loc_1794
+		bsr     LoadPLC
 loc_4224:
 		lea     ($FFFFAC00).w, A1
 		moveq   #$00, D0
@@ -4232,7 +4232,7 @@ loc_4224:
 loc_422E:
 		move.l  D0, (A1)+
 		dbra    D1, loc_422E
-		lea     (Obj_Memory_Address).w, A1                   ; $FFFFB000
+		lea     (Obj_Memory_Address).w, A1
 		moveq   #$00, D0
 		move.w  #$07FF, D1
 loc_423E:
@@ -4256,17 +4256,17 @@ loc_425E:
 loc_426E:
 		move.l  D0, (A1)+
 		dbra    D1, loc_426E
-		cmpi.w  #$0D01, (Level_Id).w                         ; $FFFFFE10
-		beq.s   Init_Water                             ; loc_428C
-		cmpi.b  #$0F, (Level_Id).w                           ; $FFFFFE10
-		beq.s   Init_Water                             ; loc_428C
-		cmpi.b  #$08, (Level_Id).w                           ; $FFFFFE10
-		bne.s   Init_No_Water                          ; loc_4298
-Init_Water:                                                    ; loc_428C
-		move.b  #$01, (Water_Level_Flag).w                   ; $FFFFF730
-		move.w  #$0000, (Two_Player_Flag).w                  ; $FFFFFFD8
-Init_No_Water:                                                 ; loc_4298
-		lea     (VDP_Control_Port), A6                       ; $00C00004
+		cmpi.w  #$0D01, (Level_Id).w
+		beq.s   Init_Water
+		cmpi.b  #$0F, (Level_Id).w
+		beq.s   Init_Water
+		cmpi.b  #$08, (Level_Id).w
+		bne.s   Init_No_Water
+Init_Water:
+		move.b  #$01, (Water_Level_Flag).w
+		move.w  #$0000, (Two_Player_Flag).w
+Init_No_Water:
+		lea     (VDP_Control_Port), A6
 		move.w  #$8B03, (A6)
 		move.w  #$8230, (A6)
 		move.w  #$8407, (A6)
@@ -4276,154 +4276,154 @@ Init_No_Water:                                                 ; loc_4298
 		move.w  #$8720, (A6)
 		tst.b   ($FFFFFFD2).w
 		beq.s   loc_42DA
-		btst    #$05, (Control_Ports_Buffer_Data).w          ; $FFFFF604
+		btst    #$05, (Control_Ports_Buffer_Data).w
 		beq.s   loc_42CC
 		move.w  #$8C89, (A6)
 loc_42CC:
-		btst    #$06, (Control_Ports_Buffer_Data).w          ; $FFFFF604
+		btst    #$06, (Control_Ports_Buffer_Data).w
 		beq.s   loc_42DA
-		move.b  #$01, (Debug_Mode_Active_Flag).w             ; $FFFFFFFA
+		move.b  #$01, (Debug_Mode_Active_Flag).w
 loc_42DA:
-		move.w  #$8ADF, (Horizontal_Interrupt_Count).w       ; $FFFFF624
-		tst.w   (Two_Player_Flag).w                          ; $FFFFFFD8
+		move.w  #$8ADF, (Horizontal_Interrupt_Count).w
+		tst.w   (Two_Player_Flag).w
 		beq.s   loc_42F4
-		move.w  #$8A6B, (Horizontal_Interrupt_Count).w       ; $FFFFF624
+		move.w  #$8A6B, (Horizontal_Interrupt_Count).w
 		move.w  #$8014, (A6)
 		move.w  #$8C87, (A6)
 loc_42F4:
-		move.w  (Horizontal_Interrupt_Count).w, (A6)         ; $FFFFF624
-		move.l  #DMA_Buffer_List, (DMA_Buffer_List_End).w ; $FFFFDC00, $FFFFDCFC
-		tst.b   (Water_Level_Flag).w                         ; $FFFFF730
-		beq.s   LevelInit_NoWater                      ; loc_4340
+		move.w  (Horizontal_Interrupt_Count).w, (A6)
+		move.l  #DMA_Buffer_List, (DMA_Buffer_List_End).w
+		tst.b   (Water_Level_Flag).w
+		beq.s   LevelInit_NoWater
 		move.w  #$8014, (A6)
 		moveq   #$00, D0
-		move.w  (Level_Id).w, D0                             ; $FFFFFE10
+		move.w  (Level_Id).w, D0
 		subi.w  #$0800, D0
 		ror.b   #$01, D0
 		lsr.w   #$06, D0
 		andi.w  #$FFFFFFFE, D0
-		lea     (Water_Height_Array), A1               ; loc_4736
+		lea     (Water_Height_Array), A1
 		move.w  $00(A1, D0), D0
-		move.w  D0, (Water_Level).w                          ; $FFFFF646
-		move.w  D0, (Water_Level_Change).w                   ; $FFFFF648
-		move.w  D0, (Water_Level_New).w                      ; $FFFFF64A
+		move.w  D0, (Water_Level).w
+		move.w  D0, (Water_Level_Change).w
+		move.w  D0, (Water_Level_New).w
 		clr.b   ($FFFFF64D).w
 		clr.b   ($FFFFF64E).w
 		move.b  #$01, ($FFFFF64C).w
-LevelInit_NoWater:                                             ; loc_4340
+LevelInit_NoWater:
 		moveq   #$03, D0
-		bsr     PalLoad2                               ; loc_2930
-		tst.b   (Water_Level_Flag).w                         ; $FFFFF730
-		beq.s   LevelInit_NoUndewaterPalette           ; loc_4372
+		bsr     PalLoad2
+		tst.b   (Water_Level_Flag).w
+		beq.s   LevelInit_NoUndewaterPalette
 		moveq   #$15, D0
-		cmpi.b  #$08, (Level_Id).w                           ; $FFFFFE10
-		beq.s   LevelInit_UndewaterPalette             ; loc_4362
+		cmpi.b  #$08, (Level_Id).w
+		beq.s   LevelInit_UndewaterPalette
 		moveq   #$16, D0
-		cmpi.b  #$0D, (Level_Id).w                           ; $FFFFFE10
-		beq.s   LevelInit_UndewaterPalette             ; loc_4362
+		cmpi.b  #$0D, (Level_Id).w 
+		beq.s   LevelInit_UndewaterPalette
 		moveq   #$17, D0
-LevelInit_UndewaterPalette:                                    ; loc_4362
-		bsr     PalLoad3_Water                         ; loc_2948
-		tst.b   (Saved_Level_Flag).w                         ; $FFFFFE30
-		beq.s   LevelInit_NoUndewaterPalette           ; loc_4372
+LevelInit_UndewaterPalette:
+		bsr     PalLoad3_Water
+		tst.b   (Saved_Level_Flag).w
+		beq.s   LevelInit_NoUndewaterPalette
 		move.b  ($FFFFFE53).w, ($FFFFF64E).w
-LevelInit_NoUndewaterPalette:                                  ; loc_4372
-		tst.w   (Auto_Control_Player_Flag).w                 ; $FFFFFFF0
+LevelInit_NoUndewaterPalette:
+		tst.w   (Auto_Control_Player_Flag).w
 		bmi.s   loc_43C0
 		moveq   #$00, D0
-		move.b  (Level_Id).w, D0                             ; $FFFFFE10
-		lea     MusicList(PC), A1                      ; loc_41B8
+		move.b  (Level_Id).w, D0
+		lea     MusicList(PC), A1
 		move.b  $00(A1, D0), D0
-		bsr     Play_Music                             ; loc_150C
-		move.b  #$34, (Title_Card_RAM_Obj_Data).w            ; $FFFFB080
-LevelInit_TitleCard:                                           ; loc_4390
-		move.b  #$0C, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		jsr     (Load_Objects)                         ; loc_CEA8
-		jsr     (Build_Sprites)                        ; loc_D442
-		bsr     RunPLC                                 ; loc_1800
+		bsr     Play_Music
+		move.b  #$34, (Title_Card_RAM_Obj_Data).w
+LevelInit_TitleCard:
+		move.b  #$0C, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		jsr     (Load_Objects)
+		jsr     (Build_Sprites)
+		bsr     RunPLC
 		move.w  ($FFFFB108).w, D0
 		cmp.w   ($FFFFB130).w, D0
-		bne.s   LevelInit_TitleCard                    ; loc_4390
-		tst.l   (PLC_Buffer).w                               ; $FFFFF680
-		bne.s   LevelInit_TitleCard                    ; loc_4390
-		jsr     (Head_Up_Display_Base)                 ; loc_2D488
+		bne.s   LevelInit_TitleCard
+		tst.l   (PLC_Buffer).w
+		bne.s   LevelInit_TitleCard
+		jsr     (Head_Up_Display_Base)
 loc_43C0:
 		moveq   #$03, D0
-		bsr     PalLoad1                               ; loc_2914
-		bsr     Level_Size_Load                        ; loc_59A4
-		bsr     Background_Scroll_Layer                ; loc_5E04
-		bset    #$02, (Scroll_Flag_Array).w                  ; $FFFFEE50
-		bsr     Main_Level_Load_16_128_Blocks          ; loc_78AE
-		jsr     (Load_16x16_Mappings_For_Dyn_Sprites)  ; loc_2CC94
-		bsr     Load_Tiles_From_Start                  ; loc_77D2
-		jsr     (FloorLog_Unk)                         ; loc_13F46
-		bsr     Load_Colision_Index                    ; loc_4B28
-		bsr     Water_Effects                          ; loc_46D8
-		move.b  #$01, (Player_One).w                         ; $FFFFB000
-		tst.w   (Auto_Control_Player_Flag).w                 ; $FFFFFFF0
+		bsr     PalLoad1
+		bsr     Level_Size_Load
+		bsr     Background_Scroll_Layer
+		bset    #$02, (Scroll_Flag_Array).w
+		bsr     Main_Level_Load_16_128_Blocks
+		jsr     (Load_16x16_Mappings_For_Dyn_Sprites)
+		bsr     Load_Tiles_From_Start
+		jsr     (FloorLog_Unk)
+		bsr     Load_Colision_Index
+		bsr     Water_Effects
+		move.b  #$01, (Player_One).w
+		tst.w   (Auto_Control_Player_Flag).w
 		bmi.s   loc_4402
-		move.b  #$21, (HUD_RAM_Obj_Data).w                   ; $FFFFB380
+		move.b  #$21, (HUD_RAM_Obj_Data).w
 loc_4402:
-		move.b  #$02, (Player_Two).w                         ; $FFFFB040
-		move.w  (Player_One_Position_X).w, (Player_Two_Position_X).w ; $FFFFB008, $FFFFB048
-		move.w  (Player_One_Position_Y).w, (Player_Two_Position_Y).w ; $FFFFB00C, $FFFFB04C
-		subi.w  #$0020, (Player_Two_Position_X).w            ; $FFFFB048
-		addi.w  #$0004, (Player_Two_Position_Y).w            ; $FFFFB04C
+		move.b  #$02, (Player_Two).w
+		move.w  (Player_One_Position_X).w, (Player_Two_Position_X).w
+		move.w  (Player_One_Position_Y).w, (Player_Two_Position_Y).w
+		subi.w  #$0020, (Player_Two_Position_X).w
+		addi.w  #$0004, (Player_Two_Position_Y).w
 		move.b  #$08, ($FFFFB400).w
 		move.b  #$08, ($FFFFB440).w
 		move.w  #$0000, ($FFFFF602).w
-		move.w  #$0000, (Control_Ports_Buffer_Data).w        ; $FFFFF604
-		tst.b   (Water_Level_Flag).w                         ; $FFFFF730
+		move.w  #$0000, (Control_Ports_Buffer_Data).w
+		tst.b   (Water_Level_Flag).w
 		beq.s   loc_4456
 		move.b  #$04, ($FFFFB780).w
 		move.w  #$0060, ($FFFFB788).w
 		move.b  #$04, ($FFFFB7C0).w
 		move.w  #$0120, ($FFFFB7C8).w
 loc_4456:
-		cmpi.b  #$0D, (Level_Id).w                           ; $FFFFFE10
+		cmpi.b  #$0D, (Level_Id).w
 		bne.s   loc_4464
 		move.b  #$7C, ($FFFFB580).w
 loc_4464:
-		cmpi.b  #$0A, (Level_Id).w                           ; $FFFFFE10
+		cmpi.b  #$0A, (Level_Id).w
 		bne.s   loc_4472
 		move.b  #$07, ($FFFFB780).w
 loc_4472:
-		jsr     (Load_Object_Pos)                      ; loc_E1E8
-		jsr     (Load_Ring_Pos)                        ; loc_DDC4
-		jsr     (Load_Objects)                         ; loc_CEA8
-		jsr     (Build_Sprites)                        ; loc_D442
-		bsr     Jmp_00_To_Dynamic_Art_Cues             ; loc_52B4
+		jsr     (Load_Object_Pos)
+		jsr     (Load_Ring_Pos)
+		jsr     (Load_Objects)
+		jsr     (Build_Sprites)
+		bsr     Jmp_00_To_Dynamic_Art_Cues
 		moveq   #$00, D0
-		tst.b   (Saved_Level_Flag).w                         ; $FFFFFE30
+		tst.b   (Saved_Level_Flag).w
 		bne.s   loc_44A2
-		move.w  D0, (Ring_Count).w                           ; $FFFFFE20
-		move.l  D0, (Time_Count).w                           ; $FFFFFE22
-		move.b  D0, (Ring_Life_Flag).w                       ; $FFFFFE1B
+		move.w  D0, (Ring_Count).w
+		move.l  D0, (Time_Count).w
+		move.b  D0, (Ring_Life_Flag).w
 loc_44A2:
 		move.b  D0, ($FFFFFE1A).w
-		move.b  D0, (Shield_Flag).w                          ; $FFFFFE2C
-		move.b  D0, (Invincibility_Flag).w                   ; $FFFFFE2D
-		move.b  D0, (Hi_Speed_Flag).w                        ; $FFFFFE2E
+		move.b  D0, (Shield_Flag).w
+		move.b  D0, (Invincibility_Flag).w
+		move.b  D0, (Hi_Speed_Flag).w
 		move.b  D0, ($FFFFFE2F).w
-		move.w  D0, (Debug_Mode_Flag_Index).w                ; $FFFFFE08
+		move.w  D0, (Debug_Mode_Flag_Index).w
 		move.w  D0, ($FFFFFE02).w
-		bsr     Oscillate_Num_Init                     ; loc_4BE2
-		move.b  #$01, (HUD_Score_Refresh_Flag).w             ; $FFFFFE1F
-		move.b  #$01, (HUD_Rings_Refresh_Flag).w             ; $FFFFFE1D
-		move.b  #$01, (HUD_Timer_Refresh_Flag).w             ; $FFFFFE1E
+		bsr     Oscillate_Num_Init
+		move.b  #$01, (HUD_Score_Refresh_Flag).w
+		move.b  #$01, (HUD_Rings_Refresh_Flag).w
+		move.b  #$01, (HUD_Timer_Refresh_Flag).w
 		move.w  #$0004, ($FFFFEED2).w
 		move.w  #$0000, ($FFFFE500).w
 		move.w  #$0000, ($FFFFF790).w
 		move.w  #$0000, ($FFFFF732).w
-		lea     (Demo_Index), A1                       ; loc_4A70
+		lea     (Demo_Index), A1
 		moveq   #$00, D0
-		move.b  (Level_Id).w, D0                             ; $FFFFFE10
+		move.b  (Level_Id).w, D0
 		lsl.w   #$02, D0
 		move.l  $00(A1, D0), A1
-		tst.w   (Auto_Control_Player_Flag).w                 ; $FFFFFFF0
+		tst.w   (Auto_Control_Player_Flag).w
 		bpl.s   loc_4516
-		lea     (Demo_End_Index), A1                   ; loc_4AF8
+		lea     (Demo_End_Index), A1
 		move.w  ($FFFFFFF4).w, D0
 		subq.w  #$01, D0
 		lsl.w   #$02, D0
@@ -4431,24 +4431,24 @@ loc_44A2:
 loc_4516:
 		move.b  $0001(A1), ($FFFFF792).w
 		subq.b  #$01, ($FFFFF792).w
-		lea     (Demo_Green_Hill_Tails), A1            ; loc_4EB2
+		lea     (Demo_Green_Hill_Tails), A1
 		move.b  $0001(A1), ($FFFFF734).w
 		subq.b  #$01, ($FFFFF734).w
-		move.w  #$0668, (Timer_Count_Down).w                 ; $FFFFF614
-		tst.w   (Auto_Control_Player_Flag).w                 ; $FFFFFFF0
+		move.w  #$0668, (Timer_Count_Down).w
+		tst.w   (Auto_Control_Player_Flag).w
 		bpl.s   loc_4550
-		move.w  #$021C, (Timer_Count_Down).w                 ; $FFFFF614
+		move.w  #$021C, (Timer_Count_Down).w
 		cmpi.w  #$0004, ($FFFFFFF4).w
 		bne.s   loc_4550
-		move.w  #$01FE, (Timer_Count_Down).w                 ; $FFFFF614
+		move.w  #$01FE, (Timer_Count_Down).w
 loc_4550:
-		tst.b   (Water_Level_Flag).w                         ; $FFFFF730
+		tst.b   (Water_Level_Flag).w
 		beq.s   loc_4570
 		moveq   #$15, D0
-		cmpi.b  #$08, (Level_Id).w                           ; $FFFFFE10
+		cmpi.b  #$08, (Level_Id).w
 		beq.s   loc_456C
 		moveq   #$16, D0
-		cmpi.b  #$0D, (Level_Id).w                           ; $FFFFFE10
+		cmpi.b  #$0D, (Level_Id).w
 		beq.s   loc_456C
 		moveq   #$17, D0
 loc_456C:
@@ -4470,84 +4470,84 @@ loc_4574:
 		bra.s   loc_45AC
 loc_45A4:
 		moveq   #$02, D0
-		jsr     (LoadPLC)                              ; loc_1794
+		jsr     (LoadPLC)
 loc_45AC:
-		bclr    #$07, (Game_Mode).w                          ; $FFFFF600
-Level_Main_Loop:                                               ; loc_45B2
-		bsr     Pause                                  ; loc_152A
-		move.b  #$08, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
+		bclr    #$07, (Game_Mode).w
+Level_Main_Loop:
+		bsr     Pause
+		move.b  #$08, (VBlank_Index).w
+		bsr     Wait_For_VSync
 		addq.w  #$01, ($FFFFFE04).w
-		bsr     Init_Demo_Control                      ; loc_495C
-		bsr     Water_Effects                          ; loc_46D8
-		jsr     (Load_Objects)                         ; loc_CEA8
+		bsr     Init_Demo_Control
+		bsr     Water_Effects
+		jsr     (Load_Objects)
 		tst.w   ($FFFFFE02).w
-		bne     Level                                  ; loc_41C8
-		tst.w   (Debug_Mode_Flag_Index).w                    ; $FFFFFE08
+		bne     Level
+		tst.w   (Debug_Mode_Flag_Index).w
 		bne.s   loc_45E8
-		cmpi.b  #$06, (Player_One+Obj_Routine).w             ; $FFFFB024
+		cmpi.b  #$06, (Player_One+Obj_Routine).w
 		bcc.s   loc_45EC
 loc_45E8:
-		bsr     Background_Scroll_Layer                ; loc_5E04
+		bsr     Background_Scroll_Layer
 loc_45EC:
-		bsr     Change_Water_Surface_Pos               ; loc_46AE
-		jsr     (Load_Ring_Pos)                        ; loc_DDC4
-		bsr     Jmp_00_To_Dynamic_Art_Cues             ; loc_52B4
-		bsr     PalCycle_Load                          ; loc_1F70
-		bsr     RunPLC                                 ; loc_1800
-		bsr     Oscillate_Num_Do                       ; loc_4C38
-		bsr     Change_Object_Frame                    ; loc_4CD0
-		bsr     Test_End_Level_Art_Load                ; loc_4D3E
-		jsr     (Build_Sprites)                        ; loc_D442
-		jsr     (Load_Object_Pos)                      ; loc_E1E8
-		cmpi.b  #gm_DemoMode, (Game_Mode).w            ; $08 ; $FFFFF600
+		bsr     Change_Water_Surface_Pos
+		jsr     (Load_Ring_Pos)
+		bsr     Jmp_00_To_Dynamic_Art_Cues
+		bsr     PalCycle_Load
+		bsr     RunPLC
+		bsr     Oscillate_Num_Do
+		bsr     Change_Object_Frame
+		bsr     Test_End_Level_Art_Load
+		jsr     (Build_Sprites)
+		jsr     (Load_Object_Pos)
+		cmpi.b  #gm_DemoMode, (Game_Mode).w
 		beq.s   loc_462E
-		cmpi.b  #gm_PlayMode, (Game_Mode).w            ; $0C ; $FFFFF600
-		beq     Level_Main_Loop                        ; loc_45B2
+		cmpi.b  #gm_PlayMode, (Game_Mode).w
+		beq     Level_Main_Loop
 		rts
 loc_462E:
 		tst.w   ($FFFFFE02).w
 		bne.s   loc_464C
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+		tst.w   (Timer_Count_Down).w
 		beq.s   loc_464C
-		cmpi.b  #gm_DemoMode, (Game_Mode).w            ; $08 ; $FFFFF600
-		beq     Level_Main_Loop                        ; loc_45B2
-		move.b  #gm_SEGALogo, (Game_Mode).w            ; $00 ; $FFFFF600                        ; $FFFFF600
+		cmpi.b  #gm_DemoMode, (Game_Mode).w
+		beq     Level_Main_Loop
+		move.b  #gm_SEGALogo, (Game_Mode).w
 		rts
 loc_464C:
-		cmpi.b  #gm_DemoMode, (Game_Mode).w            ; $08 ; $FFFFF600
+		cmpi.b  #gm_DemoMode, (Game_Mode).w
 		bne.s   loc_4666
-		move.b  #gm_SEGALogo, (Game_Mode).w            ; $00 ; $FFFFF600
-		tst.w   (Auto_Control_Player_Flag).w                 ; $FFFFFFF0
+		move.b  #gm_SEGALogo, (Game_Mode).w
+		tst.w   (Auto_Control_Player_Flag).w
 		bpl.s   loc_4666
-		move.b  #$1C, (Game_Mode).w                          ; $FFFFF600
+		move.b  #$1C, (Game_Mode).w
 loc_4666:
-		move.w  #$003C, (Timer_Count_Down).w                 ; $FFFFF614
+		move.w  #$003C, (Timer_Count_Down).w
 		move.w  #$003F, ($FFFFF626).w
 		clr.w   ($FFFFF794).w
 loc_4676:
-		move.b  #$08, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
-		bsr     Init_Demo_Control                      ; loc_495C
-		jsr     (Load_Objects)                         ; loc_CEA8
-		jsr     (Build_Sprites)                        ; loc_D442
-		jsr     (Load_Object_Pos)                      ; loc_E1E8
+		move.b  #$08, (VBlank_Index).w
+		bsr     Wait_For_VSync
+		bsr     Init_Demo_Control
+		jsr     (Load_Objects)
+		jsr     (Build_Sprites)
+		jsr     (Load_Object_Pos)
 		subq.w  #$01, ($FFFFF794).w
 		bpl.s   loc_46A6
 		move.w  #$0002, ($FFFFF794).w
-		bsr     Pal_FadeOut                            ; loc_268C
+		bsr     Pal_FadeOut
 loc_46A6:
-		tst.w   (Timer_Count_Down).w                         ; $FFFFF614
+		tst.w   (Timer_Count_Down).w
 		bne.s   loc_4676
 		rts
 ;-------------------------------------------------------------------------------
 ; Modify the water surface
 ; ->>>
 ;-------------------------------------------------------------------------------
-Change_Water_Surface_Pos:                                      ; loc_46AE
-		tst.b   (Water_Level_Flag).w                         ; $FFFFF730
+Change_Water_Surface_Pos:
+		tst.b   (Water_Level_Flag).w
 		beq.s   loc_46D6
-		move.w  (Camera_X).w, D1                             ; $FFFFEE00
+		move.w  (Camera_X).w, D1
 		btst    #$00, ($FFFFFE05).w
 		beq.s   loc_46C4
 		addi.w  #$0020, D1
@@ -55435,360 +55435,360 @@ Star_Light_Chunks_Overwrite:                                   ; loc_4ED28
 ; Level Object Layouts
 ; <<<-
 ;===============================================================================
-Art_Sonic:                                                     ; loc_50000
+Art_Sonic:
 		incbin  'art/uncompressed/sonic.dat'
-Art_Tails:                                                     ; loc_64320
+Art_Tails:
 		incbin  'art/uncompressed/tails.dat'
 ;-------------------------------------------------------------------------------
-Sonic_Mappings:                                                ; loc_6FBE0
+Sonic_Mappings:
 		include "mappings/sprite/Sonic.asm"
 ;-------------------------------------------------------------------------------
-Sonic_Dyn_Script:                                               ; loc_714E0
+Sonic_Dyn_Script:
 		include "mappings/spriteDPLC/SonicPLC.asm"
 ;-------------------------------------------------------------------------------
-Art_Shield:                                                    ; loc_71D8E
+Art_Shield:
 		incbin  'art/nemesis/shield.nem'
-Art_Invencibility_Stars:                                       ; loc_71F14
+Art_Invencibility_Stars:
 		incbin  'art/nemesis/invstars.nem'
-Art_Water_Splash_Dust:                                         ; loc_71FFC
+Art_Water_Splash_Dust:
 		incbin  'art/uncompressed/spshdust.dat'
-Art_Water_Splash:                                              ; loc_7393C
+Art_Water_Splash:
 		incbin  'art/nemesis/w_splash.nem'
 ;-------------------------------------------------------------------------------
-Tails_Mappings:                                                ; loc_739E2
+Tails_Mappings:
 		include "mappings/sprite/Tails.asm"
 ;-------------------------------------------------------------------------------
-Tails_Dyn_Script:                                              ; loc_7446C
+Tails_Dyn_Script:
 		include "mappings/spriteDPLC/TailsPLC.asm"
 ;-------------------------------------------------------------------------------
-Art_SEGA:                                                      ; loc_74876
+Art_SEGA:
 		incbin  'art/nemesis/sega.nem'
-Sega_Mappings:                                                 ; loc_74CE6
+Sega_Mappings:
 		incbin  'mappings/eni/sega.eni'
-TS_Wings_Sonic_Mappings:                                       ; loc_74DE2
+TS_Wings_Sonic_Mappings:
 		incbin  'mappings/eni/titlescr.eni'
-Title_Screen_Bg_Mappings:                                      ; loc_74F3A
+Title_Screen_Bg_Mappings:
 		incbin  'mappings/eni/titscrbg.eni'
-Title_Screen_R_Bg_Mappings:                                    ; loc_751EE
+Title_Screen_R_Bg_Mappings:
 		incbin  'mappings/eni/titscrb2.eni'
-Art_Title_Screen_Bg_Wings:                                     ; loc_75436
+Art_Title_Screen_Bg_Wings:
 		incbin  'art/nemesis/titlescr.nem' ; Title Screen Wings and background
-Art_Title_Screen_Sonic_Tails:                                  ; loc_76D98
+Art_Title_Screen_Sonic_Tails:
 		incbin  'art/nemesis/snctlscr.nem' ; Sonic And Tails in Title Screen
-Art_FireBall:                                                  ; loc_778DC
+Art_FireBall:
 		incbin  'art/nemesis/fireball.nem'
-Art_GHz_Waterfall:                                             ; loc_77A52
+Art_GHz_Waterfall:
 		incbin  'art/nemesis/ehzwatrfall.nem'
-Art_HTz_Lava_Bubble:                                           ; loc_77B58
+Art_HTz_Lava_Bubble:
 		incbin  'art/nemesis/lvbubble.nem'
-Art_GHz_Bridge:                                                ; loc_77CA6
+Art_GHz_Bridge:
 		incbin  'art/nemesis/ehzbridge.nem'
-Art_HTz_Teleferic:                                             ; loc_77D7E
+Art_HTz_Teleferic:
 		incbin  'art/nemesis/telefrcs.nem'
-Art_HTz_Automatic_Door:                                        ; loc_78072
+Art_HTz_Automatic_Door:
 		incbin  'art/nemesis/htzautodoor.nem'
-Art_HTz_See_saw:                                               ; loc_780EA
+Art_HTz_See_saw:
 		incbin  'art/nemesis/see-saw.nem'
-Art_Unk_Fireball: ; Not used                                  ; loc_78282
+Art_Unk_Fireball: ; Not used
 		incbin  'art/nemesis/unkfball.nem'
-Art_HTz_Rock:                                                  ; loc_78390
+Art_HTz_Rock:
 		incbin  'art/nemesis/rock.nem'
-Art_HTz_See_saw_badnick:                                       ; loc_784C6
+Art_HTz_See_saw_badnik:
 		incbin  'art/nemesis/see-sawb.nem'
-Art_Mz_Rotating_Gear:                                          ; loc_78532
+Art_Mz_Rotating_Gear:
 		incbin  'art/nemesis/gear.nem'
-Art_Mz_Gear_Holes:                                             ; loc_7898A
+Art_Mz_Gear_Holes:
 		incbin  'art/nemesis/gearhole.nem'
-Art_Mz_Harpon_Platform:                                        ; loc_78A32
+Art_Mz_Harpon_Platform:
 		incbin  'art/nemesis/harp_ptf.nem'
-Art_Mz_Steam:                                                  ; loc_78B00
+Art_Mz_Steam:
 		incbin  'art/nemesis/steam.nem'
-Art_Mz_Harpon:                                                 ; loc_78C0A
+Art_Mz_Harpon:
 		incbin  'art/nemesis/harpoon.nem'
-Art_Mz_Screw_Nut:                                              ; loc_78CCC
+Art_Mz_Screw_Nut:
 		incbin  'art/nemesis/screwnut.nem'
-Art_Mz_Lava_Bubble:                                            ; loc_78D42
+Art_Mz_Lava_Bubble:
 		incbin  'art/nemesis/mzlvbubble.nem'
-Art_Mz_Elevator:                                               ; loc_78DF8
+Art_Mz_Elevator:
 		incbin  'art/nemesis/mzelevator.nem'
-Art_Mz_Parallelogram_Elevator:                                 ; loc_78E68
+Art_Mz_Parallelogram_Elevator:
 		incbin  'art/nemesis/parallel.nem'
-Art_Mz_Miscellaneous:                                          ; loc_79114
+Art_Mz_Miscellaneous:
 		incbin  'art/nemesis/miscelns.nem'
-Art_Mz_Mini_Gear:                                              ; loc_791B6
+Art_Mz_Mini_Gear:
 		incbin  'art/nemesis/minigear.nem'
-Art_Mz_Teleport_Flash:                                         ; loc_79298
+Art_Mz_Teleport_Flash:
 		incbin  'art/nemesis/tlpflash.nem'
-Art_HPz_Bridge:                                                ; loc_792A4
+Art_HPz_Bridge:
 		incbin  'art/nemesis/hpzbridge.nem'
-Art_HPz_Waterfall:                                             ; loc_7941C
+Art_HPz_Waterfall:
 		incbin  'art/nemesis/hpzwatrfall.nem'
-Art_HPz_Emerald:                                               ; loc_7977E
+Art_HPz_Emerald:
 		incbin  'art/nemesis/emerald.nem'
-Art_HPz_Platform:                                              ; loc_799F0
+Art_HPz_Platform:
 		incbin  'art/nemesis/platform.nem'
-Art_HPz_Orbs_2:                                                ; loc_79AB0
+Art_HPz_Orbs_2:
 		incbin  'art/nemesis/orbs.nem'
-Art_HPz_Unknow_Platform:                                       ; loc_79CEC
+Art_HPz_Unknow_Platform:
 		incbin  'art/nemesis/unkptfm.nem'
-Art_OOz_Giant_Spikeball:                                       ; loc_79E86
+Art_OOz_Giant_Spikeball:
 		incbin  'art/nemesis/gspkball.nem'
-Art_OOz_Touch_Boost_Up:                                        ; loc_7A07E
+Art_OOz_Touch_Boost_Up:
 		incbin  'art/nemesis/boost_up.nem'
-Art_OOz_Break_To_Boost_Horizontal:                             ; loc_7A114
+Art_OOz_Break_To_Boost_Horizontal:
 		incbin  'art/nemesis/brkbst_h.nem'
-Art_OOz_Oil:                                                   ; loc_7A180
+Art_OOz_Oil:
 		incbin  'art/nemesis/oil.nem'
-Art_OOz_Oil_01:                                                ; loc_7A2FC
+Art_OOz_Oil_01:
 		incbin  'art/nemesis/oil_01.nem'
-Art_OOz_Ball:                                                  ; loc_7A428
+Art_OOz_Ball:
 		incbin  'art/nemesis/ball.nem'
-Art_OOz_Cannon:                                                ; loc_7A548
+Art_OOz_Cannon:
 		incbin  'art/nemesis/cannon.nem'
-Art_OOz_Collapsing_Platform:                                   ; loc_7A838
+Art_OOz_Collapsing_Platform:
 		incbin  'art/nemesis/oozplatform.nem'
-Art_OOz_Spring_Push_Boost:                                     ; loc_7AACC
+Art_OOz_Spring_Push_Boost:
 		incbin  'art/nemesis/spngpush.nem'
-Art_OOz_Swing_Platform:                                        ; loc_7AC8E
+Art_OOz_Swing_Platform:
 		incbin  'art/nemesis/swngptfm.nem'
-Art_OOz_Break_To_Boost_Vertical:                               ; loc_7AEB0
+Art_OOz_Break_To_Boost_Vertical:
 		incbin  'art/nemesis/brkbst_v.nem'
-Art_OOz_Elevator:                                              ; loc_7AF20
+Art_OOz_Elevator:
 		incbin  'art/nemesis/oozelevator.nem'
-Art_OOz_Fans:                                                  ; loc_7B0BC
+Art_OOz_Fans:
 		incbin  'art/nemesis/fans.nem'
-Art_OOz_Fire_Booster:                                          ; loc_7B37C
+Art_OOz_Fire_Booster:
 		incbin  'art/nemesis/fire_bst.nem'
-Art_DHz_Box:                                                   ; loc_7B468
+Art_DHz_Box:
 		incbin  'art/nemesis/dhzbox.nem'
-Art_DHz_Collapsing_Platform:                                   ; loc_7B6A6
+Art_DHz_Collapsing_Platform:
 		incbin  'art/nemesis/clp_ptfm.nem'
-Art_DHz_Vines:                                                 ; loc_7B850
+Art_DHz_Vines:
 		incbin  'art/nemesis/vines.nem'
-Art_DHz_Vines_01:                                              ; loc_7B948
+Art_DHz_Vines_01:
 		incbin  'art/nemesis/vines_1.nem'
-Art_DHz_Bridge:                                                ; loc_7B9F2
+Art_DHz_Bridge:
 		incbin  'art/nemesis/bridge.nem'
-Art_CNz_Green_Platforms:                                       ; loc_7BA62
+Art_CNz_Green_Platforms:
 		incbin  'art/nemesis/greenptf.nem'
-Art_CNz_Spikeball_Slot_Machine:                                ; loc_7BACA
+Art_CNz_Spikeball_Slot_Machine:
 		incbin  'art/nemesis/spikball.nem'
-Art_CNz_Box:                                                   ; loc_7BB2A
+Art_CNz_Box:
 		incbin  'art/nemesis/box.nem'
-Art_CNz_Elevator:                                              ; loc_7BBA4
+Art_CNz_Elevator:
 		incbin  'art/nemesis/elevator.nem'
-Art_CNz_Slot_Machine_Starter:                                  ; loc_7BC16
+Art_CNz_Slot_Machine_Starter:
 		incbin  'art/nemesis/slotmach.nem'
-Art_CNz_Blue_Bumper:                                           ; loc_7BC84
+Art_CNz_Blue_Bumper:
 		incbin  'art/nemesis/bbumpers.nem'
-Art_CNz_Bumpers:                                               ; loc_7BD0E
+Art_CNz_Bumpers:
 		incbin  'art/nemesis/bumpers.nem'
-Art_CNz_Diagonal_Launcher:                                     ; loc_7BEA0
+Art_CNz_Diagonal_Launcher:
 		incbin  'art/nemesis/d_launch.nem'
-Art_CNz_Vertical_Launcher:                                     ; loc_7C086
+Art_CNz_Vertical_Launcher:
 		incbin  'art/nemesis/v_launch.nem'
-Art_CNz_Green_Bumpers:                                         ; loc_7C1BC
+Art_CNz_Green_Bumpers:
 		incbin  'art/nemesis/gbumpers.nem'
-Art_CNz_Flippers:                                              ; loc_7C2E2
+Art_CNz_Flippers:
 		incbin  'art/nemesis/flippers.nem'
-Art_CPz_Triangle_Platform:                                     ; loc_7C606
+Art_CPz_Triangle_Platform:
 		incbin  'art/nemesis/tri_ptfm.nem'
-Art_Water_Surface:                                             ; loc_7C754
+Art_Water_Surface:
 		incbin  'art/nemesis/watrsurf.nem'
-Art_CPz_Speed_Booster:                                         ; loc_7C8C4
+Art_CPz_Speed_Booster:
 		incbin  'art/nemesis/speedbst.nem'
-Art_CPz_Worms:                                                 ; loc_7C92C
+Art_CPz_Worms:
 		incbin  'art/nemesis/worms.nem'
-Art_CPz_Metal_Structure:                                       ; loc_7C99E
+Art_CPz_Metal_Structure:
 		incbin  'art/nemesis/metal_st.nem'
-Art_CPz_Breakable_Block:                                       ; loc_7CBA8
+Art_CPz_Breakable_Block:
 		incbin  'art/nemesis/brkblock.nem'
-Art_CPz_Automatic_Door:                                        ; loc_7CBE8
+Art_CPz_Automatic_Door:
 		incbin  'art/nemesis/autodoor.nem'
-Art_CPz_Open_Close_Platform:                                   ; loc_7CC54
+Art_CPz_Open_Close_Platform:
 		incbin  'art/nemesis/oc_ptfrm.nem'
-Art_CPz_Platforms:                                             ; loc_7CE36
+Art_CPz_Platforms:
 		incbin  'art/nemesis/cpzplatform.nem'
-Art_CPz_Spring_Tubes:                                          ; loc_7CFF6
+Art_CPz_Spring_Tubes:
 		incbin  'art/nemesis/spgtubes.nem'
-Art_NGHz_Water_Surface:                                        ; loc_7D1F2
+Art_NGHz_Water_Surface:
 		incbin  'art/nemesis/nghzwatrsurf.nem'
-Art_NGHz_Leaves:                                               ; loc_7D2D8
+Art_NGHz_Leaves:
 		incbin  'art/nemesis/leaves.nem'
-Art_NGHz_Arrow_Shooter:                                        ; loc_7D364
+Art_NGHz_Arrow_Shooter:
 		incbin  'art/nemesis/arrow_s.nem'
-Art_NGHz_Automatic_Door:                                       ; loc_7D4C2
+Art_NGHz_Automatic_Door:
 		incbin  'art/nemesis/nghzautodoor.nem'
-Art_Switch:                                                    ; loc_7D55A
+Art_Switch:
 		incbin  'art/nemesis/switch.nem'
-Art_Vertical_Spring:                                           ; loc_7D632
+Art_Vertical_Spring:
 		incbin  'art/nemesis/v_spring.nem'
-Art_Horizontal_Spring:                                         ; loc_7D74E
+Art_Horizontal_Spring:
 		incbin  'art/nemesis/h_spring.nem'
-Art_Diagonal_Spring:                                           ; loc_7D818
+Art_Diagonal_Spring:
 		incbin  'art/nemesis/d_spring.nem'
-Art_Head_Up_Display:                                           ; loc_7D9EC
+Art_Head_Up_Display:
 		incbin  'art/nemesis/hud.nem'
-Art_Head_Up_Display_Sonic:                                     ; loc_7DAF4
+Art_Head_Up_Display_Sonic:
 		incbin  'art/nemesis/hudsonic.nem'
-Art_Rings:                                                     ; loc_7DC0A
+Art_Rings:
 		incbin  'art/nemesis/rings.nem'
-Art_Monitors:                                                  ; loc_7DCFE
+Art_Monitors:
 		incbin  'art/nemesis/monitors.nem'
-Art_Spikes:                                                    ; loc_7E128
+Art_Spikes:
 		incbin  'art/nemesis/spikes.nem'
-Art_Hit_Enemy_Points:                                          ; loc_7E178
+Art_Hit_Enemy_Points:
 		incbin  'art/nemesis/points.nem'
-Art_LampPost:                                                  ; loc_7E252
+Art_LampPost:
 		incbin  'art/nemesis/lamppost.nem'
-Art_End_Panel:                                                 ; loc_7E2F8
+Art_End_Panel:
 		incbin  'art/nemesis/endpanel.nem'
-Art_Diagonal_Spring_01:                                        ; loc_7E8CE
+Art_Diagonal_Spring_01:
 		incbin  'art/nemesis/dspring1.nem'
-Art_DHz_Horizontal_Spikes:                                     ; loc_7EA1E
+Art_DHz_Horizontal_Spikes:
 		incbin  'art/nemesis/h_spikes.nem'
-Art_Oxygen_Bubbles:                                            ; loc_7EA9A
+Art_Oxygen_Bubbles:
 		incbin  'art/nemesis/oxygen.nem'
-Art_Bubbles:                                                   ; loc_7EC66
+Art_Bubbles:
 		incbin  'art/nemesis/bubbles.nem'
-Art_Oxygen_Numbers:                                            ; loc_7ED04
+Art_Oxygen_Numbers:
 		incbin  'art/uncompressed/oxygnumb.dat'
-Art_Game_Over_Time_Over:                                       ; loc_7F184
+Art_Game_Over_Time_Over:
 		incbin  'art/nemesis/gt_over.nem'
-Art_Explosion:                                                 ; loc_7F316
+Art_Explosion:
 		incbin  'art/nemesis/explosn.nem'
-Art_Blue_Bird:                                                 ; loc_7F6CA
+Art_Blue_Bird:
 		incbin  'art/nemesis/bluebird.nem'
-Art_Squirrel:                                                  ; loc_7F80C
+Art_Squirrel:
 		incbin  'art/nemesis/squirrel.nem'
-Art_Mouse:                                                     ; loc_7F970
+Art_Mouse:
 		incbin  'art/nemesis/mouse.nem'
-Art_Chicken:                                                   ; loc_7FAAA
+Art_Chicken:
 		incbin  'art/nemesis/chicken.nem'
-Art_Monkey:                                                    ; loc_7FC0C
+Art_Monkey:
 		incbin  'art/nemesis/monkey.nem'
-Art_Pigeon:                                                    ; loc_7FD4C
+Art_Pigeon:
 		incbin  'art/nemesis/pigeon.nem'
-Art_Pig:                                                       ; loc_7FE7A
+Art_Pig:
 		incbin  'art/nemesis/pig.nem'
-Art_Seal:                                                      ; loc_7FFB0
+Art_Seal:
 		incbin  'art/nemesis/seal.nem'
-Art_Penguin:                                                   ; loc_800CC
+Art_Penguin:
 		incbin  'art/nemesis/penguin.nem'
-Art_Turtle:                                                    ; loc_80248
+Art_Turtle:
 		incbin  'art/nemesis/turtle.nem'
-Art_Bear:                                                      ; loc_803FA
+Art_Bear:
 		incbin  'art/nemesis/bear.nem'
-Art_Rabbit:                                                    ; loc_8053C
+Art_Rabbit:
 		incbin  'art/nemesis/rabbit.nem'
-Art_HPz_Crocobot: ; Not used                                  ; loc_80694
+Art_HPz_Crocobot: ; Not used
 		incbin  'art/nemesis/crocobot.nem'
-Art_GHz_Buzzer:                                                ; loc_80A36
+Art_GHz_Buzzer:
 		incbin  'art/nemesis/buzzer.nem'
-Art_Batbot:                                                    ; loc_80C36
+Art_Batbot:
 		incbin  'art/nemesis/batbot.nem'
-Art_Octus:                                                     ; loc_80F8C
+Art_Octus:
 		incbin  'art/nemesis/octus.nem'
-Art_Rhinobot:                                                  ; loc_812AC
+Art_Rhinobot:
 		incbin  'art/nemesis/rhinobot.nem'
-Art_Dinobot:                                                   ; loc_81674
+Art_Dinobot:
 		incbin  'art/nemesis/dinobot.nem'
-Art_Hpz_Piranha: ; Not used                                   ; loc_81A4A
+Art_Hpz_Piranha: ; Not used
 		incbin  'art/nemesis/piranha.nem'
-Art_Aquis:                                                     ; loc_81F42
+Art_Aquis:
 		incbin  'art/nemesis/aquis.nem'
-Art_Spinning_Ball: ; Not used                                 ; loc_822A2
+Art_Spinning_Ball: ; Not used
 		incbin  'art/nemesis/spinball.nem'
-Art_Blink:    ; Not used                                      ; loc_82538
+Art_Blink:    ; Not used
 		incbin  'art/nemesis/blink.nem'
-Art_Bubble_Monster: ; Not used                                ; loc_82764
+Art_Bubble_Monster: ; Not used
 		incbin  'art/nemesis/bmonster.nem'
-Art_Ghz_Snail: ; Not used                                     ; loc_82986
+Art_Ghz_Snail: ; Not used
 		incbin  'art/nemesis/snail.nem'
-Art_CNz_Crawl: ; Not used                                     ; loc_82B82
+Art_CNz_Crawl: ; Not used
 		incbin  'art/nemesis/crawl.nem'
-Art_GHz_Masher:                                                ; loc_82EE0
+Art_GHz_Masher:
 		incbin  'art/nemesis/masher.nem'
-Art_Robotnik_Ship:                                             ; loc_830EC
+Art_Robotnik_Ship:
 		incbin  'art/nemesis/robotnik.nem'
-Art_CPz_Boss:                                                  ; loc_83828
+Art_CPz_Boss:
 		incbin  'art/nemesis/cpzboss.nem'
-Art_Boss_Explosions:                                           ; loc_83D86
+Art_Boss_Explosions:
 		incbin  'art/nemesis/explosns.nem'
-Art_Ship_Boost:                                                ; loc_8440E
+Art_Ship_Boost:
 		incbin  'art/nemesis/shpboost.nem'
-Art_Boss_Smokes:                                               ; loc_8448C
+Art_Boss_Smokes:
 		incbin  'art/nemesis/boss_smk.nem'
-Art_GHz_Boss_Car:                                              ; loc_84572
+Art_GHz_Boss_Car:
 		incbin  'art/nemesis/boss_car.nem'
-Art_GHz_Boss_Blades:                                           ; loc_84D5E
+Art_GHz_Boss_Blades:
 		incbin  'art/nemesis/b_blades.nem'
-Art_HTz_Boss_Fire_Cannon:                                      ; loc_84E52
+Art_HTz_Boss_Fire_Cannon:
 		incbin  'art/nemesis/bossfire.nem'
-Art_NGHz_Boss:                                                 ; loc_8561E
+Art_NGHz_Boss:
 		incbin  'art/nemesis/nghzboss.nem'
-Art_DHz_Boss:                                                  ; loc_86678
+Art_DHz_Boss:
 		incbin  'art/nemesis/dhzboss.nem'
-Art_CNz_Boss:                                                  ; loc_875B6
+Art_CNz_Boss:
 		incbin  'art/nemesis/boss.nem'
-Art_OOz_Boss:                                                  ; loc_87DE0
+Art_OOz_Boss:
 		incbin  'art/nemesis/oozboss.nem'
-Art_Mz_Boss_Balls_And_Robotniks:                               ; loc_8884E
+Art_Mz_Boss_Balls_And_Robotniks:
 		incbin  'art/nemesis/bossball.nem'
-Art_DHz_Boss_Rocks:                                            ; loc_88F8C
+Art_DHz_Boss_Rocks:
 		incbin  'art/uncompressed/bossrock.dat'
-Art_Whisp:                                                     ; loc_8900C
+Art_Whisp:
 		incbin  'art/nemesis/whisp.nem'
-Art_Grounder:                                                  ; loc_89136
+Art_Grounder:
 		incbin  'art/nemesis/grounder.nem'
-Art_Chop_Chop:                                                 ; loc_895C2
+Art_Chop_Chop:
 		incbin  'art/nemesis/chopchop.nem'
-Art_Rexon:                                                     ; loc_89814
+Art_Rexon:
 		incbin  'art/nemesis/rexon.nem'
-Art_Spiker:                                                    ; loc_899D2
+Art_Spiker:
 		incbin  'art/nemesis/spiker.nem'
-Art_Nebula:                                                    ; loc_89B6A
+Art_Nebula:
 		incbin  'art/nemesis/nebula.nem'
-Art_Turtloid:                                                  ; loc_89D8A
+Art_Turtloid:
 		incbin  'art/nemesis/turtloid.nem'
-Art_GHz_Coconuts:                                              ; loc_8A2A2
+Art_GHz_Coconuts:
 		incbin  'art/nemesis/coconuts.nem'
-Art_Crawlton:                                                  ; loc_8A55E
+Art_Crawlton:
 		incbin  'art/nemesis/crawlton.nem'
-Art_Flasher:                                                   ; loc_8A686
+Art_Flasher:
 		incbin  'art/nemesis/flasher.nem'
-Art_Slicer:                                                    ; loc_8A7CC
+Art_Slicer:
 		incbin  'art/nemesis/slicer.nem'
-Art_Shellcracker:                                              ; loc_8AAA4
+Art_Shellcracker:
 		incbin  'art/nemesis/shellcrc.nem'
-Art_Asteron:                                                   ; loc_8AD4C
+Art_Asteron:
 		incbin  'art/nemesis/asteron.nem'
-Art_Lander:                                                    ; loc_8AE7C
+Art_Lander:
 		incbin  'art/nemesis/lander.nem'
-Art_Grabber:                                                   ; loc_8B100
+Art_Grabber:
 		incbin  'art/nemesis/grabber.nem'
-Art_Clucker:                                                   ; loc_8B428
+Art_Clucker:
 		incbin  'art/nemesis/clucker.nem'
-Art_Balkiry:                                                   ; loc_8B662
+Art_Balkiry:
 		incbin  'art/nemesis/balkiry.nem'
-Green_Hill_Blocks:                                             ; loc_8B85E
+Green_Hill_Blocks:
 		incbin  'level/emerald hill zone/blocks.dat'
-Green_Hill_Tiles:                                              ; loc_8C7FE
+Green_Hill_Tiles:
 		incbin  'level/emerald hill zone/tiles.nem'
-Hill_Top_Blocks:                                               ; loc_8F64E
+Hill_Top_Blocks:
 		incbin  'level/hill top zone/blocks.dat'
-Hill_Top_Tiles:                                                ; loc_8FDFE
+Hill_Top_Tiles:
 		incbin  'level/hill top zone/tiles.nem'
-Art_Hill_Top_Dynamic_Init:                                     ; loc_91224
+Art_Hill_Top_Dynamic_Init:
 		incbin  'art/nemesis/htzdyn_init.nem'
-Green_Hill_Chunks:                                             ; loc_9152C
+Green_Hill_Chunks:
 		incbin  'level/shared/chunks.kos'
 		dc.w    $0000, $0000
-Wood_Blocks:                                                   ; loc_9478C
+Wood_Blocks:
 		incbin  'level/wood zone/blocks.dat'
-Wood_Tiles:                                                    ; loc_9572C
+Wood_Tiles:
 		incbin  'level/wood zone/tiles.nem'
-Wood_Chunks:                                                   ; loc_99424
+Wood_Chunks:
 		incbin  'level/wood zone/chunks.kos'
 		dc.w    $0000, $0000, $0000, $0000, $0000, $0000
 Metropolis_Blocks:
