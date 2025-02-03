@@ -11,8 +11,8 @@ namespace S2ObjectDefinitions.EHZ
 
 		public override void Init(ObjectData data)
 		{
-			byte[] artfile = ObjectHelper.OpenArtFile("../Art/Nemesis/EHZbridge.nem", CompressionType.Nemesis);
-			img = ObjectHelper.MapASMToBmp(artfile, "../Map/obj11ghz.asm", 0, 2);
+			byte[] artfile = ObjectHelper.OpenArtFile("../Art/Nemesis/EHZBridge.nem", CompressionType.Nemesis);
+			img = ObjectHelper.MapASMToBmp(artfile, "../mappings/sprite/obj11_ghz.asm", 0, 2);
 		}
 
 		public override ReadOnlyCollection<byte> Subtypes
