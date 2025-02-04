@@ -5040,7 +5040,7 @@ Oscillate_Data2:                                               ; loc_4C90
 		dc.w    $0002, $0038, $0002, $0038, $0002, $0020, $0003, $0030
 		dc.w    $0005, $0050, $0007, $0070, $0002, $0040, $0002, $0040
 ;===============================================================================
-; Sub Rotina para fazer os an�is e outros Objects girarem em torno de si
+; Sub Rotina para fazer os an is e outros Objects girarem em torno de si
 ; ->>>
 ;===============================================================================
 Change_Object_Frame:                                           ; loc_4CD0
@@ -5077,7 +5077,7 @@ loc_4D1A:
 loc_4D3C:
 		rts
 ;===============================================================================
-; Sub Rotina para fazer os an�is e outros Objects girarem em torno de si
+; Sub Rotina para fazer os an is e outros Objects girarem em torno de si
 ; <<<-
 ;===============================================================================
 
@@ -5150,7 +5150,7 @@ Demo_Hidden_Palace:                                            ; loc_50B2
 Demo_Chemical_Plant:                                           ; loc_51B2
 		incbin  'misc/cpzdemo.dat'
 ;===============================================================================
-; Modo de jogo ou demonstra��o das fases
+; Modo de jogo ou demonstra  o das fases
 ; <<<-
 ;===============================================================================
 		nop
@@ -8279,7 +8279,7 @@ loc_756A:
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para calcular o bloco em rela��o a posi��o da tela
+; Rotina para calcular o bloco em rela  o a posi  o da tela
 ; ->>>
 ;-------------------------------------------------------------------------------
 Calc_Chunk_RAM_Pos:                                            ; loc_7570
@@ -8304,7 +8304,7 @@ Calc_Chunk_RAM_Pos:                                            ; loc_7570
 		movem.l (A7)+, D4/D5
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para calcular o bloco em rela��o a posi��o da tela
+; Rotina para calcular o bloco em rela  o a posi  o da tela
 ; <<<-
 ;-------------------------------------------------------------------------------
 
@@ -8576,7 +8576,7 @@ Calc_VRAM_Pos_2_2P:                                            ; loc_77B6
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para carregar os tiles da fase a partir da posi��o do jogador usado
+; Rotina para carregar os tiles da fase a partir da posi  o do jogador usado
 ; ->>>          durante a carga da fase.
 ;===============================================================================
 Load_Tiles_From_Start:                                         ; loc_77D2
@@ -8655,7 +8655,7 @@ loc_7882:
 		dbra    D6, loc_7882
 		rts
 ;===============================================================================
-; Rotina para carregar os tiles da fase a partir da posi��o do jogador usado
+; Rotina para carregar os tiles da fase a partir da posi  o do jogador usado
 ; <<<-          durante a carga da fase.
 ;===============================================================================
 
@@ -8874,7 +8874,7 @@ loc_7AA6:
 loc_7AB2:
 		bra.s   loc_7AB2
 ;-------------------------------------------------------------------------------
-loc_7AB4: ; Refer�ncia de rotina n�o usada
+loc_7AB4: ; Refer ncia de rotina n o usada
 		moveq   #$07, D0
 loc_7AB6:
 		move.l  (A3)+, (A1)+
@@ -10221,7 +10221,7 @@ GHz_Bridge_Mappings:                                           ; loc_8A6C
 ;===============================================================================
 Obj15_Bridge:                                               ; loc_8A84
 ;===============================================================================
-; Object 0x15 - Plataformas tipo pend�lo na Neo Green Hill, Dust Hill e
+; Object 0x15 - Plataformas tipo pend lo na Neo Green Hill, Dust Hill e
 ; ->>>          Oil Ocean
 ;===============================================================================
 ; loc_8A84:
@@ -10631,7 +10631,7 @@ DHz_Swing_Platforms_Mappings:                                  ; loc_8FF0
 DHz_Swing_Platforms_Mappings_01:                               ; loc_9024
                 include 'mappings/sprite/obj15_dhz.asm'
 ;===============================================================================
-; Object 0x15 - Plataformas tipo pend�lo na Neo Green Hill, Dust Hill e
+; Object 0x15 - Plataformas tipo pend lo na Neo Green Hill, Dust Hill e
 ; <<<-          Oil Ocean
 ;===============================================================================
 Jmp_00_To_Object_HitWall_Right:                                ; loc_903C
@@ -12346,7 +12346,7 @@ loc_AA86:
 ;-------------------------------------------------------------------------------
 Obj25_Rings:                                                ; loc_AA98
 ;===============================================================================
-; Object 0x25 - An�is - Este Object n�o � usado pelos an�is normais nas fases
+; Object 0x25 - An is - Este Object n o   usado pelos an is normais nas fases
 ; ->>>
 ;===============================================================================
 ; loc_AA98:
@@ -12428,12 +12428,12 @@ loc_AB80:
 loc_AB8E:
                 bra     DeleteObject                           ; loc_D314
 ;===============================================================================
-; Object 0x25 - An�is - Este Object n�o � usado pelos an�is normais nas fases
+; Object 0x25 - An is - Este Object n o   usado pelos an is normais nas fases
 ; <<<-
 ;===============================================================================
 ;-------------------------------------------------------------------------------
-; Rotina para adicionar an�is ao contador, verificando o limmite e bonificando
-; ->>>          com vida extra ao adiquirir 100 e 200 an�is
+; Rotina para adicionar an is ao contador, verificando o limmite e bonificando
+; ->>>          com vida extra ao adiquirir 100 e 200 an is
 ;-------------------------------------------------------------------------------
 Add_Rings:                                                     ; loc_AB92
 		addq.w  #$01, (Ring_Count).w                         ; $FFFFFE20
@@ -12454,8 +12454,8 @@ loc_ABC0:
 loc_ABCC:
 		jmp     (Play_Sfx)                             ; loc_1512
 ;-------------------------------------------------------------------------------
-; Rotina para adicionar an�is ao contador, verificando o limmite e bonificando
-; <<<-          com vida extra ao adiquirir 100 e 200 an�is
+; Rotina para adicionar an is ao contador, verificando o limmite e bonificando
+; <<<-          com vida extra ao adiquirir 100 e 200 an is
 ;-------------------------------------------------------------------------------
 Obj37_Rings_Lost:                                           ; loc_ABD2
 ;===============================================================================
@@ -13441,7 +13441,7 @@ Sonic_Tails_Mappings:                                          ; loc_B94E
 ;-------------------------------------------------------------------------------
 Obj34_Title_Cards:                                          ; loc_BA00
 ;===============================================================================
-; Object 0x34 - Tela com o nome das fases conhecido tamb�m conhecido como:
+; Object 0x34 - Tela com o nome das fases conhecido tamb m conhecido como:
 ; ->>>        - Splash Screen, Title Cards, etc...
 ;===============================================================================
 ; loc_BA00:
@@ -13581,7 +13581,7 @@ Title_Cards_Config:                                            ; loc_BB34
                 dc.w    $0000, $0120, $FEE4, $0124, $03EC, $03EC, $01EC, $012C
                 dc.w    $0000, $0120, $FEE4, $0124, $03EC, $03EC, $01EC, $012C
 ;===============================================================================
-; Object 0x34 - Tela com o nome das fases conhecido tamb�m conhecido como:
+; Object 0x34 - Tela com o nome das fases conhecido tamb m conhecido como:
 ; <<<-        - Splash Screen, Title Cards, etc...
 ;===============================================================================
 Obj39_Time_Over_Game_Over:                                  ; loc_BC44
@@ -14281,7 +14281,7 @@ LR_Ring_Bonus_Map:                                             ; loc_C570
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Mapeamento da tela de resultado dos est�gios especiais
+; Mapeamento da tela de resultado dos est gios especiais
 ; ->>>
 ;-------------------------------------------------------------------------------
 Special_Stage_Results_Mappings:                                ; loc_C5AA
@@ -14375,12 +14375,12 @@ SS_Res_SONIC_GOT_THEM_ALL_Map:                                 ; loc_C752
 		dc.l    $F8050026, $00130068  ; L
 		dc.l    $F8050026, $00130078  ; L
 ;-------------------------------------------------------------------------------
-; Mapeamento da tela de resultado dos est�gios especiais
+; Mapeamento da tela de resultado dos est gios especiais
 ; <<<-
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Mapeamento das esmeraldas usadas na tela de resultado dos est�gios especiais
+; Mapeamento das esmeraldas usadas na tela de resultado dos est gios especiais
 ; ->>>
 ;-------------------------------------------------------------------------------
 Emeralds_Mappings:                                             ; loc_C7CC
@@ -14412,7 +14412,7 @@ loc_C80C:
 loc_C816:
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-; Mapeamento das esmeraldas usadas na tela de resultado dos est�gios especiais
+; Mapeamento das esmeraldas usadas na tela de resultado dos est gios especiais
 ; <<<-
 ;-------------------------------------------------------------------------------
 Obj36_Spikes:                                               ; loc_C818
@@ -14847,7 +14847,7 @@ loc_CE62:
 Obj_Null:                                                      ; loc_CEA4
 		bra     Obj_Null_2                             ; loc_D1AA
 ;===============================================================================
-; Carrega os Objects na mem�ria
+; Carrega os Objects na mem ria
 ; ->>>
 ;===============================================================================
 Load_Objects:                                                  ; loc_CEA8
@@ -15060,7 +15060,7 @@ Object_List:                                                   ; loc_CEF2
 		dc.l    ObjAD_Clucker_Platform              ; loc_2A47E
 		dc.l    ObjAE_Clucker                       ; loc_2A4D0
 ;===============================================================================
-; Carrega os Objects na mem�ria
+; Carrega os Objects na mem ria
 ; <<<-
 ;===============================================================================
 
@@ -16063,7 +16063,7 @@ loc_DBB8:
 		bra     loc_D9C0
 
 ;-------------------------------------------------------------------------------
-; Rotinas para modificar os atributos das sprites no modo entrela�ado / 2P
+; Rotinas para modificar os atributos das sprites no modo entrela ado / 2P
 ; ->>>
 ;-------------------------------------------------------------------------------
 ModifySpriteAttr_2P:                                           ; loc_DBBE
@@ -16088,7 +16088,7 @@ ModifySpriteAttr_2P_A1:                                        ; loc_DBDA
 Exit_ModifySpriteAttr_2P_A1:                                   ; loc_DBF4
 		rts
 ;-------------------------------------------------------------------------------
-; Rotinas para modificar os atributos das sprites no modo entrela�ado / 2P
+; Rotinas para modificar os atributos das sprites no modo entrela ado / 2P
 ; <<<-
 ;-------------------------------------------------------------------------------
 Build_Sprites_2P_Sub_00:                                       ; loc_DBF6
@@ -16241,7 +16241,7 @@ loc_DD56:
 		dc.b    $08, $08, $08, $08, $10, $10, $10, $10
 		dc.b    $18, $18, $18, $18, $20, $20, $20, $20
 ;===============================================================================
-; Rotina para compilar os sprites de acordo com as defini��es dos Objects
+; Rotina para compilar os sprites de acordo com as defini  es dos Objects
 ; <<<-
 ;===============================================================================
 Check_Object_On_Screen:                                        ; loc_DD66
@@ -16284,7 +16284,7 @@ Not_On_Screen_2:                                               ; loc_DDBE
 		rts
 		nop
 ;===============================================================================
-; Rotina para carregar o pocicionamento dos an�is nas fases
+; Rotina para carregar o pocicionamento dos an is nas fases
 ; ->>>
 ;===============================================================================
 Load_Ring_Pos:                                                 ; loc_DDC4
@@ -16420,12 +16420,12 @@ loc_DEF0:
 		move.w  A2, ($FFFFF718).w
 		rts
 ;===============================================================================
-; Rotina para carregar o pocicionamento dos an�is nas fases
+; Rotina para carregar o pocicionamento dos an is nas fases
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotinas para responder ao toque dos an�is pelo jogador
+; Rotinas para responder ao toque dos an is pelo jogador
 ; ->>>
 ;===============================================================================
 TouchRings:                                                    ; loc_DEFC
@@ -16496,12 +16496,12 @@ loc_DFA0:
 loc_DFAA:
 		rts
 ;===============================================================================
-; Rotinas para responder ao toque dos an�is pelo jogador
+; Rotinas para responder ao toque dos an is pelo jogador
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotinas para mostrar os an�is de acordo com a localiza��o do jogador na fase
+; Rotinas para mostrar os an is de acordo com a localiza  o do jogador na fase
 ; ->>>
 ;===============================================================================
 Build_Rings:                                                   ; loc_DFAC
@@ -16618,12 +16618,12 @@ loc_E0C8:
 		dc.b    $00, $00, $01, $01, $04, $04, $05, $05
 		dc.b    $08, $08, $09, $09, $0C, $0C, $0D, $0D
 ;===============================================================================
-; Rotinas para mostrar os an�is de acordo com a localiza��o do jogador na fase
+; Rotinas para mostrar os an is de acordo com a localiza  o do jogador na fase
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para carregar os an�is das fases
+; Rotina para carregar os an is das fases
 ; ->>>
 ;===============================================================================
 Load_Rings_Layout:                                             ; loc_E0D8
@@ -16704,12 +16704,12 @@ loc_E186:
 		dbra    D3, loc_E16C
 		rts
 ;===============================================================================
-; Rotina para carregar os an�is das fases
+; Rotina para carregar os an is das fases
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Mapeamento dos an�is
+; Mapeamento dos an is
 ; ->>>
 ;===============================================================================
 Level_Rings_Mappings:                                          ; loc_E198
@@ -16738,7 +16738,7 @@ loc_E1D8:
 loc_E1E0:
 		dc.l    $F805100A, $1005FFF8
 ;===============================================================================
-; Mapeamento dos an�is
+; Mapeamento dos an is
 ; <<<-
 ;===============================================================================
 
@@ -17189,7 +17189,7 @@ loc_E62E:
 		beq.s   DeleteObject_2P                        ; loc_E642
 		bclr    #$07, $02(A2, D0)
 ;-------------------------------------------------------------------------------
-;  Rotina para liberar a mem�ria utilizada pelo Object em A1 no modo 2 jogadores
+;  Rotina para liberar a mem ria utilizada pelo Object em A1 no modo 2 jogadores
 ; ->>>
 ;-------------------------------------------------------------------------------
 DeleteObject_2P:                                               ; loc_E642
@@ -17198,7 +17198,7 @@ loc_E644:
 		move.l  D1, (A1)+
 		dbra    D0, loc_E644
 ;-------------------------------------------------------------------------------
-;  Rotina para liberar a mem�ria utilizada pelo Object em A1 no modo 2 jogadores
+;  Rotina para liberar a mem ria utilizada pelo Object em A1 no modo 2 jogadores
 ; <<<-
 ;-------------------------------------------------------------------------------
 loc_E64A:
@@ -17314,7 +17314,7 @@ Exit_SingleObjectLoad_2:                                       ; loc_E72E
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
-; Rotina para carregar a lista de Objects na mem�ria
+; Rotina para carregar a lista de Objects na mem ria
 ; ->>>
 ;-------------------------------------------------------------------------------
 Load_Object_List:                                              ; loc_E730
@@ -17328,7 +17328,7 @@ Loop_Find_Free_Ram_3:                                          ; loc_E736
 Exit_Load_Object_List:                                         ; loc_E742
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina para carregar a lista de Objects na mem�ria
+; Rotina para carregar a lista de Objects na mem ria
 ; <<<-
 ;-------------------------------------------------------------------------------
 Obj41_Springs:                                              ; loc_E744
@@ -22898,7 +22898,7 @@ loc_12A24:
 loc_12A2E:
                 rts
 ;-------------------------------------------------------------------------------
-; Rotina para restaurar a m�sica da fase
+; Rotina para restaurar a m sica da fase
 ; ->>>
 ;-------------------------------------------------------------------------------
 Resume_Music:                                                  ; loc_12A30
@@ -22918,7 +22918,7 @@ Reset_Water_Counter:                                           ; loc_12A56
                 move.b  #$1E, Obj_Subtype(A1)                            ; $0028
                 rts
 ;-------------------------------------------------------------------------------
-; Rotina para restaurar a m�sica da fase
+; Rotina para restaurar a m sica da fase
 ; <<<-
 ;-------------------------------------------------------------------------------
 Bubbles_Animate_Data:                                          ; loc_12A5E
@@ -23639,7 +23639,7 @@ Super_Sonic_Stars_Mappings:                                    ; loc_13620
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para calcular o �ngulo do jogador
+; Rotina para calcular o  ngulo do jogador
 ; ->>>
 ;===============================================================================
 Player_AnglePos:                                               ; loc_13694
@@ -23768,12 +23768,12 @@ loc_137E0:
 		move.b  D2, Obj_Angle(A0)                                ; $0026
 		rts
 ;===============================================================================
-; Rotina para calcular o �ngulo do jogador
+; Rotina para calcular o  ngulo do jogador
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para calcular a posi��o do jogador em rampas
+; Rotina para calcular a posi  o do jogador em rampas
 ; ->>>
 ;===============================================================================
 Player_WalkVertR:                                              ; loc_137F2
@@ -23838,12 +23838,12 @@ loc_13880:
 		move.b  #$01, Obj_Ani_Flag(A0)                           ; $001D
 		rts
 ;===============================================================================
-; Rotina para calcular a posi��o do jogador em rampas
+; Rotina para calcular a posi  o do jogador em rampas
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para calcular a posi��o do jogador ao andar no teto
+; Rotina para calcular a posi  o do jogador ao andar no teto
 ; ->>>
 ;===============================================================================
 Player_WalkCeiling:                                            ; loc_1389A
@@ -23909,12 +23909,12 @@ loc_1392E:
 		move.b  #$01, Obj_Ani_Flag(A0)                           ; $001D
 		rts
 ;===============================================================================
-; Rotina para calcular a posi��o do jogador ao andar no teto
+; Rotina para calcular a posi  o do jogador ao andar no teto
 ; <<<-
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para calcular a posi��o do jogador em rampas
+; Rotina para calcular a posi  o do jogador em rampas
 ; ->>>
 ;===============================================================================
 Player_WalkVertL:                                              ; loc_13948
@@ -23980,7 +23980,7 @@ loc_139DC:
 		move.b  #$01, Obj_Ani_Flag(A0)                           ; $001D
 		rts
 ;===============================================================================
-; Rotina para calcular a posi��o do jogador em rampas
+; Rotina para calcular a posi  o do jogador em rampas
 ; <<<-
 ;===============================================================================
 
@@ -24012,7 +24012,7 @@ Floor_Check_Tile:                                              ; loc_139F6
 		move.l  D1, A1
 		rts
 ;-------------------------------------------------------------------------------
-; Tabela contendo os endere�os dos tiles 128x128 -> Ex: Tile 1 = $0080
+; Tabela contendo os endere os dos tiles 128x128 -> Ex: Tile 1 = $0080
 ; ->>>
 ;-------------------------------------------------------------------------------
 Chunk_Mem_Address:                                             ; loc_13A30
@@ -24049,7 +24049,7 @@ Chunk_Mem_Address:                                             ; loc_13A30
 		dc.w    $7800, $7880, $7900, $7980, $7A00, $7A80, $7B00, $7B80
 		dc.w    $7C00, $7C80, $7D00, $7D80, $7E00, $7E80, $7F00, $7F80
 ;-------------------------------------------------------------------------------
-; Tabela contendo os endere�os dos tiles 128x128 -> Ex: Tile 1 = $0080
+; Tabela contendo os endere os dos tiles 128x128 -> Ex: Tile 1 = $0080
 ; <<<-
 ;-------------------------------------------------------------------------------
 
@@ -24403,7 +24403,7 @@ loc_13F36:
 ;===============================================================================
 
 ;===============================================================================
-; Rotina n�o usada, algo como executar um log das colis�es
+; Rotina n o usada, algo como executar um log das colis es
 ; ->>>             (Talvez usada durante o desenvolvimento)
 ;===============================================================================
 FloorLog_Unk:                                                  ; loc_13F46
@@ -24468,12 +24468,12 @@ loc_13FD0:
 		dbra    D3, loc_13FA0
 		rts
 ;===============================================================================
-; Rotina n�o usada, algo como executar um log das  colis�es
+; Rotina n o usada, algo como executar um log das  colis es
 ; <<<-             (Talvez usada durante o desenvolvimento)
 ;===============================================================================
 
 ;===============================================================================
-; Rotina para calcular o quanto de espa�o h� na frente do jogador
+; Rotina para calcular o quanto de espa o h  na frente do jogador
 ; ->>>
 ;===============================================================================
 Player_WalkSpeed:                                              ; loc_13FD8
@@ -24525,7 +24525,7 @@ loc_14052:
 		beq     Player_HitWall_D3                      ; loc_14470
 		bra     loc_142EE
 ;===============================================================================
-; Rotina para calcular o quanto de espa�o h� na frente do jogador
+; Rotina para calcular o quanto de espa o h  na frente do jogador
 ; <<<-
 ;===============================================================================
 
@@ -26435,7 +26435,7 @@ Waterfall_Mappings:                                            ; loc_15D40
 ;===============================================================================
 Obj31_Lava_Attributes:                                      ; loc_15EDC
 ;===============================================================================
-; Object 0x31 - Atributo invis�vel das lavas na Hill Top / Metropolis
+; Object 0x31 - Atributo invis vel das lavas na Hill Top / Metropolis
 ; ->>>
 ;===============================================================================
 ; loc_15EDC:
@@ -26481,7 +26481,7 @@ loc_15F4C:
 Lava_Attributes_Mappings:                                      ; loc_15F4E
                 include 'mappings/sprite/obj31.asm'
 ;===============================================================================
-; Object 0x31 - Atributo invis�vel das lavas na Hill Top / Metropolis
+; Object 0x31 - Atributo invis vel das lavas na Hill Top / Metropolis
 ; <<<-
 ;===============================================================================
 Obj74_Invisible_Block:                                      ; loc_15FBA
@@ -27811,7 +27811,7 @@ Jmp_01_To_SpeedToPos:                                          ; loc_1710E
 ;-------------------------------------------------------------------------------
 Obj1B_Speed_Booster:                                        ; loc_17114
 ;===============================================================================
-; Object 0x1B - Propulsor autom�tico na Chemical Plant
+; Object 0x1B - Propulsor autom tico na Chemical Plant
 ; ->>> 
 ;===============================================================================  
 ; loc_17114:
@@ -27910,7 +27910,7 @@ loc_1723A:
 CPz_Speed_Booster_Mappings:                                    ; loc_17244
                 include 'mappings/sprite/obj1B.asm'                
 ;===============================================================================
-; Object 0x1B - Propulsor autom�tico na Chemical Plant
+; Object 0x1B - Propulsor autom tico na Chemical Plant
 ; <<<- 
 ;===============================================================================		
 ;-------------------------------------------------------------------------------
@@ -30616,7 +30616,7 @@ Jmp_05_To_SpeedToPos:                                          ; loc_19B16
 ;-------------------------------------------------------------------------------
 Obj47_Switch:                                               ; loc_19B1C
 ;===============================================================================
-; Object 0x47 - Interruptor usado para abrir certas portas nas fases
+; Object 0x47 - Switch used to open certain doors in zones
 ; ->>> 
 ;===============================================================================
 ; loc_19B1C:
@@ -30671,51 +30671,40 @@ loc_19BB2:
                 bset    D3, (A3)
                 move.b  #$01, Obj_Map_Id(A0)                             ; $001A
 loc_19BBA:
-                bra     Jmp_09_To_MarkObjGone                  ; loc_19BE4          
+                bra     Jmp_09_To_MarkObjGone        
 ;-------------------------------------------------------------------------------
-Switch_Mappings:                                               ; loc_19BBE
-                dc.w    loc_19BC4-Switch_Mappings
-                dc.w    loc_19BCE-Switch_Mappings
-                dc.w    loc_19BD8-Switch_Mappings
-loc_19BC4:
-                dc.w    $0001
-                dc.l    $F40D0000, $0000FFF0
-loc_19BCE:
-                dc.w    $0001
-                dc.l    $F40D0008, $0004FFF0
-loc_19BD8:
-                dc.w    $0001
-                dc.l    $F80D0000, $0000FFF0
+Switch_Mappings:
+                include 'mappings/sprite/obj47.asm'
 ;===============================================================================
-; Object 0x47 - Interruptor usado para abrir certas portas nas fases
+; Object 0x47 - Switch used to open certain doors in zones
 ; <<<- 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
 		nop
-Jmp_09_To_MarkObjGone:                                         ; loc_19BE4
-		jmp     (MarkObjGone)                          ; loc_D200
-Jmp_09_To_ModifySpriteAttr_2P:                                 ; loc_19BEA
-		jmp     (ModifySpriteAttr_2P)                  ; loc_DBBE
-Jmp_03_To_SolidObject:                                         ; loc_19BF0
-		jmp     (SolidObject)                          ; loc_F344
+Jmp_09_To_MarkObjGone:
+		jmp     (MarkObjGone)
+Jmp_09_To_ModifySpriteAttr_2P:
+		jmp     (ModifySpriteAttr_2P)
+Jmp_03_To_SolidObject:
+		jmp     (SolidObject)
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
 Obj3D_Break_Boost:                                          ; loc_19BF8
 ;===============================================================================
-; Object 0x3D - Obstásculo quebre para obter impulso na Oil Ocean
+; Object 0x3D - Obstacle breaks to gain momentum in Oil Ocean
 ; ->>>
 ;===============================================================================  
 ; loc_19BF8:
                 moveq   #$00, D0
-                move.b  Obj_Routine(A0), D0                              ; $0024
+                move.b  Obj_Routine(A0), D0
                 move.w  loc_19C06(PC, D0), D1
                 jmp     loc_19C06(PC, D1)
 ;-------------------------------------------------------------------------------  
 loc_19C06:
-                dc.w    loc_19C0E-loc_19C06
-                dc.w    loc_19C4E-loc_19C06
-                dc.w    loc_19D64-loc_19C06
-                dc.w    loc_19D7A-loc_19C06         
+		dc.w    loc_19C0E-loc_19C06
+		dc.w    loc_19C4E-loc_19C06
+		dc.w    loc_19D64-loc_19C06
+		dc.w    loc_19D7A-loc_19C06         
 ;-------------------------------------------------------------------------------  
 loc_19C0E:
                 addq.b  #$02, Obj_Routine(A0)                            ; $0024
@@ -30907,60 +30896,9 @@ Break_Boost_Data:                                              ; loc_19E74
                 dc.w    $FCC0, $0400, $FEC0, $0400, $0140, $0400, $0340, $0400                
 ;-------------------------------------------------------------------------------  
 Break_Boost_Mappings:                                          ; loc_19EB4
-                dc.w    loc_19EBC-Break_Boost_Mappings
-                dc.w    loc_19EDE-Break_Boost_Mappings
-                dc.w    loc_19F60-Break_Boost_Mappings
-                dc.w    loc_19F82-Break_Boost_Mappings
-loc_19EBC:
-                dc.w    $0004
-                dc.l    $F0030000, $0000FFF0
-                dc.l    $F0030000, $0000FFF8
-                dc.l    $F0030000, $00000000
-                dc.l    $F0030000, $00000008
-loc_19EDE:
-                dc.w    $0010
-                dc.l    $F0000000, $0000FFF0
-                dc.l    $F0000000, $0000FFF8
-                dc.l    $F0000000, $00000000
-                dc.l    $F0000000, $00000008
-                dc.l    $F8000001, $0000FFF0
-                dc.l    $F8000001, $0000FFF8
-                dc.l    $F8000001, $00000000
-                dc.l    $F8000001, $00000008
-                dc.l    $00000002, $0001FFF0
-                dc.l    $00000002, $0001FFF8
-                dc.l    $00000002, $00010000
-                dc.l    $00000002, $00010008
-                dc.l    $08000003, $0001FFF0
-                dc.l    $08000003, $0001FFF8
-                dc.l    $08000003, $00010000
-                dc.l    $08000003, $00010008
-loc_19F60:
-                dc.w    $0004
-                dc.l    $F00C0000, $0000FFF0
-                dc.l    $F80C0000, $0000FFF0
-                dc.l    $000C0000, $0000FFF0
-                dc.l    $080C0000, $0000FFF0
-loc_19F82:
-                dc.w    $0010
-                dc.l    $F0000000, $0000FFF0
-                dc.l    $F0000001, $0000FFF8
-                dc.l    $F0000002, $00010000
-                dc.l    $F0000003, $00010008
-                dc.l    $F8000000, $0000FFF0
-                dc.l    $F8000001, $0000FFF8
-                dc.l    $F8000002, $00010000
-                dc.l    $F8000003, $00010008
-                dc.l    $00000000, $0000FFF0
-                dc.l    $00000001, $0000FFF8
-                dc.l    $00000002, $00010000
-                dc.l    $00000003, $00010008
-                dc.l    $08000000, $0000FFF0
-                dc.l    $08000001, $0000FFF8
-                dc.l    $08000002, $00010000
-                dc.l    $08000003, $00010008  
+                  include 'mappings/sprite/obj3D.asm'
 ;===============================================================================
-; Object 0x3D - Obstásculo quebre para obter impulso na Oil Ocean
+; Object 0x3D - Obstacle breaks to gain momentum in Oil Ocean
 ; <<<-
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -30986,7 +30924,7 @@ Jmp_06_To_SpeedToPos:                                          ; loc_1A034
 ;-------------------------------------------------------------------------------
 Obj48_Cannon:                                               ; loc_1A03C
 ;===============================================================================
-; Object 0x48 - Canhões na Oil Ocean
+; Object 0x48 - Cannons in Oil Ocean
 ; ->>> 
 ;===============================================================================   
 ; loc_1A03C:
@@ -31185,76 +31123,9 @@ loc_1A2B4:
                 rts      
 ;-------------------------------------------------------------------------------  
 Cannon_Mappings:                                               ; loc_1A2B6
-                dc.w    loc_1A2C6-Cannon_Mappings
-                dc.w    loc_1A308-Cannon_Mappings
-                dc.w    loc_1A33A-Cannon_Mappings
-                dc.w    loc_1A35C-Cannon_Mappings
-                dc.w    loc_1A37E-Cannon_Mappings
-                dc.w    loc_1A3A0-Cannon_Mappings
-                dc.w    loc_1A3C2-Cannon_Mappings
-                dc.w    loc_1A3F4-Cannon_Mappings
-loc_1A2C6:
-                dc.w    $0008
-                dc.l    $D8040000, $0000FFF0
-                dc.l    $D8040800, $08000000
-                dc.l    $E0040002, $0001FFF0
-                dc.l    $E0040802, $08010000
-                dc.l    $E80A0011, $0008FFE8
-                dc.l    $E80A0811, $08080000
-                dc.l    $000A1008, $1004FFE8
-                dc.l    $000A1808, $18040000
-loc_1A308:
-                dc.w    $0006
-                dc.l    $E0040000, $0000FFF0
-                dc.l    $E0040800, $08000000
-                dc.l    $E80A0011, $0008FFE8
-                dc.l    $E80A0811, $08080000
-                dc.l    $000A1008, $1004FFE8
-                dc.l    $000A1808, $18040000
-loc_1A33A:
-                dc.w    $0004
-                dc.l    $E80A0011, $0008FFE8
-                dc.l    $E80A0811, $08080000
-                dc.l    $000A1008, $1004FFE8
-                dc.l    $000A1808, $18040000
-loc_1A35C:
-                dc.w    $0004
-                dc.l    $E80A001A, $000DFFE8
-                dc.l    $E80A1823, $18110000
-                dc.l    $000A0023, $0011FFE8
-                dc.l    $000A181A, $180D0000
-loc_1A37E:
-                dc.w    $0004
-                dc.l    $E80A1023, $1011FFE8
-                dc.l    $E80A081A, $080D0000
-                dc.l    $000A101A, $100DFFE8
-                dc.l    $000A0823, $08110000
-loc_1A3A0:
-                dc.w    $0004
-                dc.l    $E80A0008, $0004FFE8
-                dc.l    $E80A102C, $10160000
-                dc.l    $000A1008, $1004FFE8
-                dc.l    $000A002C, $00160000
-loc_1A3C2:
-                dc.w    $0006
-                dc.l    $E80A0008, $0004FFE8
-                dc.l    $E80A102C, $10160000
-                dc.l    $000A1008, $1004FFE8
-                dc.l    $000A002C, $00160000
-                dc.l    $F0010006, $00030018
-                dc.l    $00011006, $10030018
-loc_1A3F4:
-                dc.w    $0008
-                dc.l    $E80A0008, $0004FFE8
-                dc.l    $E80A102C, $10160000
-                dc.l    $000A1008, $1004FFE8
-                dc.l    $000A002C, $00160000
-                dc.l    $F0010004, $00020018
-                dc.l    $00011004, $10020018
-                dc.l    $F0010006, $00030020
-                dc.l    $00011006, $10030020         
+		include 'mappings/sprite/obj48.asm'      
 ;===============================================================================
-; Object 0x48 - Canhões na Oil Ocean
+; Object 0x48 - Cannons in the Oil Ocean
 ; <<<- 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -31582,7 +31453,7 @@ loc_1A7F0:
 ;===============================================================================		
 Obj2B_Raising_Pillar:                                       ; loc_1A812
 ;===============================================================================
-; Object 0x2B - Pilar que sobe quando se aproxima e pode ser destru�do na
+; Object 0x2B - Pilar que sobe quando se aproxima e pode ser destru do na
 ; ->>>          Neo Green Hill 
 ;===============================================================================  
 ; loc_1A812:
@@ -31926,7 +31797,7 @@ loc_1AE1A:
                 dc.l    $20050083, $0041FFF0
                 dc.l    $20050087, $00430000
 ;===============================================================================
-; Object 0x2B - Pilar que sobe quando se aproxima e pode ser destru�do na
+; Object 0x2B - Pilar que sobe quando se aproxima e pode ser destru do na
 ; <<<-          Neo Green Hill 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -42482,7 +42353,7 @@ loc_23AC6:
 		move.l  D3, Obj_Control_Var_0C(A0)                       ; $0038
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina utilizada ap�s os chefes de fase serem derrotados
+; Rotina utilizada ap s os chefes de fase serem derrotados
 ; ->>>
 ;-------------------------------------------------------------------------------
 Boss_Defeated:                                                 ; loc_23AEC
@@ -42508,7 +42379,7 @@ Boss_Defeated:                                                 ; loc_23AEC
 Exit_Boss_Defeated:                                            ; loc_23B32
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina utilizada ap�s os chefes de fase serem derrotados
+; Rotina utilizada ap s os chefes de fase serem derrotados
 ; <<<-
 ;-------------------------------------------------------------------------------
 loc_23B34:
@@ -47273,7 +47144,7 @@ Jmp_16_To_AnimateSprite:                                       ; loc_27E98
 Jmp_0D_To_ObjectFall:                                          ; loc_27E9E
 		jmp     (ObjectFall)                           ; loc_D1AE
 ;-------------------------------------------------------------------------------
-; Rotina usada para inicializar o par�metro de alguns Objects
+; Rotina usada para inicializar o par metro de alguns Objects
 ; ->>>
 ;-------------------------------------------------------------------------------
 Object_Settings:                                               ; loc_27EA4
@@ -47380,7 +47251,7 @@ loc_27F78:
 		move.w  D0, Obj_Speed_Y(A0)                              ; $0012
 		rts
 ;-------------------------------------------------------------------------------
-; Rotina usada para inicializar o par�metro de alguns Objects
+; Rotina usada para inicializar o par metro de alguns Objects
 ; <<<-
 ;-------------------------------------------------------------------------------
 Obj8C_NGHz_Whisp:                                           ; loc_27F84
@@ -55307,7 +55178,7 @@ Previous_Build_Art_Big_Ring_Overwrite:
 ; Nemesis format data overwritten.
 ; 8x8 tiles from the Star Light stage in Sonic 1.
 ; In the Sonic 1 (Revision 01) disassembly, this data is the same as in the file
-; "Sonic_1_Jap/Data/SLz/Tiles.nem" (0x0BF4 � 0x1377)
+; "Sonic_1_Jap/Data/SLz/Tiles.nem" (0x0BF4   0x1377)
 ; ->>>
 ;-------------------------------------------------------------------------------
 Star_Light_Tiles_Overwrite:
@@ -55316,7 +55187,7 @@ Star_Light_Tiles_Overwrite:
 ; Nemesis format data overwritten.
 ; 8x8 tiles from the Star Light stage in Sonic 1.
 ; In the Sonic 1 (Revision 01) disassembly, this data is the same as in the file
-; "Sonic_1_Jap/Data/SLz/Tiles.nem" (0x0BF4 � 0x1377)
+; "Sonic_1_Jap/Data/SLz/Tiles.nem" (0x0BF4   0x1377)
 ; <<<-
 ;-------------------------------------------------------------------------------
 ;===============================================================================
@@ -55418,7 +55289,7 @@ DEz_Obj_Act2:
 ; Kosinski format data overwritten.
 ; 8x8 tiles from the Star Light stage in Sonic 1.
 ; In the Sonic 1 (Revision 01) disassembly, this data is the same as in the file
-; "Sonic_1_Jap/Data/SLz/Chunks.kos" (0x054C � 0x1377)
+; "Sonic_1_Jap/Data/SLz/Chunks.kos" (0x054C   0x1377)
 ; ->>>
 ;-------------------------------------------------------------------------------
 Star_Light_Chunks_Overwrite:                                   ; loc_4ED28
@@ -55427,7 +55298,7 @@ Star_Light_Chunks_Overwrite:                                   ; loc_4ED28
 ; Kosinski format data overwritten.
 ; 8x8 tiles from the Star Light stage in Sonic 1.
 ; In the Sonic 1 (Revision 01) disassembly, this data is the same as in the file
-; "Sonic_1_Jap/Data/SLz/Chunks.kos" (0x054C � 0x1377)
+; "Sonic_1_Jap/Data/SLz/Chunks.kos" (0x054C   0x1377)
 ; <<<-
 ;-------------------------------------------------------------------------------
 
