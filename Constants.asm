@@ -268,6 +268,7 @@ Act_Id                         equ M68K_RAM_Start+$FE11
 Life_Count                     equ M68K_RAM_Start+$FE12
 Special_Stage_Id               equ M68K_RAM_Start+$FE16
 Super_Sonic_Flag               equ M68K_RAM_Start+$FE19
+Time_Over_Flag                 equ M68K_RAM_Start+$FE1A
 Ring_Life_Flag                 equ M68K_RAM_Start+$FE1B
 HUD_Life_Refresh_Flag          equ M68K_RAM_Start+$FE1C
 HUD_Rings_Refresh_Flag         equ M68K_RAM_Start+$FE1D
