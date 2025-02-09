@@ -20259,7 +20259,7 @@ Sonic_HurtStop:
 		bcs     Kill_Sonic				; If yes, branch
 
 		bsr     Sonic_Floor
-		btst    #$1, Obj_Status(A0)			; Are Sonic still in the air?
+		btst    #$1, Obj_Status(A0)			; Is Sonic still in the air?
 		bne.s   loc_10B20				; If yes, branch
 		moveq   #0, D0
 		move.w  D0, Obj_Speed_Y(A0)
@@ -40086,7 +40086,7 @@ loc_21ACB:
                 dc.b    $09, $00, $01, $02, $01, $FF, $00
 ;-------------------------------------------------------------------------------
 Dinobot_Mappings:                                              ; loc_21AD2
-                 include 'mappings/sprite/obj4F.asm'
+		include 'mappings/sprite/obj4F.asm'
 ;===============================================================================
 ; Object 0x4F - Dinobot - Inimigo dinossauro na Hidden Palace
 ; [ End ]
@@ -42930,12 +42930,12 @@ Jmp_2C_To_ModifySpriteAttr_2P:                                 ; loc_24388
 Jmp_17_To_SpeedToPos:                                          ; loc_2438E
 		jmp     (SpeedToPos)                           ; loc_D1DA
 ;-------------------------------------------------------------------------------
-Obj5D:                                                      ; loc_24394
 ;===============================================================================
 ; Object 0x5D - CPZ Boss (Unused)
 ; [ Begin ] 
 ;===============================================================================
 ; loc_24394:
+Obj5D:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_243A2(PC, D0), D1
@@ -43078,7 +43078,7 @@ loc_24580:
                 move.w  (Boss_Move_Buffer).w, Obj_X(A0)              ; $FFFFF750; $0008
                 addq.b  #$02, Obj_Map_Id(A0)                             ; $001A
 ;-------------------------------------------------------------------------------                
-Boss_Hit:     ; Referenciado por chefe da Hill Top             ; loc_2459E                
+Boss_Hit:	; Referenced by Hill Top boss               
                 cmpi.b  #$08, Obj_Ani_Boss_Routine(A0)                   ; $0026
                 bcc.s   loc_245E4
                 tst.b   Obj_Control_Var_06(A0)                           ; $0032
