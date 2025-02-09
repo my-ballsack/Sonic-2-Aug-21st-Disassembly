@@ -4080,7 +4080,7 @@ Level_Select_Text:
 		dc.b    $00 ; alignment
 ;-------------------------------------------------------------------------------
 ; loc_40CE:
-		lea     (M68K_RAM_Start), A1                         ; $FFFF0000
+		lea     (M68K_RAM_Start), A1
 		move.w  #$02EB, D2
 loc_40D8:
 		move.w  (A1), D0
@@ -4096,14 +4096,14 @@ loc_40D8:
 ; loc_40F0:
 		lea     ($00FE0000), A1
 		lea     ($00FE0080), A2
-		lea     (M68K_RAM_Start), A3                         ; $FFFF0000
+		lea     (M68K_RAM_Start), A3
 		move.w  #$003F, D1
 loc_4106:
 		bsr     loc_4198
 		bsr     loc_4198
 		dbra    D1, loc_4106
 		lea     ($00FE0000), A1
-		lea     (M68K_RAM_Start&$00FFFFFF), A2               ; $00FF0000
+		lea     (M68K_RAM_Start&$00FFFFFF), A2
 		move.w  #$003F, D1
 loc_4122:
 		move.w  #$0000, (A2)+
@@ -4116,7 +4116,7 @@ loc_412E:
 ;-------------------------------------------------------------------------------
 ; loc_4136:
 		lea     ($00FE0000), A1
-		lea     (M68K_RAM_Start), A3                         ; $FFFF0000
+		lea     (M68K_RAM_Start), A3
 		moveq   #$1F, D0
 loc_4144:
 		move.l  (A1)+, (A3)+
@@ -4125,7 +4125,7 @@ loc_4144:
 		lea     ($00FE0000), A1
 		move.w  #$00FF, D5
 loc_4156:
-		lea     (M68K_RAM_Start), A3                         ; $FFFF0000
+		lea     (M68K_RAM_Start), A3
 		move.w  D7, D6
 loc_415E:
 		movem.l A1-A3, -(A7)
@@ -4452,16 +4452,16 @@ loc_4550:
 		beq.s   loc_456C
 		moveq   #$17, D0
 loc_456C:
-		bsr     PalLoad4_Water                         ; loc_2964
+		bsr     PalLoad4_Water
 loc_4570:
 		move.w  #$0003, D1
 loc_4574:
-		move.b  #$08, (VBlank_Index).w                       ; $FFFFF62A
-		bsr     Wait_For_VSync                         ; loc_3250
+		move.b  #$08, (VBlank_Index).w
+		bsr     Wait_For_VSync
 		dbra    D1, loc_4574
 		move.w  #$202F, ($FFFFF626).w
-		bsr     Pal_FadeTo_2                           ; loc_25CE
-		tst.w   (Auto_Control_Player_Flag).w                 ; $FFFFFFF0
+		bsr     Pal_FadeTo_2
+		tst.w   (Auto_Control_Player_Flag).w
 		bmi.s   loc_45A4
 		addq.b  #$02, ($FFFFB0A4).w
 		addq.b  #$04, ($FFFFB0E4).w
@@ -4639,31 +4639,31 @@ loc_4784:
 loc_4788:
 		rts
 ;-------------------------------------------------------------------------------
-Dynamic_Water_Index:                                           ; loc_478A
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; HPz_1  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; HPz_2  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; Lvl9_1 ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; Lvl9_2 ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; OOz_1  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; OOz_2  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; DHz_1  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; DHz_2  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; CNz_1  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; CNz_2  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; CPz_1  ; loc_47AA
-		dc.w    Dynamic_CPz_Water-Dynamic_Water_Index  ; CPz_2  ; loc_47AC
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; DEz_1  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; DEz_2  ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; NGHz_1 ; loc_47AA
-		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; NGHz_2 ; loc_47AA
+Dynamic_Water_Index:
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; HPz_1
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; HPz_2
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; Lvl9_1
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; Lvl9_2
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; OOz_1
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; OOz_2
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; DHz_1
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; DHz_2
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; CNz_1
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; CNz_2
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; CPz_1
+		dc.w    Dynamic_CPz_Water-Dynamic_Water_Index  ; CPz_2
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; DEz_1
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; DEz_2
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; NGHz_1
+		dc.w    Dynamic_Null_Water-Dynamic_Water_Index ; NGHz_2
 ;-------------------------------------------------------------------------------
-Dynamic_Null_Water:                                            ; loc_47AA
+Dynamic_Null_Water:
 		rts
 ;-------------------------------------------------------------------------------
-Dynamic_CPz_Water:                                             ; loc_47AC
-		cmpi.w  #$1DE0, (Camera_X).w                         ; $FFFFEE00
+Dynamic_CPz_Water:
+		cmpi.w  #$1DE0, (Camera_X).w
 		bcs.s   loc_47BA
-		move.w  #$0510, (Water_Level_New).w                  ; $FFFFF64A
+		move.w  #$0510, (Water_Level_New).w
 loc_47BA:
 		rts
 ;-------------------------------------------------------------------------------
@@ -26122,7 +26122,7 @@ loc_1545A:
                 bra     Jmp_00_To_DisplaySprite                ; loc_1549C
 ;-------------------------------------------------------------------------------
 Master_Emerald_Mappings:                                       ; loc_15486
-                        include 'mappings/sprite/obj12.asm'
+		include 'mappings/sprite/obj12.asm'
 ;===============================================================================
 ; Object 0x12 - Hidden Palace Emerald
 ; [ End ]
@@ -26253,7 +26253,7 @@ loc_1560C:
                 bra     Jmp_01_To_DisplaySprite                ; loc_159C0
 ;-------------------------------------------------------------------------------
 HPz_Waterfalls_Mappings:                                       ; loc_15624
-                        include 'mappings/sprite/obj13.asm'
+		include 'mappings/sprite/obj13.asm'
 ;===============================================================================
 ; Object 0x13 - Waterfalls in Hidden Palace
 ; [ End ]
@@ -26546,7 +26546,7 @@ Invisible_Block_Mappings:                                      ; loc_16052
 ;===============================================================================		
 Obj7C_Metal_Structure:                                      ; loc_160BE
 ;===============================================================================
-; Object 0x7C - Estrutura de metal no fundo da Chemical Plant
+; Object 0x7C - Metal Structure at the Bottom of Chemical Plant
 ; [ Begin ]
 ;===============================================================================  
 ; loc_160BE:
@@ -26589,25 +26589,14 @@ loc_16126:
                 rts                               
 ;-------------------------------------------------------------------------------
 Metal_Structure_Mappings:                                      ; loc_16128
-                dc.w    loc_1612A-Metal_Structure_Mappings
-loc_1612A:
-                dc.w    $0009
-                dc.l    $800FA000, $A000FFF0
-                dc.l    $A00FB000, $B000FFF0
-                dc.l    $C00FA000, $A000FFF0
-                dc.l    $E00FB000, $B000FFF0
-                dc.l    $000FA000, $A000FFF0
-                dc.l    $200FB000, $B000FFF0
-                dc.l    $400FA000, $A000FFF0
-                dc.l    $600FB000, $B000FFF0
-                dc.l    $7F0FA000, $A000FFF0 
+		include 'mappings/sprite/obj7C.asm'
 ;===============================================================================
-; Object 0x7C - Estrutura de metal no fundo da Chemical Plant
+; Object 0x7C - Metal Structure at the Bottom of Chemical Plant
 ; [ End ]
 ;===============================================================================
-Obj27_Object_Hit:                                           ; loc_16174
+Obj27_Object_Hit:
 ;===============================================================================
-; Object 0x27 - Rotina de resposta ao toque nos Objects das fases
+; Object 0x27 - Touch Response Routine on Level Objects
 ; [ Begin ] 
 ;===============================================================================
 ; loc_16174:
@@ -26657,7 +26646,7 @@ loc_16208:
 Object_Hit_Mappings:                                           ; loc_1620C
 		include 'mappings/sprite/obj27.asm'       
 ;===============================================================================
-; Object 0x27 - Rotina de resposta ao toque nos Objects das fases
+; Object 0x27 - Touch Response Routine on Level Objects
 ; [ End ] 
 ;===============================================================================
 Obj84_Auto_Spin:                                            ; loc_16248
@@ -26737,27 +26726,7 @@ loc_16322:
                 rts     
 ;-------------------------------------------------------------------------------
 Auto_Spin_Attributes_Mappings:                                 ; loc_16324
-                dc.w    loc_1632A-Auto_Spin_Attributes_Mappings
-                dc.w    loc_1634C-Auto_Spin_Attributes_Mappings
-                dc.w    loc_1636E-Auto_Spin_Attributes_Mappings
-loc_1632A:
-                dc.w    $0004
-                dc.l    $F0050038, $001CFFF0
-                dc.l    $F0050038, $001C0000
-                dc.l    $00050038, $001CFFF0
-                dc.l    $00050038, $001C0000
-loc_1634C:
-                dc.w    $0004
-                dc.l    $E0050038, $001CFFC0
-                dc.l    $E0050038, $001C0030
-                dc.l    $10050038, $001CFFC0
-                dc.l    $10050038, $001C0030
-loc_1636E:
-                dc.w    $0004
-                dc.l    $E0050038, $001CFF80
-                dc.l    $E0050038, $001C0070
-                dc.l    $10050038, $001CFF80
-                dc.l    $10050038, $001C0070                    
+		include 'mappings/sprite/obj84.asm'                    
 ;===============================================================================
 ; Object 0x84 - Auto Spin - Hill Top, Hidden Palace, Casino Night
 ; [ End ]
@@ -26772,9 +26741,9 @@ Jmp_00_To_ModifySpriteAttr_2P:                                 ; loc_1639C
 Jmp_00_To_Check_Object_On_Screen:                              ; loc_163A2
 		jmp     (Check_Object_On_Screen)               ; loc_DD66
 ;-------------------------------------------------------------------------------
-Obj06_Spiral_Attributes:                                    ; loc_163A8
+Obj06_Spiral_Attributes:
 ;===============================================================================
-; Object 0x06 - Atributo invisível dos espirais na Emerald Hill / Metropolis
+; Object 0x06 - Invisible attribute of the spirals in Emerald Hill / Metropolis
 ; [ Begin ] 
 ;===============================================================================   
 ; loc_163A8:
@@ -27059,7 +27028,7 @@ loc_167BE:
 loc_167FC:
                 rts                                
 ;===============================================================================
-; Object 0x06 - Atributo invisível dos espirais na Emerald Hill / Metropolis
+; Object 0x06 - Invisible attribute of the spirals in Emerald Hill / Metropolis
 ; [ End ] 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -27072,7 +27041,7 @@ Jmp_01_To_CalcSine:                                            ; loc_16800
 ;-------------------------------------------------------------------------------
 Obj14_Seesaw:                                               ; loc_16808
 ;===============================================================================
-; Object 0x14 - Gangorra na Hill com contrapeso que causa danos se tocado
+; Object 0x14 - Hill Top Seesaw
 ; [ Begin ]
 ;===============================================================================
 ; loc_16808:
@@ -27379,42 +27348,12 @@ loc_16B9F:
                 dc.b    $00
 ;-------------------------------------------------------------------------------
 Seesaw_Mappings:                                               ; loc_16BD0
-                dc.w    loc_16BD8-Seesaw_Mappings
-                dc.w    loc_16C1A-Seesaw_Mappings
-                dc.w    loc_16BD8-Seesaw_Mappings
-                dc.w    loc_16C1A-Seesaw_Mappings
-loc_16BD8:
-                dc.w    $0008
-                dc.l    $FC054014, $400AFFF8
-                dc.l    $0C012012, $2009FFFC
-                dc.l    $E4054006, $4003FFD0
-                dc.l    $EC05400A, $4005FFE0
-                dc.l    $F405400A, $4005FFF0
-                dc.l    $FC05400A, $40050000
-                dc.l    $0405400A, $40050010
-                dc.l    $0C05400E, $40070020
-loc_16C1A:
-                dc.w    $0008
-                dc.l    $FC054014, $400AFFF8
-                dc.l    $0C012012, $2009FFFC
-                dc.l    $F4054000, $4000FFD0
-                dc.l    $F4054002, $4001FFE0
-                dc.l    $F4054002, $4001FFF0
-                dc.l    $F4054002, $40010000
-                dc.l    $F4054002, $40010010
-                dc.l    $F4054800, $48000020
+		include 'mappings/sprite/obj14_a.asm'
 ;-------------------------------------------------------------------------------  
 Seesaw_Badnick_Mappings:                                       ; loc_16C5C
-                dc.w    loc_16C60-Seesaw_Badnick_Mappings
-                dc.w    loc_16C6A-Seesaw_Badnick_Mappings
-loc_16C60:
-                dc.w    $0001
-                dc.l    $F8050000, $0000FFF8
-loc_16C6A:
-                dc.w    $0001
-                dc.l    $F8052000, $2000FFF8
+		include 'mappings/sprite/obj14_b.asm'
 ;===============================================================================
-; Object 0x14 - Gangorra na Hill com contrapeso que causa danos se tocado
+; Object 0x14 - Hill Top Seesaw
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -27429,7 +27368,7 @@ Jmp_00_To_MarkObjGone_2:                                       ; loc_16C86
 ;-------------------------------------------------------------------------------
 Obj16_Teleferics:                                           ; loc_16C8C
 ;===============================================================================
-; Object 0x16 - Teleféricos na Hill Top
+; Object 0x16 - Cable cars in Hill Top
 ; [ Begin ] 
 ;===============================================================================  
 ; loc_16C8C:
@@ -27525,50 +27464,10 @@ loc_16D96:
                 bcs     Jmp_03_To_DeleteObject                 ; loc_16E98
                 rts               
 ;-------------------------------------------------------------------------------
-Teleferics_Mappings                                            ; loc_16DB2
-                dc.w    loc_16DBC-Teleferics_Mappings
-                dc.w    loc_16E0E-Teleferics_Mappings
-                dc.w    loc_16E50-Teleferics_Mappings
-                dc.w    loc_16E62-Teleferics_Mappings
-                dc.w    loc_16E7C-Teleferics_Mappings
-loc_16DBC:
-                dc.w    $000A
-                dc.l    $C1050000, $0000FFE4
-                dc.l    $D0030004, $0002FFE6
-                dc.l    $F0030004, $0002FFE6
-                dc.l    $10010008, $0004FFE7
-                dc.l    $D505000A, $0005000C
-                dc.l    $E003000E, $00070011
-                dc.l    $10010012, $00090011
-                dc.l    $0003000E, $00070011
-                dc.l    $200D0014, $000AFFE0
-                dc.l    $200D0814, $080A0000
-loc_16E0E:
-                dc.w    $0008
-                dc.l    $C1050000, $0000FFE4
-                dc.l    $D0030004, $0002FFE6
-                dc.l    $F0030004, $0002FFE6
-                dc.l    $1001002C, $0016FFE6
-                dc.l    $D505000A, $0005000C
-                dc.l    $E003000E, $00070011
-                dc.l    $1801002E, $00170011
-                dc.l    $0003000E, $00070011
-loc_16E50:
-                dc.w    $0002
-                dc.l    $200D0014, $000AFFE0
-                dc.l    $200D0814, $080A0000
-loc_16E62:
-                dc.w    $0003
-                dc.l    $D805001C, $000EFFF8
-                dc.l    $E8070020, $0010FFF8
-                dc.l    $08070020, $0010FFF8
-loc_16E7C:
-                dc.w    $0003
-                dc.l    $D8050028, $0014FFF8
-                dc.l    $E8070820, $0810FFF8
-                dc.l    $08070820, $0810FFF8
+Teleferics_Mappings:
+		include 'mappings/sprite/obj16.asm'
 ;===============================================================================
-; Object 0x16 - Teleféricos na Hill Top
+; Object 0x16 - Cable cars in Hill Top
 ; [ End ] 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -49597,12 +49496,12 @@ Shellcracker_Mappings:                                         ; loc_29866
 ; Object 0xA0 - Sub-ojeto do Object 0x9F - Inimigo Sheelcracker na Metropolis.
 ; [ End ]          Concha do inimigo.
 ;===============================================================================
-ObjA1_Slicer:                                               ; loc_29906
 ;===============================================================================
-; Object 0xA1 - Inimigo Slicer na Metropolis
+; Object 0xA1 - Slicer Enemy in Metropolis
 ; [ Begin ]
 ;===============================================================================
 ; loc_29906:
+ObjA1_Slicer:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_29914(PC, D0), D1
@@ -49673,15 +49572,15 @@ loc_299B8:
 loc_299CA:
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0        
 ;===============================================================================
-; Object 0xA1 - Inimigo Slicer na Metropolis
+; Object 0xA1 - Slicer Enemy in Metropolis
 ; [ End ]
 ;===============================================================================
-ObjA2_Slicer_Pincers:                                       ; loc_299CE
 ;===============================================================================
-; Object 0xA2 - Sub-Object usado pelo inimigo Slicer na Metropolis.
-; [ Begin ]          Facas que são atiradas no jogador
+; Object 0xA2 - Slicer's Pincers in Metropolis
+; [ Begin ]
 ;===============================================================================
 ; loc_299CE:
+ObjA2_Slicer_Pincers:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_299DC(PC, D0), D1
@@ -49783,82 +49682,17 @@ loc_29AD2:
                 dc.b    $03, $05, $06, $07, $08, $FF       
 ;------------------------------------------------------------------------------- 
 Slicer_Mappings:                                               ; loc_29AD8
-                dc.w    loc_29AEA-Slicer_Mappings
-                dc.w    loc_29B24-Slicer_Mappings
-                dc.w    loc_29B5E-Slicer_Mappings
-                dc.w    loc_29B98-Slicer_Mappings
-                dc.w    loc_29BD2-Slicer_Mappings
-                dc.w    loc_29BEC-Slicer_Mappings
-                dc.w    loc_29BFE-Slicer_Mappings
-                dc.w    loc_29C10-Slicer_Mappings
-                dc.w    loc_29C22-Slicer_Mappings
-loc_29AEA:
-                dc.w    $0007
-                dc.l    $F904001A, $000DFFF4
-                dc.l    $0100001C, $000EFFF4
-                dc.l    $F0090000, $0000FFF0
-                dc.l    $00090006, $0003FFF0
-                dc.l    $0001000C, $00060008
-                dc.l    $F704001A, $000DFFE0
-                dc.l    $FF00001C, $000EFFE0
-loc_29B24:
-                dc.w    $0007
-                dc.l    $F804001A, $000DFFF4
-                dc.l    $0000001C, $000EFFF4
-                dc.l    $F0090000, $0000FFF0
-                dc.l    $0009000E, $0007FFF0
-                dc.l    $0001000C, $00060008
-                dc.l    $F804001A, $000DFFE0
-                dc.l    $0000001C, $000EFFE0
-loc_29B5E:
-                dc.w    $0007
-                dc.l    $F704001A, $000DFFF4
-                dc.l    $FF00001C, $000EFFF4
-                dc.l    $F0090000, $0000FFF0
-                dc.l    $00090014, $000AFFF0
-                dc.l    $0001000C, $00060008
-                dc.l    $F904001A, $000DFFE0
-                dc.l    $0100001C, $000EFFE0
-loc_29B98:
-                dc.w    $0007
-                dc.l    $E004181E, $180FFFF4
-                dc.l    $E800181D, $180EFFFC
-                dc.l    $F0090000, $0000FFF0
-                dc.l    $00090006, $0003FFF0
-                dc.l    $0001000C, $00060008
-                dc.l    $E004181E, $180FFFE0
-                dc.l    $E800181D, $180EFFE8
-loc_29BD2:
-                dc.w    $0003
-                dc.l    $F0090000, $0000FFF0
-                dc.l    $00090006, $0003FFF0
-                dc.l    $0001000C, $00060008
-loc_29BEC:
-                dc.w    $0002
-                dc.l    $F004001A, $000DFFF0
-                dc.l    $F800001C, $000EFFF0
-loc_29BFE:
-                dc.w    $0002
-                dc.l    $0000001D, $000EFFF0
-                dc.l    $0804001E, $000FFFF0
-loc_29C10:
-                dc.w    $0002
-                dc.l    $0000181C, $180E0008
-                dc.l    $0804181A, $180D0000
-loc_29C22:
-                dc.w    $0002
-                dc.l    $F004181E, $180F0000
-                dc.l    $F800181D, $180E0008
+		include 'mappings/sprite/objA1_A2.asm'
 ;===============================================================================
-; Object 0xA2 - Sub-Object usado pelo inimigo Slicer na Metropolis.
-; [ End ]          Facas que são atiradas no jogador
+; Object 0xA2 - Slicer's Pincers in Metropolis
+; [ End ]
 ;===============================================================================
-ObjA3_Flasher:                                              ; loc_29C34
 ;===============================================================================
-; Object 0xA3 - Inimigo vagalume na Dust Hill
+; Object 0xA3 - Flasher Enemy in Dust Hill
 ; [ Begin ]
 ;===============================================================================
 ; loc_29C34:
+ObjA3_Flasher:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_29C42(PC, D0), D1
@@ -49989,59 +49823,17 @@ loc_29DAC:
                 dc.b    $03, $05, $04, $03, $02, $01, $00, $FC   
 ;-------------------------------------------------------------------------------
 Flasher_Mappings:                                              ; loc_29DB4
-                dc.w    loc_29DC0-Flasher_Mappings
-                dc.w    loc_29DCA-Flasher_Mappings
-                dc.w    loc_29DDC-Flasher_Mappings
-                dc.w    loc_29DFE-Flasher_Mappings
-                dc.w    loc_29E30-Flasher_Mappings
-                dc.w    loc_29E62-Flasher_Mappings
-loc_29DC0:
-                dc.w    $0001
-                dc.l    $F8090000, $0000FFF0
-loc_29DCA:
-                dc.w    $0002
-                dc.l    $F8052006, $2003FFF8
-                dc.l    $F8090000, $0000FFF0
-loc_29DDC:
-                dc.w    $0004
-                dc.l    $F801600A, $6005FFF8
-                dc.l    $F801680A, $68050000
-                dc.l    $F8052006, $2003FFF8
-                dc.l    $F8090000, $0000FFF0
-loc_29DFE:
-                dc.w    $0006
-                dc.l    $F005600C, $6006FFF0
-                dc.l    $F005680C, $68060000
-                dc.l    $0005700C, $7006FFF0
-                dc.l    $0005780C, $78060000
-                dc.l    $F8052006, $2003FFF8
-                dc.l    $F8090000, $0000FFF0
-loc_29E30:
-                dc.w    $0006
-                dc.l    $F0056010, $6008FFF0
-                dc.l    $F0056810, $68080000
-                dc.l    $00057010, $7008FFF0
-                dc.l    $00057810, $78080000
-                dc.l    $F8052006, $2003FFF8
-                dc.l    $F8090000, $0000FFF0
-loc_29E62:
-                dc.w    $0006
-                dc.l    $F0056014, $600AFFF0
-                dc.l    $F0056814, $680A0000
-                dc.l    $00057014, $700AFFF0
-                dc.l    $00057814, $780A0000
-                dc.l    $F8052006, $2003FFF8
-                dc.l    $F8090000, $0000FFF0
+		include 'mappings/sprite/objA3.asm'
 ;===============================================================================
-; Object 0xA3 - Inimigo vagalume na Dust Hill
+; Object 0xA3 - Flasher Enemy in Dust Hill
 ; [ End ]
 ;===============================================================================
-ObjA4_Asteron:                                              ; loc_29E94
 ;===============================================================================
-; Object 0xA4 - Inimigo Asteron na Metropolis
+; Object 0xA4 - Asteron Enemy in Metropolis
 ; [ Begin ]
 ;===============================================================================
 ; loc_29E94:
+ObjA4_Asteron:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_29EA2(PC, D0), D1
@@ -50137,50 +49929,28 @@ Enemy_Weapon_Data:                                             ; loc_29F82
                 dc.b    $F8, $08, $FD, $03, $04, $00
                 dc.b    $F8, $FC, $FD, $FF, $03, $00     
 ;-------------------------------------------------------------------------------
-ObjA4_Ptr:                                                  ; loc_29FA0
-                dc.l    Asteron_Mappings                       ; loc_29FB0
+ObjA4_Ptr:
+                dc.l    Asteron_Mappings
                 dc.w    $8368
                 dc.b    $04, $04, $10, $0B
 ;-------------------------------------------------------------------------------
-Asteron_Animate_Data:                                          ; loc_29FAA
+Asteron_Animate_Data:
                 dc.w    loc_29FAC-Asteron_Animate_Data
 loc_29FAC:
                 dc.b    $01, $00, $01, $FF          
 ;-------------------------------------------------------------------------------
-Asteron_Mappings:                                              ; loc_29FB0
-                dc.w    loc_29FBA-Asteron_Mappings
-                dc.w    loc_29FCC-Asteron_Mappings
-                dc.w    loc_29FE6-Asteron_Mappings
-                dc.w    loc_29FF0-Asteron_Mappings
-                dc.w    loc_29FFA-Asteron_Mappings
-loc_29FBA:
-                dc.w    $0002
-                dc.l    $F0070000, $0000FFF0
-                dc.l    $F0070800, $08000000
-loc_29FCC:
-                dc.w    $0003
-                dc.l    $FD00200E, $2007FFFC
-                dc.l    $F0070000, $0000FFF0
-                dc.l    $F0070800, $08000000
-loc_29FE6:
-                dc.w    $0001
-                dc.l    $F8010008, $0004FFFC
-loc_29FF0:
-                dc.w    $0001
-                dc.l    $FC04000A, $0005FFF8
-loc_29FFA:
-                dc.w    $0001
-                dc.l    $F801000C, $0006FFFC 
+Asteron_Mappings:
+		include 'mappings/sprite/objA4.asm'
 ;===============================================================================
-; Object 0xA4 - Inimigo Asteron na Metropolis
+; Object 0xA4 - Asteron Enemy in Metropolis
 ; [ End ]
 ;===============================================================================
-ObjA5_Horizontal_Spiny:                                     ; loc_2A004
 ;===============================================================================
-; Object 0xA5 - Inimigo Lander na Chemical Plant
+; Object 0xA5 - Spiny (crawling badnik) Enemy in Chemical Plant
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A004:
+ObjA5_Horizontal_Spiny:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2A012(PC, D0), D1
@@ -50236,15 +50006,15 @@ loc_2A092:
                 move.b  #$40, Obj_Player_Status(A0)                      ; $002B
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0             
 ;===============================================================================
-; Object 0xA5 - Inimigo Lander na Chemical Plant
+; Object 0xA5 - Spiny (crawling badnik) Enemy in Chemical Plant
 ; [ End ]
 ;===============================================================================
-ObjA6_Vertical_Spiny:                                       ; loc_2A0A0
 ;===============================================================================
-; Object 0xA6 - Inimigo Lander na Chemical Plant
+; Object 0xA6 - Spiny (on wall) Enemy in Chemical Plant
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A0A0:
+ObjA6_Vertical_Spiny:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2A0AE(PC, D0), D1
@@ -50361,69 +50131,20 @@ Spiny_Weapon_Animate_Data:                                     ; loc_2A1DE
 loc_2A1E0:
                 dc.b    $03, $06, $07, $FF                  
 ;-------------------------------------------------------------------------------
-Spiny_Mappings:                                                ; loc_2A1E4
-                dc.w    loc_2A1F4-Spiny_Mappings
-                dc.w    loc_2A216-Spiny_Mappings
-                dc.w    loc_2A238-Spiny_Mappings
-                dc.w    loc_2A25A-Spiny_Mappings
-                dc.w    loc_2A27C-Spiny_Mappings
-                dc.w    loc_2A29E-Spiny_Mappings
-                dc.w    loc_2A2C0-Spiny_Mappings
-                dc.w    loc_2A2CA-Spiny_Mappings
-loc_2A1F4:
-                dc.w    $0004
-                dc.l    $F4000000, $0000FFF8
-                dc.l    $FC090001, $0000FFE8
-                dc.l    $F4000800, $08000000
-                dc.l    $FC090801, $08000000
-loc_2A216:
-                dc.w    $0004
-                dc.l    $F4000000, $0000FFF8
-                dc.l    $FC090007, $0003FFE8
-                dc.l    $F4000800, $08000000
-                dc.l    $FC090807, $08030000
-loc_2A238:
-                dc.w    $0004
-                dc.l    $F404000D, $0006FFF0
-                dc.l    $FC090001, $0000FFE8
-                dc.l    $F404080D, $08060000
-                dc.l    $FC090801, $08000000
-loc_2A25A:
-                dc.w    $0004
-                dc.l    $E806000F, $0007FFF4
-                dc.l    $F8000015, $000A0004
-                dc.l    $0006100F, $1007FFF4
-                dc.l    $00001015, $100A0004
-loc_2A27C:
-                dc.w    $0004
-                dc.l    $E8060016, $000BFFF4
-                dc.l    $F8000015, $000A0004
-                dc.l    $00061016, $100BFFF4
-                dc.l    $00001015, $100A0004
-loc_2A29E:
-                dc.w    $0004
-                dc.l    $E806000F, $0007FFF4
-                dc.l    $F001001C, $000E0004
-                dc.l    $0006100F, $1007FFF4
-                dc.l    $0001101C, $100E0004
-loc_2A2C0:
-                dc.w    $0001
-                dc.l    $FC00001E, $000FFFFC
-loc_2A2CA:
-                dc.w    $0001
-                dc.l    $FC00001F, $000FFFFC 
+Spiny_Mappings:
+		include 'mappings/sprite/objA6.asm'
 ;===============================================================================
-; Object 0xA6 - Inimigo Lander na Chemical Plant
+; Object 0xA6 - Spiny (on wall) Enemy in Chemical Plant
 ; [ End ]
 ;===============================================================================
-ObjA7_Grabber:                                              ; loc_2A2D4
 ;===============================================================================
-; Object 0xA7 - Inimigo Grabber (aranha) na Chemical Plant
+; Object 0xA7 - Grabber Enemy (spider) in Chemical Plant
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A2D4:
+ObjA7_Grabber:
                 moveq   #$00, D0
-                move.b  Obj_Routine(A0), D0                              ; $0024
+                move.b  Obj_Routine(A0), D0
                 move.w  loc_2A2E2(PC, D0), D1
                 jmp     loc_2A2E2(PC, D1)
 ;-------------------------------------------------------------------------------
@@ -50432,20 +50153,20 @@ loc_2A2E2:
                 dc.w    loc_2A2EA-loc_2A2E2       
 ;-------------------------------------------------------------------------------
 loc_2A2E6:
-                bra     Object_Settings                        ; loc_27EA4
+                bra     Object_Settings
 ;-------------------------------------------------------------------------------
 loc_2A2EA:
-                bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0         
+                bra     Jmp_26_To_MarkObjGone        
 ;===============================================================================
-; Object 0xA7 - Inimigo Grabber (aranha) na Chemical Plant
+; Object 0xA7 - Grabber Enemy (spider) in Chemical Plant
 ; [ End ]
 ;===============================================================================
-ObjA8_Grabber_Sub:                                          ; loc_2A2EE
 ;===============================================================================
-; Object 0xA8 - Inimigo Grabber na Chemical Plant
-; [ Begin ]          Object vinculado ao 0xA7
+; Object 0xA8 - Grabber's legs in Chemical Plant
+; [ Begin ]	Object linked to 0xA7	
 ;===============================================================================
 ; loc_2A2EE:
+ObjA8_Grabber_Sub:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2A2FC(PC, D0), D1
@@ -50461,15 +50182,15 @@ loc_2A300:
 loc_2A304:
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0              
 ;===============================================================================
-; Object 0xA8 - Inimigo Grabber na Chemical Plant
-; [ End ]          Object vinculado ao 0xA7
+; Object 0xA8 - Grabber's legs in Chemical Plant
+; [ End ]	Object linked to 0xA7
 ;===============================================================================
-ObjA9_Grabber_Sub:                                          ; loc_2A308
 ;===============================================================================
-; Object 0xA9 - Inimigo Grabber na Chemical Plant
-; [ Begin ]          Object vinculado ao 0xA7
+; Object 0xA9 - The little hanger box thing a Grabber's string comes out of
+; [ Begin ]	Object linked to 0xA7
 ;===============================================================================
 ; loc_2A308:
+ObjA9_Grabber_Sub:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2A316(PC, D0), D1
@@ -50485,15 +50206,15 @@ loc_2A31A:
 loc_2A31E:
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0           
 ;===============================================================================
-; Object 0xA9 - Inimigo Grabber na Chemical Plant
-; [ End ]          Object vinculado ao 0xA7
+; Object 0xA9 - The little hanger box thing a Grabber's string comes out of
+; [ End ]	Object linked to 0xA7
 ;===============================================================================
-ObjAA_Grabber_Sub:                                          ; loc_2A322
 ;===============================================================================
-; Object 0xAA - Inimigo Grabber na Chemical Plant
-; [ Begin ]          Object vinculado ao 0xA7
+; Object 0xAA - The thin white string a Grabber hangs from
+; [ Begin ]	Object linked to 0xA7
 ;===============================================================================
 ; loc_2A322:
+ObjAA_Grabber_Sub:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2A330(PC, D0), D1
@@ -50509,15 +50230,15 @@ loc_2A334:
 loc_2A338:
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0           
 ;===============================================================================
-; Object 0xAA - Inimigo Grabber na Chemical Plant
-; [ End ]          Object vinculado ao 0xA7
+; Object 0xAA - The thin white string a Grabber hangs from
+; [ End ]	Object linked to 0xA7
 ;===============================================================================
-ObjAB_Grabber_Sub:                                          ; loc_2A33C
 ;===============================================================================
-; Object 0xAB - Inimigo Grabber na Chemical Plant
-; [ Begin ]          Object vinculado ao 0xA7
+; Object 0xAB - Grabber Enemy in Chemical Plant
+; [ Begin ]	Object linked to 0xA7
 ;===============================================================================
 ; loc_2A33C:
+ObjAB_Grabber_Sub:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2A34A(PC, D0), D1
@@ -50548,53 +50269,18 @@ ObjA9_Ptr:                                                  ; loc_2A36A
                 dc.w    $2500
                 dc.b    $04, $04, $04, $00      
 ;------------------------------------------------------------------------------- 
-Grabber_Mappings:                                              ; loc_2A374
-                dc.w    loc_2A384-Grabber_Mappings
-                dc.w    loc_2A39E-Grabber_Mappings
-                dc.w    loc_2A3B8-Grabber_Mappings
-                dc.w    loc_2A3C2-Grabber_Mappings
-                dc.w    loc_2A3CC-Grabber_Mappings
-                dc.w    loc_2A3D6-Grabber_Mappings
-                dc.w    loc_2A3E0-Grabber_Mappings
-                dc.w    loc_2A3EA-Grabber_Mappings
-loc_2A384:
-                dc.w    $0003
-                dc.l    $F8010000, $0000FFEC
-                dc.l    $F80D0002, $0001FFF4
-                dc.l    $0809001D, $000EFFF0
-loc_2A39E:
-                dc.w    $0003
-                dc.l    $F8010000, $0000FFEC
-                dc.l    $F80D0002, $0001FFF4
-                dc.l    $080D0023, $0011FFF0
-loc_2A3B8:
-                dc.w    $0001
-                dc.l    $FC00000A, $0005FFFC
-loc_2A3C2:
-                dc.w    $0001
-                dc.l    $F003000B, $0005FFFC
-loc_2A3CC:
-                dc.w    $0001
-                dc.l    $F809000F, $0007FFF0
-loc_2A3D6:
-                dc.w    $0001
-                dc.l    $F80D0015, $000AFFF0
-loc_2A3E0:
-                dc.w    $0001
-                dc.l    $FC00002B, $0015FFFC
-loc_2A3EA:
-                dc.w    $0001
-                dc.l    $FC00002C, $0016FFFC 
+Grabber_Mappings:
+		include 'mappings/sprite/objA7_A8_A9.asm' 
 ;===============================================================================
-; Object 0xAB - Inimigo Grabber na Chemical Plant
-; [ End ]          Object vinculado ao 0xA7
+; Object 0xAB - Grabber Enemy in Chemical Plant
+; [ End ]	Object linked to 0xA7
 ;===============================================================================
-ObjAC_Balkiry:                                              ; loc_2A3F4
 ;===============================================================================
-; Object 0xAC - Inimigo Balkiry na Sky Chase
+; Object 0xAC - Balkiry Enemy in Sky Chase
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A3F4:
+ObjAC_Balkiry:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2A402(PC, D0), D1
@@ -50620,32 +50306,18 @@ ObjAC_Ptr:                                                  ; loc_2A424
                 dc.w    $2500
                 dc.b    $04, $04, $20, $08
 ;-------------------------------------------------------------------------------
-Balkiry_Mappings:                                              ; loc_2A42E
-                dc.w    loc_2A432-Balkiry_Mappings
-                dc.w    loc_2A454-Balkiry_Mappings
-loc_2A432:
-                dc.w    $0004
-                dc.l    $F40D0000, $0000FFDC
-                dc.l    $EC040008, $0004000C
-                dc.l    $F40D000A, $0005FFFC
-                dc.l    $04080012, $0009FFFC
-loc_2A454:
-                dc.w    $0005
-                dc.l    $F40D0000, $0000FFDC
-                dc.l    $EC040008, $0004000C
-                dc.l    $F40D000A, $0005FFFC
-                dc.l    $04080015, $000A000C
-                dc.l    $0C000018, $000C001C         
+Balkiry_Mappings:
+		include 'mappings/sprite/objAC.asm'
 ;===============================================================================
-; Object 0xAC - Inimigo Balkiry na Sky Chase
+; Object 0xAC - Balkiry Enemy in Sky Chase
 ; [ End ]
 ;===============================================================================
-ObjAD_Clucker_Platform:                                     ; loc_2A47E
 ;===============================================================================
-; Object 0xAD - Plataforma embaixo do Inimigo Clucker na Sky Fortress
+; Object 0xAD - Platform underneath the Clucker Enemy in Sky Fortress
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A47E:
+ObjAD_Clucker_Platform:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2A48C(PC, D0), D1
@@ -50679,15 +50351,15 @@ loc_2A4CA:
                 bsr.s   loc_2A4B6
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0           
 ;===============================================================================
-; Object 0xAD - Plataforma embaixo do Inimigo Clucker na Sky Fortress
+; Object 0xAD - Platform underneath the Clucker Enemy in Sky Fortress
 ; [ End ]
 ;===============================================================================
-ObjAE_Clucker:                                              ; loc_2A4D0
 ;===============================================================================
-; Object 0xAE - Galo do inimigo Clucker na Sky Fortress
+; Object 0xAE - Enemy Clucker Rooster in Sky Fortress
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A4D0:
+ObjAE_Clucker:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2A4DE(PC, D0), D1
@@ -50809,107 +50481,10 @@ loc_2A612:
                 dc.b    $03, $0D, $0E, $0F, $10, $11, $12, $13
                 dc.b    $14, $FF                              
 ;-------------------------------------------------------------------------------    
-Clucker_Mappings:                                              ; loc_2A61C
-                dc.w    loc_2A646-Clucker_Mappings
-                dc.w    loc_2A650-Clucker_Mappings
-                dc.w    loc_2A65A-Clucker_Mappings
-                dc.w    loc_2A664-Clucker_Mappings
-                dc.w    loc_2A676-Clucker_Mappings
-                dc.w    loc_2A688-Clucker_Mappings
-                dc.w    loc_2A69A-Clucker_Mappings
-                dc.w    loc_2A6AC-Clucker_Mappings
-                dc.w    loc_2A6BE-Clucker_Mappings
-                dc.w    loc_2A6D8-Clucker_Mappings
-                dc.w    loc_2A6F2-Clucker_Mappings
-                dc.w    loc_2A70C-Clucker_Mappings
-                dc.w    loc_2A726-Clucker_Mappings
-                dc.w    loc_2A738-Clucker_Mappings
-                dc.w    loc_2A742-Clucker_Mappings
-                dc.w    loc_2A74C-Clucker_Mappings
-                dc.w    loc_2A756-Clucker_Mappings
-                dc.w    loc_2A760-Clucker_Mappings
-                dc.w    loc_2A76A-Clucker_Mappings
-                dc.w    loc_2A774-Clucker_Mappings
-                dc.w    loc_2A77E-Clucker_Mappings
-loc_2A646:
-                dc.w    $0001
-                dc.l    $0C0D0000, $0000FFF0
-loc_2A650:
-                dc.w    $0001
-                dc.l    $080D0000, $0000FFF0
-loc_2A65A:
-                dc.w    $0001
-                dc.l    $040D0000, $0000FFF0
-loc_2A664:
-                dc.w    $0002
-                dc.l    $000D0000, $0000FFF0
-                dc.l    $100D0008, $0004FFF0
-loc_2A676:
-                dc.w    $0002
-                dc.l    $FC0D0000, $0000FFF0
-                dc.l    $0C0D0008, $0004FFF0
-loc_2A688:
-                dc.w    $0002
-                dc.l    $F80D0000, $0000FFF0
-                dc.l    $080D0008, $0004FFF0
-loc_2A69A:
-                dc.w    $0002
-                dc.l    $F40D0000, $0000FFF0
-                dc.l    $040D0008, $0004FFF0
-loc_2A6AC:
-                dc.w    $0002
-                dc.l    $F00D0000, $0000FFF0
-                dc.l    $000D0008, $0004FFF0
-loc_2A6BE:
-                dc.w    $0003
-                dc.l    $F00D0000, $0000FFF0
-                dc.l    $000D0008, $0004FFF0
-                dc.l    $07000010, $0008FFEE
-loc_2A6D8:
-                dc.w    $0003
-                dc.l    $F00D0000, $0000FFF0
-                dc.l    $000D0008, $0004FFF0
-                dc.l    $07000010, $0008FFEC
-loc_2A6F2:
-                dc.w    $0003
-                dc.l    $F00D0000, $0000FFF0
-                dc.l    $000D0008, $0004FFF0
-                dc.l    $07000010, $0008FFEA
-loc_2A70C:
-                dc.w    $0003
-                dc.l    $F00D0000, $0000FFF0
-                dc.l    $000D0008, $0004FFF0
-                dc.l    $07000010, $0008FFE8
-loc_2A726:
-                dc.w    $0002
-                dc.l    $F8090011, $0008FFE8
-                dc.l    $F8090811, $08080000
-loc_2A738:
-                dc.w    $0001
-                dc.l    $FC000017, $000BFFFC
-loc_2A742:
-                dc.w    $0001
-                dc.l    $FC000018, $000CFFFC
-loc_2A74C:
-                dc.w    $0001
-                dc.l    $FC000019, $000CFFFC
-loc_2A756:
-                dc.w    $0001
-                dc.l    $FC001018, $100CFFFC
-loc_2A760:
-                dc.w    $0001
-                dc.l    $FC001017, $100BFFFC
-loc_2A76A:
-                dc.w    $0001
-                dc.l    $FC001818, $180CFFFC
-loc_2A774:
-                dc.w    $0001
-                dc.l    $FC000819, $080CFFFC
-loc_2A77E:
-                dc.w    $0001
-                dc.l    $FC000818, $080CFFFC 
+Clucker_Mappings:
+		include 'mappings/sprite/objAE.asm'
 ;===============================================================================
-; Object 0xAE - Galo do inimigo Clucker na Sky Fortress
+; Object 0xAE - Enemy Clucker Rooster in Sky Fortress
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -50937,14 +50512,14 @@ Jmp_19_To_SpeedToPos:                                          ; loc_2A7C4
 		jmp     (SpeedToPos)                           ; loc_D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj8A_S1_Credits:                                           ; loc_2A7CC
 ;===============================================================================
 ; Object 0x8A - Sonic 1 Credits
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A7CC:
+Obj8A_S1_Credits:
                 moveq   #$00, D0
-                move.b  Obj_Routine(A0), D0                              ; $0024
+                move.b  Obj_Routine(A0), D0
                 move.w  loc_2A7DA(PC, D0), D1
                 jmp     loc_2A7DA(PC, D1)   
 ;-------------------------------------------------------------------------------
@@ -53657,15 +53232,15 @@ NGHz_Animate_Script:                                           ; loc_2CB96
 		dc.w    $8500                      ; VRAM
 		dc.w    $0204                      ; Frames / Tiles
 		dc.w    $0004                      ; Load Frame / Frame Time
-Lvl1_Animate_Script:                                           ; loc_2CBC0
-Wz_Animate_Script:                                             ; loc_2CBC0
-Lvl3_Animate_Script:                                           ; loc_2CBC0
-Lvl6_Animate_Script:                                           ; loc_2CBC0
-Lvl9_Animate_Script:                                           ; loc_2CBC0
-DHz_Animate_Script:                                            ; loc_2CBC0
-GCz_Animate_Script:                                            ; loc_2CBC0
-DEz_Animate_Script:                                            ; loc_2CBC0
-		cmpi.b  #$0D, (Level_Id).w                           ; $FFFFFE10
+Lvl1_Animate_Script:
+Wz_Animate_Script:
+Lvl3_Animate_Script:
+Lvl6_Animate_Script:
+Lvl9_Animate_Script:
+DHz_Animate_Script:
+GCz_Animate_Script:
+DEz_Animate_Script:
+		cmpi.b  #$0D, (Level_Id).w
 		beq.s   loc_2CBCA
 loc_2CBC8:
 		rts
@@ -53680,7 +53255,7 @@ loc_2CBC8:
 ; [ Begin ]
 ;===============================================================================
 loc_2CBCA:
-		move.w  (Camera_X).w, D0                             ; $FFFFEE00
+		move.w  (Camera_X).w, D0
 		cmpi.w  #$1940, D0
 		bcs.s   loc_2CBC8
 		cmpi.w  #$1F80, D0
@@ -53688,7 +53263,7 @@ loc_2CBCA:
 		subq.b  #$01, ($FFFFF721).w
 		bpl.s   loc_2CBC8
 		move.b  #$07, ($FFFFF721).w
-		move.b  #$01, (Refresh_Level_Layout).w               ; $FFFFF720
+		move.b  #$01, (Refresh_Level_Layout).w
 		lea     ($FFFF7500), A1
 		bsr.s   loc_2CBFA
 		lea     ($FFFF7D00), A1
@@ -53982,7 +53557,7 @@ loc_2D17A:
                 move.b  D0, Obj_Map_Id(A0)                               ; $001A
                 jmp     (DisplaySprite)                        ; loc_D322   
 ;-------------------------------------------------------------------------------  
-Head_Up_Display_Mappings:                                      ; loc_2D184
+Head_Up_Display_Mappings:
 		include "mappings/sprite/obj21.asm"                         
 ;===============================================================================
 ; Object 0x21 - Display of Points, time, rings and lives
