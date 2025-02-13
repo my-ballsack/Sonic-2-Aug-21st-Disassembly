@@ -47883,12 +47883,13 @@ loc_286F0:
 ; Object 0x93 - Broca lançada pelo inimigo Spiker na Hill Top
 ; [ End ]
 ;===============================================================================
-Obj95_Sol:                                                  ; loc_286FA
+
 ;===============================================================================
-; Object 0x95 - Inimigo Sol na Hill Top (Possui 4 Bolas de fogo girando em
-; [ Begin ]          torno de si e atira no jogador ao se aproximar)
+; Object 0x95 - Sol Enemy in Hill Top
+; [ Begin ]
 ;===============================================================================
 ; loc_286FA:
+Obj95_Sol:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_28708(PC, D0), D1
@@ -48041,38 +48042,20 @@ Sol_Animate_Data_01:                                           ; loc_288DC
 loc_288DE:
                 dc.b    $05, $03, $04, $FF       
 ;------------------------------------------------------------------------------- 
-Sol_Mappings:                                                  ; loc_288E2
-                dc.w    loc_288EC-Sol_Mappings
-                dc.w    loc_288F6-Sol_Mappings
-                dc.w    loc_28900-Sol_Mappings
-                dc.w    loc_2890A-Sol_Mappings
-                dc.w    loc_28914-Sol_Mappings
-loc_288EC:
-                dc.w    $0001
-                dc.l    $F80503DE, $01EFFFF8
-loc_288F6:
-                dc.w    $0001
-                dc.l    $F80503DE, $01EFFFF8
-loc_28900:
-                dc.w    $0001
-                dc.l    $F80503DE, $01EFFFF8
-loc_2890A:
-                dc.w    $0001
-                dc.l    $F80583AE, $81E7FFF8
-loc_28914:
-                dc.w    $0001
-                dc.l    $F8058BAE, $8DE7FFF8   
+Sol_Mappings:
+		include 'mappings/sprite/obj95.asm'                   
 ;===============================================================================
-; Object 0x95 - Inimigo Sol na Hill Top (Possui 4 Bolas de fogo girando em
-; [ End ]          torno de si e atira no jogador ao se aproximar)
+; Object 0x95 - Sol Enemy in Hill Top
+; [ End ]
 ;===============================================================================
-Obj94_Rexon_Body:                                           ; loc_2891E
-Obj96_Rexon_Body:                                           ; loc_2891E
+
 ;===============================================================================
-; Object 0x96 - Corpo do inimigo Rexon na Hill Top (Inimigo tipo cobra que atira
-; [ Begin ]          bolas de fogo no jogador)
+; Object 0x96 - Rexon Enemy's body in Hill Top
+; [ Begin ]
 ;===============================================================================
 ; loc_2891E:
+Obj94_Rexon_Body:
+Obj96_Rexon_Body:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2892C(PC, D0), D1
@@ -48136,15 +48119,16 @@ loc_289C6:
                 bsr.s   loc_289B2
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0         
 ;===============================================================================
-; Object 0x96 - Corpo do inimigo Rexon na Hill Top (Inimigo tipo cobra que atira
-; [ End ]          bolas de fogo no jogador)
+; Object 0x96 - Rexon Enemy's body in Hill Top
+; [ End ]
 ;===============================================================================
-Obj97_Rexon_Head:                                           ; loc_289CC
+
 ;===============================================================================
-; Object 0x97 - Cabeça do inimigo Rexon na Hill Top (Inimigo tipo cobra que
-; [ Begin ]          atira bolas de fogo no jogador)
+; Object 0x97 - Rexon Enemy's head in Hill Top
+; [ Begin ]
 ;===============================================================================
 ; loc_289CC:
+Obj97_Rexon_Head:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_289DA(PC, D0), D1
@@ -48379,28 +48363,13 @@ loc_28C64:
                 neg.w   D2
                 rts               
 ;-------------------------------------------------------------------------------
-Obj96_Ptr:                                                  ; loc_28C6A
-                dc.l    Rexon_Mappings                         ; loc_28C74
+Obj96_Ptr:
+                dc.l    Rexon_Mappings
                 dc.w    $637E
                 dc.b    $04, $04, $10, $00         
 ;-------------------------------------------------------------------------------  
-Rexon_Mappings:                                                ; loc_28C74
-                dc.w    loc_28C7C-Rexon_Mappings
-                dc.w    loc_28C86-Rexon_Mappings
-                dc.w    loc_28C90-Rexon_Mappings
-                dc.w    loc_28C9A-Rexon_Mappings
-loc_28C7C:
-                dc.w    $0001
-                dc.l    $FA090000, $0000FFEC
-loc_28C86:
-                dc.w    $0001
-                dc.l    $F8050006, $0003FFF8
-loc_28C90:
-                dc.w    $0001
-                dc.l    $F80D000A, $0005FFF0
-loc_28C9A:
-                dc.w    $0001
-                dc.l    $FC000012, $0009FFFC       
+Rexon_Mappings:
+		include 'mappings/sprite/obj96.asm'
 ;-------------------------------------------------------------------------------  
 loc_28CA4:
                 dc.b    $0F, $00, $0F, $FF, $0F, $FF, $0F, $FE
@@ -48412,15 +48381,16 @@ loc_28CA4:
                 dc.b    $06, $F2, $05, $F2, $04, $F2, $04, $F1
                 dc.b    $03, $F1, $02, $F1, $01, $F1, $01, $F1
 ;===============================================================================
-; Object 0x97 - Cabeça do inimigo Rexon na Hill Top (Inimigo tipo cobra que
-; [ End ]          atira bolas de fogo no jogador)
+; Object 0x97 - Rexon Enemy's head in Hill Top
+; [ End ]
 ;===============================================================================
-Obj98_Enemies_Weapons:                                      ; loc_28CE4
+
 ;===============================================================================
-; Object 0x98 - Armas usadas pelos inimigos. Ex: Coco atirado pelo Coconuts
+; Object 0x98 - Projectiles used by enemies. e.g. Coconuts thrown by Coconuts
 ; [ Begin ]
 ;===============================================================================
 ; loc_28CE4:
+Obj98_Enemies_Weapons:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_28CF2(PC, D0), D1
@@ -48505,15 +48475,16 @@ Clucker_Bullet_Map_Ptr:                                        ; loc_28D98
                 dc.w    $23EE
                 dc.b    $84, $05, $04, $98
 ;===============================================================================
-; Object 0x98 - Armas usadas pelos inimigos. Ex: Coco atirado pelo Coconuts
+; Object 0x98 - Projectiles used by enemies. e.g. Coconuts thrown by Coconuts.
 ; [ End ]
 ;===============================================================================
-Obj99_Nebula:                                               ; loc_28DA2
+
 ;===============================================================================
-; Object 0x99 - Inimigo Nebula na Sky Chase  (Joga bombas no jogador)
+; Object 0x99 - Nebula Enemy in Sky Chase
 ; [ Begin ]
 ;===============================================================================
 ; loc_28DA2:
+Obj99_Nebula:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_28DB0(PC, D0), D1
@@ -48585,49 +48556,19 @@ Nebula_Animate_Data:                                           ; loc_28E64
 loc_28E66:
                 dc.b    $03, $00, $01, $02, $03, $FF     
 ;-------------------------------------------------------------------------------  
-Nebula_Mappings:                                               ; loc_28E6C
-                dc.w    loc_28E76-Nebula_Mappings
-                dc.w    loc_28E98-Nebula_Mappings
-                dc.w    loc_28EBA-Nebula_Mappings
-                dc.w    loc_28EDC-Nebula_Mappings
-                dc.w    loc_28EFE-Nebula_Mappings
-loc_28E76:
-                dc.w    $0004
-                dc.l    $EC080012, $0009FFE8
-                dc.l    $EC081812, $18090000
-                dc.l    $EC040000, $0000FFF8
-                dc.l    $F40F0002, $0001FFF0
-loc_28E98:
-                dc.w    $0004
-                dc.l    $EC040015, $000AFFF0
-                dc.l    $EC041815, $180A0000
-                dc.l    $EC040000, $0000FFF8
-                dc.l    $F40F0002, $0001FFF0
-loc_28EBA:
-                dc.w    $0004
-                dc.l    $EC000017, $000BFFF8
-                dc.l    $EC000817, $080B0000
-                dc.l    $EC040000, $0000FFF8
-                dc.l    $F40F0002, $0001FFF0
-loc_28EDC:
-                dc.w    $0004
-                dc.l    $EC041015, $100AFFF0
-                dc.l    $EC040815, $080A0000
-                dc.l    $EC040000, $0000FFF8
-                dc.l    $F40F0002, $0001FFF0
-loc_28EFE:
-                dc.w    $0001
-                dc.l    $F8050018, $000CFFF8  
+Nebula_Mappings:
+		include 'mappings/sprite/obj99.asm'  
 ;===============================================================================
-; Object 0x99 - Inimigo Nebula na Sky Chase  (Joga bombas no jogador)
+; Object 0x99 - Nebula Enemy in Sky Chase
 ; [ End ]
 ;===============================================================================
-Obj9A_Turtloid:                                             ; loc_28F08
+
 ;===============================================================================
-; Object 0x9A - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
-; [ Begin ] 
+; Object 0x9A - Turtloid Enemy in Sky Chase
+; [ Begin ]
 ;===============================================================================   
 ; loc_28F08:
+Obj9A_Turtloid:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_28F16(PC, D0), D1
@@ -48708,15 +48649,16 @@ loc_28FE0:
 loc_28FE2:
                 rts
 ;===============================================================================
-; Object 0x9A - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
+; Object 0x9A - Turtloid Enemy in Sky Chase
 ; [ End ] 
 ;===============================================================================
-Obj9B_Turtloid_Rider:                                       ; loc_28FE4
+
 ;===============================================================================
-; Object 0x9B - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
-; [ Begin ]          Object utilizado pelo 0x9A
+; Object 0x9B - Turtloid rider Enemy in Sky Chase
+; [ Begin ]	Object used by 0x9A
 ;===============================================================================
 ; loc_28FE4:
+Obj9B_Turtloid_Rider:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_28FF2(PC, D0), D1
@@ -48764,15 +48706,16 @@ Load_Turtloid_Sub_Obj9B:                                    ; loc_29028
 loc_2905E:
                 rts 
 ;===============================================================================
-; Object 0x9B - Inimigo tartaruga na Sky Chase (Atira bolas de fogo no jogador)
-; [ End ]          Object utilizado pelo 0x9A
+; Object 0x9B - Turtloid rider Enemy in Sky Chase
+; [ End ]	Object used by 0x9A
 ;===============================================================================
-Obj9C_Enemy_Boost:                                          ; loc_29060
+
 ;===============================================================================
-; Object 0x9C - Fogo da turbina usada pelos inimigos Tutloid e Balkiry
-; [ Begin ]          Object utilizado pelo 0x9A e 0xAC
+; Object 0x9C - Fire from the turbine used by enemies Tutloid and Balkiry
+; [ Begin ]	Object used by 0x9A and 0xAC
 ;===============================================================================
 ; loc_29060:
+Obj9C_Enemy_Boost:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2906E(PC, D0), D1
@@ -48857,60 +48800,18 @@ loc_2913C:
                 dc.b    $01, $08, $09, $FF                      
 ;-------------------------------------------------------------------------------
 Turtloid_Mappings:                                             ; loc_29140
-                dc.w    loc_29154-Turtloid_Mappings
-                dc.w    loc_2916E-Turtloid_Mappings
-                dc.w    loc_29188-Turtloid_Mappings
-                dc.w    loc_29192-Turtloid_Mappings
-                dc.w    loc_2919C-Turtloid_Mappings
-                dc.w    loc_291A6-Turtloid_Mappings
-                dc.w    loc_291B0-Turtloid_Mappings
-                dc.w    loc_291BA-Turtloid_Mappings
-                dc.w    loc_291C4-Turtloid_Mappings
-                dc.w    loc_291CE-Turtloid_Mappings
-loc_29154:
-                dc.w    $0003
-                dc.l    $F0090000, $0000FFE4
-                dc.l    $F00F0006, $0003FFFC
-                dc.l    $00090016, $000BFFE4
-loc_2916E:
-                dc.w    $0003
-                dc.l    $F0090000, $0000FFE4
-                dc.l    $0009001C, $000EFFE4
-                dc.l    $F00F0006, $0003FFFC
-loc_29188:
-                dc.w    $0001
-                dc.l    $F40A0022, $0011FFF4
-loc_29192:
-                dc.w    $0001
-                dc.l    $F40A002B, $0015FFF4
-loc_2919C:
-                dc.w    $0001
-                dc.l    $FC000034, $001AFFFC
-loc_291A6:
-                dc.w    $0001
-                dc.l    $FC000035, $001AFFFC
-loc_291B0:
-                dc.w    $0001
-                dc.l    $06040036, $001B001C
-loc_291BA:
-                dc.w    $0001
-                dc.l    $06000038, $001C001C
-loc_291C4:
-                dc.w    $0001
-                dc.l    $FB040036, $001B001B
-loc_291CE:
-                dc.w    $0001
-                dc.l    $FB000038, $001C001B
+		include 'mappings/sprite/obj9C.asm'
 ;===============================================================================
-; Object 0x9C - Fogo da turbina usada pelos inimigos Tutloid e Balkiry
-; [ End ]          Object utilizado pelo 0x9A e 0xAC
+; Object 0x9C - Fire from the turbine used by enemies Tutloid and Balkiry
+; [ End ]	Object used by 0x9A and 0xAC
 ;===============================================================================
-Obj9D_Coconuts:                                             ; loc_291D8
+
 ;===============================================================================
 ; Object 0x9D - Coconuts Enemy in Green Hill
 ; [ Begin ]
 ;=============================================================================== 
 ; loc_291D8:
+Obj9D_Coconuts:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_291E6(PC, D0), D1
@@ -54800,12 +54701,15 @@ Sonic_Dyn_Script:
 ;-------------------------------------------------------------------------------
 Art_Shield:
 		incbin  'art/nemesis/shield.nem'
+		even
 Art_Invencibility_Stars:
 		incbin  'art/nemesis/invstars.nem'
+		even
 Art_Water_Splash_Dust:
 		incbin  'art/uncompressed/spshdust.dat'
 Art_Water_Splash:
 		incbin  'art/nemesis/w_splash.nem'
+		even
 ;-------------------------------------------------------------------------------
 Tails_Mappings:
 		include "mappings/sprite/Tails.asm"
@@ -54815,6 +54719,7 @@ Tails_Dyn_Script:
 ;-------------------------------------------------------------------------------
 Art_SEGA:
 		incbin  'art/nemesis/sega.nem'
+		even
 Sega_Mappings:
 		incbin  'mappings/eni/sega.eni'
 TS_Wings_Sonic_Mappings:
@@ -54825,304 +54730,452 @@ Title_Screen_R_Bg_Mappings:
 		incbin  'mappings/eni/titscrb2.eni'
 Art_Title_Screen_Bg_Wings:
 		incbin  'art/nemesis/titlescr.nem' ; Title Screen Wings and background
+		even
 Art_Title_Screen_Sonic_Tails:
 		incbin  'art/nemesis/snctlscr.nem' ; Sonic And Tails in Title Screen
+		even
 Art_FireBall:
 		incbin  'art/nemesis/fireball.nem'
+		even
 Art_GHz_Waterfall:
 		incbin  'art/nemesis/ehzwatrfall.nem'
+		even
 Art_HTz_Lava_Bubble:
 		incbin  'art/nemesis/lvbubble.nem'
+		even
 Art_GHz_Bridge:
 		incbin  'art/nemesis/ehzbridge.nem'
+		even
 Art_HTz_Teleferic:
 		incbin  'art/nemesis/telefrcs.nem'
+		even
 Art_HTz_Automatic_Door:
 		incbin  'art/nemesis/htzautodoor.nem'
+		even
 Art_HTz_See_saw:
 		incbin  'art/nemesis/see-saw.nem'
+		even
 Art_Unk_Fireball: ; Not used
 		incbin  'art/nemesis/unkfball.nem'
+		even
 Art_HTz_Rock:
 		incbin  'art/nemesis/rock.nem'
+		even
 Art_HTz_See_saw_badnik:
 		incbin  'art/nemesis/see-sawb.nem'
+		even
 Art_Mz_Rotating_Gear:
 		incbin  'art/nemesis/gear.nem'
+		even
 Art_Mz_Gear_Holes:
 		incbin  'art/nemesis/gearhole.nem'
+		even
 Art_Mz_Harpon_Platform:
 		incbin  'art/nemesis/harp_ptf.nem'
+		even
 Art_Mz_Steam:
 		incbin  'art/nemesis/steam.nem'
+		even
 Art_Mz_Harpon:
 		incbin  'art/nemesis/harpoon.nem'
+		even
 Art_Mz_Screw_Nut:
 		incbin  'art/nemesis/screwnut.nem'
+		even
 Art_Mz_Lava_Bubble:
 		incbin  'art/nemesis/mzlvbubble.nem'
+		even
 Art_Mz_Elevator:
 		incbin  'art/nemesis/mzelevator.nem'
+		even
 Art_Mz_Parallelogram_Elevator:
 		incbin  'art/nemesis/parallel.nem'
+		even
 Art_Mz_Miscellaneous:
 		incbin  'art/nemesis/miscelns.nem'
+		even
 Art_Mz_Mini_Gear:
 		incbin  'art/nemesis/minigear.nem'
+		even
 Art_Mz_Teleport_Flash:
 		incbin  'art/nemesis/tlpflash.nem'
+		even
 Art_HPz_Bridge:
 		incbin  'art/nemesis/hpzbridge.nem'
+		even
 Art_HPz_Waterfall:
 		incbin  'art/nemesis/hpzwatrfall.nem'
+		even
 Art_HPz_Emerald:
 		incbin  'art/nemesis/emerald.nem'
+		even
 Art_HPz_Platform:
 		incbin  'art/nemesis/platform.nem'
+		even
 Art_HPz_Orbs_2:
 		incbin  'art/nemesis/orbs.nem'
+		even
 Art_HPz_Unknow_Platform:
 		incbin  'art/nemesis/unkptfm.nem'
+		even
 Art_OOz_Giant_Spikeball:
 		incbin  'art/nemesis/gspkball.nem'
+		even
 Art_OOz_Touch_Boost_Up:
 		incbin  'art/nemesis/boost_up.nem'
+		even
 Art_OOz_Break_To_Boost_Horizontal:
 		incbin  'art/nemesis/brkbst_h.nem'
+		even
 Art_OOz_Oil:
 		incbin  'art/nemesis/oil.nem'
+		even
 Art_OOz_Oil_01:
 		incbin  'art/nemesis/oil_01.nem'
+		even
 Art_OOz_Ball:
 		incbin  'art/nemesis/ball.nem'
+		even
 Art_OOz_Cannon:
 		incbin  'art/nemesis/cannon.nem'
+		even
 Art_OOz_Collapsing_Platform:
 		incbin  'art/nemesis/oozplatform.nem'
+		even
 Art_OOz_Spring_Push_Boost:
 		incbin  'art/nemesis/spngpush.nem'
+		even
 Art_OOz_Swing_Platform:
 		incbin  'art/nemesis/swngptfm.nem'
+		even
 Art_OOz_Break_To_Boost_Vertical:
 		incbin  'art/nemesis/brkbst_v.nem'
+		even
 Art_OOz_Elevator:
 		incbin  'art/nemesis/oozelevator.nem'
+		even
 Art_OOz_Fans:
 		incbin  'art/nemesis/fans.nem'
+		even
 Art_OOz_Fire_Booster:
 		incbin  'art/nemesis/fire_bst.nem'
+		even
 Art_DHz_Box:
 		incbin  'art/nemesis/dhzbox.nem'
+		even
 Art_DHz_Collapsing_Platform:
 		incbin  'art/nemesis/clp_ptfm.nem'
+		even
 Art_DHz_Vines:
 		incbin  'art/nemesis/vines.nem'
+		even
 Art_DHz_Vines_01:
 		incbin  'art/nemesis/vines_1.nem'
+		even
 Art_DHz_Bridge:
 		incbin  'art/nemesis/bridge.nem'
+		even
 Art_CNz_Green_Platforms:
 		incbin  'art/nemesis/greenptf.nem'
+		even
 Art_CNz_Spikeball_Slot_Machine:
 		incbin  'art/nemesis/spikball.nem'
+		even
 Art_CNz_Box:
 		incbin  'art/nemesis/box.nem'
+		even
 Art_CNz_Elevator:
 		incbin  'art/nemesis/elevator.nem'
+		even
 Art_CNz_Slot_Machine_Starter:
 		incbin  'art/nemesis/slotmach.nem'
+		even
 Art_CNz_Blue_Bumper:
 		incbin  'art/nemesis/bbumpers.nem'
+		even
 Art_CNz_Bumpers:
 		incbin  'art/nemesis/bumpers.nem'
+		even
 Art_CNz_Diagonal_Launcher:
 		incbin  'art/nemesis/d_launch.nem'
+		even
 Art_CNz_Vertical_Launcher:
 		incbin  'art/nemesis/v_launch.nem'
+		even
 Art_CNz_Green_Bumpers:
 		incbin  'art/nemesis/gbumpers.nem'
+		even
 Art_CNz_Flippers:
 		incbin  'art/nemesis/flippers.nem'
+		even
 Art_CPz_Triangle_Platform:
 		incbin  'art/nemesis/tri_ptfm.nem'
+		even
 Art_Water_Surface:
 		incbin  'art/nemesis/watrsurf.nem'
+		even
 Art_CPz_Speed_Booster:
 		incbin  'art/nemesis/speedbst.nem'
+		even
 Art_CPz_Worms:
 		incbin  'art/nemesis/worms.nem'
+		even
 Art_CPz_Metal_Structure:
 		incbin  'art/nemesis/metal_st.nem'
+		even
 Art_CPz_Breakable_Block:
 		incbin  'art/nemesis/brkblock.nem'
+		even
 Art_CPz_Automatic_Door:
 		incbin  'art/nemesis/autodoor.nem'
+		even
 Art_CPz_Open_Close_Platform:
 		incbin  'art/nemesis/oc_ptfrm.nem'
+		even
 Art_CPz_Platforms:
 		incbin  'art/nemesis/cpzplatform.nem'
+		even
 Art_CPz_Spring_Tubes:
 		incbin  'art/nemesis/spgtubes.nem'
+		even
 Art_NGHz_Water_Surface:
 		incbin  'art/nemesis/nghzwatrsurf.nem'
+		even
 Art_NGHz_Leaves:
 		incbin  'art/nemesis/leaves.nem'
+		even
 Art_NGHz_Arrow_Shooter:
 		incbin  'art/nemesis/arrow_s.nem'
+		even
 Art_NGHz_Automatic_Door:
 		incbin  'art/nemesis/nghzautodoor.nem'
+		even
 Art_Switch:
 		incbin  'art/nemesis/switch.nem'
+		even
 Art_Vertical_Spring:
 		incbin  'art/nemesis/v_spring.nem'
+		even
 Art_Horizontal_Spring:
 		incbin  'art/nemesis/h_spring.nem'
+		even
 Art_Diagonal_Spring:
 		incbin  'art/nemesis/d_spring.nem'
+		even
 Art_Head_Up_Display:
 		incbin  'art/nemesis/hud.nem'
+		even
 Art_Head_Up_Display_Sonic:
 		incbin  'art/nemesis/hudsonic.nem'
+		even
 Art_Rings:
 		incbin  'art/nemesis/rings.nem'
+		even
 Art_Monitors:
 		incbin  'art/nemesis/monitors.nem'
+		even
 Art_Spikes:
 		incbin  'art/nemesis/spikes.nem'
+		even
 Art_Hit_Enemy_Points:
 		incbin  'art/nemesis/points.nem'
+		even
 Art_LampPost:
 		incbin  'art/nemesis/lamppost.nem'
+		even
 Art_End_Panel:
 		incbin  'art/nemesis/endpanel.nem'
+		even
 Art_Diagonal_Spring_01:
 		incbin  'art/nemesis/dspring1.nem'
+		even
 Art_DHz_Horizontal_Spikes:
 		incbin  'art/nemesis/h_spikes.nem'
+		even
 Art_Oxygen_Bubbles:
 		incbin  'art/nemesis/oxygen.nem'
+		even
 Art_Bubbles:
 		incbin  'art/nemesis/bubbles.nem'
+		even
 Art_Oxygen_Numbers:
 		incbin  'art/uncompressed/oxygnumb.dat'
 Art_Game_Over_Time_Over:
 		incbin  'art/nemesis/gt_over.nem'
+		even
 Art_Explosion:
 		incbin  'art/nemesis/explosn.nem'
+		even
 Art_Blue_Bird:
 		incbin  'art/nemesis/bluebird.nem'
+		even
 Art_Squirrel:
 		incbin  'art/nemesis/squirrel.nem'
+		even
 Art_Mouse:
 		incbin  'art/nemesis/mouse.nem'
+		even
 Art_Chicken:
 		incbin  'art/nemesis/chicken.nem'
+		even
 Art_Monkey:
 		incbin  'art/nemesis/monkey.nem'
+		even
 Art_Pigeon:
 		incbin  'art/nemesis/pigeon.nem'
+		even
 Art_Pig:
 		incbin  'art/nemesis/pig.nem'
+		even
 Art_Seal:
 		incbin  'art/nemesis/seal.nem'
+		even
 Art_Penguin:
 		incbin  'art/nemesis/penguin.nem'
+		even
 Art_Turtle:
 		incbin  'art/nemesis/turtle.nem'
+		even
 Art_Bear:
 		incbin  'art/nemesis/bear.nem'
+		even
 Art_Rabbit:
 		incbin  'art/nemesis/rabbit.nem'
+		even
 Art_HPz_Crocobot: ; Not used
 		incbin  'art/nemesis/crocobot.nem'
+		even
 Art_GHz_Buzzer:
 		incbin  'art/nemesis/buzzer.nem'
+		even
 Art_Batbot:
 		incbin  'art/nemesis/batbot.nem'
+		even
 Art_Octus:
 		incbin  'art/nemesis/octus.nem'
+		even
 Art_Rhinobot:
 		incbin  'art/nemesis/rhinobot.nem'
+		even
 Art_Dinobot:
 		incbin  'art/nemesis/dinobot.nem'
+		even
 Art_Hpz_Piranha: ; Not used
 		incbin  'art/nemesis/piranha.nem'
+		even
 Art_Aquis:
 		incbin  'art/nemesis/aquis.nem'
+		even
 Art_Spinning_Ball: ; Not used
 		incbin  'art/nemesis/spinball.nem'
+		even
 Art_Blink:    ; Not used
 		incbin  'art/nemesis/blink.nem'
+		even
 Art_Bubble_Monster: ; Not used
 		incbin  'art/nemesis/bmonster.nem'
+		even
 Art_Ghz_Snail: ; Not used
 		incbin  'art/nemesis/snail.nem'
+		even
 Art_CNz_Crawl: ; Not used
 		incbin  'art/nemesis/crawl.nem'
+		even
 Art_GHz_Masher:
 		incbin  'art/nemesis/masher.nem'
+		even
 Art_Robotnik_Ship:
 		incbin  'art/nemesis/robotnik.nem'
+		even
 Art_CPz_Boss:
 		incbin  'art/nemesis/cpzboss.nem'
+		even
 Art_Boss_Explosions:
 		incbin  'art/nemesis/explosns.nem'
+		even
 Art_Ship_Boost:
 		incbin  'art/nemesis/shpboost.nem'
+		even
 Art_Boss_Smokes:
 		incbin  'art/nemesis/boss_smk.nem'
+		even
 Art_GHz_Boss_Car:
 		incbin  'art/nemesis/boss_car.nem'
+		even
 Art_GHz_Boss_Blades:
 		incbin  'art/nemesis/b_blades.nem'
+		even
 Art_HTz_Boss_Fire_Cannon:
 		incbin  'art/nemesis/bossfire.nem'
+		even
 Art_NGHz_Boss:
 		incbin  'art/nemesis/nghzboss.nem'
+		even
 Art_DHz_Boss:
 		incbin  'art/nemesis/dhzboss.nem'
+		even
 Art_CNz_Boss:
 		incbin  'art/nemesis/boss.nem'
+		even
 Art_OOz_Boss:
 		incbin  'art/nemesis/oozboss.nem'
+		even
 Art_Mz_Boss_Balls_And_Robotniks:
 		incbin  'art/nemesis/bossball.nem'
+		even
 Art_DHz_Boss_Rocks:
 		incbin  'art/uncompressed/bossrock.dat'
 Art_Whisp:
 		incbin  'art/nemesis/whisp.nem'
+		even
 Art_Grounder:
 		incbin  'art/nemesis/grounder.nem'
+		even
 Art_Chop_Chop:
 		incbin  'art/nemesis/chopchop.nem'
+		even
 Art_Rexon:
 		incbin  'art/nemesis/rexon.nem'
+		even
 Art_Spiker:
 		incbin  'art/nemesis/spiker.nem'
+		even
 Art_Nebula:
 		incbin  'art/nemesis/nebula.nem'
+		even
 Art_Turtloid:
 		incbin  'art/nemesis/turtloid.nem'
+		even
 Art_GHz_Coconuts:
 		incbin  'art/nemesis/coconuts.nem'
+		even
 Art_Crawlton:
 		incbin  'art/nemesis/crawlton.nem'
+		even
 Art_Flasher:
 		incbin  'art/nemesis/flasher.nem'
+		even
 Art_Slicer:
 		incbin  'art/nemesis/slicer.nem'
+		even
 Art_Shellcracker:
 		incbin  'art/nemesis/shellcrc.nem'
+		even
 Art_Asteron:
 		incbin  'art/nemesis/asteron.nem'
+		even
 Art_Lander:
 		incbin  'art/nemesis/lander.nem'
+		even
 Art_Grabber:
 		incbin  'art/nemesis/grabber.nem'
+		even
 Art_Clucker:
 		incbin  'art/nemesis/clucker.nem'
+		even
 Art_Balkiry:
 		incbin  'art/nemesis/balkiry.nem'
+		even
 Green_Hill_Blocks:
 		incbin  'level/emerald hill zone/blocks.dat'
 Green_Hill_Tiles:
@@ -55133,6 +55186,7 @@ Hill_Top_Tiles:
 		incbin  'level/hill top zone/tiles.nem'
 Art_Hill_Top_Dynamic_Init:
 		incbin  'art/nemesis/htzdyn_init.nem'
+		even
 Green_Hill_Chunks:
 		incbin  'level/shared/chunks.kos'
 		dc.w    $0000, $0000
@@ -55149,6 +55203,7 @@ Metropolis_Tiles:
 		incbin  'level/metropolis zone/tiles.nem'
 Art_Metropolis_Dynamic_Init:
 		incbin  'art/nemesis/mzdyn_init.nem'
+		even
 Metropolis_Chunks:
 		incbin  'level/metropolis zone/chunks.kos'
 Hidden_Palace_Blocks:
@@ -55157,6 +55212,7 @@ Hidden_Palace_Tiles:
 		incbin  'level/hidden palace zone/tiles.nem'
 Art_Hidden_Palace_Dynamic_Init:
 		incbin  'art/nemesis/dyn_init.nem'
+		even
 Hidden_Palace_Chunks:
 		incbin  'level/hidden palace zone/chunks.kos'
 		dc.w    $0000, $0000, $0000
@@ -55166,6 +55222,7 @@ Oil_Ocean_Tiles:
 		incbin  'level/oil ocean zone/tiles.nem'
 Art_Oil_Ocean_Dynamic_Init:
 		incbin  'art/nemesis/oozdyn_init.nem'
+		even
 Oil_Ocean_Chunks:
 		incbin  'level/oil ocean zone/chunks.kos'
 Dust_Hill_Blocks:
@@ -55181,6 +55238,7 @@ Casino_Night_Tiles:
 		incbin  'level/casino night zone/tiles.nem'
 Art_Casino_Night_Dynamic_Init:
 		incbin  'art/nemesis/cnzdyn_init.nem'
+		even
 Casino_Night_Chunks:
 		incbin  'level/casino night zone/chunks.kos'
 		dc.w    $0000, $0000, $0000
@@ -55190,6 +55248,7 @@ Chemical_Plant_Tiles:
 		incbin  'level/chemical plant zone/tiles.nem'
 Art_Chemical_Plant_Dynamic_Init:
 		incbin  'art/nemesis/cpzdyn_init.nem'
+		even
 Chemical_Plant_Chunks:
 		incbin  'level/chemical plant zone/chunks.kos'
 		dc.w    $0000, $0000, $0000
@@ -55199,6 +55258,7 @@ Neo_Green_Hill_Tiles:
 		incbin  'level/neo green hill zone/tiles.nem'
 Art_Neo_Green_Hill_Dynamic_Init:
 		incbin  'art/nemesis/nghzdyn_init.nem'
+		even
 Neo_Green_Hill_Chunks:
 		incbin  'level/neo green hill zone/chunks.kos'
 		dc.w    $0000
@@ -55207,6 +55267,7 @@ Previous_Build_Chemical_Plant_Tiles_Overwrite:
 		incbin  'leftovers/cpzpb_tiles.dat'
 Previous_Build_Art_Chemical_Plant_Dynamic_Init:
 		incbin  'art/nemesis/dyninit2.nem'
+		even
 Previous_Build_Chemical_Plant_Chunks:
 		incbin  'leftovers/cpzchunks.dat'
 Previous_Build_Neo_Green_Hill_Blocks:
@@ -55215,6 +55276,7 @@ Previous_Build_Neo_Green_Hill_Tiles:
 		incbin  'leftovers/nghzpb_tiles.nem'
 Previous_Build_Art_Neo_Green_Hill_Dynamic_Init:
 		incbin  'art/nemesis/nghzdyn_init.nem'
+		even
 Previous_Build_Neo_Green_Hill_Chunks:
 		incbin  'leftovers/nghzpb_chnks.dat'
 		dc.w     $0000
@@ -55222,6 +55284,7 @@ Previous_Build_Neo_Green_Hill_Tiles_Overwrite:
 		incbin  'leftovers/nghzpb_tiles.dat'
 Previous_Build_Art_Neo_Green_Hill_Dynamic_Init_2:
 		incbin  'art/nemesis/nghzdyn_init.nem'
+		even
 Uncompiled_Asm:
 		include "Leftovers/Uncompiled ASM.asm"
 ;===============================================================================
