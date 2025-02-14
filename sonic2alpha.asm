@@ -9744,7 +9744,7 @@ DynResize_DEz:                                                 ; loc_8466
 
 Obj11_Bridge:                                               ; loc_8468
 ;===============================================================================
-; Object 0x11 - Bridges in Green Hill / Hidden Palace
+; Object 0x11 - Bridges from Green Hill / Hidden Palace
 ; [ Begin ]
 ;===============================================================================
 ; loc_8468:
@@ -10216,7 +10216,7 @@ HPz_Bridge_Mappings:                                           ; loc_8A24
 GHz_Bridge_Mappings:                                           ; loc_8A6C
                 include 'mappings/sprite/obj11_ghz.asm'
 ;===============================================================================
-; Object 0x11 - Bridges in Green Hill / Hidden Palace
+; Object 0x11 - Bridges from Green Hill / Hidden Palace
 ; [ End ]
 ;===============================================================================
 Obj15_Bridge:                                               ; loc_8A84
@@ -10619,17 +10619,17 @@ loc_8F6A:
                 bsr     Platform_Object_3                      ; loc_F8D0
                 bra     MarkObjGone                            ; loc_D200
 ;-------------------------------------------------------------------------------
-OOz_Swing_Platforms_Mappings:                                  ; loc_8F82
-                include 'mappings/sprite/obj15_ooz.asm'
+OOz_Swing_Platforms_Mappings:
+		include 'mappings/sprite/obj15_ooz.asm'
 ;-------------------------------------------------------------------------------
-NGHz_Swing_Platforms_Mappings:                                 ; loc_8FB8
-                include 'mappings/sprite/obj83.asm'                        ; also used in Obj83
+NGHz_Swing_Platforms_Mappings:
+		include 'mappings/sprite/obj83.asm'                        ; also used in Obj83
 ;-------------------------------------------------------------------------------
-DHz_Swing_Platforms_Mappings:                                  ; loc_8FF0
-                include 'mappings/sprite/obj7A_dhz.asm'                    ; also used in Obj7A
+DHz_Swing_Platforms_Mappings:
+		include 'mappings/sprite/obj7A_dhz.asm'                    ; also used in Obj7A
 ;-------------------------------------------------------------------------------
-DHz_Swing_Platforms_Mappings_01:                               ; loc_9024
-                include 'mappings/sprite/obj15_dhz.asm'
+DHz_Swing_Platforms_Mappings_01:
+		include 'mappings/sprite/obj15_dhz.asm'
 ;===============================================================================
 ; Object 0x15 - Plataformas tipo pend lo na Neo Green Hill, Dust Hill e
 ; [ End ]          Oil Ocean
@@ -11405,7 +11405,7 @@ NGHz_Collapsing_Platforms_Mappings:                            ; loc_9E7E
 Obj1C_Misc:                                                 ; loc_9EE8
 ;===============================================================================
 ; Object 0x1C - Miscellaneous Objects - Support of the bridges on Emerald Hill,
-; [ End ]          poles in Hill Top, etc...
+; [ End ]          poles from Hill Top, etc...
 ;===============================================================================
 ; loc_9EE8:
                 moveq   #$00, D0
@@ -11480,12 +11480,12 @@ loc_9F9C:
                 bra     MarkObjGone                            ; loc_D200
 ;===============================================================================
 ; Object 0x1C - Miscellaneous Objects - Support of the bridges on Emerald Hill,
-; [ End ]          poles in Hill Top, etc...
+; [ End ]          poles from Hill Top, etc...
 ;===============================================================================
 Obj71_Mz_HPz_Misc:                                          ; loc_9FA0
 ;===============================================================================
-; Object 0x71 - Miscellaneous Objects - Support of the bridges in the Hidden Palace,
-; [ End ]          Orbs in the Hidden Palace, lava bubbles in the Metropolis, etc...
+; Object 0x71 - Miscellaneous Objects - Support of the bridges from the Hidden Palace,
+; [ End ]          Orbs from the Hidden Palace, lava bubbles from the Metropolis, etc...
 ;===============================================================================
 ; loc_9FA0:
                 moveq   #$00, D0
@@ -11551,8 +11551,8 @@ loc_A042:
 Hpz_Orbs_Mappings:                                             ; loc_A046
                 include 'mappings/sprite/obj71.asm'
 ;===============================================================================
-; Object 0x71 - Miscellaneous Objects - Support of the bridges in the Hidden Palace,
-; [ End ]          Orbs in the Hidden Palace, lava bubbles in the Metropolis, etc...
+; Object 0x71 - Miscellaneous Objects - Support of the bridges from the Hidden Palace,
+; [ End ]          Orbs from the Hidden Palace, lava bubbles from the Metropolis, etc...
 ;===============================================================================
 ;-------------------------------------------------------------------------------
 HTz_Misc_Mappings:                                             ; loc_A086
@@ -11574,7 +11574,7 @@ Mz_Lava_Bubble_Mappings:                                       ; loc_A10A
 ;-------------------------------------------------------------------------------
 Obj2A_Up_Down_Pillar:                                       ; loc_A158
 ;===============================================================================
-; Object 0x2A - Barrier that goes up and down in Dust Hill
+; Object 0x2A - Barrier that goes up and down from Dust Hill
 ; [ Begin ] 
 ;===============================================================================  
 ; loc_A158:
@@ -11629,7 +11629,7 @@ loc_A1D0:
 Up_Down_Pillar_Mappings:                                       ; loc_A1FA
 		include "mappings/sprite/obj2A.asm"  
 ;===============================================================================
-; Object 0x2A - Barrier that goes up and down in Dust Hill
+; Object 0x2A - Barrier that goes up and down from Dust Hill
 ; [ End ] 
 ;===============================================================================		
 Obj2D_Automatic_Door:                                       ; loc_A22E
@@ -13103,7 +13103,7 @@ loc_B492:
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
-; Complementary routines referenced in Object 0x26
+; Complementary routines referenced from Object 0x26
 ; [ Begin ]
 ;-------------------------------------------------------------------------------
 loc_B49E:
@@ -13197,7 +13197,7 @@ loc_B57A:
 Monitors_Mappings:                                             ; loc_B580
 		  include 'mappings/sprite/obj26.asm'
 ;-------------------------------------------------------------------------------
-; Complementary routines referenced in Object 0x26
+; Complementary routines referenced from Object 0x26
 ; [ End ]
 ;-------------------------------------------------------------------------------
 Obj0E_Sonic_Tails:                                          ; loc_B660
@@ -14554,7 +14554,7 @@ loc_C99C:
 Touch_ChkHurt2:
                 tst.b   (Invincibility_Flag).w                       ; $FFFFFE2D
                 bne.s   Exit_Touch_ChkHurt2                    ; loc_C9D0
-                ; the "spike bug" was not fixed yet in this build
+		; the "spike bug" was not fixed yet in this build
                 cmpi.b  #$04, Obj_Routine(A1)                            ; $0024
                 bcc.s   Exit_Touch_ChkHurt2                    ; loc_C9D0
                 move.l  Obj_Y(A1), D3                                    ; $000C
@@ -25207,7 +25207,7 @@ Hidden_Bonus_Mappings:                                         ; loc_14842
 ;-------------------------------------------------------------------------------
 Obj44_Red_Ball_Bumper:                                      ; loc_1486C
 ;===============================================================================
-; Object 0x44 - Round Bumpers in Casino Night
+; Object 0x44 - Round Bumpers from Casino Night
 ; [ Begin ]
 ;===============================================================================
 ; loc_1486C:
@@ -25302,12 +25302,12 @@ loc_1498D:
 Red_Ball_Bumper_Mappings:                                      ; loc_14994
                 include 'mappings/sprite/obj44.asm'
 ;===============================================================================
-; Object 0x44 - Round Bumpers in Casino Night
+; Object 0x44 - Round Bumpers from Casino Night
 ; [ End ]
 ;===============================================================================
 Obj24_Oxygen_Bubbles:                                       ; loc_149CC
 ;===============================================================================
-; Object 0x24 - Oxygen Bubbles in Neo Green Hill
+; Object 0x24 - Oxygen Bubbles from Neo Green Hill
 ; [ Begin ]
 ;===============================================================================
 ; loc_149CC:
@@ -25551,7 +25551,7 @@ loc_14CF4:
 loc_14CF8:
                 dc.b    $0F, $0E, $0F, $FF
 ;===============================================================================
-; Object 0x24 - Oxygen Bubbles in Neo Green Hill
+; Object 0x24 - Oxygen Bubbles from Neo Green Hill
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -25894,7 +25894,7 @@ Layer_Switch_Mappings:                                         ; loc_150E8
 ;===============================================================================
 Obj0B_Open_Close_Platform:                                  ; loc_151C4
 ;===============================================================================
-; Object 0x0B - Trap platform in Chemical Plant
+; Object 0x0B - Trap platform from Chemical Plant
 ; [ Begin ]
 ;===============================================================================
 ; loc_151C4:
@@ -25978,7 +25978,7 @@ loc_152A6:
 Open_Close_Platform_Mappings:                                  ; loc_152AE
                 include 'mappings/sprite/obj0B.asm'
 ;===============================================================================
-; Object 0x0B - Trap platform in Chemical Plant
+; Object 0x0B - Trap platform from Chemical Plant
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -26136,7 +26136,7 @@ Jmp_00_To_DeleteObject:                                        ; loc_154A2
 ;-------------------------------------------------------------------------------
 Obj13_HPz_Waterfalls:                                       ; loc_154A8
 ;===============================================================================
-; Object 0x13 - Waterfalls in Hidden Palace
+; Object 0x13 - Waterfalls from Hidden Palace
 ; [ Begin ]
 ;===============================================================================
 ; loc_154A8:
@@ -26255,7 +26255,7 @@ loc_1560C:
 HPz_Waterfalls_Mappings:                                       ; loc_15624
 		include 'mappings/sprite/obj13.asm'
 ;===============================================================================
-; Object 0x13 - Waterfalls in Hidden Palace
+; Object 0x13 - Waterfalls from Hidden Palace
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -26266,7 +26266,7 @@ Jmp_01_To_DeleteObject:                                        ; loc_159C6
 ;-------------------------------------------------------------------------------
 Obj04_Water_Surface:                                        ; loc_159CC
 ;===============================================================================
-; Object 0x04 - Water Surface in Hidden Palace, Chemical Plant and
+; Object 0x04 - Water Surface from Hidden Palace, Chemical Plant and
 ; [ Begin ]          Neo Green Hill
 ;===============================================================================
 ; loc_159CC:
@@ -26358,12 +26358,12 @@ Water_Surface_Mappings:                                        ; loc_15AFE
 NGHz_Water_Surface_Mappings:                                   ; loc_15BEE
                 include 'mappings/sprite/obj04_nghz.asm'
 ;===============================================================================
-; Object 0x04 - Water Surface in Hidden Palace, Chemical Plant and
+; Object 0x04 - Water Surface from Hidden Palace, Chemical Plant and
 ; [ End ]          Neo Green Hill
 ;===============================================================================
 Obj49_Waterfall:                                            ; loc_15C8E
 ;===============================================================================
-; Object 0x49 - Waterfalls in Green Hill
+; Object 0x49 - Waterfalls from Green Hill
 ; [ Begin ]
 ;===============================================================================
 ; loc_15C8E:
@@ -26425,7 +26425,7 @@ loc_15D38:
 Waterfall_Mappings:                                            ; loc_15D40
                 include 'mappings/sprite/obj49.asm'
 ;===============================================================================
-; Object 0x49 - Waterfalls in Green Hill
+; Object 0x49 - Waterfalls from Green Hill
 ; [ End ]
 ;===============================================================================
 Obj31_Lava_Attributes:                                      ; loc_15EDC
@@ -26743,7 +26743,7 @@ Jmp_00_To_Check_Object_On_Screen:                              ; loc_163A2
 ;-------------------------------------------------------------------------------
 Obj06_Spiral_Attributes:
 ;===============================================================================
-; Object 0x06 - Invisible attribute of the spirals in Emerald Hill / Metropolis
+; Object 0x06 - Invisible attribute of the spirals from Emerald Hill / Metropolis
 ; [ Begin ] 
 ;===============================================================================   
 ; loc_163A8:
@@ -27028,7 +27028,7 @@ loc_167BE:
 loc_167FC:
                 rts                                
 ;===============================================================================
-; Object 0x06 - Invisible attribute of the spirals in Emerald Hill / Metropolis
+; Object 0x06 - Invisible attribute of the spirals from Emerald Hill / Metropolis
 ; [ End ] 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -27368,7 +27368,7 @@ Jmp_00_To_MarkObjGone_2:                                       ; loc_16C86
 ;-------------------------------------------------------------------------------
 Obj16_Teleferics:                                           ; loc_16C8C
 ;===============================================================================
-; Object 0x16 - Cable cars in Hill Top
+; Object 0x16 - Cable cars from Hill Top
 ; [ Begin ] 
 ;===============================================================================  
 ; loc_16C8C:
@@ -27467,7 +27467,7 @@ loc_16D96:
 Teleferics_Mappings:
 		include 'mappings/sprite/obj16.asm'
 ;===============================================================================
-; Object 0x16 - Cable cars in Hill Top
+; Object 0x16 - Cable cars from Hill Top
 ; [ End ] 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -28466,7 +28466,7 @@ Jmp_00_To_MarkObjGone_3:                                       ; loc_17E2C
 ;-------------------------------------------------------------------------------
 Obj20_HTz_Boss_FireBall:                                    ; loc_17E34
 ;===============================================================================
-; Object 0x20 - Fireballs used by Robotnik in Hill Top
+; Object 0x20 - Fireballs used by Robotnik from Hill Top
 ; [ Begin ] 
 ;===============================================================================   
 ; loc_17E34:
@@ -28694,7 +28694,7 @@ loc_1810E:
                 dc.w    $0001
                 dc.l    $00050810, $0808FFF8
 ;===============================================================================
-; Object 0x20 - Fireballs used by Robotnik in Hill Top
+; Object 0x20 - Fireballs used by Robotnik from Hill Top
 ; [ End ] 
 ;===============================================================================		
 ;-------------------------------------------------------------------------------
@@ -28713,7 +28713,7 @@ Jmp_03_To_SpeedToPos:                                          ; loc_18136
 ;-------------------------------------------------------------------------------
 Obj2F_Breakable_Floor:                                      ; loc_1813C
 ;===============================================================================
-; Object 0x2F - Breakable floor in Hill Top
+; Object 0x2F - Breakable floor from Hill Top
 ; [ Begin ] 
 ;===============================================================================
 ; loc_1813C:
@@ -28870,12 +28870,12 @@ loc_18322:
                 dc.w    $FF40, $FA00, $00C0, $FA00, $FF60, $FB00, $00A0, $FB00
                 dc.w    $FF80, $FC00, $0080, $FC00
 ;===============================================================================
-; Object 0x2F - Breakable floor in Hill Top
+; Object 0x2F - Breakable floor from Hill Top
 ; [ End ] 
 ;===============================================================================
 Obj32_Breakable_Obstacle:                                   ; loc_1834A
 ;===============================================================================
-; Object 0x32 - Hill Top rock / Obstacle in the Chemical Plant Tunnels
+; Object 0x32 - Hill Top rock / Obstacle from the Chemical Plant Tunnels
 ; [ Begin ]
 ;===============================================================================
 ; loc_1834A:
@@ -29019,7 +29019,7 @@ Break_Obstacle_Points:                                         ; loc_18522
                 dc.w    $0032   ;  500
                 dc.w    $0064   ; 1000      
 ;===============================================================================
-; Object 0x32 - Hill Top rock / Obstacle in the Chemical Plant Tunnels
+; Object 0x32 - Hill Top rock / Obstacle from the Chemical Plant Tunnels
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -29630,7 +29630,7 @@ Jmp_07_To_ModifySpriteAttr_2P:                                 ; loc_18E4A
 ;-------------------------------------------------------------------------------
 Obj07_0il_Attributes:                                       ; loc_18E50
 ;===============================================================================
-; Object 0x07 - Oil in Oil Ocean
+; Object 0x07 - Oil from Oil Ocean
 ; [ Begin ] 
 ;===============================================================================
 ; loc_18E50:
@@ -29705,7 +29705,7 @@ loc_18EFE:
                 move.l  (A7)+, A0
                 rts     
 ;===============================================================================
-; Object 0x07 - Oil in Oil Ocean
+; Object 0x07 - Oil from Oil Ocean
 ; [ End ] 
 ;===============================================================================		
 ;-------------------------------------------------------------------------------
@@ -30510,7 +30510,7 @@ Jmp_05_To_SpeedToPos:                                          ; loc_19B16
 ;-------------------------------------------------------------------------------
 Obj47_Switch:                                               ; loc_19B1C
 ;===============================================================================
-; Object 0x47 - Switch used to open certain doors in zones
+; Object 0x47 - Switch used to open certain doors from zones
 ; [ Begin ] 
 ;===============================================================================
 ; loc_19B1C:
@@ -30570,7 +30570,7 @@ loc_19BBA:
 Switch_Mappings:
                 include 'mappings/sprite/obj47.asm'
 ;===============================================================================
-; Object 0x47 - Switch used to open certain doors in zones
+; Object 0x47 - Switch used to open certain doors from zones
 ; [ End ] 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -30585,7 +30585,7 @@ Jmp_03_To_SolidObject:
 ;-------------------------------------------------------------------------------
 Obj3D_Break_Boost:                                          ; loc_19BF8
 ;===============================================================================
-; Object 0x3D - Obstacle breaks to gain momentum in Oil Ocean
+; Object 0x3D - Obstacle breaks to gain momentum from Oil Ocean
 ; [ Begin ]
 ;===============================================================================  
 ; loc_19BF8:
@@ -30792,7 +30792,7 @@ Break_Boost_Data:                                              ; loc_19E74
 Break_Boost_Mappings:                                          ; loc_19EB4
                   include 'mappings/sprite/obj3D.asm'
 ;===============================================================================
-; Object 0x3D - Obstacle breaks to gain momentum in Oil Ocean
+; Object 0x3D - Obstacle breaks to gain momentum from Oil Ocean
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -30818,7 +30818,7 @@ Jmp_06_To_SpeedToPos:                                          ; loc_1A034
 ;-------------------------------------------------------------------------------
 Obj48_Cannon:                                               ; loc_1A03C
 ;===============================================================================
-; Object 0x48 - Cannons in Oil Ocean
+; Object 0x48 - Cannons from Oil Ocean
 ; [ Begin ] 
 ;===============================================================================   
 ; loc_1A03C:
@@ -31019,7 +31019,7 @@ loc_1A2B4:
 Cannon_Mappings:                                               ; loc_1A2B6
 		include 'mappings/sprite/obj48.asm'      
 ;===============================================================================
-; Object 0x48 - Cannons in the Oil Ocean
+; Object 0x48 - Cannons from the Oil Ocean
 ; [ End ] 
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -35645,7 +35645,7 @@ Jmp_0F_To_SolidObject:                                         ; loc_1DECC
 ;-------------------------------------------------------------------------------
 Obj76_Platform_Spikes:                                      ; loc_1DED4
 ;===============================================================================
-; Object 0x76 - Platform with spikes on the sides in Dust Hill
+; Object 0x76 - Platform with spikes on the sides from Dust Hill
 ; [ Begin ] 
 ;===============================================================================   
 ; loc_1DED4:
@@ -35763,7 +35763,7 @@ loc_1E014:
 Platform_Spikes_Mappings:                                      ; loc_1E016
                 include 'mappings/sprite/obj76.asm'
 ;===============================================================================
-; Object 0x76 - Platform with spikes on the sides in Dust Hill
+; Object 0x76 - Platform with spikes on the sides from Dust Hill
 ; [ End ] 
 ;===============================================================================		
 ;-------------------------------------------------------------------------------
@@ -36062,7 +36062,7 @@ Jmp_05_To_MarkObjGone_2:                                       ; loc_1E476
 ;-------------------------------------------------------------------------------
 Obj7A_Platform_Horizontal:                                  ; loc_1E47C
 ;===============================================================================
-; Object 0x7A - Horizontal moving platforms in Chemical Plant and Dust Hill
+; Object 0x7A - Horizontal moving platforms from Chemical Plant and Dust Hill
 ; [ Begin ]          
 ;===============================================================================
 ; loc_1E47C:
@@ -36219,7 +36219,7 @@ loc_1E642:
                 dc.l    $F8090010, $0008FFE8
                 dc.l    $F8090810, $08080000
 ;===============================================================================
-; Object 0x7A - Horizontal moving platforms in Chemical Plant and Dust Hill
+; Object 0x7A - Horizontal moving platforms from Chemical Plant and Dust Hill
 ; [ End ]          
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -36234,7 +36234,7 @@ Jmp_01_To_Platform_Object:                                     ; loc_1E666
 ;-------------------------------------------------------------------------------
 Obj7B_Spring_Tubes:                                         ; loc_1E66C
 ;===============================================================================
-; Object 0x7B - Springs on the tubes in Chemical Plant
+; Object 0x7B - Springs on the tubes from Chemical Plant
 ; [ Begin ]
 ;===============================================================================
 ; loc_1E66C:
@@ -36390,7 +36390,7 @@ loc_1E837:
 Spring_Tubes_Mappings:                                         ; loc_1E840
                 include 'mappings/sprite/obj7B.asm'
 ;===============================================================================
-; Object 0x7B - Springs on the tubes in Chemical Plant
+; Object 0x7B - Springs on the tubes from Chemical Plant
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -36409,7 +36409,7 @@ Jmp_03_To_SolidObject_2_A1:                                    ; loc_1E89C
 ;-------------------------------------------------------------------------------
 Obj7F_Vines_Switch:                                         ; loc_1E8A4
 ;===============================================================================
-; Object 0x7F - Vines used as switches to lift bridges in Dust Hill
+; Object 0x7F - Vines used as switches to lift bridges from Dust Hill
 ; [ Begin ]          
 ;===============================================================================
 ; loc_1E8A4:
@@ -36508,7 +36508,7 @@ loc_1E9EA:
 Vines_Switch_Mappings:                                         ; loc_1E9EC
                 include 'mappings/sprite/obj7F.asm'
 ;===============================================================================
-; Object 0x7F - Vines used as switches to lift bridges in Dust Hill
+; Object 0x7F - Vines used as switches to lift bridges from Dust Hill
 ; [ End ]          
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -36519,7 +36519,7 @@ Jmp_20_To_ModifySpriteAttr_2P:                                 ; loc_1EA2A
 ;-------------------------------------------------------------------------------
 Obj80_Vines_Chain_Hook:                                     ; loc_1EA30
 ;===============================================================================
-; Object 0x80 - Chain with hook in the Sky Fortress.
+; Object 0x80 - Chain with hook from the Sky Fortress.
 ; [ Begin ]          Roots that can hang from Dust Hill.
 ;===============================================================================
 ; loc_1EA30:
@@ -36669,7 +36669,7 @@ loc_1EC12:
 Vines_Mappings:                                                ; loc_1EC14
                 include 'mappings/sprite/obj80.asm'
 ;===============================================================================
-; Object 0x80 - Chain with hook in the Sky Fortress.
+; Object 0x80 - Chain with hook from the Sky Fortress.
 ; [ Begin ]          Roots that can hang from Dust Hill.
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -37740,7 +37740,7 @@ Jmp_01_To_ObjectFall:                                          ; loc_1FA10
 ;-------------------------------------------------------------------------------
 Obj4C_Batbot:                                               ; loc_1FA18
 ;===============================================================================
-; Object 0x4C - Batbot - Bat enemy in Hidden Palace
+; Object 0x4C - Batbot - Bat enemy from Hidden Palace
 ; [ Begin ]
 ;===============================================================================
 ; loc_1FA18:
@@ -37959,7 +37959,7 @@ loc_1FCAE:
 Batbot_Mappings:                                               ; loc_1FCB6
                 include 'mappings/sprite/obj4C.asm'
 ;===============================================================================
-; Object 0x4C - Batbot - Bat enemy in Hidden Palace
+; Object 0x4C - Batbot - Bat enemy from Hidden Palace
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -37972,12 +37972,13 @@ Jmp_0D_To_SpeedToPos:                                          ; loc_1FE98
 		jmp     (SpeedToPos)                           ; loc_D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Previus_Build_Obj52_Piranha: ; Object 0x52 in Sonic 2 Beta  ; loc_1FEA0
+
 ;===============================================================================
 ; Object 0x52 - Piranha
 ; [ Begin ] 
 ;===============================================================================
 ; loc_1FEA0:
+Previus_Build_Obj52_Piranha: ; Object 0x52 in Sonic 2 Beta
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_1FEAE(PC, D0), D1
@@ -38472,7 +38473,7 @@ Jmp_03_To_ModifySpriteAttr_2P_A1:                              ; loc_20508
 Jmp_27_To_ModifySpriteAttr_2P:                                 ; loc_2050E
 		jmp     (ModifySpriteAttr_2P)                  ; loc_DBBE
 ;===============================================================================
-; Object 0x56 Add-on - Boss in Green Hill
+; Object 0x56 Add-on - Boss from Green Hill
 ; [ Begin ]
 ;===============================================================================
 Obj56_GHz_Boss_Sub_2:                                       ; loc_20514
@@ -38670,7 +38671,7 @@ loc_2076C:
 		bset    #$03, Obj_Control_Var_01(A0)                     ; $002D
 		rts
 ;===============================================================================
-; Object 0x56 Add-on - Boss in Green Hill
+; Object 0x56 Add-on - Boss from Green Hill
 ; [ End ]
 ;===============================================================================
 Obj5B_GHz_Boss:                                             ; loc_20786
@@ -38888,7 +38889,7 @@ loc_20A2A:
 ; [ End ]
 ;===============================================================================
 ;===============================================================================
-; Object 0x56 Add-on - Boss in Green Hill
+; Object 0x56 Add-on - Boss from Green Hill
 ; [ Begin ]
 ;===============================================================================
 Obj56_GHz_Boss_Sub_3:                                       ; loc_20A32
@@ -40247,7 +40248,7 @@ Jmp_0E_To_AnimateSprite:                                       ; loc_21DA4
 ;-------------------------------------------------------------------------------
 Obj50_Aquis:                                                ; loc_21DAC
 ;===============================================================================
-; Object 0x50 - Seahorse Badnik (Aquis) in Oil Ocean
+; Object 0x50 - Seahorse Badnik (Aquis) from Oil Ocean
 ; [ Begin ]
 ;===============================================================================
 ; loc_21DAC:
@@ -40620,18 +40621,19 @@ loc_22273:
                 dc.b    $05, $0B, $0C, $0B, $0C, $0B, $0C, $FF
                 dc.b    $00     
 ;-------------------------------------------------------------------------------  
-Aquis_Mappings:                                                ; loc_2227C
-                include 'mappings/sprite/obj50.asm'
+Aquis_Mappings:
+		include 'mappings/sprite/obj50.asm'
 ;===============================================================================
-; Object 0x50 - Seahorse Badnik (Aquis) in Oil Ocean
+; Object 0x50 - Seahorse Badnik (Aquis) from Oil Ocean
 ; [ End ]
 ;===============================================================================
-Previus_Build_Obj51_Aquis: ; Object 0x51 in Sonic 2 Beta    ; loc_223C8
+
 ;===============================================================================
 ; Object 0x51 - Imimigo cavalo marinho (Aquis) na Oil Ocean
 ; [ Begin ] 
 ;===============================================================================
 ; loc_223C8:
+Previus_Build_Obj51_Aquis: ; Object 0x51 in Sonic 2 Beta
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_223D6(PC, D0), D1
@@ -40837,12 +40839,13 @@ Jmp_13_To_SpeedToPos:                                          ; loc_22630
 		jmp     (SpeedToPos)                           ; loc_D1DA
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj59_Snail:                                                ; loc_22638
+
 ;===============================================================================
-; Object 0x59 - Snail Badnik in Green Hill (Unused)
+; Object 0x59 - Snail Badnik from Green Hill (Unused)
 ; [ Begin ]
 ;===============================================================================   
 ; loc_22638:
+Obj59_Snail:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_22646(PC, D0), D1
@@ -40942,7 +40945,7 @@ loc_2277C:
                 move.l  #Buzzer_Mappings, Obj_Map(A1)   ; loc_241EA, $0004
                 move.w  #$3E6, Obj_Art_VRAM(A1)                          ; $0002
                 ; VRAM value leftover from the Simon Wai build, it has been
-                ; moved to #$3D2 in this build.
+                ; moved to #$3D2 from this build.
                 bsr     Jmp_05_To_ModifySpriteAttr_2P_A1       ; loc_228CE
                 move.b  #$04, Obj_Priority(A1)                           ; $0018
                 move.b  #$10, Obj_Width(A1)                              ; $0019
@@ -41012,8 +41015,8 @@ loc_22884:
 Snail_Mappings:
                 include 'mappings/sprite/obj59.asm'
 ;===============================================================================
-; Object 0x59 - Snail Badnik in Green Hill (Unused)
-; [ Begin ]
+; Object 0x59 - Snail Badnik from Green Hill (Unused)
+; [ End ]
 ;===============================================================================		
 ;-------------------------------------------------------------------------------
 Jmp_1B_To_DeleteObject:                                        ; loc_228BC
@@ -41035,7 +41038,7 @@ Jmp_14_To_SpeedToPos:                                          ; loc_228E6
 ;-------------------------------------------------------------------------------
 Obj4D_Rhinobot:                                             ; loc_228EC
 ;===============================================================================
-; Object 0x4D - Stegway - Badnik in Hidden Palace
+; Object 0x4D - Stegway - Badnik from Hidden Palace
 ; [ Begin ]
 ;===============================================================================
 ; loc_228EC:
@@ -41158,7 +41161,7 @@ loc_22A51:
 Rhinobot_Mappings:                                             ; loc_22A56
                   include 'mappings/sprite/obj4D.asm'
 ;===============================================================================
-; Object 0x4D - Stegway - Badnik in Hidden Palace
+; Object 0x4D - Stegway - Badnik from Hidden Palace
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -42640,7 +42643,7 @@ Jmp_15_To_SpeedToPos:                                          ; loc_23F72
 ;-------------------------------------------------------------------------------
 Obj4B_Buzzer:                                               ; loc_23F78
 ;===============================================================================
-; Object 0x4B - Buzzer Enemy in Green Hill
+; Object 0x4B - Buzzer Enemy from Green Hill
 ; [ Begin ] 
 ;===============================================================================   
 ; loc_23F78:
@@ -42831,7 +42834,7 @@ loc_241E1:
 Buzzer_Mappings:                                               ; loc_241EA
                 include 'mappings/sprite/obj4B.asm'
 ;===============================================================================
-; Object 0x4B - Buzzer Enemy in Green Hill
+; Object 0x4B - Buzzer Enemy from Green Hill
 ; [ End ] 
 ;===============================================================================		
 ;-------------------------------------------------------------------------------
@@ -42854,7 +42857,7 @@ Jmp_16_To_SpeedToPos:                                          ; loc_2428C
 ;-------------------------------------------------------------------------------
 Obj5C_Masher:                                               ; loc_24294
 ;===============================================================================
-; Object 0x5C - Masher (Piranha) Enemy in Green Hill
+; Object 0x5C - Masher (Piranha) Enemy from Green Hill
 ; [ Begin ] 
 ;===============================================================================   
 ; loc_24294:
@@ -42916,7 +42919,7 @@ loc_2433E:
 Masher_Mappings:                                               ; loc_24342
                 include 'mappings/sprite/obj5C.asm'
 ;===============================================================================
-; Object 0x5C - Masher (Piranha) Enemy in Green Hill
+; Object 0x5C - Masher (Piranha) Enemy from Green Hill
 ; [ End ] 
 ;===============================================================================		
 ;-------------------------------------------------------------------------------
@@ -47706,15 +47709,16 @@ loc_28514:
                 dc.w    $0001
                 dc.l    $F40E000C, $0006FFF0 
 ;===============================================================================
-; Object 0x91 -> Inimigo Chop Chop na Neo Green Hill
+; Object 0x91 -> Chop Chop Enemy from Neo Green Hill
 ; [ End ]
 ;===============================================================================
-Obj92_Spiker:                                               ; loc_2851E
+
 ;===============================================================================
-; Object 0x92 - Inimigo Spiker na Hill Top                              
+; Object 0x92 - Spiker Enemy from Hill Top                              
 ; [ Begin ]
 ;===============================================================================
 ; loc_2851E:
+Obj92_Spiker:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2852C(PC, D0), D1
@@ -47782,15 +47786,16 @@ loc_285EE:
                 move.b  Obj_Control_Var_01(A0), Obj_Routine(A0)   ; $0024, $002D
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0        
 ;===============================================================================
-; Object 0x92 - Inimigo Spiker na Hill Top
+; Object 0x92 - Spiker Enemy from Hill Top
 ; [ End ]
 ;===============================================================================
-Obj93_Spiker_Drill:                                         ; loc_285F8
+
 ;===============================================================================
-; Object 0x93 - Broca lançada pelo inimigo Spiker na Hill Top
+; Object 0x93 - Drill thrown by Spiker Enemy from Hill Top
 ; [ Begin ]
 ;===============================================================================
 ; loc_285F8:
+Obj93_Spiker_Drill:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_28606(PC, D0), D1
@@ -47822,7 +47827,7 @@ loc_28634:
                 bsr     Jmp_19_To_SpeedToPos                   ; loc_2A7C4
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0
 ;-------------------------------------------------------------------------------
-Spiker_Sub: ; Usado pelo Object 0x92 - Spiker                  ; loc_2864A
+Spiker_Sub: ; Used by Object 0x92 - Spiker
                 tst.b   Obj_Player_Status(A0)                            ; $002B
                 bne.s   loc_2865E
                 bsr     Object_Check_Player_Position           ; loc_27F1C
@@ -47852,40 +47857,15 @@ loc_28686:
 loc_2868A:
                 dc.b    $09, $02, $03, $FF           
 ;------------------------------------------------------------------------------- 
-Spiker_Mappings:                                               ; loc_2868E
-                dc.w    loc_28698-Spiker_Mappings
-                dc.w    loc_286B2-Spiker_Mappings
-                dc.w    loc_286CC-Spiker_Mappings
-                dc.w    loc_286DE-Spiker_Mappings
-                dc.w    loc_286F0-Spiker_Mappings
-loc_28698:
-                dc.w    $0003
-                dc.l    $08090520, $0290FFF4
-                dc.l    $E807252C, $22A2FFF8
-                dc.l    $000503DE, $01EFFFF8
-loc_286B2:
-                dc.w    $0003
-                dc.l    $08090526, $0299FFF4
-                dc.l    $E807252C, $22A2FFF8
-                dc.l    $000503DE, $01EFFFF8
-loc_286CC:
-                dc.w    $0002
-                dc.l    $08090520, $0290FFF4
-                dc.l    $000503DE, $01EFFFF8
-loc_286DE:
-                dc.w    $0002
-                dc.l    $08090526, $0299FFF4
-                dc.l    $000503DE, $01EFFFF8
-loc_286F0:
-                dc.w    $0001
-                dc.l    $EC07252C, $22A2FFF8
+Spiker_Mappings:
+		include 'mappings/sprite/obj92_93.asm'
 ;===============================================================================
-; Object 0x93 - Broca lançada pelo inimigo Spiker na Hill Top
+; Object 0x93 - Drill thrown by Spiker Enemy from Hill Top
 ; [ End ]
 ;===============================================================================
 
 ;===============================================================================
-; Object 0x95 - Sol Enemy in Hill Top
+; Object 0x95 - Sol Enemy from Hill Top
 ; [ Begin ]
 ;===============================================================================
 ; loc_286FA:
@@ -48045,12 +48025,12 @@ loc_288DE:
 Sol_Mappings:
 		include 'mappings/sprite/obj95.asm'                   
 ;===============================================================================
-; Object 0x95 - Sol Enemy in Hill Top
+; Object 0x95 - Sol Enemy from Hill Top
 ; [ End ]
 ;===============================================================================
 
 ;===============================================================================
-; Object 0x96 - Rexon Enemy's body in Hill Top
+; Object 0x96 - Rexon Enemy's body from Hill Top
 ; [ Begin ]
 ;===============================================================================
 ; loc_2891E:
@@ -48119,12 +48099,12 @@ loc_289C6:
                 bsr.s   loc_289B2
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0         
 ;===============================================================================
-; Object 0x96 - Rexon Enemy's body in Hill Top
+; Object 0x96 - Rexon Enemy's body from Hill Top
 ; [ End ]
 ;===============================================================================
 
 ;===============================================================================
-; Object 0x97 - Rexon Enemy's head in Hill Top
+; Object 0x97 - Rexon Enemy's head from Hill Top
 ; [ Begin ]
 ;===============================================================================
 ; loc_289CC:
@@ -48381,7 +48361,7 @@ loc_28CA4:
                 dc.b    $06, $F2, $05, $F2, $04, $F2, $04, $F1
                 dc.b    $03, $F1, $02, $F1, $01, $F1, $01, $F1
 ;===============================================================================
-; Object 0x97 - Rexon Enemy's head in Hill Top
+; Object 0x97 - Rexon Enemy's head from Hill Top
 ; [ End ]
 ;===============================================================================
 
@@ -48480,7 +48460,7 @@ Clucker_Bullet_Map_Ptr:                                        ; loc_28D98
 ;===============================================================================
 
 ;===============================================================================
-; Object 0x99 - Nebula Enemy in Sky Chase
+; Object 0x99 - Nebula Enemy from Sky Chase
 ; [ Begin ]
 ;===============================================================================
 ; loc_28DA2:
@@ -48559,12 +48539,12 @@ loc_28E66:
 Nebula_Mappings:
 		include 'mappings/sprite/obj99.asm'  
 ;===============================================================================
-; Object 0x99 - Nebula Enemy in Sky Chase
+; Object 0x99 - Nebula Enemy from Sky Chase
 ; [ End ]
 ;===============================================================================
 
 ;===============================================================================
-; Object 0x9A - Turtloid Enemy in Sky Chase
+; Object 0x9A - Turtloid Enemy from Sky Chase
 ; [ Begin ]
 ;===============================================================================   
 ; loc_28F08:
@@ -48649,12 +48629,12 @@ loc_28FE0:
 loc_28FE2:
                 rts
 ;===============================================================================
-; Object 0x9A - Turtloid Enemy in Sky Chase
+; Object 0x9A - Turtloid Enemy from Sky Chase
 ; [ End ] 
 ;===============================================================================
 
 ;===============================================================================
-; Object 0x9B - Turtloid rider Enemy in Sky Chase
+; Object 0x9B - Turtloid rider Enemy from Sky Chase
 ; [ Begin ]	Object used by 0x9A
 ;===============================================================================
 ; loc_28FE4:
@@ -48706,7 +48686,7 @@ Load_Turtloid_Sub_Obj9B:                                    ; loc_29028
 loc_2905E:
                 rts 
 ;===============================================================================
-; Object 0x9B - Turtloid rider Enemy in Sky Chase
+; Object 0x9B - Turtloid rider Enemy from Sky Chase
 ; [ End ]	Object used by 0x9A
 ;===============================================================================
 
@@ -48799,7 +48779,7 @@ Enemy_Boost_Animate_Data:                                      ; loc_2913A
 loc_2913C:
                 dc.b    $01, $08, $09, $FF                      
 ;-------------------------------------------------------------------------------
-Turtloid_Mappings:                                             ; loc_29140
+Turtloid_Mappings:
 		include 'mappings/sprite/obj9C.asm'
 ;===============================================================================
 ; Object 0x9C - Fire from the turbine used by enemies Tutloid and Balkiry
@@ -48807,7 +48787,7 @@ Turtloid_Mappings:                                             ; loc_29140
 ;===============================================================================
 
 ;===============================================================================
-; Object 0x9D - Coconuts Enemy in Green Hill
+; Object 0x9D - Coconuts Enemy from Green Hill
 ; [ Begin ]
 ;=============================================================================== 
 ; loc_291D8:
@@ -48956,18 +48936,19 @@ loc_2936A:
 loc_2936E:
                 dc.b    $09, $01, $02, $01, $FF, $00
 ;------------------------------------------------------------------------------- 
-Coconuts_Mappings:                                             ; loc_29374
-                include 'mappings/sprite/obj9D.asm'
+Coconuts_Mappings:
+		include 'mappings/sprite/obj9D.asm'
 ;===============================================================================
-; Object 0x9D - Coconuts Enemy in Green Hill
+; Object 0x9D - Coconuts Enemy from Green Hill
 ; [ End ]
 ;===============================================================================		
-Obj9E_Crawlton:                                             ; loc_293F4
+
 ;===============================================================================
-; Object 0x9E - Inimigo Crawlton na Dust Hill
+; Object 0x9E - Crawlton Enemy from Dust Hill
 ; [ Begin ]
 ;===============================================================================
 ; loc_293F4:
+Obj9E_Crawlton:
                 moveq   #$00, D0
                 move.b  Obj_Control_Var_0F(A0), D0                       ; $003B
                 move.w  loc_29402(PC, D0), D1
@@ -49112,18 +49093,19 @@ Obj9E_Ptr:                                                  ; loc_2958E
                 dc.w    $23C0
                 dc.b    $04, $04, $80, $0B
 ;------------------------------------------------------------------------------- 
-Crawlton_Mappings:                                             ; loc_29598
-                include 'mappings/sprite/obj9E.asm'                   
+Crawlton_Mappings:
+		include 'mappings/sprite/obj9E.asm'                 
 ;===============================================================================
-; Object 0x9E - Inimigo Crawlton na Dust Hill
+; Object 0x9E - Crawlton Enemy from Dust Hill
 ; [ End ]
 ;===============================================================================
-Obj9F_Shellcracker:                                         ; loc_295B2
+
 ;===============================================================================
-; Object 0x9F - Inimigo Shellcracker na Metropolis
+; Object 0x9F - Shellcracker Enemy from Metropolis
 ; [ Begin ]
 ;===============================================================================
 ; loc_295B2:
+Obj9F_Shellcracker:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_295C0(PC, D0), D1
@@ -49233,15 +49215,16 @@ loc_296C8:
                 move.w  #$0140, Obj_Timer(A0)                            ; $002A
                 rts
 ;===============================================================================
-; Object 0x9F - Inimigo Shellcracker na Metropolis
+; Object 0x9F - Shellcracker Enemy from Metropolis
 ; [ End ]
 ;===============================================================================
-ObjA0_Shellcracker_Craw:                                    ; loc_296DE
+
 ;===============================================================================
-; Object 0xA0 - Sub-ojeto do Object 0x9F - Inimigo Sheelcracker na Metropolis.
-; [ Begin ]          Concha do inimigo.
+; Object 0xA0 - Object 0x9F sub-object - Shellcracker's claw from Metropolis
+; [ Begin ]
 ;===============================================================================
 ; loc_296DE:
+ObjA0_Shellcracker_Craw:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_296EC(PC, D0), D1
@@ -49394,11 +49377,12 @@ loc_29860:
 Shellcracker_Mappings:                                         ; loc_29866
                 include 'mappings/sprite/obj9F.asm' 
 ;===============================================================================
-; Object 0xA0 - Sub-ojeto do Object 0x9F - Inimigo Sheelcracker na Metropolis.
-; [ End ]          Concha do inimigo.
+; Object 0xA0 - Object 0x9F sub-object - Shellcracker's claw from Metropolis
+; [ End ]
 ;===============================================================================
+
 ;===============================================================================
-; Object 0xA1 - Slicer Enemy in Metropolis
+; Object 0xA1 - Slicer Enemy from Metropolis
 ; [ Begin ]
 ;===============================================================================
 ; loc_29906:
@@ -49473,11 +49457,11 @@ loc_299B8:
 loc_299CA:
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0        
 ;===============================================================================
-; Object 0xA1 - Slicer Enemy in Metropolis
+; Object 0xA1 - Slicer Enemy from Metropolis
 ; [ End ]
 ;===============================================================================
 ;===============================================================================
-; Object 0xA2 - Slicer's Pincers in Metropolis
+; Object 0xA2 - Slicer's Pincers from Metropolis
 ; [ Begin ]
 ;===============================================================================
 ; loc_299CE:
@@ -49582,14 +49566,15 @@ Slicer_Pincers_Animate_Data:                                   ; loc_29AD0
 loc_29AD2:
                 dc.b    $03, $05, $06, $07, $08, $FF       
 ;------------------------------------------------------------------------------- 
-Slicer_Mappings:                                               ; loc_29AD8
+Slicer_Mappings:
 		include 'mappings/sprite/objA1_A2.asm'
 ;===============================================================================
-; Object 0xA2 - Slicer's Pincers in Metropolis
+; Object 0xA2 - Slicer's Pincers from Metropolis
 ; [ End ]
 ;===============================================================================
+
 ;===============================================================================
-; Object 0xA3 - Flasher Enemy in Dust Hill
+; Object 0xA3 - Flasher Enemy from Dust Hill
 ; [ Begin ]
 ;===============================================================================
 ; loc_29C34:
@@ -49723,14 +49708,15 @@ Flasher_Animate_Data_02:                                       ; loc_29DAA
 loc_29DAC:
                 dc.b    $03, $05, $04, $03, $02, $01, $00, $FC   
 ;-------------------------------------------------------------------------------
-Flasher_Mappings:                                              ; loc_29DB4
+Flasher_Mappings:
 		include 'mappings/sprite/objA3.asm'
 ;===============================================================================
-; Object 0xA3 - Flasher Enemy in Dust Hill
+; Object 0xA3 - Flasher Enemy from Dust Hill
 ; [ End ]
 ;===============================================================================
+
 ;===============================================================================
-; Object 0xA4 - Asteron Enemy in Metropolis
+; Object 0xA4 - Asteron Enemy from Metropolis
 ; [ Begin ]
 ;===============================================================================
 ; loc_29E94:
@@ -49843,11 +49829,12 @@ loc_29FAC:
 Asteron_Mappings:
 		include 'mappings/sprite/objA4.asm'
 ;===============================================================================
-; Object 0xA4 - Asteron Enemy in Metropolis
+; Object 0xA4 - Asteron Enemy from Metropolis
 ; [ End ]
 ;===============================================================================
+
 ;===============================================================================
-; Object 0xA5 - Spiny (crawling badnik) Enemy in Chemical Plant
+; Object 0xA5 - Spiny (crawling badnik) Enemy from Chemical Plant
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A004:
@@ -49907,11 +49894,11 @@ loc_2A092:
                 move.b  #$40, Obj_Player_Status(A0)                      ; $002B
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0             
 ;===============================================================================
-; Object 0xA5 - Spiny (crawling badnik) Enemy in Chemical Plant
+; Object 0xA5 - Spiny (crawling badnik) Enemy from Chemical Plant
 ; [ End ]
 ;===============================================================================
 ;===============================================================================
-; Object 0xA6 - Spiny (on wall) Enemy in Chemical Plant
+; Object 0xA6 - Spiny (on wall) Enemy from Chemical Plant
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A0A0:
@@ -50035,11 +50022,12 @@ loc_2A1E0:
 Spiny_Mappings:
 		include 'mappings/sprite/objA6.asm'
 ;===============================================================================
-; Object 0xA6 - Spiny (on wall) Enemy in Chemical Plant
+; Object 0xA6 - Spiny (on wall) Enemy from Chemical Plant
 ; [ End ]
 ;===============================================================================
+
 ;===============================================================================
-; Object 0xA7 - Grabber Enemy (spider) in Chemical Plant
+; Object 0xA7 - Grabber Enemy (spider) from Chemical Plant
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A2D4:
@@ -50059,11 +50047,11 @@ loc_2A2E6:
 loc_2A2EA:
                 bra     Jmp_26_To_MarkObjGone        
 ;===============================================================================
-; Object 0xA7 - Grabber Enemy (spider) in Chemical Plant
+; Object 0xA7 - Grabber Enemy (spider) from Chemical Plant
 ; [ End ]
 ;===============================================================================
 ;===============================================================================
-; Object 0xA8 - Grabber's legs in Chemical Plant
+; Object 0xA8 - Grabber's legs from Chemical Plant
 ; [ Begin ]	Object linked to 0xA7	
 ;===============================================================================
 ; loc_2A2EE:
@@ -50083,7 +50071,7 @@ loc_2A300:
 loc_2A304:
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0              
 ;===============================================================================
-; Object 0xA8 - Grabber's legs in Chemical Plant
+; Object 0xA8 - Grabber's legs from Chemical Plant
 ; [ End ]	Object linked to 0xA7
 ;===============================================================================
 ;===============================================================================
@@ -50135,7 +50123,7 @@ loc_2A338:
 ; [ End ]	Object linked to 0xA7
 ;===============================================================================
 ;===============================================================================
-; Object 0xAB - Grabber Enemy in Chemical Plant
+; Object 0xAB - Grabber Enemy from Chemical Plant
 ; [ Begin ]	Object linked to 0xA7
 ;===============================================================================
 ; loc_2A33C:
@@ -50173,11 +50161,12 @@ ObjA9_Ptr:                                                  ; loc_2A36A
 Grabber_Mappings:
 		include 'mappings/sprite/objA7_A8_A9.asm' 
 ;===============================================================================
-; Object 0xAB - Grabber Enemy in Chemical Plant
+; Object 0xAB - Grabber Enemy from Chemical Plant
 ; [ End ]	Object linked to 0xA7
 ;===============================================================================
+
 ;===============================================================================
-; Object 0xAC - Balkiry Enemy in Sky Chase
+; Object 0xAC - Balkiry Enemy from Sky Chase
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A3F4:
@@ -50210,11 +50199,12 @@ ObjAC_Ptr:                                                  ; loc_2A424
 Balkiry_Mappings:
 		include 'mappings/sprite/objAC.asm'
 ;===============================================================================
-; Object 0xAC - Balkiry Enemy in Sky Chase
+; Object 0xAC - Balkiry Enemy from Sky Chase
 ; [ End ]
 ;===============================================================================
+
 ;===============================================================================
-; Object 0xAD - Platform underneath the Clucker Enemy in Sky Fortress
+; Object 0xAD - Platform underneath the Clucker Enemy from Sky Fortress
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A47E:
@@ -50252,11 +50242,11 @@ loc_2A4CA:
                 bsr.s   loc_2A4B6
                 bra     Jmp_26_To_MarkObjGone                  ; loc_2A7A0           
 ;===============================================================================
-; Object 0xAD - Platform underneath the Clucker Enemy in Sky Fortress
+; Object 0xAD - Platform underneath the Clucker Enemy from Sky Fortress
 ; [ End ]
 ;===============================================================================
 ;===============================================================================
-; Object 0xAE - Enemy Clucker Rooster in Sky Fortress
+; Object 0xAE - Enemy Clucker Rooster from Sky Fortress
 ; [ Begin ]
 ;===============================================================================
 ; loc_2A4D0:
@@ -50385,7 +50375,7 @@ loc_2A612:
 Clucker_Mappings:
 		include 'mappings/sprite/objAE.asm'
 ;===============================================================================
-; Object 0xAE - Enemy Clucker Rooster in Sky Fortress
+; Object 0xAE - Enemy Clucker Rooster from Sky Fortress
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -50705,7 +50695,7 @@ Jmp_30_To_ModifySpriteAttr_2P:                                 ; loc_2AEE0
 ;-------------------------------------------------------------------------------
 Obj3E_Egg_Prison:                                           ; loc_2AEE8
 ;===============================================================================
-; Object 0x3E - Container of animals in the stages after bosses
+; Object 0x3E - Container of animals from the stages after bosses
 ; [ Begin ]
 ;===============================================================================
 ; loc_2AEE8:
@@ -50897,7 +50887,7 @@ loc_2B134:
 Egg_Prison_Mappings:
 		include "mappings/sprite/obj3E.asm"
 ;===============================================================================
-; Object 0x3E - Container of animals in the stages after bosses
+; Object 0x3E - Container of animals from the stages after bosses
 ; [ End ]
 ;===============================================================================
 ;-------------------------------------------------------------------------------
@@ -52102,12 +52092,13 @@ loc_2BF68:
 ;-------------------------------------------------------------------------------
 		nop
 ;-------------------------------------------------------------------------------
-Obj09_Sonic_In_Special_Stage:                               ; loc_2BF70
+
 ;===============================================================================
 ; Object 0x09 - Sonic in Special Stage - Leftover from Sonic 1
 ; [ Begin ]
 ;===============================================================================
 ; loc_2BF70:
+Obj09_Sonic_In_Special_Stage:
                 tst.w   (Debug_Mode_Flag_Index).w                    ; $FFFFFE08
                 beq.s   Player_In_SS_Normal                    ; loc_2BF7E
                 bsr     S1SS_FixCamera                         ; loc_2C1A6
@@ -52804,7 +52795,7 @@ loc_2C6F0:
 ;-------------------------------------------------------------------------------
 ; Array of RAM addresses to be used by the RAM animated sprites in
 ; Hill Top. Sprites are uncompressed to RAM and dynamically loaded
-; from RAM. Note that in these addresses are the Chunks (128x128) from Hill
+; from RAM. Note that from these addresses are the Chunks (128x128) from Hill
 ; Top, but these chunks aren't used for the layout. Be careful when editing
 ; Hill Top in level editors, as editors don't recognize that those chunks 
 ; cannot be used and if you use them and load the level ingame,
@@ -54558,8 +54549,8 @@ Previous_Build_Art_Big_Ring_Overwrite:
 		incbin  'art/uncompressed/pbigring.dat'
 ;-------------------------------------------------------------------------------
 ; Nemesis format data overwritten.
-; 8x8 tiles from the Star Light stage in Sonic 1.
-; In the Sonic 1 (Revision 01) disassembly, this data is the same as in the file
+; 8x8 tiles from the Star Light stage from Sonic 1.
+; from the Sonic 1 (Revision 01) disassembly, this data is the same as from the file
 ; "Sonic_1_Jap/Data/SLz/Tiles.nem" (0x0BF4   0x1377)
 ; [ Begin ]
 ;-------------------------------------------------------------------------------
@@ -54567,8 +54558,8 @@ Star_Light_Tiles_Overwrite:
 		incbin  'level/star light zone/tiles.dat'
 ;-------------------------------------------------------------------------------
 ; Nemesis format data overwritten.
-; 8x8 tiles from the Star Light stage in Sonic 1.
-; In the Sonic 1 (Revision 01) disassembly, this data is the same as in the file
+; 8x8 tiles from the Star Light stage from Sonic 1.
+; from the Sonic 1 (Revision 01) disassembly, this data is the same as from the file
 ; "Sonic_1_Jap/Data/SLz/Tiles.nem" (0x0BF4   0x1377)
 ; [ End ]
 ;-------------------------------------------------------------------------------
@@ -54669,8 +54660,8 @@ DEz_Obj_Act2:
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
 ; Kosinski format data overwritten.
-; 8x8 tiles from the Star Light stage in Sonic 1.
-; In the Sonic 1 (Revision 01) disassembly, this data is the same as in the file
+; 8x8 tiles from the Star Light stage from Sonic 1.
+; from the Sonic 1 (Revision 01) disassembly, this data is the same as from the file
 ; "Sonic_1_Jap/Data/SLz/Chunks.kos" (0x054C   0x1377)
 ; [ Begin ]
 ;-------------------------------------------------------------------------------
@@ -54678,8 +54669,8 @@ Star_Light_Chunks_Overwrite:                                   ; loc_4ED28
 		incbin  'level/star light zone/chunks.dat'
 ;-------------------------------------------------------------------------------
 ; Kosinski format data overwritten.
-; 8x8 tiles from the Star Light stage in Sonic 1.
-; In the Sonic 1 (Revision 01) disassembly, this data is the same as in the file
+; 8x8 tiles from the Star Light stage from Sonic 1.
+; from the Sonic 1 (Revision 01) disassembly, this data is the same as from the file
 ; "Sonic_1_Jap/Data/SLz/Chunks.kos" (0x054C   0x1377)
 ; [ End ]
 ;-------------------------------------------------------------------------------
@@ -54732,7 +54723,7 @@ Art_Title_Screen_Bg_Wings:
 		incbin  'art/nemesis/titlescr.nem' ; Title Screen Wings and background
 		even
 Art_Title_Screen_Sonic_Tails:
-		incbin  'art/nemesis/snctlscr.nem' ; Sonic And Tails in Title Screen
+		incbin  'art/nemesis/snctlscr.nem' ; Sonic And Tails from Title Screen
 		even
 Art_FireBall:
 		incbin  'art/nemesis/fireball.nem'
@@ -55274,6 +55265,7 @@ Previous_Build_Neo_Green_Hill_Blocks:
 		incbin  'leftovers/nghzpb_blcks.dat'
 Previous_Build_Neo_Green_Hill_Tiles:
 		incbin  'leftovers/nghzpb_tiles.nem'
+		even
 Previous_Build_Art_Neo_Green_Hill_Dynamic_Init:
 		incbin  'art/nemesis/nghzdyn_init.nem'
 		even
