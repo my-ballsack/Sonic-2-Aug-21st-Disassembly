@@ -319,7 +319,7 @@ PLC_15_End:
                 dc.w    $8000
                 dc.l    Art_Blink                              ; loc_82538
                 dc.w    $8000
-                dc.l    Art_Bubble_Monster                     ; loc_82764
+                dc.l    Art_Bubbler                     ; loc_82764
                 dc.w    $8000
                 dc.l    Art_Ghz_Snail                          ; loc_82986
                 dc.w    $8000

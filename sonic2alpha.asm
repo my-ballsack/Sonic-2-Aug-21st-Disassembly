@@ -37756,7 +37756,7 @@ loc_1FA26:
 ;-------------------------------------------------------------------------------
 loc_1FA2C:
                 move.l  #Batbot_Mappings, Obj_Map(A0)   ; loc_1FCB6, $0004
-                move.w  #$2530, Obj_Art_VRAM(A0)                         ; $0002 ; wrong palette line, should be $0530 instead of $2530
+                move.w  #$2530, Obj_Art_VRAM(A0)		; wrong palette line, should be $0530 instead of $2530
                 ori.b   #$04, Obj_Flags(A0)                              ; $0001
                 move.b  #$0A, Obj_Col_Flags(A0)                          ; $0020
                 move.b  #$04, Obj_Priority(A0)                           ; $0018
@@ -38674,12 +38674,13 @@ loc_2076C:
 ; Object 0x56 Add-on - Boss from Green Hill
 ; [ End ]
 ;===============================================================================
-Obj5B_GHz_Boss:                                             ; loc_20786
+
 ;===============================================================================
-; Object 0x5B - Robotnik na Green Hill
+; Object 0x5B - Robotnik from Green Hill
 ; [ Begin ]
 ;===============================================================================
 ; loc_20786:
+Obj5B_GHz_Boss:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_20794(PC, D0), D1
@@ -38885,9 +38886,10 @@ loc_20A2A:
                 bset    #$03, Obj_Control_Var_01(A1)                     ; $002D
                 rts          
 ;===============================================================================
-; Object 0x5B - Robotnik na Green Hill
+; Object 0x5B - Robotnik from Green Hill
 ; [ End ]
 ;===============================================================================
+
 ;===============================================================================
 ; Object 0x56 Add-on - Boss from Green Hill
 ; [ Begin ]
@@ -39133,32 +39135,33 @@ loc_20E3E:
 ; Complemento do Object 0x56 - Chefe na Green Hill
 ; [ End ]
 ;===============================================================================
-Jmp_14_To_DisplaySprite:                                       ; loc_20E58
-		jmp     (DisplaySprite)                        ; loc_D322
-Jmp_15_To_DeleteObject:                                        ; loc_20E5E
-		jmp     (DeleteObject)                         ; loc_D314
-Jmp_1B_To_MarkObjGone:                                         ; loc_20E64
-		jmp     (MarkObjGone)                          ; loc_D200
-Jmp_11_To_SingleObjectLoad_2:                                  ; loc_20E6A
-		jmp     (SingleObjectLoad_2)                   ; loc_E714
-Jmp_08_To_AnimateSprite:                                       ; loc_20E70
-		jmp     (AnimateSprite)                        ; loc_D372
-Jmp_04_To_ModifySpriteAttr_2P_A1:                              ; loc_20E76
-		jmp     (ModifySpriteAttr_2P_A1)               ; loc_DBDA
-Jmp_03_To_ObjHitFloor:                                         ; loc_20E7C
-		jmp     (ObjHitFloor)                          ; loc_14204
-Jmp_00_To_AddPoints:                                           ; loc_20E82
-		jmp     (AddPoints)                            ; loc_2D2D4
-Jmp_02_To_ObjectFall:                                          ; loc_20E88
-		jmp     (ObjectFall)                           ; loc_D1AE
+Jmp_14_To_DisplaySprite:
+		jmp     (DisplaySprite)
+Jmp_15_To_DeleteObject:
+		jmp     (DeleteObject)
+Jmp_1B_To_MarkObjGone:
+		jmp     (MarkObjGone)
+Jmp_11_To_SingleObjectLoad_2:
+		jmp     (SingleObjectLoad_2)
+Jmp_08_To_AnimateSprite:
+		jmp     (AnimateSprite)
+Jmp_04_To_ModifySpriteAttr_2P_A1:
+		jmp     (ModifySpriteAttr_2P_A1)
+Jmp_03_To_ObjHitFloor:
+		jmp     (ObjHitFloor)
+Jmp_00_To_AddPoints:
+		jmp     (AddPoints)
+Jmp_02_To_ObjectFall:
+		jmp     (ObjectFall)
 		dc.w    $0000
 ;-------------------------------------------------------------------------------
-Obj_Bubble_Monster:                                            ; loc_20E90
+
 ;===============================================================================
-; Object - Inimigo "Bubble Moster"
-; [ Begin ]
+; Object - "Bubbler" Enemy
+; [ Begin ] Unassigned, supposed to occupy slot 0x55
 ;===============================================================================
 ; loc_20E90:
+Obj_Bubbler:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_20E9E(PC, D0), D1
@@ -39170,7 +39173,7 @@ loc_20E9E:
                 dc.w    loc_20F48-loc_20E9E          
 ;------------------------------------------------------------------------------- 
 loc_20EA4:
-                move.l  #Bubble_Monster_Mappings, Obj_Map(A0) ; loc_2106C, $0004
+                move.l  #Bubbler_Mappings, Obj_Map(A0) ; loc_2106C, $0004
                 move.w  #$24F9, Obj_Art_VRAM(A0)                         ; $0002
                 bsr     Jmp_28_To_ModifySpriteAttr_2P          ; loc_21154
                 move.b  #$04, Obj_Flags(A0)                              ; $0001
@@ -39200,7 +39203,7 @@ loc_20F12:
                 bne.s   loc_20F20
                 subi.w  #$0004, Obj_Y(A0)                                ; $000C
 loc_20F20:
-                lea     (Bubble_Monster_Animate_Data), A1      ; loc_2100C
+                lea     (Bubbler_Animate_Data), A1      ; loc_2100C
                 bsr     Jmp_09_To_AnimateSprite                ; loc_2114E
                 bra     Jmp_1C_To_MarkObjGone                  ; loc_21148
 loc_20F2E:
@@ -39238,7 +39241,7 @@ loc_20F80:
                 move.b  (A0), (A1)
                 move.b  #$04, Obj_Routine(A1)                            ; $0024
                 move.b  #$02, Obj_Routine_2(A1)                          ; $0025
-                move.l  #Bubble_Monster_Mappings, Obj_Map(A1) ; loc_2106C, $0004
+                move.l  #Bubbler_Mappings, Obj_Map(A1) ; loc_2106C, $0004
                 move.w  #$24F9, Obj_Art_VRAM(A1)                         ; $0002
                 bsr     Jmp_28_To_ModifySpriteAttr_2P          ; loc_21154
                 move.b  #$04, Obj_Flags(A1)                              ; $0001
@@ -39270,8 +39273,8 @@ loc_21004:
                 bsr     Jmp_0F_To_SpeedToPos                   ; loc_2115A
                 bra     Jmp_1C_To_MarkObjGone                  ; loc_21148                    
 ;-------------------------------------------------------------------------------
-Bubble_Monster_Animate_Data:                                   ; loc_2100C
-                dc.w    loc_2100E-Bubble_Monster_Animate_Data
+Bubbler_Animate_Data:                                   ; loc_2100C
+                dc.w    loc_2100E-Bubbler_Animate_Data
 loc_2100E:
                 dc.b    $01, $00, $00, $00, $00, $01, $01, $01
                 dc.b    $01, $01, $01, $01, $00, $00, $00, $00
@@ -39286,61 +39289,11 @@ loc_2100E:
                 dc.b    $06, $06, $06, $06, $07, $07, $08, $08
                 dc.b    $07, $07, $08, $08, $FF, $00      
 ;-------------------------------------------------------------------------------
-Bubble_Monster_Mappings:                                       ; loc_2106C
-                dc.w    loc_21080-Bubble_Monster_Mappings
-                dc.w    loc_2108A-Bubble_Monster_Mappings
-                dc.w    loc_21094-Bubble_Monster_Mappings
-                dc.w    loc_2109E-Bubble_Monster_Mappings
-                dc.w    loc_210B8-Bubble_Monster_Mappings
-                dc.w    loc_210D2-Bubble_Monster_Mappings
-                dc.w    loc_210EC-Bubble_Monster_Mappings
-                dc.w    loc_2110E-Bubble_Monster_Mappings
-                dc.w    loc_21128-Bubble_Monster_Mappings
-                dc.w    loc_21132-Bubble_Monster_Mappings
-loc_21080:
-                dc.w    $0001
-                dc.l    $FC000000, $0000FFFC
-loc_2108A:
-                dc.w    $0001
-                dc.l    $FC000001, $0000FFFC
-loc_21094:
-                dc.w    $0001
-                dc.l    $FC040002, $0001FFF8
-loc_2109E:
-                dc.w    $0003
-                dc.l    $F8000001, $0000FFFC
-                dc.l    $FC040002, $0001FFFA
-                dc.l    $FC040002, $0001FFF6
-loc_210B8:
-                dc.w    $0003
-                dc.l    $00040002, $0001FFFC
-                dc.l    $00040002, $0001FFF4
-                dc.l    $F8050004, $0002FFF8
-loc_210D2:
-                dc.w    $0003
-                dc.l    $04040002, $0001FFFE
-                dc.l    $04040002, $0001FFF2
-                dc.l    $F6050004, $0002FFF8
-loc_210EC:
-                dc.w    $0004
-                dc.l    $02040002, $0001FFF8
-                dc.l    $04040002, $00010000
-                dc.l    $04040002, $0001FFF0
-                dc.l    $F5090008, $0004FFF4
-loc_2110E:
-                dc.w    $0003
-                dc.l    $F809000E, $0007FFF4
-                dc.l    $FC09000E, $0007FFF8
-                dc.l    $FC09000E, $0007FFF0
-loc_21128:
-                dc.w    $0001
-                dc.l    $F809000E, $0007FFF4
-loc_21132:
-                dc.w    $0001
-                dc.l    $F8050014, $000AFFF8
+Bubbler_Mappings:                                       ; loc_2106C
+		include 'mappings/sprite/Bubbler.asm'
 ;===============================================================================
-; Object - Inimigo "Bubble Moster"
-; [ End ]
+; Object - "Bubbler" Enemy
+; [ End ]  Unassigned, supposed to occupy slot 0x55
 ;===============================================================================
 ;-------------------------------------------------------------------------------
 Jmp_16_To_DeleteObject:                                        ; loc_2113C
@@ -39356,12 +39309,13 @@ Jmp_28_To_ModifySpriteAttr_2P:                                 ; loc_21154
 Jmp_0F_To_SpeedToPos:                                          ; loc_2115A
 		jmp     (SpeedToPos)                           ; loc_D1DA
 ;-------------------------------------------------------------------------------
-Obj4E_Crocobot:                                             ; loc_21160
+
 ;===============================================================================
 ; Object 0x4E - Crocobot - Inimigo crocodilo na Hidden Palace
 ; [ Begin ] 
 ;===============================================================================
 ; loc_21160:
+Obj4E_Crocobot:
                 moveq   #$00, D0
                 move.b  Obj_Routine(A0), D0                              ; $0024
                 move.w  loc_2116E(PC, D0), D1
@@ -55063,7 +55017,7 @@ Art_Spinning_Ball: ; Not used
 Art_Blink:    ; Not used
 		incbin  'art/nemesis/blink.nem'
 		even
-Art_Bubble_Monster: ; Not used
+Art_Bubbler: ; Not used
 		incbin  'art/nemesis/bmonster.nem'
 		even
 Art_Ghz_Snail: ; Not used
